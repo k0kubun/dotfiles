@@ -1,0 +1,24 @@
+#!/bin/sh
+
+itamae_version="0.0.1"
+
+case "$(uname)" in
+  "Linux"  ) itamae_bin="itamae-x86_64-linux" ;;
+  "Darwin" ) itamae_bin="itamae-x86_64-darwin" ;;
+  * ) echo "unexpected uname: $(uname)"; exit 1 ;;
+esac
+
+if ! which curl > /dev/null; then
+  pacman -S --noconfirm curl
+fi
+
+if ! [ -f "bin/${itamae_bin}" ]; then
+  itamae_url="https://github.com/k0kubun/itamae-mruby/releases/download/v${itamae_version}/${itamae_bin}"
+  if ! curl -L $itamae_url > "bin/${itamae_bin}"; then
+    echo "failed to download itamae!"
+    exit 1
+  fi
+  chmod +x "bin/${itamae_bin}"
+fi
+
+exec "bin/${itamae_bin}" $@
