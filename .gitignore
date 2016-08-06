@@ -1,1 +1,4 @@
 bin/itamae-*
+*.swp
+.vim/bundle/*
+!.vim/bundle/neobundle.vim

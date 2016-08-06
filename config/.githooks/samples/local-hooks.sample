@@ -1,0 +1,7 @@
+#!/bin/sh
+hook_name=`basename $0`
+local_hook=".git/local_hooks/${hook_name}"
+
+if [ -e $local_hook ]; then
+  source $local_hook
+fi

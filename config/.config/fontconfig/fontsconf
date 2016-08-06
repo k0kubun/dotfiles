@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+<fontconfig>
+
+  <alias binding="same">
+    <family>Courier New</family>
+    <accept><family>monospace</family></accept>
+  </alias>
+  <alias binding="same">
+    <family>Monaco</family>
+    <accept><family>monospace</family></accept>
+  </alias>
+  <alias binding="same">
+    <family>Consolas</family>
+    <accept><family>monospace</family></accept>
+  </alias>
+  <alias binding="same">
+    <family>Helvetica</family>
+    <accept><family>Arial</family></accept>
+  </alias>
+  <alias binding="same">
+    <family>Courier</family>
+    <accept><family>monospace</family></accept>
+  </alias>
+  <alias binding="same">
+    <family>HiraKakuPro-W3</family>
+    <accept><family>sans-serif</family></accept>
+  </alias>
+  <alias binding="same">
+    <family>HiraKakuPro-W6</family>
+    <accept><family>sans-serif</family></accept>
+  </alias>
+  <alias binding="same">
+    <family>Hiragino Kaku Gothic Pro</family>
+    <accept><family>sans-serif</family></accept>
+  </alias>
+  <alias binding="same">
+    <family>Meiryo</family>
+    <accept><family>sans-serif</family></accept>
+  </alias>
+
+  <match target="pattern">
+    <test qual="any" name="family" compare="eq">
+      <string>Arial</string>
+    </test>
+    <edit name="family" mode="assign" binding="same">
+      <string>Migu 1P</string>
+    </edit>
+  </match>
+
+<alias>
+  <family>sans-serif</family>
+  <prefer>
+    <family>Migu 1C</family>
+    <family>IPAPGothic</family>
+  </prefer>
+</alias>
+<alias>
+  <family>monospace</family>
+  <prefer>
+    <family>VLGothic</family>
+  </prefer>
+</alias>
+</fontconfig>

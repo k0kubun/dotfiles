@@ -1,0 +1,2 @@
+(define default-im-name 'skk)
+(define skk-dic-file-name (string-append (getenv "HOME") "/.vim/dict/skk/SKK-JISYO.L"))

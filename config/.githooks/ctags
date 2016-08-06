@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+PATH="$(brew --prefix)/bin:$PATH"
+git_dir="`git rev-parse --git-dir`"
+trap 'rm -f "$dir/$$.tags"' EXIT
+
+temp="$git_dir/$$.tags"
+git ls-files | ctags --tag-relative -L - -f"$temp" --languages=-javascript,sql
+mv "$temp" "$git_dir/tags"
+
+if [ -e Gemfile.lock ]; then
+  ctags -f"$temp" -R `bundle show --paths`
+  mv "$temp" tags
+fi

@@ -1,0 +1,42 @@
+[user]
+  name = Takashi Kokubun
+  email = takashikkbn@gmail.com
+[include]
+  path = .gitconfig.local
+[color]
+  ui = true
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+  filemode = true
+[alias]
+  co = checkout
+  st = status -sb
+  pr = pull --rebase
+  fo = fetch origin
+  ro = rebase origin
+  rc = rebase --continue
+  wd = diff --word-diff
+  gp = grep -n
+  lg = log --graph --pretty=oneline --decorate --date=short --abbrev-commit --branches
+[init]
+  templatedir = ~/.git-template
+[push]
+	default = simple
+[branch]
+	autosetuprebase = always
+[pull]
+  rebase = true
+[ghq]
+  root = ~/src
+[url "git@github.com:"]
+  pushInsteadOf = https://github.com/
+  pushInsteadOf = git://github.com/
+[url "git@gist.github.com:"]
+  pushInsteadOf = https://gist.github.com/
+  pushInsteadOf = git://gist.github.com/
+[rebuild]
+  repo = k0kubun/dotfiles
+  scriptdir = script
+  directory = ~/src/github.com/k0kubun/dotfiles
+  dependency = symlink.sh brew.sh cask.sh ruby.sh karabiner.sh

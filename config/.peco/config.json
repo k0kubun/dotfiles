@@ -1,0 +1,19 @@
+{
+  "Prompt": "[peco]",
+  "Keymap": {
+    "C-c": "peco.Cancel",
+    "C-d": "peco.EndOfFile",
+    "C-v": "peco.ToggleSelectMode",
+    "M-d": "peco.DeleteForwardWord",
+    "C-i,C-f": "peco.SelectNextPage",
+    "C-i,C-b": "peco.SelectPreviousPage"
+  },
+  "Style": {
+    "Basic": ["on_default", "white"],
+    "SavedSelection": ["on_blue", "black"],
+    "Selected": ["on_cyan", "black"],
+    "Query": ["on_default", "white"],
+    "Matched": ["yellow", "bold"]
+  },
+  "StickySelection": true
+}

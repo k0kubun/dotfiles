@@ -1,0 +1,6 @@
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
+bind-key -n M-{ previous-window
+bind-key -n M-} next-window
+
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"

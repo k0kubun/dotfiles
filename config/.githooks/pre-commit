@@ -1,0 +1,12 @@
+#!/bin/sh
+
+work_email="takashi-kokubun@cookpad.com"
+
+# Use private email address for repository in github.com
+if git config --get remote.origin.url | grep -q github.com; then
+  if git config --get user.email | grep -q $work_email; then
+    echo "[ERROR] wrong email. aborted."
+    echo "$ private"
+    exit 1
+  fi
+fi

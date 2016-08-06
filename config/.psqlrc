@@ -1,0 +1,4 @@
+\set PROMPT1 '%[%033[1;36m%]%n %`date +%H:%M`%[%033[0m%] %R%# '
+\set PROMPT2 '                      %R%# '
+\timing on
+\set HISTSIZE 1000000

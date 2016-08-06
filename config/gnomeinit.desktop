@@ -1,0 +1,9 @@
+# Put this to ~/.config/autostart/gnomeinit.desktop
+[Desktop Entry]
+Name=Gnome Init
+GenericName=Gnome Init
+Comment=Execute X initialization after Gnome startup
+Exec=/home/k0kubun/.gnomeinit
+Terminal=true
+Type=Application
+X-GNOME-Autostart-enabled=true

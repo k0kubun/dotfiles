@@ -1,0 +1,10 @@
+if which tmux > /dev/null; then
+	source ~/.zsh/lib/tmux.zsh
+fi
+source ~/.zsh/lib/ruby.zsh
+
+alias ghq-cache="${HOME}/.rbenv/versions/2.2.2/bin/ghq-cache"
+alias stats="${HOME}/.rbenv/versions/2.2.2/bin/ghq-cache stats"
+alias ls="ls -Gla"
+export BUNDLE_JOBS=4
+export HOMEBREW_CASK_OPTS='--appdir=/Applications'
