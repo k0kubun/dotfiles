@@ -1,7 +1,7 @@
 include_cookbook 'dotfiles'
 
-dotfile '.git-template'
-dotfile '.githooks'
+include_recipe 'git'
+
 dotfile '.peco'
 dotfile '.rake'
 dotfile '.vim'
@@ -9,8 +9,6 @@ dotfile '.zsh'
 
 dotfile '.Xdefaults'
 dotfile '.gemrc'
-dotfile '.gitconfig'
-dotfile '.gitignore'
 dotfile '.gtkrc-2.0'
 dotfile '.pryrc'
 dotfile '.railsrc'
