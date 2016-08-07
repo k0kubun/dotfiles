@@ -1,10 +1,10 @@
 include_cookbook 'dotfiles'
 include_cookbook 'git'
 include_cookbook 'vim'
+include_cookbook 'zsh'
 
 dotfile '.peco'
 dotfile '.rake'
-dotfile '.zsh'
 
 dotfile '.Xdefaults'
 dotfile '.gemrc'
@@ -14,4 +14,3 @@ dotfile '.railsrc'
 dotfile '.rbindkeys'
 dotfile '.tmux.conf'
 dotfile '.xinitrc'
-dotfile '.zshrc'
