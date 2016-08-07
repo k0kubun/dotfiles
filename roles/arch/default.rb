@@ -1,6 +1,5 @@
 include_cookbook 'dotfiles'
-
-include_recipe 'git'
+include_cookbook 'git'
 
 dotfile '.peco'
 dotfile '.rake'
