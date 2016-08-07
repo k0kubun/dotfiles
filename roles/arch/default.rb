@@ -1,4 +1,9 @@
 include_cookbook 'dotfiles'
+
+directory "#{ENV['HOME']}/bin" do
+  owner node[:user]
+end
+
 include_cookbook 'git'
 include_cookbook 'vim'
 include_cookbook 'zsh'
