@@ -8,13 +8,7 @@ fi
 
 # history
 function peco-select-history() {
-	typeset tac
-	if which tac > /dev/null; then
-		tac=tac
-	else
-		tac='tail -r'
-	fi
-	BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER" --prompt "[zsh history]")
+	BUFFER=$(fc -l -r -n 1 | peco --query "$LBUFFER" --prompt "[zsh history]")
 	CURSOR=$#BUFFER
 	zle redisplay
 }
