@@ -1,3 +1,3 @@
 # dotfiles
 
-The development environment
+My development environment
