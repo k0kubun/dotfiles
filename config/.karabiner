@@ -24,6 +24,8 @@ end
 item "Linux-like binding for Chrome", only: "CHROME" do
   remap "C-l", to: "Cmd-l"
   #remap "C-f", to: "Cmd-f"
+  remap "C-t", to: "Cmd-t"
+  remap "C-w", to: "Cmd-w"
 end
 
 item "Alt to Cmd in ErgoDox", device_only: OPENMOKO_VENDOR_ID do
