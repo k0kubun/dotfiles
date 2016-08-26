@@ -19,6 +19,7 @@ item "Linux-like binding", not: "TERMINAL" do
   remap "C-c", to: "Cmd-c"
   remap "C-v", to: "Cmd-v"
   remap "C-x", to: "Cmd-x"
+  remap "C-z", to: "Cmd-z"
 end
 
 item "Linux-like binding for Chrome", only: "CHROME" do
