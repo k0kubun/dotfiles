@@ -68,19 +68,19 @@ item "Command_L to Control_R" do
 end
 
 # You can disable all bindings...
-item "Disalbe remap on external keyboard", config_not: "notsave.private_remap_disabled" do
-  remap "Cmd-Opt-Space", to: [
-    execute("#{Karabiner::CLI::CLI_PATH} enable general.dont_remap_external"),
-    "VK_CONFIG_FORCE_ON_notsave_private_remap_disabled",
-  ]
-end
-
-item "Enable remap on external keyboard", config_only: "notsave.private_remap_disabled" do
-  remap "Cmd-Opt-Space", to: [
-    execute("#{Karabiner::CLI::CLI_PATH} disable general.dont_remap_external"),
-    "VK_CONFIG_FORCE_OFF_notsave_private_remap_disabled",
-  ]
-end
+# item "Disalbe remap on external keyboard", config_not: "notsave.private_remap_disabled" do
+#   remap "Cmd-Opt-Space", to: [
+#     execute("#{Karabiner::CLI::CLI_PATH} enable general.dont_remap_external"),
+#     "VK_CONFIG_FORCE_ON_notsave_private_remap_disabled",
+#   ]
+# end
+#
+# item "Enable remap on external keyboard", config_only: "notsave.private_remap_disabled" do
+#   remap "Cmd-Opt-Space", to: [
+#     execute("#{Karabiner::CLI::CLI_PATH} disable general.dont_remap_external"),
+#     "VK_CONFIG_FORCE_OFF_notsave_private_remap_disabled",
+#   ]
+# end
 
 item "Remap Disabled Mode" do
   identifier "notsave.private_remap_disabled", vk_config: "true"
