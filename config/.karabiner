@@ -82,10 +82,10 @@ end
 #   ]
 # end
 
-item "Remap Disabled Mode" do
-  identifier "notsave.private_remap_disabled", vk_config: "true"
-  show_message "Remap Disabled"
-end
+# item "Remap Disabled Mode" do
+#   identifier "notsave.private_remap_disabled", vk_config: "true"
+#   show_message "Remap Disabled"
+# end
 
 item "Logical ASCII arrangement" do
   autogen "__SetKeyboardType__ KeyboardType::MACBOOK"
