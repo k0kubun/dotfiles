@@ -25,6 +25,7 @@ autocmd BufNewFile,BufRead xmobarrc setl filetype=haskell
 autocmd BufNewFile,BufRead *.ex setl filetype=elixir
 autocmd BufNewFile,BufRead *.c setl filetype=cpp
 autocmd BufNewFile,BufRead *.scpt.erb set filetype=applescript
+autocmd BufNewFile,BufRead .md2key set filetype=yaml
 
 " codenize.tools
 autocmd BufNewFile,BufRead *.iam set filetype=ruby
