@@ -1,6 +1,6 @@
 #!/bin/sh
 
-itamae_version="0.1.1"
+itamae_version="0.3.0"
 
 case "$(uname)" in
   "Linux"  ) itamae_bin="itamae-x86_64-linux" ;;
