@@ -5,7 +5,7 @@ if ! [ -d config/.vim/bundle/neobundle.vim/.git ]; then
   git submodule init && git submodule update --depth 1
 fi
 
-bin/setup-mitamae
+bin/setup
 
 # Homebrew does not allow sudo.
 case "$(uname)" in
