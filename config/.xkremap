@@ -41,6 +41,9 @@ window class_not: 'urxvt' do
   %w[a z x c v w t l].each do |key|
     remap "Alt-#{key}", to: "C-#{key}"
   end
+
+  remap 'Alt-o', to: 'Ctrl-Shift-Tab'
+  remap 'Alt-p', to: 'Ctrl-Tab'
 end
 
 window class_only: 'google-chrome' do
