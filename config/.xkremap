@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+define :activate do |command|
+  execute(<<-SHELL)
+    while read line; do
+      pid="$(echo "$line" | cut -d" " -f4)"
+      if [ "x#{command}" = "x$(cat "/proc/${pid}/cmdline")" ]; then
+        window_id="$(echo "$line" | cut -d" " -f1)"
+        exec wmctrl -i -R "$window_id"
+      fi
+    done <<< "$(wmctrl -l -p)"
+
+    exec "#{command}"
+  SHELL
+end
+
+remap 'C-o', to: activate('/usr/share/nocturn/Nocturn')
+remap 'C-u', to: activate('/opt/google/chrome/chrome')
+remap 'C-h', to: activate('urxvt')
+
+window class_not: 'urxvt' do
+  # emacs-like bindings
+  remap 'C-b', to: 'Left'
+  remap 'C-f', to: 'Right'
+  remap 'C-p', to: 'Up'
+  remap 'C-n', to: 'Down'
+
+  remap 'M-b', to: 'Ctrl-Left'
+  remap 'M-f', to: 'Ctrl-Right'
+
+  remap 'C-a', to: 'Home'
+  remap 'C-e', to: 'End'
+
+  remap 'C-k', to: ['Shift-End', 'Ctrl-x']
+
+  remap 'C-d', to: 'Delete'
+  remap 'M-d', to: 'Ctrl-Delete'
+
+  # actually these are vim insert mode bindings, but compatible with shell
+  remap 'C-w', to: ['Ctrl-Shift-Left', 'Ctrl-x']
+
+  %w[a z x c v w t l].each do |key|
+    remap "Alt-#{key}", to: "C-#{key}"
+  end
+end
+
+window class_only: 'google-chrome' do
+  remap "Alt-s", to: "C-f"
+end
+
+window class_only: 'slack' do
+  remap 'Alt-n', to: 'Ctrl-k'
+  remap 'Alt-k', to: 'Alt-Up'
+  remap 'Alt-j', to: 'Alt-Down'
+  remap 'Ctrl-Alt-k', to: 'Alt-Shift-Up'
+  remap 'Ctrl-Alt-j', to: 'Alt-Shift-Down'
+end
