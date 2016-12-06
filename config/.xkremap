@@ -13,7 +13,11 @@ define :activate do |command|
   SHELL
 end
 
-remap 'C-o', to: activate('/usr/share/nocturn/Nocturn')
+if `hostname` =~ /\AP\d{3}\n\z/ # for work
+  remap 'C-o', to: activate('/usr/lib/slack/slack')
+else
+  remap 'C-o', to: activate('/usr/share/nocturn/Nocturn')
+end
 remap 'C-u', to: activate('/opt/google/chrome/chrome')
 remap 'C-h', to: activate('urxvt')
 
