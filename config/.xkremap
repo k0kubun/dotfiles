@@ -56,4 +56,8 @@ window class_only: 'slack' do
   remap 'Alt-j', to: 'Alt-Down'
   remap 'Ctrl-Alt-k', to: 'Alt-Shift-Up'
   remap 'Ctrl-Alt-j', to: 'Alt-Shift-Down'
+
+  (1..9).each do |i|
+    remap "Alt-#{i}", to: "Ctrl-#{i}"
+  end
 end
