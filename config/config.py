@@ -28,19 +28,12 @@ def configure(keymap):
     keymap_iterm2["Cmd-W"] = "Alt-W"
 
     # Activation of specific window
-    # Fn-T : Activate Terminal
     keymap_global["Ctrl-H"] = keymap.ActivateApplicationCommand("com.googlecode.iterm2" )
     keymap_global["Ctrl-O"] = keymap.ActivateApplicationCommand("com.tinyspeck.slackmacgap" )
     keymap_global["Ctrl-U"] = keymap.ActivateApplicationCommand("com.google.Chrome" )
 
-    # # Launch subprocess or application
-    # if 1:
-
-    #     # Fn-E : Launch TextEdit
-    #     keymap_global[ "Fn-E" ] = keymap.SubProcessCallCommand( [ "open", "-a", "TextEdit" ], cwd=os.environ["HOME"] )
-
-    #     # Fn-L : Execute ls command
-    #     keymap_global[ "Fn-L" ] = keymap.SubProcessCallCommand( [ "ls", "-al" ], cwd=os.environ["HOME"] )
+    # TODO: Launch subprocess or application
+    # keymap_global[ "Fn-E" ] = keymap.SubProcessCallCommand( [ "open", "-a", "TextEdit" ], cwd=os.environ["HOME"] )
 
     # TODO: emacs like bindings
     # keymap_global["Ctrl-P"] = "Up"
