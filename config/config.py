@@ -25,12 +25,12 @@ def configure(keymap):
     # if 1:
     #     keymap_global[ "O-RCmd" ] = "Ctrl-Space"
 
-    # # TextEdit key customization
-    # if 1:
-    #     keymap_textedit = keymap.defineWindowKeymap( app_name="com.apple.TextEdit" )
-
-    #     keymap_textedit[ "Cmd-R" ] = "Alt-Cmd-F"                   # 置換
-    #     keymap_textedit[ "Cmd-L" ] = "Cmd-Right", "Cmd-Shift-Left" # 行選択
+    # iTerm2
+    keymap_iterm2 = keymap.defineWindowKeymap(app_name="com.googlecode.iterm2")
+    keymap_iterm2["Cmd-T"] = "Alt-T"
+    keymap_iterm2["Cmd-O"] = "Alt-O"
+    keymap_iterm2["Cmd-P"] = "Alt-P"
+    keymap_iterm2["Cmd-W"] = "Alt-W"
 
     # # Customize TextEdit as Emacs-ish (as an example of multi-stroke key customization)
     # if 1:
