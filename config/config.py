@@ -10,10 +10,10 @@ def configure(keymap):
     keymap_global = keymap.defineWindowKeymap()
 
     # SandS
-    keymap.replaceKey("Space", "Shift")
-    keymap_global["D-Shift"] = "Shift"
-    keymap_global["O-Shift"] = "Space"
-    keymap_global["O-Space"] = "Space"
+    keymap.replaceKey("Space", "RShift")
+    keymap_global["D-RShift"] = "RShift"
+    keymap_global["O-RShift"] = "Space"
+    keymap_global["O-Space"] =  "Space"
 
     # Chrome
     keymap_chrome = keymap.defineWindowKeymap(app_name="com.google.Chrome")
