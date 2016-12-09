@@ -19,6 +19,7 @@ def configure(keymap):
     keymap_chrome = keymap.defineWindowKeymap(app_name="com.google.Chrome")
     keymap_chrome["Cmd-O"] = "Ctrl-Shift-Tab"
     keymap_chrome["Cmd-P"] = "Ctrl-Tab"
+    keymap_chrome["Cmd-S"] = "Cmd-F"
 
     # iTerm2
     keymap_iterm2 = keymap.defineWindowKeymap(app_name="com.googlecode.iterm2")
