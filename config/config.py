@@ -39,16 +39,3 @@ def configure(keymap):
     keymap_global["Ctrl-H"] = keymap.ActivateApplicationCommand("com.googlecode.iterm2" )
     keymap_global["Ctrl-O"] = keymap.ActivateApplicationCommand("com.tinyspeck.slackmacgap" )
     keymap_global["Ctrl-U"] = keymap.ActivateApplicationCommand("com.google.Chrome" )
-
-    # TODO: Launch subprocess or application
-    # keymap_global[ "Fn-E" ] = keymap.SubProcessCallCommand( [ "open", "-a", "TextEdit" ], cwd=os.environ["HOME"] )
-
-    # TODO: emacs like bindings
-    # keymap_global["Ctrl-P"] = "Up"
-    # keymap_global["Ctrl-N"] = "Down"
-    # keymap_global["Ctrl-F"] = "Right"
-    # keymap_global["Ctrl-B"] = "Left"
-    # keymap_global["Ctrl-A"] = "Home"
-    # keymap_global["Ctrl-E"] = "End"
-    # keymap_global["Alt-F"]  = "Alt-Right"
-    # keymap_global["Alt-B"]  = "Alt-Left"
