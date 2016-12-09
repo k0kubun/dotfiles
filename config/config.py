@@ -20,10 +20,10 @@ def configure(keymap):
     # Global keymap which affects any windows
     keymap_global = keymap.defineWindowKeymap()
 
-    # # Sample of one-shot modifier
-    # # IME swtiching by Right-Command key
-    # if 1:
-    #     keymap_global[ "O-RCmd" ] = "Ctrl-Space"
+    # Chrome
+    keymap_chrome = keymap.defineWindowKeymap(app_name="com.google.Chrome")
+    keymap_chrome["Cmd-O"] = "Ctrl-Shift-Tab"
+    keymap_chrome["Cmd-P"] = "Ctrl-Tab"
 
     # iTerm2
     keymap_iterm2 = keymap.defineWindowKeymap(app_name="com.googlecode.iterm2")
