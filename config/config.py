@@ -45,8 +45,8 @@ def configure(keymap):
     #     keymap.defineModifier( 255, "User0" )
 
 
-    # # Global keymap which affects any windows
-    # keymap_global = keymap.defineWindowKeymap()
+    # Global keymap which affects any windows
+    keymap_global = keymap.defineWindowKeymap()
 
 
     # # Fn-A : Sample of assigning callable object to key
@@ -128,10 +128,11 @@ def configure(keymap):
     #     keymap_textedit[ "Ctrl-X" ][ "Ctrl-C" ] = "Cmd-W"   # Exit
 
 
-    # # Activation of specific window
-    # if 1:
-    #     # Fn-T : Activate Terminal
-    #     keymap_global[ "Fn-T" ] = keymap.ActivateApplicationCommand( "com.apple.Terminal" )
+    # Activation of specific window
+    # Fn-T : Activate Terminal
+    keymap_global["Ctrl-H"] = keymap.ActivateApplicationCommand("com.googlecode.iterm2" )
+    keymap_global["Ctrl-O"] = keymap.ActivateApplicationCommand("com.tinyspeck.slackmacgap" )
+    keymap_global["Ctrl-U"] = keymap.ActivateApplicationCommand("com.google.Chrome" )
 
 
     # # Launch subprocess or application
