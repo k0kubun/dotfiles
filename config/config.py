@@ -6,19 +6,14 @@ import subprocess
 from keyhac import *
 
 def configure(keymap):
-    # # Key replacement and modifier key definition
-    # if 1:
-    #     # Replacing Right-Shift key with BackSpace
-    #     keymap.replaceKey( "RShift", "Back" )
-
-    #     # Replacing Right-Alt key with virtual keycode 255
-    #     keymap.replaceKey( "RAlt", 255 )
-
-    #     # Defining virtual keycode 255 as User-modifier-0
-    #     keymap.defineModifier( 255, "User0" )
-
     # Global keymap which affects any windows
     keymap_global = keymap.defineWindowKeymap()
+
+    # SandS
+    keymap.replaceKey("Space", "Shift")
+    keymap_global["D-Shift"] = "Shift"
+    keymap_global["O-Shift"] = "Space"
+    keymap_global["O-Space"] = "Space"
 
     # Chrome
     keymap_chrome = keymap.defineWindowKeymap(app_name="com.google.Chrome")
