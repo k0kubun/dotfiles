@@ -22,6 +22,7 @@ def configure(keymap):
 
     # iTerm2
     keymap_iterm2 = keymap.defineWindowKeymap(app_name="com.googlecode.iterm2")
+    keymap_iterm2["Cmd-I"] = "Alt-I"
     keymap_iterm2["Cmd-T"] = "Alt-T"
     keymap_iterm2["Cmd-O"] = "Alt-O"
     keymap_iterm2["Cmd-P"] = "Alt-P"
