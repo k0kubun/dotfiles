@@ -36,6 +36,15 @@ def configure(keymap):
     keymap_slack["Cmd-K"] = "Alt-Up"
     keymap_slack["Cmd-Ctrl-J"] = "Alt-Shift-Down"
     keymap_slack["Cmd-Ctrl-K"] = "Alt-Shift-Up"
+    keymap_slack["Ctrl-1"] = "Cmd-1"
+    keymap_slack["Ctrl-2"] = "Cmd-2"
+    keymap_slack["Ctrl-3"] = "Cmd-3"
+    keymap_slack["Ctrl-4"] = "Cmd-4"
+    keymap_slack["Ctrl-5"] = "Cmd-5"
+    keymap_slack["Ctrl-6"] = "Cmd-6"
+    keymap_slack["Ctrl-7"] = "Cmd-7"
+    keymap_slack["Ctrl-8"] = "Cmd-8"
+    keymap_slack["Ctrl-9"] = "Cmd-9"
 
     # Application Launcher
     keymap_global["Ctrl-H"] = keymap.ActivateApplicationCommand("com.googlecode.iterm2" )
