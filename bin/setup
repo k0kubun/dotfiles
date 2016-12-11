@@ -1,18 +1,18 @@
 #!/bin/sh
 set -e
 
-mitamae_version="0.5.0"
+mitamae_version="1.2.0"
 mitamae_cache="mitamae-${mitamae_version}"
 
 if ! [ -f "bin/${mitamae_cache}" ]; then
   case "$(uname)" in
     "Linux")
       mitamae_bin="mitamae-x86_64-linux"
-      mitamae_sha256="13c3cdb77fdd50cd1684b4f28d0d309c98314203a624f20cc73b5ba63edcb806"
+      mitamae_sha256="36e3c06df1e324875b5f1887008d8f4fd7160389744c7ec8ad5e9fb2fb8c3f7f"
       ;;
     "Darwin")
       mitamae_bin="mitamae-x86_64-darwin"
-      mitamae_sha256="41497280fe4468b5ab7cece67339428ca3ea52b1b597adb11f0ba68c8c523b0e"
+      mitamae_sha256="01580d657b9a89690fe4f43bf8c9f1d376c8277b1cac8ae1b46ab44defe639b3"
       ;;
     *)
       echo "unexpected uname: $(uname)"
