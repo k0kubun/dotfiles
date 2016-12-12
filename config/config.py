@@ -30,6 +30,8 @@ def configure(keymap):
     keymap_iterm2["Cmd-W"] = "Alt-W"
     keymap_iterm2["Cmd-J"] = "Alt-J"
     keymap_iterm2["Cmd-K"] = "Alt-K"
+    keymap_iterm2["Cmd-F"] = "Alt-F"
+    keymap_iterm2["Cmd-B"] = "Alt-B"
 
     # Slack
     keymap_slack = keymap.defineWindowKeymap(app_name="com.tinyspeck.slackmacgap")
