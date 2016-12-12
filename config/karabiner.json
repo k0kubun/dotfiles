@@ -20,7 +20,11 @@
             "selected": true,
             "simple_modifications": {
                 "caps_lock": "escape",
-                "left_command": "left_control"
+                "left_command": "left_control",
+                "spacebar": "left_shift"
+            },
+            "standalone_keys": {
+                "left_shift": "spacebar"
             }
         }
     ]

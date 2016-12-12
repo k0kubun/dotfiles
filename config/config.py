@@ -9,12 +9,6 @@ def configure(keymap):
     # Global keymap which affects any windows
     keymap_global = keymap.defineWindowKeymap()
 
-    # SandS
-    keymap.replaceKey("Space", "RShift")
-    keymap_global["D-RShift"] = "RShift"
-    keymap_global["O-RShift"] = "Space"
-    keymap_global["O-Space"] =  "Space"
-
     # Chrome
     keymap_chrome = keymap.defineWindowKeymap(app_name="com.google.Chrome")
     keymap_chrome["Cmd-O"] = "Ctrl-Shift-Tab"
