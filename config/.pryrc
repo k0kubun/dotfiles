@@ -19,6 +19,7 @@ if defined?(PryByebug)
     's' => 'step',
     'f' => 'finish',
     'c' => 'continue',
+    'bt' => 'backtrace',
   }.each do |from, to|
     Pry::Commands.alias_command(from, to)
   end
