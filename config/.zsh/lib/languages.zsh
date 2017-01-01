@@ -19,3 +19,6 @@ function tex() {
 # Haskell
 export PATH=$HOME/.cabal/bin:$PATH
 alias ce="cabal exec"
+
+# Rust
+export PATH=$HOME/.cargo/bin:$PATH
