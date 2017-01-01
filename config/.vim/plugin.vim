@@ -94,3 +94,6 @@ let g:skk_use_face = 1
 "   autocmd!
 "   autocmd BufWinEnter,BufNewFile **/*.[chy] setlocal filetype=cruby
 " augroup END
+
+" rust-lang/rust.vim
+let g:rustfmt_autosave = 1
