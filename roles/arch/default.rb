@@ -9,6 +9,8 @@ include_cookbook 'vim'
 include_cookbook 'zsh'
 include_cookbook 'rust'
 
+cargo 'xraise'
+
 dotfile '.peco'
 dotfile '.rake'
 
