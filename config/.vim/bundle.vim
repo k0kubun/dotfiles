@@ -40,6 +40,7 @@ NeoBundleLazy 'othree/es.next.syntax.vim', { 'autoload': { 'filetypes': ['javasc
 NeoBundleLazy 'gavocanov/vim-js-indent', { 'autoload': { 'filetypes': ['javascript'] } }
 NeoBundleLazy 'rust-lang/rust.vim', { 'autoload' : { 'filetypes': 'rust' } }
 NeoBundleLazy 'cespare/vim-toml', { 'autoload' : { 'filetypes': 'toml' } }
+NeoBundleLazy 'racer-rust/vim-racer', { 'autoload' : { 'filetypes': 'rust' } }
 
 " Completion
 " NeoBundle 'Shougo/neocomplcache.vim'
