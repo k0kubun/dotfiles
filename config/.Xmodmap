@@ -1,10 +1,14 @@
-! clear control
-! clear mod1
-! keycode 37 = Alt_L Meta_L
-! keycode 64 = Control_L
-! add control = Control_L Control_R
-! add mod1 = Alt_L Meta_L
+! Alt_L
+remove mod1 = Alt_L
+keycode 64 = Shift_L
 
-! add Control = Muhenkan
-! add Shift = Henkan
-! add mod1 = Hiragana Katakana
+! Henkan
+keycode 100 = Shift_L
+add Shift = Henkan_Mode
+
+! Katakana Hiragana
+keycode 101 = Alt_R
+
+! Muhenkan
+keycode 102 = Control_L
+add Control = Control_L
