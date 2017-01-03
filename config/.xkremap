@@ -45,7 +45,9 @@ window class_not: 'urxvt' do
   %w[a z x c v w t l].each do |key|
     remap "Alt-#{key}", to: "C-#{key}"
   end
+end
 
+window class_not: %w[urxvt nocturn] do
   remap 'Alt-o', to: 'Ctrl-Shift-Tab'
   remap 'Alt-p', to: 'Ctrl-Tab'
 end
