@@ -1,14 +1,14 @@
-! Alt_L
-remove mod1 = Alt_L
-keycode 64 = Shift_L
-
-! Henkan
+! Henkan -> Shift
 keycode 100 = Shift_L
 add Shift = Henkan_Mode
 
-! Katakana Hiragana
+! Katakana Hiragana -> Alt
 keycode 101 = Alt_R
 
-! Muhenkan
+! Muhenkan -> Control
 keycode 102 = Control_L
 add Control = Control_L
+
+! CapsLock -> Escape
+clear lock
+keycode 66 = Escape
