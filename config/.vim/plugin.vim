@@ -97,3 +97,8 @@ let g:skk_use_face = 1
 
 " rust-lang/rust.vim
 let g:rustfmt_autosave = 1
+
+" racer-rust/racer-vim
+set hidden
+let g:racer_cmd = '$HOME/.cargo/bin/racer'
+let $RUST_SRC_PATH="/usr/src/rust/src"
