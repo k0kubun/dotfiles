@@ -3,7 +3,7 @@ package 'cargo'
 
 define :cargo do
   execute "cargo install --verbose #{params[:name]}" do
-    not_if "which #{params[:name]}" # should check crates
+    not_if %Q[cargo install --list | grep "^#{params[:name]} "]
   end
 end
 
