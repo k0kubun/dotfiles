@@ -7,6 +7,7 @@ end
 include_cookbook 'git'
 include_cookbook 'vim'
 include_cookbook 'zsh'
+include_cookbook 'rust'
 
 dotfile '.peco'
 dotfile '.rake'
