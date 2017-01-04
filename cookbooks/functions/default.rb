@@ -20,7 +20,7 @@ define :github_binary, version: nil, repository: nil, archive: nil do
     raise "unexpected ext archive: #{archive}"
   end
 
-  execute "curl -fsSL -o /tmp/#{archive} #{url} && #{extract} /tmp/#{archive} && mv /tmp/#{cmd} #{path} && chmod +x #{path}" do
+  execute "curl -fsSL -o /tmp/#{archive} #{url} && #{extract} /tmp/#{archive} && mv /tmp/#{params[:path]} #{path} && chmod +x #{path}" do
     not_if "which #{cmd}"
     cwd "/tmp"
   end
