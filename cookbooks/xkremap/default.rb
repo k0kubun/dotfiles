@@ -32,9 +32,4 @@ remote_file "#{ENV['HOME']}/.config/systemd/user/xkremap.service" do
   source 'files/xkremap.service'
 end
 
-execute 'systemctl --user enable xkremap && systemctl --user start xkremap' do
-  not_if 'ps aux | grep -q xkremap'
-  user node[:user]
-end
-
 dotfile '.xkremap'
