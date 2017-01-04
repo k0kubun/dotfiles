@@ -24,7 +24,6 @@ else
   remap 'C-h', to: activate('urxvt')
 end
 
-
 window class_not: 'urxvt' do
   # emacs-like bindings
   remap 'C-b', to: 'Left'
@@ -56,7 +55,7 @@ window class_not: %w[urxvt nocturn] do
   remap 'Alt-p', to: 'Ctrl-Tab'
 end
 
-window class_only: 'google-chrome' do
+window class_only: %w[google-chrome chromium-browser] do
   remap "Alt-s", to: "C-f"
 end
 
