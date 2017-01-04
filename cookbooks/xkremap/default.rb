@@ -29,7 +29,7 @@ end
 end
 
 remote_file "#{ENV['HOME']}/.config/systemd/user/xkremap.service" do
-  source 'xkremap.service'
+  source 'files/xkremap.service'
 end
 
 execute 'systemctl --user enable xkremap && systemctl --user start xkremap' do
