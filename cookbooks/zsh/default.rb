@@ -7,6 +7,6 @@ dotfile '.zsh'
 dotfile '.zshrc'
 
 execute "chsh -s /bin/zsh #{node[:user]}" do
-  only_if "getenv passwd #{node[:user]} | cut -d: -f7 | grep -q '/bin/bash'"
+  only_if "getent passwd #{node[:user]} | cut -d: -f7 | grep -q '^/bin/bash$'"
   user 'root'
 end
