@@ -4,10 +4,12 @@ directory "#{ENV['HOME']}/bin" do
   owner node[:user]
 end
 
+package 'xclip'
+package 'xsel'
+
 dotfile '.peco'
 dotfile '.rake'
 
-dotfile '.Xdefaults'
 dotfile '.gemrc'
 dotfile '.pryrc'
 dotfile '.railsrc'
