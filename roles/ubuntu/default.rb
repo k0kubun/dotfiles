@@ -7,14 +7,10 @@ include_cookbook 'skk'
 include_cookbook 'ghq'
 include_cookbook 'peco'
 include_cookbook 'zsh'
-
-package 'xclip'
+include_cookbook 'tmux'
 
 dotfile '.Xmodmap'
-
 dotfile '.rake'
-
 dotfile '.gemrc'
 dotfile '.pryrc'
 dotfile '.railsrc'
-dotfile '.tmux.conf'
