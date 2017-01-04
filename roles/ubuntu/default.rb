@@ -1,4 +1,5 @@
 include_cookbook 'dotfiles'
+include_cookbook 'urxvt-perls'
 
 directory "#{ENV['HOME']}/bin" do
   owner node[:user]
