@@ -9,6 +9,8 @@ include_cookbook 'peco'
 
 package 'xclip'
 
+dotfile '.Xmodmap'
+
 dotfile '.peco'
 dotfile '.rake'
 
