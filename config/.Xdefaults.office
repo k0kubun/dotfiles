@@ -1,0 +1,85 @@
+! disable keycap picture insert mode
+urxvt.iso14755: false
+urxvt.iso14755_52: false
+!
+URxvt.depth: 32
+URxvt*background: rgba:1000/1000/1000/e000
+
+!urxvt*underLine: on
+urxvt*colorMode: on
+urxvt*colorBD: lightyellow
+!urxvt*colorBDMode: off
+urxvt*colorUL: yellow
+urxvt*colorULMode: on
+urxvt*dynamicColors: off
+urxvt*highlightSelection: true
+
+!---------------------
+! Colorscheme based on the gvim colorscheme desert
+! http://ggellner.wordpress.com/2006/08/12/desert-xterm/
+!---------------------
+urxvt*foreground: White
+
+!colors
+!(unknown)
+urxvt*color0: #000000
+urxvt*color7: #bebebe
+urxvt*color8: #666666
+urxvt*color9: #cf6171
+urxvt*color10: #c5f779
+urxvt*color11: #fff796
+urxvt*color12: #4186be
+urxvt*color13: #cf9ebe
+urxvt*color14: #71bebe
+urxvt*color15: #ffffff
+
+! Normal Red: git's deletion
+urxvt*color1: #ff1500
+
+! Normal Green: git's addition
+urxvt*color2: #00bb00
+
+! Normal Yellow: vim's changed line
+urxvt*color3: #efef00
+
+! Normal Blue: ls's directory color
+urxvt*color4: #0090F0
+
+! Normal Magenta: ls's symlink
+urxvt*color5: #f030db
+
+! Normal Cyan: LPROMPT and peco
+urxvt*color6: #00bbbb
+
+urxvt*font: xft:RictyDiminished:pixelsize=32:antialias=true:hinting=true
+urxvt*boldFont: xft:RictyDiminished:pixelsize=32:antialias=true:bold:hinting=true
+urxvt*italicFont: xft:RictyDiminished:pixelsize=32:antialias=true:italic:autohint=true:hinting=true
+urxvt*bolditalicFont: xft:RictyDiminished:pixelsize=32:antialias=true:bold:italic:autohint=true:hinting=true
+
+URxvt*preeditType: OnTheSpot,None
+URxvt*perl-ext-common: default,matcher,clipboard
+URxvt*perl-ext: xim-onthespot
+urxvt*urlLauncher: /usr/bin/firefox
+urxvt*matcher.button: 1
+
+! paste
+URxvt.keysym.M-v: perl:clipboard:paste
+
+Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.size: 16
+
+urxvt*scrollBar: true
+urxvt*scrollBar_right: true
+urxvt*scrollColor: #323232
+urxvt*cursorColor: #eeeeee
+
+! Layout of Workspace 1
+urxvt*geometry: 146x37+0+30
+
+Xft.dpi: 180
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
