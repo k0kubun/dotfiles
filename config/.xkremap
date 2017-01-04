@@ -10,7 +10,7 @@ when /Ubuntu/
   if `hostname` =~ /\AP\d{3}\n\z/ # for work
     remap 'C-o', to: activate('/usr/lib/slack/slack')
   else
-    remap 'C-o', to: activate('/usr/share/nocturn/Nocturn')
+    remap 'C-o', to: activate("#{ENV['HOME']}/Nocturn-linux-x64/Nocturn")
   end
   remap 'C-u', to: activate('/usr/lib/chromium-browser/chromium-browser', 'Chromium')
   remap 'C-h', to: activate('urxvt')
