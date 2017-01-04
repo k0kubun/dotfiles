@@ -11,7 +11,6 @@ package 'xclip'
 
 dotfile '.Xmodmap'
 
-dotfile '.peco'
 dotfile '.rake'
 
 dotfile '.gemrc'

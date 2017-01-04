@@ -3,3 +3,5 @@ github_binary 'ghq' do
   version 'v0.7.4'
   archive 'ghq_linux_amd64.zip'
 end
+
+dotfile '.gitconfig'
