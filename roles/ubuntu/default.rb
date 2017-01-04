@@ -1,5 +1,4 @@
 include_cookbook 'dotfiles'
-
 include_cookbook 'urxvt'
 
 directory "#{ENV['HOME']}/bin" do

@@ -10,6 +10,8 @@ include_cookbook 'zsh'
 include_cookbook 'rust'
 
 cargo 'xraise'
+cargo 'rustfmt'
+cargo 'racer'
 
 dotfile '.peco'
 dotfile '.rake'
