@@ -1,12 +1,9 @@
-include_cookbook 'dotfiles'
+include_role 'base'
+
 include_cookbook 'urxvt'
 include_cookbook 'xkremap'
 include_cookbook 'google-chrome'
 include_cookbook 'skk'
-
-directory "#{ENV['HOME']}/bin" do
-  owner node[:user]
-end
 
 package 'xclip'
 
