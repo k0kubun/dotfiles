@@ -28,7 +28,7 @@ end
   end
 end
 
-remote_file "#{ENV['HOME']}/.config/systed/user/xkremap.service" do
+remote_file "#{ENV['HOME']}/.config/systemd/user/xkremap.service" do
   source 'xkremap.service'
 end
 
