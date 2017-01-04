@@ -13,7 +13,7 @@ define :github_binary, version: nil, repository: nil, archive: nil, binary_path:
   url = "https://github.com/#{params[:repository]}/releases/download/#{params[:version]}/#{archive}"
 
   if archive.end_with?('.zip')
-    extract = "unzip"
+    extract = "unzip -o"
   elsif archive.end_with?('.tar.gz')
     extract = "tar xvzf"
   else
