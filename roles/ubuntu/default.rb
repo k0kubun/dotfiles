@@ -4,6 +4,8 @@ include_cookbook 'urxvt'
 include_cookbook 'xkremap'
 include_cookbook 'google-chrome'
 include_cookbook 'skk'
+include_cookbook 'ghq'
+include_cookbook 'peco'
 
 package 'xclip'
 
