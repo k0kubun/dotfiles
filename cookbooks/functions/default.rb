@@ -7,10 +7,10 @@ define :dotfile, source: nil do
 end
 
 define :github_binary, version: nil, repository: nil, archive: nil do
-  command = params[:name]
-  path = "#{ENV['HOME']}/bin/#{command}"
+  cmd = params[:name]
+  path = "#{ENV['HOME']}/bin/#{cmd}"
   archive = params[:archive]
-  url = "https://github.com/#{params[:repository]}/releases/download/#{params[:version]}/peco_linux_amd64.tar.gz"
+  url = "https://github.com/#{params[:repository]}/releases/download/#{params[:version]}/#{archive}"
 
   if archive.end_with?('.zip')
     extract = "unzip"
@@ -20,7 +20,7 @@ define :github_binary, version: nil, repository: nil, archive: nil do
     raise "unexpected ext archive: #{archive}"
   end
 
-  execute "curl -fsSL -o /tmp/#{archive} #{url} && #{extract} /tmp/#{archive} && mv /tmp/#{command} #{path} && chmod +x #{path}" do
-    not_if "test -f #{path}"
+  execute "curl -fsSL -o /tmp/#{archive} #{url} && #{extract} /tmp/#{archive} && mv /tmp/#{cmd} #{path} && chmod +x #{path}" do
+    not_if "which #{cmd}"
   end
 end
