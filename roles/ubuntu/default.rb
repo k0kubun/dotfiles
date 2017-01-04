@@ -1,6 +1,7 @@
 include_cookbook 'dotfiles'
 include_cookbook 'urxvt'
 include_cookbook 'xkremap'
+include_cookbook 'google-chrome'
 
 directory "#{ENV['HOME']}/bin" do
   owner node[:user]
