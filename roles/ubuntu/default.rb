@@ -1,5 +1,6 @@
 include_cookbook 'dotfiles'
 include_cookbook 'urxvt'
+include_cookbook 'xkremap'
 
 directory "#{ENV['HOME']}/bin" do
   owner node[:user]
