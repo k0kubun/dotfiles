@@ -8,6 +8,7 @@ include_cookbook 'ghq'
 include_cookbook 'peco'
 include_cookbook 'zsh'
 include_cookbook 'tmux'
+include_cookbook 'vim'
 
 dotfile '.Xmodmap'
 dotfile '.rake'
