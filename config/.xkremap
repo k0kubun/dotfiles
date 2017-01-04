@@ -15,11 +15,7 @@ when /Ubuntu/
   remap 'C-u', to: activate('/usr/lib/chromium-browser/chromium-browser', 'Chromium')
   remap 'C-h', to: activate('urxvt')
 else
-  if `hostname` =~ /\AP\d{3}\n\z/ # for work
-    remap 'C-o', to: activate('/usr/lib/slack/slack')
-  else
-    remap 'C-o', to: activate('/usr/share/nocturn/Nocturn')
-  end
+  remap 'C-o', to: activate('/usr/share/nocturn/Nocturn')
   remap 'C-u', to: activate('/opt/google/chrome/chrome', 'Google Chrome')
   remap 'C-h', to: activate('urxvt')
 end
