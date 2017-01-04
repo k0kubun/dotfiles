@@ -4,6 +4,7 @@ add Shift = Henkan_Mode
 
 ! Katakana Hiragana -> Alt
 keycode 101 = Alt_R
+add mod1 = Alt_R
 
 ! Muhenkan -> Control
 keycode 102 = Control_L
