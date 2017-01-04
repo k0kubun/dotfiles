@@ -4,4 +4,4 @@ github_binary 'ghq' do
   archive 'ghq_linux_amd64.zip'
 end
 
-dotfile '.gitconfig'
+include_cookbook 'git'
