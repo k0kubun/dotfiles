@@ -22,5 +22,5 @@ source ~/.zsh/lib/peco.zsh
 source ~/.zsh/lib/theme.zsh
 
 # Environment-local configurations
-[ -f ~/.zshrc.local ]   && source ~/.zshrc.local
 [ -f ~/.zshrc.`uname` ] && source ~/.zshrc.`uname`
+[ -f ~/.zshrc.local ]   && source ~/.zshrc.local
