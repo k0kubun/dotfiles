@@ -6,6 +6,7 @@ include_cookbook 'google-chrome'
 include_cookbook 'skk'
 include_cookbook 'ghq'
 include_cookbook 'peco'
+include_cookbook 'zsh'
 
 package 'xclip'
 
