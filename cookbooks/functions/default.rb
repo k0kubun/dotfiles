@@ -21,13 +21,13 @@ define :github_binary, version: nil, repository: nil, archive: nil, binary_path:
   end
 
   execute "curl -fSL -o /tmp/#{archive} #{url}" do
-    not_if "which #{cmd}"
+    not_if "test -f #{path}"
   end
   execute "#{extract} /tmp/#{archive}" do
-    not_if "which #{cmd}"
+    not_if "test -f #{path}"
     cwd "/tmp"
   end
   execute "mv /tmp/#{params[:binary_path] || cmd} #{path} && chmod +x #{path}" do
-    not_if "which #{cmd}"
+    not_if "test -f #{path}"
   end
 end
