@@ -20,6 +20,11 @@ else
   end
 end
 
+unless ENV['PATH'].include?("#{ENV['HOME']}/.cargo/bin:")
+  MItamae.logger.info('Prepending ~/.cargo/bin to PATH during this execution')
+  ENV['PATH'] = "#{ENV['HOME']}/.cargo/bin:#{ENV['PATH']}"
+end
+
 define :cargo do
   execute "cargo install --verbose #{params[:name]}" do
     not_if %Q[cargo install --list | grep "^#{params[:name]} "]
