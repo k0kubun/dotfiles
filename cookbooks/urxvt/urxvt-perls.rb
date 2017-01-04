@@ -7,3 +7,5 @@ end
 execute 'cp /tmp/urxvt-perls/clipboard /usr/lib/urxvt/perl/clipboard' do
   not_if 'test -f /usr/lib/urxvt/perl/clipboard'
 end
+
+package 'xsel'

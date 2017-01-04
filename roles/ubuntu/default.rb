@@ -1,12 +1,12 @@
 include_cookbook 'dotfiles'
-include_cookbook 'urxvt-perls'
+
+include_cookbook 'urxvt'
 
 directory "#{ENV['HOME']}/bin" do
   owner node[:user]
 end
 
 package 'xclip'
-package 'xsel'
 
 dotfile '.peco'
 dotfile '.rake'
