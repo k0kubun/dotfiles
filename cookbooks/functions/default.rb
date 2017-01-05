@@ -8,7 +8,7 @@ end
 
 define :github_binary, version: nil, repository: nil, archive: nil, binary_path: nil do
   cmd = params[:name]
-  path = "#{ENV['HOME']}/bin/#{cmd}"
+  bin_path = "#{ENV['HOME']}/bin/#{cmd}"
   archive = params[:archive]
   url = "https://github.com/#{params[:repository]}/releases/download/#{params[:version]}/#{archive}"
 
@@ -21,13 +21,13 @@ define :github_binary, version: nil, repository: nil, archive: nil, binary_path:
   end
 
   execute "curl -fSL -o /tmp/#{archive} #{url}" do
-    not_if "test -f #{path}"
+    not_if "test -f #{bin_path}"
   end
   execute "#{extract} /tmp/#{archive}" do
-    not_if "test -f #{path}"
+    not_if "test -f #{bin_path}"
     cwd "/tmp"
   end
-  execute "mv /tmp/#{params[:binary_path] || cmd} #{path} && chmod +x #{path}" do
-    not_if "test -f #{path}"
+  execute "mv /tmp/#{params[:binary_path] || cmd} #{bin_path} && chmod +x #{path}" do
+    not_if "test -f #{bin_path}"
   end
 end
