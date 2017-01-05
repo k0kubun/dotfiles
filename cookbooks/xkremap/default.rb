@@ -22,4 +22,8 @@ remote_file "#{ENV['HOME']}/.config/systemd/user/xkremap.service" do
   source 'files/xkremap.service'
 end
 
+user_service 'xkremap' do
+  action [:enable, :start]
+end
+
 dotfile '.xkremap'
