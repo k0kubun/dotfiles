@@ -11,7 +11,10 @@ include_cookbook 'peco'
 include_cookbook 'zsh'
 include_cookbook 'tmux'
 include_cookbook 'vim'
-include_cookbook '1password'
+
+if has_package?('wine')
+  include_cookbook '1password'
+end
 
 dotfile '.Xmodmap'
 dotfile '.rake'
