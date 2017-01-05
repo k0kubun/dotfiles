@@ -18,16 +18,6 @@ execute 'make && make install' do
   not_if 'which xkremap'
 end
 
-[
-  "#{ENV['HOME']}/.config",
-  "#{ENV['HOME']}/.config/systemd",
-  "#{ENV['HOME']}/.config/systemd/user",
-].each do |dir|
-  directory dir do
-    owner node[:user]
-  end
-end
-
 remote_file "#{ENV['HOME']}/.config/systemd/user/xkremap.service" do
   source 'files/xkremap.service'
 end

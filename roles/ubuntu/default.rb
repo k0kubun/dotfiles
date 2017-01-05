@@ -11,6 +11,7 @@ include_cookbook 'zsh'
 include_cookbook 'tmux'
 include_cookbook 'vim'
 include_cookbook 'xraise'
+include_cookbook '1password'
 
 dotfile '.Xmodmap'
 dotfile '.rake'
