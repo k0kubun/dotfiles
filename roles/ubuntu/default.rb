@@ -1,6 +1,7 @@
 include_role 'base'
 
 include_cookbook 'urxvt'
+include_cookbook 'xraise'
 include_cookbook 'xkremap'
 include_cookbook 'google-chrome'
 include_cookbook 'skk'
@@ -10,7 +11,6 @@ include_cookbook 'peco'
 include_cookbook 'zsh'
 include_cookbook 'tmux'
 include_cookbook 'vim'
-include_cookbook 'xraise'
 include_cookbook '1password'
 
 dotfile '.Xmodmap'
