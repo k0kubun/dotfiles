@@ -22,4 +22,8 @@ if run_command('which wine', error: false).exit_status == 0
   remote_file "#{ENV['HOME']}/.config/systemd/user/agile1pagent.service" do
     source 'files/agile1pagent.service'
   end
+
+  user_service 'agile1pagent' do
+    action [:enable, :start]
+  end
 end
