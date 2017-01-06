@@ -5,7 +5,7 @@ Description=agile1pagent
 ExecStart=/usr/bin/wine "/home/k0kubun/.wine/drive_c/Program Files (x86)/1Password 4/Agile1pAgent.exe"
 ExecStop=/usr/bin/killall Agile1pAgent.exe
 Restart=always
-Environment=DISPLAY=:0.0
+Environment=DISPLAY=:1
 
 [Install]
 WantedBy=graphical.target
