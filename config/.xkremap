@@ -30,10 +30,10 @@ window class_not: 'urxvt' do
   remap 'M-b', to: 'Ctrl-Left'
   remap 'M-f', to: 'Ctrl-Right'
 
-  remap 'C-a', to: 'Home'
-  remap 'C-e', to: 'End'
+  remap 'C-a', to: 'Alt-C-a'
+  remap 'C-e', to: 'Alt-C-e'
 
-  remap 'C-k', to: ['Shift-End', 'Ctrl-x']
+  remap 'C-k', to: 'Alt-C-k'
 
   remap 'C-d', to: 'Delete'
   remap 'M-d', to: 'Ctrl-Delete'

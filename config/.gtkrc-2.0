@@ -1,1 +1,12 @@
-#include "/usr/share/themes/Emacs/gtk-2.0-key/gtkrc"
+binding "gtk-paragraph-cursor"
+{
+  bind "<alt><ctrl>a" { "move-cursor" (paragraph-ends, -1, 0) }
+  bind "<alt><shift><ctrl>a" { "move-cursor" (paragraph-ends, -1, 1) }
+  bind "<alt><ctrl>e" { "move-cursor" (paragraph-ends, 1, 0) }
+  bind "<alt><shift><ctrl>e" { "move-cursor" (paragraph-ends, 1, 1) }
+
+  bind "<alt><ctrl>k" { "delete-from-cursor" (paragraph-ends, 1) }
+}
+
+class "GtkEntry" binding "gtk-paragraph-cursor"
+class "GtkTextView" binding "gtk-paragraph-cursor"
