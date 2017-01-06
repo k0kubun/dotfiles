@@ -10,7 +10,7 @@ MItamae::RecipeContext.class_eval do
   end
 
   def has_package?(name)
-    result = run_command("dpkg-query -f '${Status}' -W #{name.shellescape} | grep -E '^(install|hold) ok installed$'")
+    result = run_command("dpkg-query -f '${Status}' -W #{name.shellescape} | grep -E '^(install|hold) ok installed$'", error: false)
     result.exit_status == 0
   end
 end
