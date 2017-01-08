@@ -1,16 +1,16 @@
 #!/usr/bin/env ruby
 
-define :activate do |wm_class|
-  execute("wmctrl -x -a #{wm_class.shellescape}")
+define :activate do |wm_class, command|
+  execute("wmctrl -x -a #{wm_class.shellescape} || #{command.shellescape}")
 end
 
 if `hostname` =~ /\AP\d{3}\n\z/ # for work
-  remap 'C-o', to: activate('slack.Slack')
+  remap 'C-o', to: activate('slack.Slack', '/usr/lib/slack/slack')
 else
-  remap 'C-o', to: activate('nocturn.Nocturn')
+  remap 'C-o', to: activate('nocturn.Nocturn', "#{ENV['HOME']}/Nocturn-linux-x64/Nocturn")
 end
-remap 'C-h', to: activate('urxvt.URxvt')
-remap 'C-u', to: activate('google-chrome.Google-chrome')
+remap 'C-h', to: activate('urxvt.URxvt', 'urxvt')
+remap 'C-u', to: activate('google-chrome.Google-chrome', '/opt/google/chrome/chrome')
 
 window class_not: 'urxvt' do
   # emacs-like bindings
