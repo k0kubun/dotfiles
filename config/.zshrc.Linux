@@ -39,3 +39,7 @@ set_ssh_agent_socket
 
 export EDITOR="vim"
 export BUNDLER_EDITOR="vim"
+
+function environ() {
+	ruby -e 'puts STDIN.read.split("\x0").map{|l| l.split("=", 2)}.to_h["'$1'"]'
+}
