@@ -1,17 +1,16 @@
 #!/usr/bin/env ruby
 
-ENV['PATH'] = "#{ENV['HOME']}/.cargo/bin:#{ENV['PATH']}"
-define :activate do |command, name = nil|
-  execute(['xraise', command, name].compact.shelljoin)
+define :activate do |wm_class|
+  execute("wmctrl -x -a #{wm_class.shellescape}")
 end
 
 if `hostname` =~ /\AP\d{3}\n\z/ # for work
-  remap 'C-o', to: activate('/usr/lib/slack/slack')
+  remap 'C-o', to: activate('slack.Slack')
 else
-  remap 'C-o', to: activate("#{ENV['HOME']}/Nocturn-linux-x64/Nocturn")
+  remap 'C-o', to: activate('nocturn.Nocturn')
 end
-remap 'C-h', to: activate('urxvt')
-remap 'C-u', to: activate('/opt/google/chrome/chrome', 'Google Chrome')
+remap 'C-h', to: activate('urxvt.URxvt')
+remap 'C-u', to: activate('google-chrome.Google-chrome')
 
 window class_not: 'urxvt' do
   # emacs-like bindings
