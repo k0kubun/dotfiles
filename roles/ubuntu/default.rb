@@ -2,7 +2,7 @@ include_role 'base'
 
 include_cookbook 'urxvt'
 include_cookbook 'xraise'
-include_cookbook 'xkremap'
+include_cookbook 'xremap'
 include_cookbook 'skk'
 include_cookbook 'git'
 include_cookbook 'ghq'
