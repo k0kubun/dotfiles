@@ -26,4 +26,6 @@ user_service 'xremap' do
   action [:enable, :start]
 end
 
+package 'wmctrl'
+
 dotfile '.xremap'
