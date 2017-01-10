@@ -18,8 +18,8 @@ execute 'make && make install' do
   not_if 'which xremap'
 end
 
-remote_file "#{ENV['HOME']}/.config/systemd/user/xremap.service" do
-  source 'files/xremap.service'
+template "#{ENV['HOME']}/.config/systemd/user/xremap.service" do
+  source 'templates/xremap.service'
 end
 
 user_service 'xremap' do

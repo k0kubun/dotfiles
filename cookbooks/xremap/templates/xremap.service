@@ -9,7 +9,7 @@ KillMode=process
 ExecStart=/usr/local/bin/xremap /home/k0kubun/.xremap
 ExecStop=/usr/bin/killall xremap
 Restart=always
-Environment=DISPLAY=:1
+Environment=DISPLAY=<%= ENV['DISPLAY'] %>
 
 [Install]
 WantedBy=graphical.target
