@@ -14,13 +14,19 @@ Pry.config.prompt = [
 ]
 
 if defined?(PryByebug)
-  {
+  aliases = {
     'n' => 'next',
     's' => 'step',
     'f' => 'finish',
     'c' => 'continue',
-    'bt' => 'backtrace',
-  }.each do |from, to|
+  }
+
+  require 'pry-byebug/version'
+  if Gem::Version.new(PryByebug::VERSION) >= Gem::Version.new('3.4.0')
+    aliases.merge!('bt' => 'backtrace')
+  end
+
+  aliases.each do |from, to|
     Pry::Commands.alias_command(from, to)
   end
 end
