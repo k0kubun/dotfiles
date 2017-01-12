@@ -40,7 +40,3 @@
   scriptdir = script
   directory = ~/src/github.com/k0kubun/dotfiles
   dependency = symlink.sh brew.sh cask.sh ruby.sh karabiner.sh
-[merge "mergepbx"]
-  name = Xcode project files merger
-  driver = mergepbx %O %A %B
-  note = auto-generated configuration by `cpad2 upgrade`
