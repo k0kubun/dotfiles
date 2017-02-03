@@ -11,7 +11,7 @@ else
 end
 remap 'C-h', to: activate('urxvt.URxvt', 'urxvt')
 remap 'C-u', to: activate('google-chrome.Google-chrome', '/opt/google/chrome/chrome')
-remap 'C-i', to: activate('sun-awt-X11-XFramePeer.jetbrains-idea', '/usr/local/bin/idea')
+remap 'C-y', to: activate('sun-awt-X11-XFramePeer.jetbrains-idea', '/usr/local/bin/idea')
 
 window class_not: %w[urxvt Focus-Proxy-Window] do
   # emacs-like bindings
