@@ -1,4 +1,4 @@
-include_cookbook 'dotfiles'
+include_cookbook 'functions'
 
 include_cookbook 'git'
 include_cookbook 'vim'
