@@ -60,18 +60,33 @@ local function bindAppSpecificRemap(appBundleID, fromMods, fromKey, toMods, toKe
   bindAppSpecificRemapWithDefault(appBundleID, fromMods, fromKey, toMods, toKey, fromMods, fromKey)
 end
 
+-- Application Launcher
 hs.hotkey.bind({'ctrl'}, 'h', nil, openAppFunc('Utilities/Terminal'), nil, nil)
 hs.hotkey.bind({'ctrl'}, 'o', nil, openAppFunc('Nocturn'), nil, nil)
 hs.hotkey.bind({'ctrl'}, 'u', nil, openAppFunc('Google Chrome'), nil, nil)
 
+-- Chrome
 bindAppSpecificRemap('com.google.Chrome', {'cmd'}, 's', {'cmd'}, 'f')
 
+-- Terminal
 bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'i', {'alt'}, 'i')
 bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 't', {'alt'}, 't')
 bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'w', {'alt'}, 'w')
-bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'j', {'alt'}, 'j')
-bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'k', {'alt'}, 'k')
 bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'f', {'alt'}, 'f')
 bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'b', {'alt'}, 'b')
 bindAppSpecificRemapWithDefault('com.apple.Terminal', {'cmd'}, 'o', {'alt'}, 'o', {'cmd', 'shift'}, '[')
 bindAppSpecificRemapWithDefault('com.apple.Terminal', {'cmd'}, 'p', {'alt'}, 'p', {'cmd', 'shift'}, ']')
+
+-- Slack
+bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'cmd'}, 'n', {'cmd'}, 'k')
+bindAppSpecificRemapWithDefault('com.tinyspeck.slackmacgap', {'cmd'}, 'j', {'alt'}, 'down', {'alt'}, 'j')
+bindAppSpecificRemapWithDefault('com.tinyspeck.slackmacgap', {'cmd'}, 'k', {'alt'}, 'up', {'alt'}, 'k')
+bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '1', {'cmd'}, '1')
+bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '2', {'cmd'}, '2')
+bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '3', {'cmd'}, '3')
+bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '4', {'cmd'}, '4')
+bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '5', {'cmd'}, '5')
+bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '6', {'cmd'}, '6')
+bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '7', {'cmd'}, '7')
+bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '8', {'cmd'}, '8')
+bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '9', {'cmd'}, '9')
