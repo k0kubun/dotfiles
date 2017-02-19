@@ -33,16 +33,14 @@ local function currentBundleID()
 end
 
 local function inputKey(modifiers, key)
+  local args = {}
   local app = currentApp()
   if app then
-    hs.eventtap.event.newKeyEvent(modifiers, key, true):post(app)
-    hs.timer.usleep(1000)
-    hs.eventtap.event.newKeyEvent(modifiers, key, false):post(app)
-  else
-    hs.eventtap.event.newKeyEvent(modifiers, key, true):post()
-    hs.timer.usleep(1000)
-    hs.eventtap.event.newKeyEvent(modifiers, key, false):post()
+    args = {app}
   end
+  hs.eventtap.event.newKeyEvent(modifiers, key, true):post(args)
+  hs.timer.usleep(1000)
+  hs.eventtap.event.newKeyEvent(modifiers, key, false):post(args)
 end
 
 local function bindAppSpecificRemapWithDefault(appBundleID, fromMods, fromKey, toMods, toKey, defaultMods, defaultKey)
