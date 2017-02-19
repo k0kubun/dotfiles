@@ -34,37 +34,27 @@ local function currentBundleID()
   return hs.application.bundleID(app)
 end
 
+local function bindAppSpecificRemapWithDefault(appBundleID, fromMods, fromKey, toMods, toKey, defaultMods, defaultKey)
+  hs.hotkey.bind(
+    fromMods, fromKey, nil,
+    function()
+      if currentBundleID() == appBundleID then
+        inputKey(toMods, toKey)
+      else
+        inputKey(defaultMods, defaultKey)
+      end
+    end, nil, nil
+  )
+end
+
+local function bindAppSpecificRemap(appBundleID, fromMods, fromKey, toMods, toKey)
+  bindAppSpecificRemapWithDefault(appBundleID, fromMods, fromKey, toMods, toKey, fromMods, fromKey)
+end
+
 hs.hotkey.bind({'ctrl'}, 'h', nil, openAppFunc('Utilities/Terminal'), nil, nil)
 hs.hotkey.bind({'ctrl'}, 'o', nil, openAppFunc('Nocturn'), nil, nil)
 hs.hotkey.bind({'ctrl'}, 'u', nil, openAppFunc('Google Chrome'), nil, nil)
 
-hs.hotkey.bind(
-  {'cmd'}, 's', nil,
-  function()
-    if currentBundleID() == 'com.google.Chrome' then
-      inputKey({'cmd'}, 'f')
-    else
-      inputKey({'cmd'}, 's')
-    end
-  end, nil, nil
-)
-hs.hotkey.bind(
-  {'cmd'}, 'o', nil,
-  function()
-    if currentBundleID() == 'com.apple.Terminal' then
-      inputKey({'alt'}, 'o')
-    else
-      inputKey({'cmd', 'shift'}, '[')
-    end
-  end, nil, nil
-)
-hs.hotkey.bind(
-  {'cmd'}, 'p', nil,
-  function()
-    if currentBundleID() == 'com.apple.Terminal' then
-      inputKey({'alt'}, 'p')
-    else
-      inputKey({'cmd', 'shift'}, ']')
-    end
-  end, nil, nil
-)
+bindAppSpecificRemap('com.google.Chrome', {'cmd'}, 's', {'cmd'}, 'f')
+bindAppSpecificRemapWithDefault('com.apple.Terminal', {'cmd'}, 'o', {'alt'}, 'o', {'cmd', 'shift'}, '[')
+bindAppSpecificRemapWithDefault('com.apple.Terminal', {'cmd'}, 'p', {'alt'}, 'p', {'cmd', 'shift'}, ']')
