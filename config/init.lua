@@ -18,20 +18,31 @@ local function openAppFunc(app)
   end
 end
 
-local function inputKey(modifiers, key)
-  hs.eventtap.event.newKeyEvent(modifiers, key, true):post()
-  hs.timer.usleep(1000)
-  hs.eventtap.event.newKeyEvent(modifiers, key, false):post()
-end
-
-local function inputKeyFunc(modifiers, key)
-  return function() inputKey(modifiers, key) end
+local function currentApp()
+  local focused = hs.window.focusedWindow()
+  if focused then
+    return hs.window.application(focused)
+  end
 end
 
 local function currentBundleID()
-  local focused = hs.window.focusedWindow()
-  local app = hs.window.application(focused)
-  return hs.application.bundleID(app)
+  local app = currentApp()
+  if app then
+    return hs.application.bundleID(app)
+  end
+end
+
+local function inputKey(modifiers, key)
+  local app = currentApp()
+  if app then
+    hs.eventtap.event.newKeyEvent(modifiers, key, true):post(app)
+    hs.timer.usleep(1000)
+    hs.eventtap.event.newKeyEvent(modifiers, key, false):post(app)
+  else
+    hs.eventtap.event.newKeyEvent(modifiers, key, true):post()
+    hs.timer.usleep(1000)
+    hs.eventtap.event.newKeyEvent(modifiers, key, false):post()
+  end
 end
 
 local function bindAppSpecificRemapWithDefault(appBundleID, fromMods, fromKey, toMods, toKey, defaultMods, defaultKey)
