@@ -85,6 +85,31 @@ local function bindAppSpecificRemap(appBundleID, fromMods, fromKey, toMods, toKe
   )
 end
 
+local function bindAppExcludedRemap(appBundleID, fromMods, fromKey, toMods, toKey)
+  local appFilter = hs.window.filter.new(
+    function(window)
+      local app = hs.window.application(window)
+      return hs.application.bundleID(app) == appBundleID
+    end
+  )
+  local appBind = hs.hotkey.bind(fromMods, fromKey, nil, inputKeyFunc(toMods, toKey), nil, nil)
+  if currentApp() == appBundleID then
+    appBind:disable()
+  end
+  appFilter:subscribe(
+    hs.window.filter.windowFocused,
+    function()
+      appBind:disable()
+    end
+  )
+  appFilter:subscribe(
+    hs.window.filter.windowUnfocused,
+    function()
+      appBind:enable()
+    end
+  )
+end
+
 -- This function works like following code:
 -- bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'cmd'}, 'n', {'cmd'}, 'k')
 -- bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'cmd'}, 'k', {'alt'}, 'up')
@@ -131,6 +156,7 @@ hs.hotkey.bind({'ctrl'}, 'u', nil, openAppFunc('Google Chrome'), nil, nil)
 
 -- Chrome
 bindAppSpecificRemap('com.google.Chrome', {'cmd'}, 's', {'cmd'}, 'f')
+bindAppExcludedRemap('com.apple.Terminal', {'ctrl'}, 'r', {'cmd'}, 'r')
 
 -- Terminal
 bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'i', {'alt'}, 'i')
