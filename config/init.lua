@@ -67,19 +67,59 @@ local function bindAppSpecificRemap(appBundleID, fromMods, fromKey, toMods, toKe
       return hs.application.bundleID(app) == appBundleID
     end
   )
-  local appBind = nil
+  local appBind = hs.hotkey.bind(fromMods, fromKey, nil, inputKeyFunc(toMods, toKey), nil, nil)
+  if currentApp() ~= appBundleID then
+    appBind:disable()
+  end
   appFilter:subscribe(
     hs.window.filter.windowFocused,
     function()
-      appBind = hs.hotkey.bind(fromMods, fromKey, nil, inputKeyFunc(toMods, toKey), nil, nil)
+      appBind:enable()
     end
   )
   appFilter:subscribe(
     hs.window.filter.windowUnfocused,
     function()
-      if appBind then
-        appBind:disable()
-      end
+      appBind:disable()
+    end
+  )
+end
+
+-- This function works like following code:
+-- bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'cmd'}, 'n', {'cmd'}, 'k')
+-- bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'cmd'}, 'k', {'alt'}, 'up')
+local function bindKeySwapForSlack()
+  local slackFilter = hs.window.filter.new(
+    function(window)
+      local app = hs.window.application(window)
+      return hs.application.bundleID(app) == 'com.tinyspeck.slackmacgap'
+    end
+  )
+  local cmdKBind = hs.hotkey.bind({'cmd'}, 'k', nil, inputKeyFunc({'alt'}, 'up'), nil, nil)
+  local cmdNBind = hs.hotkey.bind({'cmd'}, 'n', nil,
+    function()
+      cmdKBind:disable()
+      inputKey({'cmd'}, 'k')
+      cmdKBind:enable()
+    end,
+    nil, nil
+  )
+  if currentApp() ~= 'com.tinyspeck.slackmacgap' then
+    cmdKBind:disable()
+    cmdNBind:disable()
+  end
+  slackFilter:subscribe(
+    hs.window.filter.windowFocused,
+    function()
+      cmdKBind:enable()
+      cmdNBind:enable()
+    end
+  )
+  slackFilter:subscribe(
+    hs.window.filter.windowUnfocused,
+    function()
+      cmdKBind:disable()
+      cmdNBind:disable()
     end
   )
 end
@@ -93,24 +133,18 @@ hs.hotkey.bind({'ctrl'}, 'u', nil, openAppFunc('Google Chrome'), nil, nil)
 bindAppSpecificRemap('com.google.Chrome', {'cmd'}, 's', {'cmd'}, 'f')
 
 -- Terminal
---bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'i', {'alt'}, 'i')
---bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 't', {'alt'}, 't')
---bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'w', {'alt'}, 'w')
---bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'f', {'alt'}, 'f')
---bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'b', {'alt'}, 'b')
+bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'i', {'alt'}, 'i')
+bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 't', {'alt'}, 't')
+bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'w', {'alt'}, 'w')
+bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'f', {'alt'}, 'f')
+bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'b', {'alt'}, 'b')
+bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'j', {'alt'}, 'j')
+bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'k', {'alt'}, 'k')
 bindAppSpecificRemapWithDefault('com.apple.Terminal', {'cmd'}, 'o', {'alt'}, 'o', {'cmd', 'shift'}, '[')
 bindAppSpecificRemapWithDefault('com.apple.Terminal', {'cmd'}, 'p', {'alt'}, 'p', {'cmd', 'shift'}, ']')
 
 -- Slack
---bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'cmd'}, 'n', {'cmd'}, 'k')
-bindAppSpecificRemapWithDefault('com.tinyspeck.slackmacgap', {'cmd'}, 'j', {'alt'}, 'down', {'alt'}, 'j')
-bindAppSpecificRemapWithDefault('com.tinyspeck.slackmacgap', {'cmd'}, 'k', {'alt'}, 'up', {'alt'}, 'k')
---bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '1', {'cmd'}, '1')
---bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '2', {'cmd'}, '2')
---bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '3', {'cmd'}, '3')
---bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '4', {'cmd'}, '4')
---bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '5', {'cmd'}, '5')
---bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '6', {'cmd'}, '6')
---bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '7', {'cmd'}, '7')
---bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '8', {'cmd'}, '8')
---bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'ctrl'}, '9', {'cmd'}, '9')
+bindKeySwapForSlack()
+bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'cmd'}, 'j', {'alt'}, 'down')
+bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'cmd', 'ctrl'}, 'k', {'alt', 'shift'}, 'up')
+bindAppSpecificRemap('com.tinyspeck.slackmacgap', {'cmd', 'ctrl'}, 'j', {'alt', 'shift'}, 'down')
