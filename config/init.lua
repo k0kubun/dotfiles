@@ -29,8 +29,8 @@ local function inputKeyFunc(modifiers, key)
 end
 
 local function currentBundleID()
-  focused = hs.window.focusedWindow()
-  app = hs.window.application(focused)
+  local focused = hs.window.focusedWindow()
+  local app = hs.window.application(focused)
   return hs.application.bundleID(app)
 end
 
