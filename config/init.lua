@@ -43,6 +43,10 @@ local function inputKey(modifiers, key)
   hs.eventtap.event.newKeyEvent(modifiers, key, false):post(args)
 end
 
+local function inputKeyFunc(modifiers, key)
+  return function() inputKey(modifiers, key) end
+end
+
 local function bindAppSpecificRemapWithDefault(appBundleID, fromMods, fromKey, toMods, toKey, defaultMods, defaultKey)
   hs.hotkey.bind(
     fromMods, fromKey, nil,
@@ -57,7 +61,27 @@ local function bindAppSpecificRemapWithDefault(appBundleID, fromMods, fromKey, t
 end
 
 local function bindAppSpecificRemap(appBundleID, fromMods, fromKey, toMods, toKey)
-  bindAppSpecificRemapWithDefault(appBundleID, fromMods, fromKey, toMods, toKey, fromMods, fromKey)
+  local appFilter = hs.window.filter.new(
+    function(window)
+      local app = hs.window.application(window)
+      return hs.application.bundleID(app) == appBundleID
+    end
+  )
+  local appBind = nil
+  appFilter:subscribe(
+    hs.window.filter.windowFocused,
+    function()
+      appBind = hs.hotkey.bind(fromMods, fromKey, nil, inputKeyFunc(toMods, toKey), nil, nil)
+    end
+  )
+  appFilter:subscribe(
+    hs.window.filter.windowUnfocused,
+    function()
+      if appBind then
+        appBind:disable()
+      end
+    end
+  )
 end
 
 -- Application Launcher
