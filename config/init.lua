@@ -157,7 +157,6 @@ hs.hotkey.bind({'ctrl'}, 'u', nil, openAppFunc('Google Chrome'), nil, nil)
 -- Chrome
 bindAppSpecificRemap('com.google.Chrome', {'cmd'}, 's', {'cmd'}, 'f')
 bindAppExcludedRemap('com.apple.Terminal', {'ctrl'}, 'r', {'cmd'}, 'r')
-bindAppExcludedRemap('com.apple.Terminal', {'cmd'}, 'f', {'alt'}, 'right')
 bindAppExcludedRemap('com.apple.Terminal', {'cmd'}, 'b', {'alt'}, 'left')
 bindAppExcludedRemap('com.apple.Terminal', {'ctrl'}, 'w', {'alt'}, 'delete')
 
