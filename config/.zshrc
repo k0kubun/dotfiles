@@ -24,3 +24,6 @@ source ~/.zsh/lib/theme.zsh
 # Environment-local configurations
 [ -f ~/.zshrc.`uname` ] && source ~/.zshrc.`uname`
 [ -f ~/.zshrc.local ]   && source ~/.zshrc.local
+
+export NVM_DIR="/Users/kokubun/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
