@@ -13,3 +13,6 @@ add Control = Control_L
 ! CapsLock -> Escape
 clear lock
 keycode 66 = Escape
+
+! Backslash -> Underscore (Without Shift, Like MacBook)
+keycode 97 = underscore
