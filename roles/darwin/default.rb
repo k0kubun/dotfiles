@@ -5,6 +5,7 @@ include_cookbook 'vim'
 include_cookbook 'zsh'
 include_cookbook 'ghq'
 include_cookbook 'peco'
+include_cookbook 'thunderbolt'
 
 dotfile '.gemrc'
 dotfile '.karabiner'

@@ -9,6 +9,7 @@ include_cookbook 'peco'
 include_cookbook 'zsh'
 include_cookbook 'tmux'
 include_cookbook 'vim'
+include_cookbook 'thunderbolt'
 
 if has_package?('wine')
   include_cookbook '1password'
