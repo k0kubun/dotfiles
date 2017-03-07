@@ -24,10 +24,15 @@
             "name": "Default profile",
             "selected": true,
             "simple_modifications": {
+                "caps_lock": "escape",
                 "fn": "left_option",
                 "japanese_eisuu": "left_control",
                 "japanese_kana": "left_shift",
-                "left_control": "escape"
+                "japanese_pc_katakana": "right_command",
+                "japanese_pc_nfer": "left_control",
+                "japanese_pc_xfer": "left_shift",
+                "left_control": "escape",
+                "left_option": "left_command"
             },
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
