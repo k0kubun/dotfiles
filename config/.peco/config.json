@@ -6,7 +6,9 @@
     "C-v": "peco.ToggleSelectMode",
     "M-d": "peco.DeleteForwardWord",
     "C-i,C-f": "peco.SelectNextPage",
-    "C-i,C-b": "peco.SelectPreviousPage"
+    "C-i,C-b": "peco.SelectPreviousPage",
+    "ArrowLeft": "peco.ScrollLeft",
+    "ArrowRight": "peco.ScrollRight"
   },
   "Style": {
     "Basic": ["on_default", "white"],
