@@ -3,7 +3,7 @@ set encoding=utf-8               " UTF-8
 set browsedir=buffer             " Exploreの初期ディレクトリ
 " set hidden                       " 編集中でも他のファイルを開けるようにする
 set incsearch                    " インクリメンタル検索を行う
-set number                       " 行番号表示
+" set number                       " 行番号表示
 set showmatch                    " 対応するカッコを表示
 set ignorecase                   " 検索で大文字小文字を区別しない
 " set cursorline                   " カレント行ハイライト（激しく重い）
