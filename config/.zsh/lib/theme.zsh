@@ -1,9 +1,9 @@
 # zsh prompt
-PROMPT='%F{cyan}%(5~,%-2~/.../%2~,%~)%f $ '
+PROMPT='$ '
 autoload -Uz vcs_info
 precmd() {
-	psvar=()
 	LANG=en_US.UTF-8 vcs_info
-	psvar[1]="$vcs_info_msg_0_"
+  local left="$(pwd)"
+  local right="$vcs_info_msg_0_"
+  echo -e "\e[36m${left}\e[m${(r:($COLUMNS-${#left}-${#right}):: :)}\e[32m${right}\e[m"
 }
-RPROMPT=" %1(v|%F{green}%1v%f|)"
