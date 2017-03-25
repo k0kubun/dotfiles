@@ -2,8 +2,20 @@
 PROMPT='$ '
 autoload -Uz vcs_info
 precmd() {
-	LANG=en_US.UTF-8 vcs_info
-  local left="$(pwd)"
-  local right="$vcs_info_msg_0_"
-  echo -e "\e[36m${left}\e[m${(r:($COLUMNS-${#left}-${#right}):: :)}\e[32m${right}\e[m"
+  local last_status="$?"
+  LANG=en_US.UTF-8 vcs_info
+
+  local left1="$(pwd) "
+  local left2="status: $last_status"
+  local right1="$vcs_info_msg_0_"
+
+  local left1c="\e[36m${left1}\e[m"
+  if [[ "x$last_status" == "x0" ]]; then
+    local left2c="${left2}"
+  else
+    local left2c="\e[31m${left2}\e[m"
+  fi
+  local right1c="\e[32m${right1}\e[m"
+
+  echo -e "${left1c}${left2c}${(r:($COLUMNS-${#left1}-${#left2}-${#right1}):: :)}${right1c}"
 }
