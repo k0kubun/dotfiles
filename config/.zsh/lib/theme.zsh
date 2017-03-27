@@ -1,8 +1,8 @@
 autoload -Uz vcs_info
-LANG=en_US.UTF-8 vcs_info
 
 precmd() {
   local last_status="$?"
+  LANG=en_US.UTF-8 vcs_info
 
   local left1="$(pwd) "
   local left2="status: $last_status"
