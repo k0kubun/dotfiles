@@ -17,7 +17,11 @@ set cmdheight=2                  " コマンドラインウィンドウを2行�
 
 " Copy to clipboard by yank
 set clipboard&
-set clipboard^=unnamedplus
+if system("echo -n \"$(uname)\"") == "Darwin"
+  set clipboard^=unnamed
+else
+  set clipboard^=unnamedplus
+endif
 
 " 自動コメント防止
 autocmd FileType * set formatoptions-=ro
