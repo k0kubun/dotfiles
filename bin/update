@@ -1,0 +1,60 @@
+#!/usr/bin/env ruby
+
+require 'net/http'
+require 'shellwords'
+require 'fileutils'
+
+class GitHubRepository
+  # @param [String] full_name - "user/repo"
+  def initialize(full_name)
+    @full_name = full_name
+  end
+
+  # @return [String] - "1.2.3"
+  def latest_version
+    @latest_version ||= fetch_latest_version
+  end
+
+  def latest_sha256_for(binary_name)
+    temp_path = "/tmp/#{binary_name}"
+    unless system(['curl', '-o', temp_path, '-fL', "https://github.com/#{@full_name}/releases/download/v#{latest_version}/#{binary_name}"].shelljoin)
+      raise "Failed to fetch binary: #{binary_name}"
+    end
+    result = IO.popen(['shasum', '-a', '256', temp_path], &:read)
+    sha256 = result.sub!(/ +#{temp_path}\n\z/m, '')
+    raise "Failed to fetch sha256 from: #{result}" if sha256.nil?
+    sha256
+  ensure
+    FileUtils.rm_f(temp_path)
+  end
+
+  private
+
+  def fetch_latest_version
+    response = Net::HTTP.start('github.com', 443, use_ssl: true) do |http|
+      http.get("/#{@full_name}/releases/latest")
+    end
+    release_page = response['location']
+    version = release_page.sub!(%r[\Ahttps://github.com/#{@full_name}/releases/tag/v], '')
+
+    if version.nil?
+      require 'pp'
+      pp response.to_hash
+      raise "GitHub responded unexpectedly!"
+    end
+
+    version
+  end
+end
+
+repo = GitHubRepository.new('k0kubun/mitamae')
+version       = repo.latest_version
+linux_shasum  = repo.latest_sha256_for("mitamae-x86_64-linux.tar.gz")
+darwin_shasum = repo.latest_sha256_for("mitamae-x86_64-darwin.tar.gz")
+
+setup_file = "#{__dir__}/setup"
+source = File.read(setup_file)
+source.sub!(/^(mitamae_version=).+$/,       %Q[\\1"#{version}"])
+source.sub!(/^(mitamae_linux_sha256=).+$/,  %Q[\\1"#{linux_shasum}"])
+source.sub!(/^(mitamae_darwin_sha256=).+$/, %Q[\\1"#{darwin_shasum}"])
+File.write(setup_file, source)
