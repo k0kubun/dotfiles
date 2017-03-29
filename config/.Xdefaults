@@ -51,10 +51,10 @@ urxvt*color5: #f030db
 ! Normal Cyan: LPROMPT and peco
 urxvt*color6: #00bbbb
 
-urxvt*font: xft:RictyDiminished:pixelsize=50:antialias=true:hinting=true
-urxvt*boldFont: xft:RictyDiminished:pixelsize=50:antialias=true:bold:hinting=true
-urxvt*italicFont: xft:RictyDiminished:pixelsize=50:antialias=true:italic:autohint=true:hinting=true
-urxvt*bolditalicFont: xft:RictyDiminished:pixelsize=50:antialias=true:bold:italic:autohint=true:hinting=true
+urxvt*font: xft:RictyDiminished:pixelsize=46:antialias=true:hinting=true
+urxvt*boldFont: xft:RictyDiminished:pixelsize=46:antialias=true:bold:hinting=true
+urxvt*italicFont: xft:RictyDiminished:pixelsize=46:antialias=true:italic:autohint=true:hinting=true
+urxvt*bolditalicFont: xft:RictyDiminished:pixelsize=46:antialias=true:bold:italic:autohint=true:hinting=true
 
 URxvt*preeditType: OnTheSpot,None
 URxvt*perl-ext-common: default,matcher,clipboard
