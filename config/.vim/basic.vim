@@ -23,6 +23,9 @@ else
   set clipboard^=unnamedplus
 endif
 
+" Disable netrw dirhist to prevent copying clipboard by default
+let g:netrw_dirhistmax = 0
+
 " 自動コメント防止
 autocmd FileType * set formatoptions-=ro
 
