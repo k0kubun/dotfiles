@@ -24,7 +24,7 @@ NeoBundleLazy 'fatih/vim-go', { 'autoload': { 'filetypes': ['go'] } }
 " NeoBundle 'wannesm/wmnusmv.vim'
 " NeoBundleLazy 'shinka-cb/smv_vim', {'autoload':{'filetypes':['smv']}}
 " NeoBundle 'datsuns/vim-smv'
-NeoBundleLazy 'vim-scripts/applescript.vim', { 'autoload': { 'filetypes': ['applescript'] } }
+" NeoBundleLazy 'vim-scripts/applescript.vim', { 'autoload': { 'filetypes': ['applescript'] } }
 " NeoBundle 'aklt/plantuml-syntax'
 " NeoBundle 'pbrisbin/vim-syntax-shakespeare'
 " NeoBundle 'mustache/vim-mustache-handlebars'
@@ -32,15 +32,15 @@ NeoBundleLazy 'vim-scripts/applescript.vim', { 'autoload': { 'filetypes': ['appl
 " NeoBundle 'eagletmt/ghcmod-vim'
 " NeoBundle 'itchyny/vim-haskell-indent'
 " NeoBundle 'Shougo/vinarise.vim'
-NeoBundleLazy 'rodjek/vim-puppet', { 'autoload': { 'filetypes': ['puppet'] } }
-NeoBundleLazy 'elixir-lang/vim-elixir', { 'autoload': { 'filetypes': ['elixir'] } }
+" NeoBundleLazy 'rodjek/vim-puppet', { 'autoload': { 'filetypes': ['puppet'] } }
+" NeoBundleLazy 'elixir-lang/vim-elixir', { 'autoload': { 'filetypes': ['elixir'] } }
 NeoBundleLazy 'vim-jp/vim-cpp', { 'autoload': { 'filetypes': ['c', 'cpp'] } }
 NeoBundleLazy 'othree/yajs.vim', { 'autoload': { 'filetypes': ['javascript'] } }
 NeoBundleLazy 'othree/es.next.syntax.vim', { 'autoload': { 'filetypes': ['javascript'] } }
 NeoBundleLazy 'gavocanov/vim-js-indent', { 'autoload': { 'filetypes': ['javascript'] } }
-NeoBundleLazy 'rust-lang/rust.vim', { 'autoload' : { 'filetypes': 'rust' } }
-NeoBundleLazy 'cespare/vim-toml', { 'autoload' : { 'filetypes': 'toml' } }
-NeoBundleLazy 'racer-rust/vim-racer', { 'autoload' : { 'filetypes': 'rust' } }
+" NeoBundleLazy 'rust-lang/rust.vim', { 'autoload' : { 'filetypes': 'rust' } }
+" NeoBundleLazy 'cespare/vim-toml', { 'autoload' : { 'filetypes': 'toml' } }
+" NeoBundleLazy 'racer-rust/vim-racer', { 'autoload' : { 'filetypes': 'rust' } }
 
 " Completion
 " NeoBundle 'Shougo/neocomplcache.vim'
