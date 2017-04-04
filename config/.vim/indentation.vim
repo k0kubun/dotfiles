@@ -12,7 +12,7 @@ if has("autocmd")
   filetype indent on " ファイルタイプに合わせたインデントを利用
 
   autocmd FileType c          setlocal sw=2 sts=0 ts=2 et
-  autocmd FileType cpp        setlocal sw=2 sts=2 ts=8 et
+  autocmd FileType cpp        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
   autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
