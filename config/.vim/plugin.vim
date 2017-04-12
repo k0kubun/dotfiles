@@ -8,6 +8,9 @@ let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_auto_select = 1
 " inoremap <expr><CR> neocomplete#smart_close_popup()."\<CR>"
 inoremap <expr><C-[> neocomplete#smart_close_popup()."\<C-[>"
+let g:neocomplete#sources#dictionary#dictionaries = {
+\   'ruby': $HOME . '/.vim/dicts/ruby.dict',
+\ }
 
 " Unite.vim
 let g:unite_enable_start_insert = 1

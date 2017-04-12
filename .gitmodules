@@ -1,3 +1,6 @@
 [submodule "config/.vim/bundle/neobundle.vim"]
 	path = config/.vim/bundle/neobundle.vim
 	url = https://github.com/k0kubun/neobundle.vim
+[submodule "config/.vim/dicts"]
+	path = config/.vim/dicts
+	url = https://github.com/pocke/dicts
