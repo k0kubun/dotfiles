@@ -28,7 +28,7 @@ window class_not: %w[urxvt Focus-Proxy-Window] do
   remap 'M-d', to: 'Ctrl-Delete'
 
   # actually these are vim insert mode bindings, but compatible with shell
-  remap 'C-w', to: ['Ctrl-Shift-Left', 'Ctrl-x']
+  remap 'C-w', to: ['Ctrl-Shift-Left', 'Delete']
 
   %w[a z x c v w t l].each do |key|
     remap "Alt-#{key}", to: "C-#{key}"
