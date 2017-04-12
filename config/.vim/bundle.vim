@@ -8,8 +8,7 @@ endif
 
 " Language
 NeoBundleLazy 'vim-ruby/vim-ruby', { 'autoload': { 'filetypes': 'ruby' } }
-NeoBundleLazy 'todesking/ruby_hl_lvar.vim', { 'autoload': { 'filetypes': 'ruby' } }
-NeoBundleLazy 'kana/vim-textobj-user', { 'autoload': { 'filetypes': 'ruby' } }
+NeoBundle 'kana/vim-textobj-user'
 NeoBundleLazy 'rhysd/vim-textobj-ruby', { 'autoload': { 'filetypes': 'ruby' } }
 NeoBundleLazy 'mrkn/vim-cruby', { 'autoload': { 'filetypes': ['c', 'cruby'] } }
 " NeoBundle 'tpope/vim-rails'
