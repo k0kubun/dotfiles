@@ -1,3 +1,7 @@
+--
+-- THIS IS NOT FOR OFFICE!
+--
+
 -- hs.hotkey.bind(mods, key, message, pressedfn, releasedfn, repeatfn) -> hs.hotkey object
 -- Parameters:
 --   mods - A table or a string containing (as elements, or as substrings with any separator) the keyboard modifiers required, which should be zero or more of the following:
@@ -168,6 +172,7 @@ bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'f', {'alt'}, 'f')
 bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'b', {'alt'}, 'b')
 bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'j', {'alt'}, 'j')
 bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'k', {'alt'}, 'k')
+bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'r', {'alt'}, 'r')
 bindAppSpecificRemapWithDefault('com.apple.Terminal', {'cmd'}, 'o', {'alt'}, 'o', {'ctrl', 'shift'}, 'tab')
 bindAppSpecificRemapWithDefault('com.apple.Terminal', {'cmd'}, 'p', {'alt'}, 'p', {'ctrl'}, 'tab')
 bindAppSpecificRemapWithDefault('com.apple.Terminal', {'cmd'}, 'd', {'alt'}, 'd', {'alt'}, 'forwarddelete')
