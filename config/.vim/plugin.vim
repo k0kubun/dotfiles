@@ -105,3 +105,10 @@ let g:rustfmt_autosave = 1
 set hidden
 let g:racer_cmd = '$HOME/.cargo/bin/racer'
 let $RUST_SRC_PATH="/usr/src/rust/src"
+
+" matchit.vim for ruby
+source $VIMRUNTIME/macros/matchit.vim
+augroup matchit
+  au!
+  au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
+augroup END
