@@ -1,7 +1,6 @@
 [user]
   name = Takashi Kokubun
   email = takashikkbn@gmail.com
-  signingkey = 12EE23DD
 [include]
   path = .gitconfig.local
 [color]
@@ -41,7 +40,3 @@
   scriptdir = script
   directory = ~/src/github.com/k0kubun/dotfiles
   dependency = symlink.sh brew.sh cask.sh ruby.sh karabiner.sh
-[gpg]
-  program = gpg
-[commit]
-	gpgsign = true
