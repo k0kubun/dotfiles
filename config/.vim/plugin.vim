@@ -76,3 +76,9 @@ augroup matchit
   au!
   au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
 augroup END
+
+" vim-javacomplete2
+if !has("python")
+  echoerr "if_python is disabled, required for vim-javacomplete2!"
+endif
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
