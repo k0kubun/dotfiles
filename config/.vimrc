@@ -21,7 +21,7 @@ function! s:vimrc_local(loc)
 endfunction
 
 " .vimrc.local template
-" set shiftwidth=4  " Indent size automatically inserted by vim
-" set softtabstop=0 " Indent size by pushing <Tab>, same as tabstop by 0
-" set tabstop=8     " <Tab> width in screen
-" set noexpandtab   " Don't replace tab with space
+" augroup cruby
+"   autocmd!
+"   autocmd BufWinEnter,BufNewFile **/*.[chy] setlocal filetype=cruby
+" augroup END

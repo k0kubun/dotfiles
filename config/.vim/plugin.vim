@@ -93,11 +93,6 @@ let g:skk_egg_like_newline = 0
 let g:skk_show_annotation = 1
 let g:skk_use_face = 1
 
-" augroup cruby
-"   autocmd!
-"   autocmd BufWinEnter,BufNewFile **/*.[chy] setlocal filetype=cruby
-" augroup END
-
 " rust-lang/rust.vim
 let g:rustfmt_autosave = 1
 
