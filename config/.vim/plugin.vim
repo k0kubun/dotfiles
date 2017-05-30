@@ -4,6 +4,13 @@
 " inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
 
 " neocomplete
+if !has("lua")
+  if has("mac")
+    echoerr "if_lua is disabled! Execute: brew install vim --with-lua"
+  else
+    echoerr "if_lua is disabled! Install vim with lua."
+  endif
+endif
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_auto_select = 1
 " inoremap <expr><CR> neocomplete#smart_close_popup()."\<CR>"
