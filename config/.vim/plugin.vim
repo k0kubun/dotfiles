@@ -82,3 +82,10 @@ if !has("python")
   echoerr "if_python is disabled, required for vim-javacomplete2!"
 endif
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+let g:JavaComplete_ImportOrder = ['*', 'java.', 'javax.']
+let g:JavaComplete_ImportSortType = 'packageName'
+nmap [Tag]ja <Plug>(JavaComplete-Imports-AddMissing)
+nmap [Tag]jr <Plug>(JavaComplete-Imports-RemoveUnused)
+nmap [Tag]ji <Plug>(JavaComplete-Imports-AddSmart)
+nmap [Tag]jI <Plug>(JavaComplete-Imports-Add)
