@@ -85,6 +85,7 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 let g:JavaComplete_ImportOrder = ['*', 'java.', 'javax.']
 let g:JavaComplete_ImportSortType = 'packageName'
+let g:JavaComplete_RegularClasses = ['java.lang.String', 'java.lang.Object', 'java.lang.Class']
 nmap [Tag]ja <Plug>(JavaComplete-Imports-AddMissing)
 nmap [Tag]jr <Plug>(JavaComplete-Imports-RemoveUnused)
 nmap [Tag]ji <Plug>(JavaComplete-Imports-AddSmart)
