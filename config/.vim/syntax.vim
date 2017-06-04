@@ -27,6 +27,7 @@ autocmd BufNewFile,BufRead *.c setl filetype=cpp
 autocmd BufNewFile,BufRead *.scpt.erb set filetype=applescript
 autocmd BufNewFile,BufRead .md2key set filetype=yaml
 autocmd BufNewFile,BufRead *.al set filetype=ruby
+autocmd BufNewFile,BufRead insns.def set filetype=cruby
 
 " codenize.tools
 autocmd BufNewFile,BufRead *.iam set filetype=ruby
