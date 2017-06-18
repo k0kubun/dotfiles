@@ -1,0 +1,21 @@
+/*
+ * Put under ~/.themes/Paragraph/gtk-3.0
+ * $ gsettings set org.gnome.desktop.interface gtk-key-theme "Paragraph"
+ */
+@binding-set paragraph-cursor
+{
+  bind "<alt><ctrl>a" { "move-cursor" (paragraph-ends, -1, 0) };
+  bind "<alt><shift><ctrl>a" { "move-cursor" (paragraph-ends, -1, 1) };
+  bind "<alt><ctrl>e" { "move-cursor" (paragraph-ends, 1, 0) };
+  bind "<alt><shift><ctrl>e" { "move-cursor" (paragraph-ends, 1, 1) };
+
+  bind "<alt><ctrl>k" { "delete-from-cursor" (paragraph-ends, 1) };
+}
+
+GtkEntry {
+  gtk-key-bindings: paragraph-cursor;
+}
+
+GtkTextView {
+  gtk-key-bindings: paragraph-cursor;
+}
