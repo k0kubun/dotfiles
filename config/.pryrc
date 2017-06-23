@@ -18,7 +18,7 @@ if defined?(PryByebug)
     'n' => 'next',
     's' => 'step',
     'f' => 'finish',
-    'c' => 'continue',
+    #'c' => 'continue',
   }
 
   require 'pry-byebug/version'
