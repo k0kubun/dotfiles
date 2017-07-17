@@ -39,10 +39,12 @@ NeoBundle 'w0ng/vim-hybrid'
 " Editing
 NeoBundleLazy 'bronson/vim-trailing-whitespace', { 'autoload': { 'commands': ['FixWhitespace'], "insert": 1 } }
 NeoBundleLazy 'osyo-manga/vim-over', { 'autoload': { 'commands': ['OverCommandLine'] } }
-" NeoBundle 'tyru/skk.vim'
-" NeoBundle 'tyru/skkdict.vim'
 NeoBundle 'vim-scripts/netrw.vim'
 NeoBundleLazy 'tpope/vim-abolish', { 'autoload': { 'insert': 1 } }
+if has('mac')
+  NeoBundle 'tyru/skk.vim'
+  NeoBundle 'tyru/skkdict.vim'
+endif
 
 " Unite
 NeoBundleLazy 'Shougo/unite.vim', '76612ec', { 'autoload': { 'commands': ['Unite', 'UniteWithBufferDir'] } }
