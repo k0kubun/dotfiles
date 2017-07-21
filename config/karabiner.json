@@ -99,6 +99,123 @@
                 "conditions": [
                   { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
                 ]
+              },
+              {
+                "from": { "key_code": "o", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "tab", "modifiers": ["left_control", "left_shift"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "p", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "tab", "modifiers": ["left_control"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "delete_forward", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Terminal remaps",
+            "manipulators": [
+              {
+                "from": { "key_code": "i", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "i", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "t", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "t", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "w", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "w", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "f", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "f", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "b", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "b", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "j", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "j", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "k", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "k", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "r", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "r", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "o", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "o", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "p", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "p", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "d", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
               }
             ]
           }

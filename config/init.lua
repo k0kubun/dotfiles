@@ -44,19 +44,6 @@ local function inputKeyFunc(modifiers, key)
   return function() inputKey(modifiers, key) end
 end
 
-local function bindAppSpecificRemapWithDefault(appBundleID, fromMods, fromKey, toMods, toKey, defaultMods, defaultKey)
-  hs.hotkey.bind(
-    fromMods, fromKey, nil,
-    function()
-      if currentBundleID() == appBundleID then
-        inputKey(toMods, toKey)
-      else
-        inputKey(defaultMods, defaultKey)
-      end
-    end, nil, nil
-  )
-end
-
 local function bindAppSpecificRemap(appBundleID, fromMods, fromKey, toMods, toKey)
   local appFilter = hs.window.filter.new(
     function(window)
@@ -120,19 +107,6 @@ local function bindKeySwapForSlack()
     end
   )
 end
-
--- Terminal
-bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'i', {'alt'}, 'i')
-bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 't', {'alt'}, 't')
-bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'w', {'alt'}, 'w')
-bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'f', {'alt'}, 'f')
-bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'b', {'alt'}, 'b')
-bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'j', {'alt'}, 'j')
-bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'k', {'alt'}, 'k')
-bindAppSpecificRemap('com.apple.Terminal', {'cmd'}, 'r', {'alt'}, 'r')
-bindAppSpecificRemapWithDefault('com.apple.Terminal', {'cmd'}, 'o', {'alt'}, 'o', {'ctrl', 'shift'}, 'tab')
-bindAppSpecificRemapWithDefault('com.apple.Terminal', {'cmd'}, 'p', {'alt'}, 'p', {'ctrl'}, 'tab')
-bindAppSpecificRemapWithDefault('com.apple.Terminal', {'cmd'}, 'd', {'alt'}, 'd', {'alt'}, 'forwarddelete')
 
 -- Slack
 bindKeySwapForSlack()
