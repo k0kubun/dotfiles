@@ -56,6 +56,43 @@
                 "type": "basic"
               }
             ]
+          },
+          {
+            "description": "Chrome remaps",
+            "manipulators": [
+              {
+                "from": { "key_code": "s", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "f", "modifiers": ["left_command"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "r", "modifiers": { "mandatory": ["left_control"] } },
+                "to":   [{ "key_code": "r", "modifiers": ["left_command"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "b", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "left_arrow", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "w", "modifiers": { "mandatory": ["left_control"] } },
+                "to":   [{ "key_code": "delete_or_backspace", "modifiers": ["right_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              }
+            ]
           }
         ]
       },
