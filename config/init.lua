@@ -15,13 +15,6 @@
 --   releasedfn - A function that will be called when the hotkey has been released, or nil
 --   repeatfn - A function that will be called when a pressed hotkey is repeating, or nil
 
-local function openAppFunc(app)
-  local command = "open '/Applications/"..app..".app'"
-  return function()
-    hs.execute(command)
-  end
-end
-
 local function currentApp()
   local focused = hs.window.focusedWindow()
   if focused then
@@ -152,11 +145,6 @@ local function bindKeySwapForSlack()
     end
   )
 end
-
--- Application Launcher
-hs.hotkey.bind({'ctrl'}, 'h', nil, openAppFunc('Utilities/Terminal'), nil, nil)
-hs.hotkey.bind({'ctrl'}, 'o', nil, openAppFunc('Nocturn'), nil, nil)
-hs.hotkey.bind({'ctrl'}, 'u', nil, openAppFunc('Google Chrome'), nil, nil)
 
 -- Chrome
 bindAppSpecificRemap('com.google.Chrome', {'cmd'}, 's', {'cmd'}, 'f')
