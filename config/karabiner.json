@@ -26,6 +26,9 @@
             "simple_modifications": {
                 "caps_lock": "escape",
                 "grave_accent_and_tilde": "international3",
+                "japanese_pc_katakana": "left_command",
+                "japanese_pc_nfer": "left_control",
+                "japanese_pc_xfer": "left_shift",
                 "left_command": "left_control",
                 "left_option": "left_command",
                 "right_shift": "international1",
