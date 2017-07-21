@@ -1,47 +1,268 @@
 {
-    "global": {
-        "check_for_updates_on_startup": false,
-        "show_in_menu_bar": true,
-        "show_profile_name_in_menu_bar": false
-    },
-    "profiles": [
+  "global": {
+    "check_for_updates_on_startup": false,
+    "show_in_menu_bar": true,
+    "show_profile_name_in_menu_bar": false
+  },
+  "profiles": [
+    {
+      "complex_modifications": {
+        "parameters": {
+          "basic.to_if_alone_timeout_milliseconds": 1000
+        },
+        "rules": [
+          {
+            "description": "Change spacebar to left_shift. (Post spacebar if pressed alone)",
+            "manipulators": [
+              {
+                "from": {
+                  "key_code": "spacebar",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_shift"
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "spacebar"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "k0kubun special",
+            "manipulators": [
+              {
+                "from": { "key_code": "u", "modifiers": { "mandatory": ["left_control"] } },
+                "to":   [{ "shell_command": "open \"/Applications/Google Chrome.app\"" }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "o", "modifiers": { "mandatory": ["left_control"] } },
+                "to":   [{ "shell_command": "open \"/Applications/Nocturn.app\"" }],
+                "type": "basic"
+              },
+              {
+                "from": { "key_code": "h", "modifiers": { "mandatory": ["left_control"] } },
+                "to":   [{ "shell_command": "open \"/Applications/Utilities/Terminal.app\"" }],
+                "type": "basic"
+              }
+            ]
+          },
+          {
+            "description": "Chrome remaps",
+            "manipulators": [
+              {
+                "from": { "key_code": "s", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "f", "modifiers": ["left_command"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "r", "modifiers": { "mandatory": ["left_control"] } },
+                "to":   [{ "key_code": "r", "modifiers": ["left_command"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "b", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "left_arrow", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "f", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "right_arrow", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "w", "modifiers": { "mandatory": ["left_control"] } },
+                "to":   [{ "key_code": "delete_or_backspace", "modifiers": ["right_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "o", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "tab", "modifiers": ["left_control", "left_shift"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "p", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "tab", "modifiers": ["left_control"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "delete_forward", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              }
+            ]
+          },
+          {
+            "description": "Terminal remaps",
+            "manipulators": [
+              {
+                "from": { "key_code": "i", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "i", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "t", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "t", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "w", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "w", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "f", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "f", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "b", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "b", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "j", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "j", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "k", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "k", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "r", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "r", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "o", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "o", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "p", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "p", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              },
+              {
+                "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] } },
+                "to":   [{ "key_code": "d", "modifiers": ["left_option"] }],
+                "type": "basic",
+                "conditions": [
+                  { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "devices": [
         {
-            "devices": [],
-            "fn_function_keys": {
-                "f1": "display_brightness_decrement",
-                "f10": "mute",
-                "f11": "volume_decrement",
-                "f12": "volume_increment",
-                "f2": "display_brightness_increment",
-                "f3": "mission_control",
-                "f4": "launchpad",
-                "f5": "illumination_decrement",
-                "f6": "illumination_increment",
-                "f7": "rewind",
-                "f8": "play_or_pause",
-                "f9": "fastforward"
-            },
-            "name": "Default profile",
-            "selected": true,
-            "simple_modifications": {
-                "caps_lock": "escape",
-                "grave_accent_and_tilde": "international3",
-                "japanese_pc_katakana": "left_command",
-                "japanese_pc_nfer": "left_control",
-                "japanese_pc_xfer": "left_shift",
-                "left_command": "left_control",
-                "left_option": "left_command",
-                "right_shift": "international1",
-                "spacebar": "left_shift"
-            },
-            "standalone_keys": {
-                "spacebar": "spacebar"
-            },
-            "virtual_hid_keyboard": {
-                "caps_lock_delay_milliseconds": 0,
-                "keyboard_type": "jis",
-                "standalone_keys_delay_milliseconds": 200
-            }
+          "disable_built_in_keyboard_if_exists": false,
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": false,
+            "product_id": 588,
+            "vendor_id": 1452
+          },
+          "ignore": false
         }
-    ]
+      ],
+      "fn_function_keys": {
+        "f1": "display_brightness_decrement",
+        "f10": "mute",
+        "f11": "volume_decrement",
+        "f12": "volume_increment",
+        "f2": "display_brightness_increment",
+        "f3": "mission_control",
+        "f4": "launchpad",
+        "f5": "illumination_decrement",
+        "f6": "illumination_increment",
+        "f7": "rewind",
+        "f8": "play_or_pause",
+        "f9": "fastforward"
+      },
+      "name": "Default profile",
+      "selected": true,
+      "simple_modifications": {
+        "caps_lock": "escape",
+        "grave_accent_and_tilde": "international3",
+        "japanese_pc_katakana": "left_command",
+        "japanese_pc_nfer": "left_control",
+        "japanese_pc_xfer": "left_shift",
+        "left_command": "left_control",
+        "left_option": "left_command",
+        "right_shift": "international1"
+      },
+      "virtual_hid_keyboard": {
+        "caps_lock_delay_milliseconds": 0,
+        "keyboard_type": "jis"
+      }
+    }
+  ]
 }
