@@ -5,7 +5,8 @@ My development environment
 ## Usage
 
 ```sh
-./install.sh
+./install.sh -n  # dry-run
+./install.sh     # apply
 ```
 
 ## Note

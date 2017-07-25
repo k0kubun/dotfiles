@@ -1,4 +1,5 @@
 #!/bin/sh
+
 set -e
 
 if ! [ -d config/.vim/bundle/neobundle.vim/.git ]; then
@@ -9,6 +10,6 @@ bin/setup
 
 # Homebrew does not allow sudo.
 case "$(uname)" in
-  "Darwin")  bin/mitamae local lib/recipe.rb ;;
-  *) sudo -E bin/mitamae local lib/recipe.rb ;;
+  "Darwin")  bin/mitamae local $@ lib/recipe.rb ;;
+  *) sudo -E bin/mitamae local $@ lib/recipe.rb ;;
 esac
