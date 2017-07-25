@@ -15,3 +15,9 @@ dotfile '.psqlrc'
 dotfile '.railsrc'
 dotfile '.rake'
 dotfile '.tmux.conf'
+
+template "#{ENV['HOME']}/.config/karabiner/karabiner.json" do
+  source File.expand_path('../../../config/karabiner.json', __FILE__)
+  is_office = (ENV['USER'] == 'kokubun') # I use "k0kubun" for personal PC
+  variables(c_o_app: is_office ? 'Slack.app' : 'Nocturn.app')
+end

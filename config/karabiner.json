@@ -47,7 +47,7 @@
               },
               {
                 "from": { "key_code": "o", "modifiers": { "mandatory": ["left_control"] } },
-                "to":   [{ "shell_command": "open \"/Applications/Nocturn.app\"" }],
+                "to":   [{ "shell_command": "open \"/Applications/<%= @c_o_app %>\"" }],
                 "type": "basic"
               },
               {
