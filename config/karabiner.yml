@@ -203,12 +203,14 @@ profiles:
     - description: Slack remaps
       manipulators:
 
+      # Cmd-n -> Cmd-k
       # Cmd-k -> Opt-Up
       # Cmd-j -> Opt-Down
       # Cmd-C-k -> Opt-Shift-Up
       # Cmd-C-j -> Opt-Shift-Down
       # Cmd-Enter -> C-Enter
 <%    {
+        ['"n"', ['right_command']] => ['k', ['left_command']], # n is shorthand false
         ['k', ['right_command']] => ['up_arrow', ['left_option']],
         ['j', ['right_command']] => ['down_arrow', ['left_option']],
         ['k', ['right_command', 'left_control']] => ['up_arrow', ['left_option', 'left_shift']],
