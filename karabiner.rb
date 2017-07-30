@@ -8,9 +8,9 @@ yaml_path = File.expand_path('./config/karabiner.yml', __dir__)
 
 case ARGV.first
 when 'export'
-  File.write(yaml_path, File.read(json_path).to_yaml)
+  File.write(yaml_path, JSON.parse(File.read(json_path)).to_yaml)
 when 'generate'
-  File.write(json_path, File.read(yaml_path).to_yaml)
+  File.write(json_path, YAML.load(File.read(yaml_path)).to_yaml)
 else
   $stderr.puts <<~EOS
     Usage:

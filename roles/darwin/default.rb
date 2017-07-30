@@ -16,8 +16,10 @@ dotfile '.railsrc'
 dotfile '.rake'
 dotfile '.tmux.conf'
 
-template "#{ENV['HOME']}/.config/karabiner/karabiner.json" do
-  source File.expand_path('../../../config/karabiner.json', __FILE__)
-  is_office = (ENV['USER'] == 'kokubun') # I use "k0kubun" for personal PC
-  variables(c_o_app: is_office ? 'Slack.app' : 'Nocturn.app')
+
+file "#{ENV['HOME']}/.config/karabiner/karabiner.json" do
+  yaml_path = File.expand_path('../../../config/karabiner.yml', __FILE__)
+  yaml = ERB.new(File.read(yaml_path)).result
+
+  content YAML.load(yaml).to_json
 end

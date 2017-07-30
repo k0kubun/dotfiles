@@ -1,394 +1,250 @@
---- |
-  {
-    "global": {
-      "check_for_updates_on_startup": false,
-      "show_in_menu_bar": true,
-      "show_profile_name_in_menu_bar": false
-    },
-    "profiles": [
+global:
+  check_for_updates_on_startup: false
+  show_in_menu_bar: true
+  show_profile_name_in_menu_bar: false
+profiles:
+- name: Default profile
+  selected: true
+  virtual_hid_keyboard:
+    caps_lock_delay_milliseconds: 0
+    keyboard_type: jis
+  devices:
+  - disable_built_in_keyboard_if_exists: false
+    identifiers:
+      is_keyboard: true
+      is_pointing_device: false
+      product_id: 588
+      vendor_id: 1452
+    ignore: false
+  fn_function_keys:
+    f1: display_brightness_decrement
+    f10: mute
+    f11: volume_decrement
+    f12: volume_increment
+    f2: display_brightness_increment
+    f3: mission_control
+    f4: launchpad
+    f5: illumination_decrement
+    f6: illumination_increment
+    f7: rewind
+    f8: play_or_pause
+    f9: fastforward
+
+  simple_modifications:
+    # For US macbook
+    grave_accent_and_tilde: international3 # `~ -> \|
+    right_shift: international1 # shfit -> _
+
+    # For both
+    caps_lock: escape
+    left_option: right_command
+
+    # For SAVIOR
+    japanese_pc_nfer: left_control
+    japanese_pc_xfer: left_shift
+    japanese_pc_katakana: right_command
+
+    # For macbook
+    left_command: left_control
+
+  # Main configurations
+  complex_modifications:
+    parameters:
+      basic.to_if_alone_timeout_milliseconds: 1000
+    rules:
+
+    ################################################################################
+    # SandS
+    ################################################################################
+    - description: Change spacebar to left_shift. (Post spacebar if pressed alone)
+      manipulators:
+      - type: basic
+        from:
+          key_code: spacebar
+          modifiers:
+            optional:
+            - any
+        to:
+        - key_code: left_shift
+        to_if_alone:
+        - key_code: spacebar
+
+    ################################################################################
+    # Launchers
+    ################################################################################
+    - description: Launchers
+      manipulators:
+
+      # C-u: Google Chrome
+      # C-o: Nocturn, Slack
+      # C-h: Terminal
+<%    at_office = (ENV['USER'] == 'kokubun') # I use "k0kubun" for personal PC
       {
-        "complex_modifications": {
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 1000
-          },
-          "rules": [
-            {
-              "description": "Change spacebar to left_shift. (Post spacebar if pressed alone)",
-              "manipulators": [
-                {
-                  "from": {
-                    "key_code": "spacebar",
-                    "modifiers": {
-                      "optional": [
-                        "any"
-                      ]
-                    }
-                  },
-                  "to": [
-                    {
-                      "key_code": "left_shift"
-                    }
-                  ],
-                  "to_if_alone": [
-                    {
-                      "key_code": "spacebar"
-                    }
-                  ],
-                  "type": "basic"
-                }
-              ]
-            },
-            {
-              "description": "k0kubun special",
-              "manipulators": [
-                {
-                  "from": { "key_code": "u", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "shell_command": "open \"/Applications/Google Chrome.app\"" }],
-                  "type": "basic"
-                },
-                {
-                  "from": { "key_code": "o", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "shell_command": "open \"/Applications/<%= @c_o_app %>\"" }],
-                  "type": "basic"
-                },
-                {
-                  "from": { "key_code": "h", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "shell_command": "open \"/Applications/Utilities/Terminal.app\"" }],
-                  "type": "basic"
-                }
-              ]
-            },
-            {
-              "description": "Chrome remaps",
-              "manipulators": [
-                {
-                  "from": { "key_code": "s", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "f", "modifiers": ["left_command"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.google\\.Chrome$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "r", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "key_code": "r", "modifiers": ["left_command"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "b", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "left_arrow", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "f", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "right_arrow", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "w", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "key_code": "delete_or_backspace", "modifiers": ["right_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "o", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "tab", "modifiers": ["left_control", "left_shift"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "p", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "tab", "modifiers": ["left_control"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "delete_forward", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_unless", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                }
-              ]
-            },
-            {
-              "description": "Terminal remaps",
-              "manipulators": [
-                {
-                  "from": { "key_code": "i", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "i", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "t", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "t", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "w", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "w", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "f", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "f", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "b", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "b", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "j", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "j", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "k", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "k", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "r", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "r", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "o", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "o", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "p", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "p", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "d", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "d", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.apple\\.Terminal$"] }
-                  ]
-                }
-              ]
-            },
-            {
-              "description": "Slack remaps",
-              "manipulators": [
-                {
-                  "from": { "key_code": "n", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "k", "modifiers": ["left_command"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "k", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "up_arrow", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "j", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "down_arrow", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "k", "modifiers": { "mandatory": ["left_command", "left_control"] } },
-                  "to":   [{ "key_code": "up_arrow", "modifiers": ["left_option", "left_shift"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "j", "modifiers": { "mandatory": ["left_command", "left_control"] } },
-                  "to":   [{ "key_code": "down_arrow", "modifiers": ["left_option", "left_shift"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "1", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "key_code": "1", "modifiers": ["left_command"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "2", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "key_code": "2", "modifiers": ["left_command"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "3", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "key_code": "3", "modifiers": ["left_command"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "4", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "key_code": "4", "modifiers": ["left_command"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "5", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "key_code": "5", "modifiers": ["left_command"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "6", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "key_code": "6", "modifiers": ["left_command"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "7", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "key_code": "7", "modifiers": ["left_command"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "8", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "key_code": "8", "modifiers": ["left_command"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "9", "modifiers": { "mandatory": ["left_control"] } },
-                  "to":   [{ "key_code": "9", "modifiers": ["left_command"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                },
-                {
-                  "from": { "key_code": "return_or_enter", "modifiers": { "mandatory": ["left_command"] } },
-                  "to":   [{ "key_code": "return_or_enter", "modifiers": ["left_option"] }],
-                  "type": "basic",
-                  "conditions": [
-                    { "type": "frontmost_application_if", "bundle_identifiers": ["^com\\.tinyspeck\\.slackmacgap$"] }
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "devices": [
-          {
-            "disable_built_in_keyboard_if_exists": false,
-            "identifiers": {
-              "is_keyboard": true,
-              "is_pointing_device": false,
-              "product_id": 588,
-              "vendor_id": 1452
-            },
-            "ignore": false
-          }
-        ],
-        "fn_function_keys": {
-          "f1": "display_brightness_decrement",
-          "f10": "mute",
-          "f11": "volume_decrement",
-          "f12": "volume_increment",
-          "f2": "display_brightness_increment",
-          "f3": "mission_control",
-          "f4": "launchpad",
-          "f5": "illumination_decrement",
-          "f6": "illumination_increment",
-          "f7": "rewind",
-          "f8": "play_or_pause",
-          "f9": "fastforward"
-        },
-        "name": "Default profile",
-        "selected": true,
-        "simple_modifications": {
-          "caps_lock": "escape",
-          "grave_accent_and_tilde": "international3",
-          "japanese_pc_katakana": "left_command",
-          "japanese_pc_nfer": "left_control",
-          "japanese_pc_xfer": "left_shift",
-          "left_command": "left_control",
-          "left_option": "left_command",
-          "right_shift": "international1"
-        },
-        "virtual_hid_keyboard": {
-          "caps_lock_delay_milliseconds": 0,
-          "keyboard_type": "jis"
-        }
-      }
-    ]
-  }
+        u: 'Google Chrome',
+        o: at_office ? 'Slack' : 'Nocturn',
+        h: 'Utilities/Terminal',
+      }.each do |key, app| %>
+      - type: basic
+        from:
+          key_code: <%= key %>
+          modifiers:
+            mandatory: [left_control]
+        to:
+        - shell_command: open "/Applications/<%= app %>.app"
+<%    end %>
+
+    ################################################################################
+    # Non Terminal remaps
+    ################################################################################
+    - description: Non terminal remaps
+      manipulators:
+
+      # Cmd-o -> Cmd-Shift-[
+      # Cmd-p -> Cmd-Shift-]
+      # Cmd-b -> Opt-Left
+      # Cmd-f -> Opt-Right
+      # Cmd-d -> Opt-Delete
+      # C-w -> Opt-Backspace
+<%    {
+        ['o', ['right_command']] => ['close_bracket', ['right_command', 'left_shift']], # close_bracket is open_bracket on JIS
+        ['p', ['right_command']] => ['backslash', ['right_command', 'left_shift']],     # backslash is close_bracket on JIS
+        ['b', ['right_command']] => ['left_arrow', ['left_option']],
+        ['f', ['right_command']] => ['right_arrow', ['left_option']],
+        ['d', ['right_command']] => ['delete_forward', ['left_option']],
+        ['w', ['left_control']] => ['delete_or_backspace', ['left_option']],
+      }.each do |from, to|
+        from_key, from_value = from
+        to_key,   to_value   = to %>
+      - type: basic
+        from:
+          key_code: <%= from_key %>
+          modifiers:
+            mandatory: <%= from_value %>
+        to:
+        - key_code: <%= to_key %>
+          modifiers: <%= to_value %>
+        conditions:
+        - type: frontmost_application_unless
+          bundle_identifiers:
+          - "^com\\.apple\\.Terminal$"
+<%    end %>
+
+    ################################################################################
+    # Chrome remaps
+    ################################################################################
+    - description: Chrome remaps
+      manipulators:
+
+      # Cmd-s -> Cmd-f
+      # C-r -> Cmd-r
+<%    {
+        ['s', ['right_command']] => ['f', ['right_command']],
+        ['r', ['left_control']] => ['r', ['right_command']],
+      }.each do |from, to|
+        from_key, from_value = from
+        to_key,   to_value   = to %>
+      - type: basic
+        from:
+          key_code: <%= from_key %>
+          modifiers:
+            mandatory: <%= from_value %>
+        to:
+        - key_code: <%= to_key %>
+          modifiers: <%= to_value %>
+        conditions:
+        - type: frontmost_application_if
+          bundle_identifiers:
+          - "^com\\.google\\.Chrome$"
+<%    end %>
+
+    ################################################################################
+    # Terminal remaps
+    ################################################################################
+    - description: Terminal remaps
+      manipulators:
+
+      # Cmd-i -> Opt-i, Cmd-r -> Opt-r
+      # Cmd-t -> Opt-t, Cmd-w -> Opt-w
+      # Cmd-f -> Opt-f, Cmd-b -> Opt-b, Cmd-d -> Opt-d
+      # Cmd-j -> Opt-j, Cmd-k -> Opt-k
+      # Cmd-o -> Opt-o, Cmd-o -> Opt-p
+<%    {
+        ['i', ['right_command']] => ['i', ['left_option']],
+        ['r', ['right_command']] => ['r', ['left_option']],
+        ['t', ['right_command']] => ['t', ['left_option']],
+        ['w', ['right_command']] => ['w', ['left_option']],
+        ['f', ['right_command']] => ['f', ['left_option']],
+        ['b', ['right_command']] => ['b', ['left_option']],
+        ['d', ['right_command']] => ['d', ['left_option']],
+        ['j', ['right_command']] => ['j', ['left_option']],
+        ['k', ['right_command']] => ['k', ['left_option']],
+        ['o', ['right_command']] => ['o', ['left_option']],
+        ['p', ['right_command']] => ['p', ['left_option']],
+      }.each do |from, to|
+        from_key, from_value = from
+        to_key,   to_value   = to %>
+      - type: basic
+        from:
+          key_code: <%= from_key %>
+          modifiers:
+            mandatory: <%= from_value %>
+        to:
+        - key_code: <%= to_key %>
+          modifiers: <%= to_value %>
+        conditions:
+        - type: frontmost_application_if
+          bundle_identifiers:
+          - "^com\\.apple\\.Terminal$"
+<%    end %>
+
+    ################################################################################
+    # Terminal remaps
+    ################################################################################
+    - description: Slack remaps
+      manipulators:
+
+      # Cmd-k -> Opt-Up
+      # Cmd-j -> Opt-Down
+      # Cmd-C-k -> Opt-Shift-Up
+      # Cmd-C-j -> Opt-Shift-Down
+      # Cmd-Enter -> C-Enter
+<%    {
+        ['k', ['right_command']] => ['up_arrow', ['left_option']],
+        ['j', ['right_command']] => ['down_arrow', ['left_option']],
+        ['k', ['right_command', 'left_control']] => ['up_arrow', ['left_option', 'left_shift']],
+        ['j', ['right_command', 'left_control']] => ['down_arrow', ['left_option', 'left_shift']],
+        ['return_or_enter', ['right_command']] => ['return_or_enter', ['left_option']],
+      }.each do |from, to|
+        from_key, from_value = from
+        to_key,   to_value   = to %>
+      - type: basic
+        from:
+          key_code: <%= from_key %>
+          modifiers:
+            mandatory: <%= from_value %>
+        to:
+        - key_code: <%= to_key %>
+          modifiers: <%= to_value %>
+        conditions:
+        - type: frontmost_application_if
+          bundle_identifiers:
+          - "^com\\.tinyspeck\\.slackmacgap$"
+<%    end %>
+
+      # C-1 -> Cmd-1 ... C-9 -> Cmd-9
+<%    (1..9).each do |i| %>
+      - from:
+          key_code: '<%= i %>'
+          modifiers:
+            mandatory:
+            - left_control
+        to:
+        - key_code: '<%= i %>'
+          modifiers:
+          - right_command
+        type: basic
+        conditions:
+        - type: frontmost_application_if
+          bundle_identifiers:
+          - "^com\\.tinyspeck\\.slackmacgap$"
+<%    end %>
