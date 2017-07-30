@@ -68,6 +68,12 @@ profiles:
         - key_code: left_shift
         to_if_alone:
         - key_code: spacebar
+        conditions:
+        - type: device_if
+          identifiers:
+          # Apple Internal Keyboard (US)
+          - vendor_id: 1452
+            product_id: 588
 
     ################################################################################
     # Launchers
