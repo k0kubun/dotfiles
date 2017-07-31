@@ -31,10 +31,6 @@ profiles:
     f9: fastforward
 
   simple_modifications:
-    # For US macbook
-    grave_accent_and_tilde: international3 # `~ -> \|
-    right_shift: international1 # shfit -> _
-
     # For both
     caps_lock: escape
     left_option: right_command
@@ -54,6 +50,31 @@ profiles:
     rules:
 
     ################################################################################
+    # US Macbook
+    ################################################################################
+    - description: US Macbook
+      manipulators:
+
+      # `~ -> \|
+      # shfit -> _
+<%    {
+        'grave_accent_and_tilde' => 'international3', # `~ -> \|
+        'right_shift' => 'international1', # shfit -> _
+      }.each do |from, to| %>
+      - type: basic
+        from:
+          key_code: <%= from %>
+        to:
+        - key_code: <%= to %>
+        conditions:
+        - type: device_if
+          identifiers:
+          # Apple Internal Keyboard (US)
+          - vendor_id: 1452
+            product_id: 588
+<%    end %>
+
+    ################################################################################
     # SandS
     ################################################################################
     - description: Change spacebar to left_shift. (Post spacebar if pressed alone)
@@ -62,8 +83,7 @@ profiles:
         from:
           key_code: spacebar
           modifiers:
-            optional:
-            - any
+            optional: [any]
         to:
         - key_code: left_shift
         to_if_alone:
