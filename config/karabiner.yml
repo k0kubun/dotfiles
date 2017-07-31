@@ -35,13 +35,13 @@ profiles:
     caps_lock: escape
     left_option: right_command
 
-    # For SAVIOR
-    japanese_pc_nfer: left_control
-    japanese_pc_xfer: left_shift
-    japanese_pc_katakana: right_command
-
     # For macbook
     left_command: left_control
+
+    # SAVIOR
+    japanese_pc_nfer: 'left_control'
+    japanese_pc_xfer: 'left_shift'
+    japanese_pc_katakana: 'right_command'
 
   # Main configurations
   complex_modifications:
@@ -56,10 +56,10 @@ profiles:
       manipulators:
 
       # `~ -> \|
-      # shfit -> _
+      # Right Shift -> _
 <%    {
-        'grave_accent_and_tilde' => 'international3', # `~ -> \|
-        'right_shift' => 'international1', # shfit -> _
+        grave_accent_and_tilde: 'international3', # `~ -> \|
+        right_shift: 'international1', # shfit -> _
       }.each do |from, to| %>
       - type: basic
         from:
