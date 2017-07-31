@@ -111,6 +111,7 @@ profiles:
       # Cmd-f -> Opt-Right
       # Cmd-d -> Opt-Delete
       # C-w -> Opt-Backspace
+      # C-r -> Cmd-r
 <%    {
         ['o', ['right_command']] => ['close_bracket', ['right_command', 'left_shift']], # close_bracket is open_bracket on JIS
         ['p', ['right_command']] => ['backslash', ['right_command', 'left_shift']],     # backslash is close_bracket on JIS
@@ -118,6 +119,7 @@ profiles:
         ['f', ['right_command']] => ['right_arrow', ['left_option']],
         ['d', ['right_command']] => ['delete_forward', ['left_option']],
         ['w', ['left_control']] => ['delete_or_backspace', ['left_option']],
+        ['r', ['left_control']] => ['r', ['left_command']],
       }.each do |from, to|
         from_key, from_value = from
         to_key,   to_value   = to %>
@@ -142,10 +144,8 @@ profiles:
       manipulators:
 
       # Cmd-s -> Cmd-f
-      # C-r -> Cmd-r
 <%    {
         ['s', ['right_command']] => ['f', ['right_command']],
-        ['r', ['left_control']] => ['r', ['right_command']],
       }.each do |from, to|
         from_key, from_value = from
         to_key,   to_value   = to %>
