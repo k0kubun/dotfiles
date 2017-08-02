@@ -35,13 +35,18 @@ profiles:
     caps_lock: escape
     left_option: right_command
 
-    # For macbook
+    # For macbook US/JIS
     left_command: left_control
 
     # SAVIOR
     japanese_pc_nfer: 'left_control'
     japanese_pc_xfer: 'left_shift'
     japanese_pc_katakana: 'right_command'
+
+    # For macbook JIS:
+    japanese_eisuu: "left_control"
+    japanese_kana: "left_shift"
+    left_control: escape
 
   # Main configurations
   complex_modifications:
