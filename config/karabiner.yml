@@ -1,3 +1,8 @@
+<%
+at_office = (ENV['USER'] == 'kokubun') # I use "k0kubun" for personal PC
+c_o_app = at_office ? 'Slack' : 'Nocturn'
+#c_o_app = 'Keynote'
+%>
 global:
   check_for_updates_on_startup: false
   show_in_menu_bar: true
@@ -35,8 +40,8 @@ profiles:
     caps_lock: escape
     left_option: right_command
 
-    # For macbook US/JIS
-    left_command: left_control
+    # For macbook US
+    #left_command: left_control
 
     # SAVIOR
     japanese_pc_nfer: 'left_control'
@@ -112,7 +117,7 @@ profiles:
 <%    at_office = (ENV['USER'] == 'kokubun') # I use "k0kubun" for personal PC
       {
         u: 'Google Chrome',
-        o: at_office ? 'Slack' : 'Nocturn',
+        o: c_o_app,
         h: 'Utilities/Terminal',
       }.each do |key, app| %>
       - type: basic
