@@ -9,6 +9,7 @@ endif
 " Language
 NeoBundleLazy 'vim-ruby/vim-ruby', { 'autoload': { 'filetypes': 'ruby' } }
 NeoBundle 'kana/vim-textobj-user'
+NeoBundleLazy 'kana/vim-textobj-indent', { 'autoload': { 'filetypes': ['haml'] } } " `vii` to select block
 NeoBundleLazy 'rhysd/vim-textobj-ruby', { 'autoload': { 'filetypes': 'ruby' } }
 NeoBundleLazy 'mrkn/vim-cruby', { 'autoload': { 'filetypes': ['c', 'cruby'] } }
 " NeoBundle 'tpope/vim-rails'
