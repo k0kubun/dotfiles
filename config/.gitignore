@@ -22,4 +22,5 @@ dump.rdb
 .vagrant
 .bundle
 .gdbinit
+[
 ]
