@@ -23,3 +23,9 @@ dotfile '.gemrc'
 dotfile '.pryrc'
 dotfile '.railsrc'
 dotfile '.gtkrc-2.0'
+
+remote_file '/lib/systemd/system/mysql.service' do
+  owner 'root'
+  group 'root'
+  mode '644'
+end
