@@ -12,4 +12,4 @@ Restart=always
 Environment=DISPLAY=<%= ENV['DISPLAY'] %>
 
 [Install]
-WantedBy=graphical.target
+WantedBy=default.target

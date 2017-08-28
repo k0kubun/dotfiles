@@ -20,6 +20,8 @@ end
 
 template "#{ENV['HOME']}/.config/systemd/user/xremap.service" do
   source 'templates/xremap.service'
+  owner 'k0kubun'
+  mode '644'
 end
 
 user_service 'xremap' do
