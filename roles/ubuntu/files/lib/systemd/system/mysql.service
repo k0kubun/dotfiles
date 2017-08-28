@@ -15,6 +15,7 @@ ExecStartPre=/usr/share/mysql/mysql-systemd-start pre
 ExecStart=/usr/sbin/mysqld
 ExecStartPost=/usr/share/mysql/mysql-systemd-start post
 TimeoutSec=600
+Environment="TZ=UTC"
 Restart=on-failure
 RuntimeDirectory=mysqld
 RuntimeDirectoryMode=755
