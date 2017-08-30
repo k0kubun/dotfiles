@@ -105,6 +105,14 @@ function replace-all() {
 	done
 }
 
+function format-all() {
+	(
+		cd "$(git rev-parse --show-toplevel)"
+		replace-githooks
+		find . -name "*.java" | xargs .git/hooks/idea-format.sh -s .git/hooks/codestyle/IntelliJIdea14/Airlift.xml
+	)
+}
+
 functions tags-update() {
 	source ~/.githooks/ctags
 }
