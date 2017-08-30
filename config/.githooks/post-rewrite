@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # This is fired after git commit --amend and git rebase,
 # but the former is already covered by post-commit.
 case "$1" in

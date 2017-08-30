@@ -4,3 +4,6 @@
 [submodule "config/.vim/dicts"]
 	path = config/.vim/dicts
 	url = https://github.com/pocke/dicts
+[submodule "config/.githooks/codestyle"]
+	path = config/.githooks/codestyle
+	url = https://github.com/airlift/codestyle.git

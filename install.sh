@@ -1,8 +1,8 @@
 #!/bin/sh
 
-set -e
+set -ex
 
-if ! [ -d config/.vim/bundle/neobundle.vim/.git ]; then
+if ! [ -f config/.vim/bundle/neobundle.vim/.git -a -f config/.githooks/codestyle/.git ]; then
   git submodule init && git submodule update --depth 1
 fi
 

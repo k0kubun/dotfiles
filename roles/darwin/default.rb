@@ -26,3 +26,7 @@ end
 link "#{ENV['HOME']}/Library/LaunchAgents/homebrew.mxcl.mysql.plist" do
   to '/usr/local/opt/mysql/homebrew.mxcl.mysql.plist'
 end
+
+link "#{ENV['HOME']}/.git-template/hooks" do
+  to "#{ENV['HOME']}/.githooks"
+end

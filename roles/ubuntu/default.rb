@@ -29,3 +29,7 @@ remote_file '/lib/systemd/system/mysql.service' do
   group 'root'
   mode '644'
 end
+
+link "#{ENV['HOME']}/.git-template/hooks" do
+  to "#{ENV['HOME']}/.githooks"
+end

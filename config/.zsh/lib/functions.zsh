@@ -95,14 +95,12 @@ function replace-githooks() {
 		rm -rf .git/hooks
 	fi
 	ln -s ~/.githooks .git/hooks
-	mkdir -p .git/local_hooks
 }
 
 function replace-all() {
 	for repo in `ghq list`; do
 		pushd "${GOPATH}/src/${repo}" > /dev/null
 		replace-githooks
-		source .git/hooks/ctags &
 		popd > /dev/null
 	done
 }
