@@ -47,7 +47,7 @@ class GitHubRepository
   end
 end
 
-repo = GitHubRepository.new('k0kubun/mitamae')
+repo = GitHubRepository.new('itamae-kitchen/mitamae')
 version       = repo.latest_version
 linux_shasum  = repo.latest_sha256_for("mitamae-x86_64-linux.tar.gz")
 darwin_shasum = repo.latest_sha256_for("mitamae-x86_64-darwin.tar.gz")
