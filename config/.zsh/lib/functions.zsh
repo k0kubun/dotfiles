@@ -106,9 +106,10 @@ function replace-all() {
 
 function format-all() {
 	(
-		cd "$(git rev-parse --show-toplevel)"
+		repo_root="$(git rev-parse --show-toplevel)"
+		cd "repo_root"
 		replace-githooks
-		find . -name "*.java" | xargs .git/hooks/idea-format.sh -s .git/hooks/codestyle/IntelliJIdea14/Airlift.xml
+		find . -name "*.java" | sed -e "s|^\.\/|$repo_root/|" | xargs .git/hooks/idea-format.sh -s "$(readlink .git/hooks)/codestyle/IntelliJIdea14/Airlift.xml"
 	)
 }
 
