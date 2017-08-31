@@ -91,17 +91,16 @@ function pass() {
 }
 
 function replace-githooks() {
-	if [ -e .git/hooks ]; then
-		rm -rf .git/hooks
-	fi
+	rm -f .git/hooks
 	ln -s ~/.githooks .git/hooks
 }
 
 function replace-all() {
 	for repo in `ghq list`; do
-		pushd "${GOPATH}/src/${repo}" > /dev/null
-		replace-githooks
-		popd > /dev/null
+		(
+			cd "${GOPATH}/src/${repo}"
+			replace-githooks
+		)
 	done
 }
 
