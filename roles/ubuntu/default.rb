@@ -24,10 +24,12 @@ dotfile '.pryrc'
 dotfile '.railsrc'
 dotfile '.gtkrc-2.0'
 
+# For TZ=UTC
 remote_file '/lib/systemd/system/mysql.service' do
   owner 'root'
   group 'root'
   mode '644'
+  only_if 'which mysql'
 end
 
 link "#{ENV['HOME']}/.git-template/hooks" do
