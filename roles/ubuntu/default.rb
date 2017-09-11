@@ -15,8 +15,6 @@ if has_package?('wine')
   include_cookbook '1password'
 end
 
-package 'compizconfig-settings-manager'
-
 dotfile '.Xmodmap'
 dotfile '.rake'
 dotfile '.gemrc'
