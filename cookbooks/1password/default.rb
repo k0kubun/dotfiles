@@ -40,5 +40,5 @@ remote_file "#{ENV['HOME']}/.config/systemd/user/agile1pagent.service" do
 end
 
 user_service 'agile1pagent' do
-  action [:enable, :start]
+  action :start
 end
