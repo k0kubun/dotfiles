@@ -1,2 +1,2 @@
 #!/bin/bash -e
-"$(git rev-parse --show-toplevel)/.git/hooks/java-fmt.sh"
+#"$(git rev-parse --show-toplevel)/.git/hooks/java-fmt.sh"
