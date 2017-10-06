@@ -9,7 +9,7 @@
   excludesfile = ~/.gitignore
   editor = vim
   filemode = true
-  pager = less -r
+  #pager = less -r
 [alias]
   co = checkout
   st = status -sb
