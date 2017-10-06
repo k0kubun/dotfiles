@@ -37,3 +37,9 @@ end
 
 # require 'active_support'
 # require 'active_support/core_ext'
+
+autoload :URI, 'uri'
+autoload :Base64, 'base64'
+autoload :SecureRandom, 'securerandom'
+autoload :JSON, 'json'
+autoload :YAML, 'yaml'
