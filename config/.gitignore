@@ -24,3 +24,5 @@ dump.rdb
 .gdbinit
 [
 ]
+/.trunk
+/.trunk2
