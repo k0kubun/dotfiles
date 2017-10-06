@@ -1,7 +1,5 @@
 Pry.editor = 'vim'
 
-Pry.config.commands.alias_command 'vi', 'edit'
-
 Pry.config.prompt = [
   proc { |target_self, nest_level, pry|
     nested = (nest_level.zero?) ? '' : ":#{nest_level}"
@@ -31,12 +29,9 @@ if defined?(PryByebug)
   end
 end
 
-def ppp(code)
-  puts Pry.Code(code).highlighted
-end
-
-# require 'active_support'
-# require 'active_support/core_ext'
+# def ppp(code)
+#   puts Pry.Code(code).highlighted
+# end
 
 autoload :URI, 'uri'
 autoload :Base64, 'base64'
