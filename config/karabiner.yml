@@ -174,8 +174,10 @@ profiles:
       manipulators:
 
       # Cmd-s -> Cmd-f
+      # C-f -> Right (For Confluence)
 <%    {
         ['s', ['right_command']] => ['f', ['right_command']],
+        ['f', ['left_control']] => ['right_arrow', []],
       }.each do |from, to|
         from_key, from_value = from
         to_key,   to_value   = to %>
@@ -186,7 +188,9 @@ profiles:
             mandatory: <%= from_value %>
         to:
         - key_code: <%= to_key %>
+<%      unless to_value.empty? %>
           modifiers: <%= to_value %>
+<%      end %>
         conditions:
         - type: frontmost_application_if
           bundle_identifiers:
