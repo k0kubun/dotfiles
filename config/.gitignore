@@ -26,3 +26,5 @@ dump.rdb
 ]
 /.trunk
 /.trunk2
+/.opt_call
+/.modified
