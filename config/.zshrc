@@ -22,8 +22,8 @@ source ~/.zsh/lib/peco.zsh
 source ~/.zsh/lib/theme.zsh
 
 # Environment-local configurations
-[ -f ~/.zshrc.`uname` ] && source ~/.zshrc.`uname`
-[ -f ~/.zshrc.local ]   && source ~/.zshrc.local
+if [ -f ~/.zshrc.`uname` ]; then source ~/.zshrc.`uname`; fi
+if [ -f ~/.zshrc.local ]; then source ~/.zshrc.local; fi
 
 export NVM_DIR="/Users/kokubun/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+if [ -s "$NVM_DIR/nvm.sh" ]; then source "$NVM_DIR/nvm.sh"; fi  # This loads nvm
