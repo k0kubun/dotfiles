@@ -1,0 +1,77 @@
+include "109.nodoka"
+
+###############################################################################
+# Global
+###############################################################################
+keymap Global
+
+# Modifiers
+mod Shift += 変換
+key *変換 = *RShift
+mod Control += 無変換
+key *無変換 = *LControl
+mod Alt += ひらがな
+key *ひらがな = *RAlt
+
+# CapsLock -> Esc
+key 英数 = Esc
+key C-英数 = 英数
+
+# Launchers
+key C-U = &SetForegroundWindow(/./ && /Chrome/)
+key C-O = &SetForegroundWindow(/./ && /Nocturn/)
+key C-H = &SetForegroundWindow(/./ && /GVIM/)
+
+# Screen Lock (Log off)
+key C-M-L = W-L
+
+# Cmd by Alt
+key M-C = C-c
+key M-V = C-v
+
+
+###############################################################################
+# Unless Vim
+###############################################################################
+window UnlessVim /^(?!C:[^:]+[\\\]gvim\.exe)/ : Global
+
+# Emacs Bindings
+keyseq $EmacsEdit/kill-line = &EmacsEditKillLineFunc S-End C-X &Sync &EmacsEditKillLinePred((Delete), (Return Left))
+keyseq $EmacsEdit/kill-word = S-C-Right Delete
+keyseq $EmacsEdit/backward-kill-word = S-C-Left Delete
+key C-A = Home
+key C-E = End
+key C-P = Up
+key C-N = Down
+key C-B = Left
+key C-F = Right
+key M-B = C-Left
+key M-F = C-Right
+key C-d = Delete
+key C-K	= $EmacsEdit/kill-line
+key M-d = $EmacsEdit/kill-word
+key C-w = $EmacsEdit/backward-kill-word
+
+
+###############################################################################
+# Unless Vim or Nocturn
+###############################################################################
+window UnlessVimOrNocturn /^(?!C:[^:]+[\\\](gvim\.exe|Nocturn\.exe))/ : Global
+
+# Tab management by Cmd
+key M-O = C-S-Tab
+key M-P = C-Tab
+key M-T = C-T
+key M-W = C-W
+
+###############################################################################
+# Only Chrome
+###############################################################################
+window OnlyChrome /^C:[^:]+[\\\]chrome\.exe/ : Global
+
+# For Alt+Click
+key *LAlt = *LControl
+
+# Chrome Cmd handlers
+key M-L = C-L
+key M-S = C-F
