@@ -3,3 +3,9 @@ alias peco='fzy'
 
 source ~/.zsh/lib/tmux.zsh
 export GHQ_ROOT="/c/Users/k0kubun/src"
+
+function msys2-tmux-new-window() {
+	tmux new-window zsh
+}
+zle -N msys2-tmux-new-window
+bindkey '^q' msys2-tmux-new-window
