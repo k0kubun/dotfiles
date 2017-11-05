@@ -6,21 +6,21 @@ include "109.nodoka"
 keymap Global
 
 # Modifiers
-mod Shift += 変換
-key *変換 = *RShift
-mod Control += 無変換
-key *無変換 = *LControl
-mod Alt += ひらがな
-key *ひらがな = *RAlt
+mod Shift += Convert
+key *Convert = *RShift
+mod Control += NonConvert
+key *NonConvert = *LControl
+mod Alt += Hiragana
+key *Hiragana = *RAlt
 
 # CapsLock -> Esc
-key 英数 = Esc
-key C-英数 = 英数
+key Eisuu = Esc
+key S-Eisuu = Esc
 
 # Launchers
 key C-U = &SetForegroundWindow(/./ && /Chrome/)
 key C-O = &SetForegroundWindow(/./ && /Nocturn/)
-key C-H = &SetForegroundWindow(/./ && /GVIM/)
+key C-H = &SetForegroundWindow(/mintty/)
 
 # Screen Lock (Log off)
 key C-M-L = W-L
@@ -29,11 +29,14 @@ key C-M-L = W-L
 key M-C = C-c
 key M-V = C-v
 
+# \ -> _
+key BackSlash = S-BackSlash
+
 
 ###############################################################################
-# Unless Vim
+# Unless Vim or Mintty
 ###############################################################################
-window UnlessVim /^(?!C:[^:]+[\\\]gvim\.exe)/ : Global
+window UnlessVimOrMintty /^(?!C:[^:]+[\\\](gvim|mintty)\.exe)/ : Global
 
 # Emacs Bindings
 keyseq $EmacsEdit/kill-line = &EmacsEditKillLineFunc S-End C-X &Sync &EmacsEditKillLinePred((Delete), (Return Left))
@@ -54,9 +57,9 @@ key C-w = $EmacsEdit/backward-kill-word
 
 
 ###############################################################################
-# Unless Vim or Nocturn
+# Unless Vim, Mintty or Nocturn
 ###############################################################################
-window UnlessVimOrNocturn /^(?!C:[^:]+[\\\](gvim\.exe|Nocturn\.exe))/ : Global
+window UnlessVimMinttyOrNocturn /^(?!C:[^:]+[\\\](gvim|mintty|Nocturn)\.exe)/ : Global
 
 # Tab management by Cmd
 key M-O = C-S-Tab
