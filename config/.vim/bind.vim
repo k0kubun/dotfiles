@@ -49,9 +49,16 @@ noremap <silent> ;s :<C-u>source<Space>~/.vimrc<CR>
 cmap <C-f> <Right>
 cmap <C-b> <Left>
 
+" windows new-window workaround
+if has('win32unix')
+  noremap <silent> <C-q> :<C-u>r !tmux new-window zsh<CR>
+endif
+
 " paste
 if has('mac')
   nnoremap gp :<C-u>r !pbpaste<CR>
+elseif has('win32unix')
+  nnoremap gp :<C-u>r !cat /dev/clipboard<CR>
 else
   nnoremap gp :<C-u>r !xsel -b<CR>
 endif
