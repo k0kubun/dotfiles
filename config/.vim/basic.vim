@@ -20,7 +20,7 @@ filetype plugin on               " Enable filetype handling
 
 " Copy to clipboard by yank
 set clipboard&
-if system("echo -n \"$(uname)\"") == "Darwin"
+if has('mac') || has('win32unix')
   set clipboard^=unnamed
 else
   set clipboard^=unnamedplus
