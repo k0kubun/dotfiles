@@ -1,0 +1,5 @@
+alias ls='ls -la --color'
+alias peco='fzy'
+
+source ~/.zsh/lib/tmux.zsh
+export GHQ_ROOT="/c/Users/k0kubun/src"
