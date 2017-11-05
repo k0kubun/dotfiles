@@ -18,8 +18,8 @@ key Eisuu = Esc
 key S-Eisuu = Esc
 
 # Launchers
-key C-U = &SetForegroundWindow(/./ && /Chrome/)
-key C-O = &SetForegroundWindow(/./ && /Nocturn/)
+key C-U = &SetForegroundWindow(/./ && / - Google Chrome$/)
+key C-O = &SetForegroundWindow(/./ && /^Nocturn$/)
 key C-H = &SetForegroundWindow(/mintty/)
 
 # Screen Lock (Log off)
