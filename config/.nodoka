@@ -87,3 +87,4 @@ window OnlyMintty /^C:[^:]+[\\\]mintty\.exe/ : Global
 
 # For new-window workaround on tmux by M-t
 key M-T = C-Q
+key M-V = S-Insert
