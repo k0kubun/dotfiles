@@ -28,3 +28,5 @@ dump.rdb
 /.trunk2
 /.opt_call
 /.modified
+/.linux
+/.macos
