@@ -1,0 +1,9 @@
+[Unit]
+Description=Update IEServer DDNS
+
+[Service]
+Type=simple
+ExecStart=/opt/local/ddns-update/update.sh
+
+[Install]
+WantedBy=default.target

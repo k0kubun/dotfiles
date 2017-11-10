@@ -23,6 +23,7 @@ dotfile '.railsrc'
 dotfile '.gtkrc-2.0'
 
 include_recipe 'ssh-agent'
+include_recipe 'ddns-update'
 
 # For TZ=UTC
 remote_file '/lib/systemd/system/mysql.service' do

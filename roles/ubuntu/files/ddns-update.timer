@@ -1,0 +1,10 @@
+[Unit]
+Description=Timer to update IEServer DDNS
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=5min
+Unit=ddns-update.service
+
+[Install]
+WantedBy=timers.target
