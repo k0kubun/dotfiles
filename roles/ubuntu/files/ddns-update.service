@@ -3,7 +3,7 @@ Description=Update IEServer DDNS
 
 [Service]
 Type=simple
-ExecStart=/opt/local/ddns-update/update.sh
+ExecStart=/usr/bin/ruby /opt/local/ddns-update/update
 
 [Install]
 WantedBy=default.target

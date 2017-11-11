@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+module DDNS
+  CONFIG_PATH = '/opt/local/ddns-update/config.yml'
+
+  # @return [TrueClass,FalseClass] `true` if success
+  def self.update(new_ip)
+    require 'yaml'
+    require 'aws-sdk-route53'
+
+    config = YAML.load(File.read(CONFIG_PATH))
+
+    Aws.config[:region] = config.fetch('region')
+    client = Aws::Route53::Client.new(
+      access_key_id: config.fetch('access_key_id'),
+      secret_access_key: config.fetch('secret_access_key'),
+    )
+
+    resp = client.change_resource_record_sets({
+      change_batch: {
+        changes: [{
+          action: 'UPSERT',
+          resource_record_set: {
+            name: config.fetch('domain'),
+            type: 'A',
+            resource_records: [
+              { value: new_ip },
+            ],
+            ttl: 300,
+          },
+        }],
+        comment: 'update from ddns-update',
+      },
+      hosted_zone_id: config.fetch('hosted_zone_id'),
+    })
+    resp.error.nil?
+  end
+end
+
+ip_path = File.expand_path('./current', __dir__)
+
+old_ip = File.read(ip_path)
+new_ip = `curl -s http://ieserver.net/ipcheck.shtml`
+
+if old_ip == new_ip
+  puts "[#{Time.now}] Not changed from: #{old_ip}"
+  exit 0
+end
+
+if DDNS.update(new_ip)
+  File.write(ip_path, new_ip)
+  puts "[#{Time.now}] Succeeded to change: #{old_ip} -> #{new_ip}"
+else
+  puts "[#{Time.now}] Failed to change: #{old_ip} -> #{new_ip}"
+  exit 1
+end
