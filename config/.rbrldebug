@@ -1,5 +1,0 @@
-#!/usr/bin/env ruby
-
-class RubyReadlineDebugger
-end
-puts 'a'
