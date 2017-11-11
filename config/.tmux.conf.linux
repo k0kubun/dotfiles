@@ -1,1 +1,7 @@
 bind-key -t vi-copy y copy-pipe "xclip -selection c"
+
+# copy mode (tmux 2.1)
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy V select-line
+bind-key -t vi-copy C-v rectangle-toggle
+bind-key -t vi-copy Y copy-line

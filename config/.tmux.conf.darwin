@@ -8,3 +8,9 @@ bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namesp
 # workaround...
 # `tmux ls | peco` is somehow broken
 bind-key k new-window "tmux ls > /tmp/tmux-ls && cat /tmp/tmux-ls | peco | cut -d':' -f 1 | xargs tmux kill-session -t"
+
+# copy mode (tmux 2.6)
+bind-key -T copy-mode-vi v send -X begin-selection
+bind-key -T copy-mode-vi V send -X select-line
+bind-key -T copy-mode-vi C-v send -X rectangle-toggle
+bind-key -T copy-mode-vi Y send -X copy-line
