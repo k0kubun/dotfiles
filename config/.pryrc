@@ -14,7 +14,7 @@ Pry.config.prompt = [
 if defined?(PryByebug)
   aliases = {
     'n' => 'next',
-    's' => 'step',
+    #'s' => 'step',
     'f' => 'finish',
     #'c' => 'continue',
   }
