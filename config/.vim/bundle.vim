@@ -17,7 +17,7 @@ NeoBundleLazy 'tpope/vim-haml', { 'autoload': { 'filetypes': 'haml' } }
 NeoBundleLazy 'slim-template/vim-slim', { 'autoload': { 'filetypes': 'slim' } }
 NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload': { 'filetypes': ['coffee'] } }
 NeoBundleLazy 'fatih/vim-go', { 'autoload': { 'filetypes': ['go'] } }
-" NeoBundleLazy 'vim-scripts/applescript.vim', { 'autoload': { 'filetypes': ['applescript'] } }
+NeoBundleLazy 'vim-scripts/applescript.vim', { 'autoload': { 'filetypes': ['applescript'] } }
 " NeoBundle 'Shougo/vinarise.vim'
 " NeoBundleLazy 'rodjek/vim-puppet', { 'autoload': { 'filetypes': ['puppet'] } }
 " NeoBundleLazy 'elixir-lang/vim-elixir', { 'autoload': { 'filetypes': ['elixir'] } }
