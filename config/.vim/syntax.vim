@@ -1,5 +1,3 @@
-syntax on
-
 " Syntax highlights for custom extensions
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
 autocmd BufNewFile,BufRead Gemfile.shared set filetype=ruby
@@ -41,22 +39,3 @@ autocmd BufNewFile,BufRead *.group set filetype=ruby
 " To fix sh mode's syntax highlight for `$()`.
 " https://www.reddit.com/r/vim/comments/25g1sp/why_doesnt_vim_syntax_like_my_shell_files/chlc4ep/
 let g:is_posix = 1
-
-" Change git's core.commentchar
-autocmd FileType gitcommit syn match   gitcommitComment /^>.*/
-autocmd FileType gitcommit syn match   gitcommitFirstLine	"\%^[^>].*"  nextgroup=gitcommitBlank skipnl
-autocmd FileType gitcommit syn match   gitcommitBlank	"^[^>].*" contained contains=@Spell
-autocmd FileType gitcommit syn match   gitcommitComment	"^>.*"
-autocmd FileType gitcommit syn match   gitcommitHead	"^\%(>   .*\n\)\+>$" contained transparent
-autocmd FileType gitcommit syn match   gitcommitOnBranch	"\%(^> \)\@<=On branch" contained containedin=gitcommitComment nextgroup=gitcommitBranch skipwhite
-autocmd FileType gitcommit syn match   gitcommitOnBranch	"\%(^> \)\@<=Your branch .\{-\} '" contained containedin=gitcommitComment nextgroup=gitcommitBranch skipwhite
-autocmd FileType gitcommit syn match   gitcommitNoBranch	"\%(^> \)\@<=Not currently on any branch." contained containedin=gitcommitComment
-autocmd FileType gitcommit syn match   gitcommitHeader	"\%(^> \)\@<=.*:$"	contained containedin=gitcommitComment
-autocmd FileType gitcommit syn region  gitcommitAuthor	matchgroup=gitCommitHeader start=/\%(^> \)\@<=\%(Author\|Committer\):/ end=/$/ keepend oneline contained containedin=gitcommitComment transparent
-autocmd FileType gitcommit syn match   gitcommitNoChanges	"\%(^> \)\@<=No changes$" contained containedin=gitcommitComment
-autocmd FileType gitcommit syn region  gitcommitUntracked	start=/^> Untracked files:/ end=/^>$\|^>\@!/ contains=gitcommitHeader,gitcommitHead,gitcommitUntrackedFile fold
-autocmd FileType gitcommit syn region  gitcommitDiscarded	start=/^> Change\%(s not staged for commit\|d but not updated\):/ end=/^>$\|^>\@!/ contains=gitcommitHeader,gitcommitHead,gitcommitDiscardedType fold
-autocmd FileType gitcommit syn region  gitcommitSelected	start=/^> Changes to be committed:/ end=/^>$\|^>\@!/ contains=gitcommitHeader,gitcommitHead,gitcommitSelectedType fold
-autocmd FileType gitcommit syn region  gitcommitUnmerged	start=/^> Unmerged paths:/ end=/^>$\|^>\@!/ contains=gitcommitHeader,gitcommitHead,gitcommitUnmergedType fold
-autocmd FileType gitcommit syn match   gitcommitWarning		"\%^[^>].*: needs merge$" nextgroup=gitcommitWarning skipnl
-autocmd FileType gitcommit syn match   gitcommitWarning		"^[^>].*: needs merge$" nextgroup=gitcommitWarning skipnl contained

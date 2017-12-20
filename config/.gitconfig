@@ -6,7 +6,6 @@
 [color]
   ui = true
 [core]
-  commentchar = ">"
   excludesfile = ~/.gitignore
   editor = vim
   filemode = true
