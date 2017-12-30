@@ -30,3 +30,4 @@ dump.rdb
 /.modified
 /.linux
 /.macos
+/core
