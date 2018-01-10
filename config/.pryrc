@@ -29,6 +29,8 @@ if defined?(PryByebug)
   end
 end
 
+Pry::Commands.alias_command('exit!', 'exit-program') # to hook at_exit
+
 # def ppp(code)
 #   puts Pry.Code(code).highlighted
 # end
