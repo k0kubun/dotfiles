@@ -13,9 +13,9 @@
 }
 
 GtkEntry {
-  gtk-key-bindings: paragraph-cursor;
+  -gtk-key-bindings: paragraph-cursor;
 }
 
 GtkTextView {
-  gtk-key-bindings: paragraph-cursor;
+  -gtk-key-bindings: paragraph-cursor;
 }

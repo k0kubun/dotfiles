@@ -1,5 +1,5 @@
 # language
-export LANG=ja_JP.UTF-8
+#export LANG=ja_JP.UTF-8
 
 # auto cd by dir name
 # setopt auto_cd
