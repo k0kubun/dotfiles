@@ -1,6 +1,6 @@
 # Configuration for git
 alias gs="git status"
-alias gd="git diff"
+alias gd="git --no-pager diff"
 alias ga="git commit -am"
 alias gh="git branch"
 alias co="git checkout"
@@ -13,9 +13,9 @@ alias current-branch='git rev-parse --abbrev-ref HEAD'
 
 function gl(){
 	if [ $# -ne 0 ]; then
-		git log --date=iso --pretty=format:'%h %Cgreen%ad %Cblue%an %Creset%s %C(blue)%d%Creset' $@
+		git --no-pager log --date=iso --pretty=format:'%h %Cgreen%ad %Cblue%an %Creset%s %C(blue)%d%Creset' $@
 	else
-		git log --date=iso --pretty=format:'%h %Cgreen%ad %Cblue%an %Creset%s %C(blue)%d%Creset' -10
+		git --no-pager log --date=iso --pretty=format:'%h %Cgreen%ad %Cblue%an %Creset%s %C(blue)%d%Creset' -10
 	fi
 }
 
@@ -59,7 +59,7 @@ function gp() {
 
 function gg() {
 	if [[ -n `git rev-parse --git-dir 2> /dev/null` ]]; then
-		git grep -n $@
+		git --no-pager grep -n $@
 	else
 		find . -type f | xargs grep -n --color=auto $@
 	fi
