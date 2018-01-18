@@ -30,7 +30,7 @@ window class_not: %w[slack google-chrome gnome-terminal-server urxvt Focus-Proxy
   # actually these are vim insert mode bindings, but compatible with shell
   remap 'C-w', to: ['Ctrl-Shift-Left', 'Delete']
 
-  %w[a z x c v w t l].each do |key|
+  %w[a z x c w t l].each do |key|
     remap "Alt-#{key}", to: "C-#{key}"
   end
 end
@@ -80,4 +80,8 @@ window class_only: 'slack' do
   (1..9).each do |i|
     remap "Alt-#{i}", to: "Ctrl-#{i}"
   end
+end
+
+window class_only: 'nocturn' do
+  remap 'Alt-v', to: 'Ctrl-v'
 end
