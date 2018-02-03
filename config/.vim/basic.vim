@@ -19,6 +19,7 @@ let g:netrw_dirhistmax = 0       " Prevent clipboard pollution by clipboard^=unn
 filetype plugin on               " Enable filetype handling
 set list                         " Show invisible characters
 set listchars=tab:»-             " Show hard tab like `»-------`
+let loaded_matchparen = 1        " Don't highlight match parenthesis
 
 " Copy to clipboard by yank
 set clipboard&
