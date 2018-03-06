@@ -175,6 +175,7 @@ profiles:
 
       # Cmd-s -> Cmd-f
       # C-f -> Right (For Confluence)
+      # Cmd-Enter -> Enter (To disable comment on GitHub)
 <%    {
         ['s', ['right_command']] => ['f', ['right_command']],
         ['f', ['left_control']] => ['right_arrow', []],
