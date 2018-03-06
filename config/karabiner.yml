@@ -178,6 +178,7 @@ profiles:
 <%    {
         ['s', ['right_command']] => ['f', ['right_command']],
         ['f', ['left_control']] => ['right_arrow', []],
+        ['return_or_enter', ['right_command']] => ['return_or_enter', []],
       }.each do |from, to|
         from_key, from_value = from
         to_key,   to_value   = to %>
