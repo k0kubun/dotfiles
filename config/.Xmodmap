@@ -1,26 +1,2 @@
-! Henkan -> Shift
-keycode 100 = Shift_L
-add Shift = Henkan_Mode
-
-! Katakana Hiragana -> Alt
-keycode 101 = Alt_R
-add mod1 = Alt_R
-
-! Alt_L <-> Control_R
-remove Control = Control_R
-remove Mod1 = Alt_L
-keycode 105 = Alt_L
-keycode 64 = Control_R
-add Control = Control_R
-add Mod1 = Alt_L
-
-! Muhenkan -> Control_L
-keycode 102 = Control_L
-add Control = Control_L
-
-! CapsLock -> Escape
-clear lock
-keycode 66 = Escape
-
 ! Backslash -> Underscore (Without Shift, Like MacBook)
 keycode 97 = underscore
