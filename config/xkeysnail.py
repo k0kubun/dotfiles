@@ -49,6 +49,9 @@ define_keymap(lambda wm_class: wm_class not in ("Google-chrome", "Slack", "Gnome
     K("M-t"): K("C-t"),
     K("M-l"): K("C-l"),
 
+    # actually these are vim insert mode bindings, but compatible with shell
+    K("C-w"): [K("C-Shift-left"), K("delete")],
+
     K("C-d"): K("delete"),
     K("M-d"): K("C-delete"),
 }, "Mainly for Nocturn (but probably work arounded)")
@@ -78,6 +81,9 @@ define_keymap(lambda wm_class: wm_class in ("Google-chrome", "Slack"), {
     K("M-w"): K("C-w"),
     K("M-t"): K("C-t"),
     K("M-l"): K("C-l"),
+
+    # actually these are vim insert mode bindings, but compatible with shell
+    K("C-w"): [K("C-Shift-left"), K("delete")],
 
     # Tabs
     K("M-o"): K("C-Shift-tab"),
