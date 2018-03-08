@@ -27,3 +27,6 @@ if [ -f ~/.zshrc.local ]; then source ~/.zshrc.local; fi
 
 export NVM_DIR="/Users/kokubun/.nvm"
 if [ -s "$NVM_DIR/nvm.sh" ]; then source "$NVM_DIR/nvm.sh"; fi  # This loads nvm
+
+# added by travis gem
+[ -f /home/k0kubun/.travis/travis.sh ] && source /home/k0kubun/.travis/travis.sh

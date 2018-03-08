@@ -31,3 +31,11 @@ dump.rdb
 /.linux
 /.macos
 /core
+/.tmp
+/.force-ruby
+/.ruby-svn-check
+/.ruby
+/.r6*
+/.before
+/.after
+/.debug
