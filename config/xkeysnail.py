@@ -88,6 +88,9 @@ define_keymap(lambda wm_class: wm_class in ("Google-chrome", "Slack"), {
     # Tabs
     K("M-o"): K("C-Shift-tab"),
     K("M-p"): K("C-tab"),
+
+    K("C-d"): K("delete"),
+    K("M-d"): K("C-delete"),
 }, "Chrome keys (but probably work arounded)")
 
 define_keymap(lambda wm_class: wm_class not in ("Gnome-terminal", "Nocturn"), {
