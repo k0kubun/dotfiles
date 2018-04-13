@@ -39,3 +39,4 @@ dump.rdb
 /.before
 /.after
 /.debug
+/.ruby-debug
