@@ -5,6 +5,7 @@ fi
 
 export GHQ=~/bin/ghq
 alias ls="ls -la --color"
+alias ll="ls -la --color"
 
 if ! pgrep ssh-agent > /dev/null; then
 	ssh-agent > "${HOME}/.ssh/agent_env"
