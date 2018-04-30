@@ -11,7 +11,7 @@ include_cookbook 'tmux'
 # include_cookbook 'vim'
 # include_cookbook 'thunderbolt'
 
-if has_package?('wine')
+if has_package?('wine') || has_package?('wine-stable')
   include_cookbook '1password'
 end
 
