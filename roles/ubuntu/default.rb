@@ -1,6 +1,11 @@
+node.reverse_merge!(
+  docker: {
+    users: %w[k0kubun],
+  },
+)
+
 include_role 'base'
 
-# include_cookbook 'urxvt'
 # include_cookbook 'xremap'
 include_cookbook 'skk'
 include_cookbook 'git'
@@ -10,6 +15,8 @@ include_cookbook 'zsh'
 include_cookbook 'tmux'
 # include_cookbook 'vim'
 # include_cookbook 'thunderbolt'
+include_cookbook 'docker'
+include_cookbook 'kubernetes'
 
 if has_package?('wine') || has_package?('wine-stable')
   include_cookbook '1password'
