@@ -19,6 +19,7 @@ let g:neocomplete#sources#dictionary#dictionaries = {
 " function! s:my_cr_function()
 "   return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 " endfunction
+autocmd FileType python set completeopt-=preview
 
 " Unite.vim
 let g:unite_enable_start_insert = 1
