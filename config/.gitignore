@@ -40,3 +40,4 @@ dump.rdb
 /.after
 /.debug
 /.ruby-debug
+*.pyc
