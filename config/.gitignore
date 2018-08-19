@@ -21,7 +21,6 @@ dump.rdb
 .byebug_history
 .vagrant
 .bundle
-.gdbinit
 [
 ]
 /.trunk

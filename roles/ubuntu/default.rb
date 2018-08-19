@@ -27,6 +27,7 @@ dotfile '.Xmodmap'
 dotfile '.gemrc'
 dotfile '.pryrc'
 dotfile '.railsrc'
+dotfile '.gdbinit'
 dotfile '.gtkrc-2.0'
 
 include_recipe 'ssh-agent'
