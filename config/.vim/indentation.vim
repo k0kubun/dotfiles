@@ -27,9 +27,8 @@ if has("autocmd")
   autocmd FileType zsh        setlocal sw=2 sts=2 ts=2 et noexpandtab
   autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
   autocmd FileType asm        setlocal sw=4 sts=4 ts=4 et noexpandtab
-  autocmd FileType make       setlocal ts=4
-  autocmd FileType cruby      set list " Show invisible characters
-  autocmd FileType cruby      set listchars=tab:»- " Show hard tab like `»-------`
+  autocmd FileType make       setlocal ts=4 list listchars=tab:»-
+  autocmd FileType cruby      setlocal list listchars=tab:»-
 endif
 
 set cinoptions+=g1,h1
