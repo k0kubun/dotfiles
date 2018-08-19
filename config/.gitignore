@@ -41,3 +41,7 @@ dump.rdb
 /.debug
 /.ruby-debug
 *.pyc
+/.objfcn
+/.opt-cancel
+/.send-cancel
+/.both-cancel
