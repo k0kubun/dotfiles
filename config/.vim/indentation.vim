@@ -23,11 +23,13 @@ if has("autocmd")
   autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
   autocmd FileType haskell    setlocal sw=2 sts=2 ts=2 et
   autocmd FileType yacc       setlocal sw=2 sts=2 ts=2 et
-  autocmd FileType go         setlocal sw=2 sts=2 ts=2 et noexpandtab
+  autocmd FileType go         setlocal sw=4 sts=4 ts=4 et noexpandtab
   autocmd FileType zsh        setlocal sw=2 sts=2 ts=2 et noexpandtab
   autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
   autocmd FileType asm        setlocal sw=4 sts=4 ts=4 et noexpandtab
   autocmd FileType make       setlocal ts=4
+  autocmd FileType cruby      set list " Show invisible characters
+  autocmd FileType cruby      set listchars=tab:»- " Show hard tab like `»-------`
 endif
 
 set cinoptions+=g1,h1
