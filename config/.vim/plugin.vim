@@ -93,3 +93,6 @@ nmap [Tag]ja <Plug>(JavaComplete-Imports-AddMissing)
 nmap [Tag]jr <Plug>(JavaComplete-Imports-RemoveUnused)
 nmap [Tag]ji <Plug>(JavaComplete-Imports-AddSmart)
 nmap [Tag]jI <Plug>(JavaComplete-Imports-Add)
+
+" sqlcomplete disable
+let g:omni_sql_no_default_maps = 1
