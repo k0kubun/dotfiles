@@ -30,6 +30,7 @@ autocmd BufNewFile,BufRead *.al set filetype=ruby
 autocmd BufNewFile,BufRead *.jb set filetype=ruby
 autocmd BufNewFile,BufRead insns.def set filetype=cruby
 autocmd BufNewFile,BufRead *.inc set filetype=cruby
+autocmd BufNewFile,BufRead Makefile.inc set filetype=make
 
 " codenize.tools
 autocmd BufNewFile,BufRead *.iam set filetype=ruby
