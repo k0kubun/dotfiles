@@ -44,3 +44,4 @@ dump.rdb
 /.opt-cancel
 /.send-cancel
 /.both-cancel
+.pytest_cache

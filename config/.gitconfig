@@ -41,3 +41,5 @@
   scriptdir = script
   directory = ~/src/github.com/k0kubun/dotfiles
   dependency = symlink.sh brew.sh cask.sh ruby.sh karabiner.sh
+[submodule]
+  recurse = true
