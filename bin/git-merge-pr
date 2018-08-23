@@ -10,7 +10,7 @@ if [ -z "$remote" -o -z "$pr_id" -o -z "$branch" ]; then
   git merge-pr <remote> <number> <branch>
 
 Example:
-  git merge-pr origin 1234 foo-bar
+  git merge-pr upstream 1234 foo-bar
   "
   exit 1
 fi
