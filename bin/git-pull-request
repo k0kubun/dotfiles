@@ -1,4 +1,5 @@
 #!/bin/bash -ue
+# ruby/ruby pull request merger
 
 remote=$1
 pr_id=$2
