@@ -1,16 +1,16 @@
 #!/bin/bash -ue
 # ruby/ruby pull request merger
 
-remote=$1
-pr_id=$2
-branch=$3
+remote="${1:-}"
+pr_id="${2:-}"
+branch="${3:-}"
 
 if [ -z "$remote" -o -z "$pr_id" -o -z "$branch" ]; then
   echo "Usage:
-  git pr <remote> <number> <branch>
+  git merge-pr <remote> <number> <branch>
 
 Example:
-  git pr origin 1234 foo-bar
+  git merge-pr origin 1234 foo-bar
   "
   exit 1
 fi
