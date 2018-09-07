@@ -135,16 +135,16 @@ profiles:
     - description: Non terminal remaps
       manipulators:
 
-      # Cmd-o -> Cmd-Shift-[
-      # Cmd-p -> Cmd-Shift-]
+      # Cmd-o -> Ctrl-Shift-Tab
+      # Cmd-p -> Ctrl-Shift-Tab
       # Cmd-b -> Opt-Left
       # Cmd-f -> Opt-Right
       # Cmd-d -> Opt-Delete
       # C-w -> Opt-Backspace
       # C-r -> Cmd-r
 <%    {
-        ['o', ['right_command']] => ['close_bracket', ['right_command', 'left_shift']], # close_bracket is open_bracket on JIS
-        ['p', ['right_command']] => ['backslash', ['right_command', 'left_shift']],     # backslash is close_bracket on JIS
+        ['o', ['right_command']] => ['tab', ['right_control', 'left_shift']],
+        ['p', ['right_command']] => ['tab', ['right_control', 'left_shift']],
         ['b', ['right_command']] => ['left_arrow', ['left_option']],
         ['f', ['right_command']] => ['right_arrow', ['left_option']],
         ['d', ['right_command']] => ['delete_forward', ['left_option']],
