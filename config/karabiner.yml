@@ -144,7 +144,7 @@ profiles:
       # C-r -> Cmd-r
 <%    {
         ['o', ['right_command']] => ['tab', ['right_control', 'left_shift']],
-        ['p', ['right_command']] => ['tab', ['right_control', 'left_shift']],
+        ['p', ['right_command']] => ['tab', ['right_control']],
         ['b', ['right_command']] => ['left_arrow', ['left_option']],
         ['f', ['right_command']] => ['right_arrow', ['left_option']],
         ['d', ['right_command']] => ['delete_forward', ['left_option']],
