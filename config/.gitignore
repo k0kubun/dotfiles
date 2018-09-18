@@ -45,3 +45,5 @@ dump.rdb
 /.send-cancel
 /.both-cancel
 .pytest_cache
+pp_.go
+/.purity
