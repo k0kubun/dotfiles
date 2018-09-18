@@ -1,2 +1,9 @@
 #!/bin/bash -e
 #"$(git rev-parse --show-toplevel)/.git/hooks/java-fmt.sh"
+
+#repo_root=$(git rev-parse --show-toplevel)
+#repo_name=$(basename "$repo_root")
+#
+#if [[ $repo_name = "ruby" || $repo_name = "ruby-svn" ]]; then
+#  test -e /usr/bin/ruby && /usr/bin/ruby "${repo_root}/.git/hooks/expandtab.rb"
+#fi
