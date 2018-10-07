@@ -15,7 +15,7 @@ alias current-branch='git rev-parse --abbrev-ref HEAD'
 # remove below once ruby moves to git
 
 function gs() {
-	if which svn > /dev/null && svn info > /dev/null; then
+	if which svn >/dev/null 2>/dev/null && svn info >/dev/null 2>/dev/null; then
 		svn status "$@"
 	else
 		git status "$@"
@@ -23,7 +23,7 @@ function gs() {
 }
 
 function gd() {
-	if which svn > /dev/null && svn info > /dev/null; then
+	if which svn >/dev/null 2>/dev/null && svn info >/dev/null 2>/dev/null; then
 		svn diff "$@"
 	else
 		git --no-pager diff "$@"
