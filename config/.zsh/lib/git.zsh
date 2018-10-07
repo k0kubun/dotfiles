@@ -1,6 +1,4 @@
 # Configuration for git
-alias gs="git status"
-alias gd="git --no-pager diff"
 alias ga="git commit -am"
 alias gh="git branch"
 alias co="git checkout"
@@ -11,9 +9,30 @@ alias empty="git commit --allow-empty -m"
 
 alias current-branch='git rev-parse --abbrev-ref HEAD'
 
+# alias gs="git status"
+# alias gd="git --no-pager diff"
+
+# remove below once ruby moves to git
+
+function gs() {
+	if which svn > /dev/null && svn info > /dev/null; then
+		svn status "$@"
+	else
+		git status "$@"
+	fi
+}
+
+function gd() {
+	if which svn > /dev/null && svn info > /dev/null; then
+		svn diff "$@"
+	else
+		git --no-pager diff "$@"
+	fi
+}
+
 function gl(){
 	if [ $# -ne 0 ]; then
-		git --no-pager log --date=iso --pretty=format:'%h %Cgreen%ad %Cblue%an %Creset%s %C(blue)%d%Creset' $@
+		git --no-pager log --date=iso --pretty=format:'%h %Cgreen%ad %Cblue%an %Creset%s %C(blue)%d%Creset' "$@"
 	else
 		git --no-pager log --date=iso --pretty=format:'%h %Cgreen%ad %Cblue%an %Creset%s %C(blue)%d%Creset' -10
 	fi
