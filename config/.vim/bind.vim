@@ -86,5 +86,4 @@ nnoremap <C-w>< <C-w>14<
 inoremap <C-v> require "pry";binding.pry
 
 " abbreviation
-autocmd FileType java inoremap { {<CR>}<Esc>O
-autocmd FileType java abbr psvm public static void main(String[] args) {<BS><Space><Space><Space>
+autocmd FileType java abbr psvm public static void main(String[] args) {<CR>}<Esc>O<BS><Space><Space><Space>
