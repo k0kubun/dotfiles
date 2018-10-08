@@ -84,3 +84,7 @@ nnoremap <C-w>< <C-w>14<
 " binding.pry
 " inoremap <C-v> begin;require "pry";binding.pry;rescue LoadError;require "irb";IRB.setup(nil);IRB.dbg(binding);end
 inoremap <C-v> require "pry";binding.pry
+
+" abbreviation
+autocmd FileType java inoremap { {<CR>}<Esc>O
+autocmd FileType java abbr psvm public static void main(String[] args) {
