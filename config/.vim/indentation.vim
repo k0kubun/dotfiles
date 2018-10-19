@@ -29,6 +29,8 @@ if has("autocmd")
   autocmd FileType asm        setlocal sw=4 sts=4 ts=4 et noexpandtab
   autocmd FileType make       setlocal ts=4 list listchars=tab:»-
   autocmd FileType cruby      setlocal list listchars=tab:»-
+
+  autocmd BufNewFile,BufRead configure.ac setlocal ts=8 list listchars=tab:»-
 endif
 
 set cinoptions+=g1,h1
