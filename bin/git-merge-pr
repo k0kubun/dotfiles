@@ -7,7 +7,7 @@ branch="${3:-}"
 
 if [ -z "$remote" -o -z "$pr_id" -o -z "$branch" ]; then
   echo "Usage:
-  git merge-pr <remote> <number> <branch>
+  git merge-pr <origin> <number> <branch>
 
 Example:
   git merge-pr upstream 1234 foo-bar
