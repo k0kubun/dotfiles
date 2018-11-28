@@ -1,24 +1,14 @@
 " neocomplete
-if !has("lua")
-  echoerr "if_lua is disabled, required for neocomplete! Execute: `brew install vim --with-lua`"
+if has("lua")
+  " if_lua is required for neocomplete! Execute: `brew install vim --with-lua`"
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_auto_select = 1
+  inoremap <expr><C-[> neocomplete#smart_close_popup()."\<Esc>"
+  let g:neocomplete#sources#dictionary#dictionaries = {
+  \   'ruby': $HOME . '/.vim/dicts/ruby.dict',
+  \ }
 endif
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_auto_select = 1
-inoremap <expr><C-[> neocomplete#smart_close_popup()."\<Esc>"
-let g:neocomplete#sources#dictionary#dictionaries = {
-\   'ruby': $HOME . '/.vim/dicts/ruby.dict',
-\ }
-" if !exists('g:neocomplete#force_omni_input_patterns')
-"   let g:neocomplete#force_omni_input_patterns = {}
-" endif
-" let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-"
-" " Recommended key-mappings.
-" " <CR>: close popup and save indent.
-" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-" function! s:my_cr_function()
-"   return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-" endfunction
+
 autocmd FileType python set completeopt-=preview
 
 " Unite.vim

@@ -32,8 +32,9 @@ NeoBundleLazy 'artur-shaik/vim-javacomplete2', { 'autoload': { 'filetypes': ['ja
 NeoBundleLazy 'Vimjas/vim-python-pep8-indent', { 'autoload': { 'filetypes': ['python'] } }
 
 " Completion
-" NeoBundle 'Shougo/neocomplcache.vim'
-NeoBundleLazy 'Shougo/neocomplete.vim', { 'autoload': { 'insert': 1 } }
+if has("lua")
+  NeoBundleLazy 'Shougo/neocomplete.vim', { 'autoload': { 'insert': 1 } }
+endif
 
 " Skin
 NeoBundle 'w0ng/vim-hybrid'
