@@ -71,18 +71,17 @@ augroup matchit
 augroup END
 
 " vim-javacomplete2
-if !has("python")
-  echoerr "if_python is disabled, required for vim-javacomplete2!"
-endif
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+if has("python")
+  autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-let g:JavaComplete_ImportOrder = ['*']
-let g:JavaComplete_ImportSortType = 'packageName'
-let g:JavaComplete_RegularClasses = ['java.lang.String', 'java.lang.Object', 'java.lang.Class']
-nmap [Tag]ja <Plug>(JavaComplete-Imports-AddMissing)
-nmap [Tag]jr <Plug>(JavaComplete-Imports-RemoveUnused)
-nmap [Tag]ji <Plug>(JavaComplete-Imports-AddSmart)
-nmap [Tag]jI <Plug>(JavaComplete-Imports-Add)
+  let g:JavaComplete_ImportOrder = ['*']
+  let g:JavaComplete_ImportSortType = 'packageName'
+  let g:JavaComplete_RegularClasses = ['java.lang.String', 'java.lang.Object', 'java.lang.Class']
+  nmap [Tag]ja <Plug>(JavaComplete-Imports-AddMissing)
+  nmap [Tag]jr <Plug>(JavaComplete-Imports-RemoveUnused)
+  nmap [Tag]ji <Plug>(JavaComplete-Imports-AddSmart)
+  nmap [Tag]jI <Plug>(JavaComplete-Imports-Add)
+endif
 
 " sqlcomplete disable
 let g:omni_sql_no_default_maps = 1
