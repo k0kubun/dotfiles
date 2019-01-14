@@ -29,9 +29,9 @@ NeoBundleLazy 'gavocanov/vim-js-indent', { 'autoload': { 'filetypes': ['javascri
 " NeoBundleLazy 'cespare/vim-toml', { 'autoload' : { 'filetypes': 'toml' } }
 " NeoBundleLazy 'racer-rust/vim-racer', { 'autoload' : { 'filetypes': 'rust' } }
 NeoBundleLazy 'Vimjas/vim-python-pep8-indent', { 'autoload': { 'filetypes': ['python'] } }
-if has("python")
-  NeoBundleLazy 'artur-shaik/vim-javacomplete2', { 'autoload': { 'filetypes': ['java'] } }
-endif
+" if has("python")
+"   NeoBundleLazy 'artur-shaik/vim-javacomplete2', { 'autoload': { 'filetypes': ['java'] } }
+" endif
 
 " Completion
 if has("lua")
