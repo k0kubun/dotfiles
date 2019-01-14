@@ -34,9 +34,9 @@ NeoBundleLazy 'Vimjas/vim-python-pep8-indent', { 'autoload': { 'filetypes': ['py
 " endif
 
 " Completion
-if has("lua")
-  NeoBundleLazy 'Shougo/neocomplete.vim', { 'autoload': { 'insert': 1 } }
-endif
+" if has("lua")
+"   NeoBundleLazy 'Shougo/neocomplete.vim', { 'autoload': { 'insert': 1 } }
+" endif
 
 " Skin
 NeoBundle 'w0ng/vim-hybrid'
