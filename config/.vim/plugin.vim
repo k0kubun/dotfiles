@@ -41,7 +41,8 @@ let g:gitgutter_sign_column_always = 1
 let g:extra_whitespace_ignored_filetypes = ['unite']
 
 " Unite.vim redraw limit
-let g:unite_redraw_hold_candidates = 26000
+" let g:unite_redraw_hold_candidates = 26000
+let g:unite_redraw_hold_candidates = 70000
 
 " vim-go
 " let g:go_fmt_autosave = 1
