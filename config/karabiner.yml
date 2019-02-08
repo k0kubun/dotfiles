@@ -117,6 +117,7 @@ profiles:
 <%    at_office = (ENV['USER'] == 'kokubun') # I use "k0kubun" for personal PC
       {
         u: 'Google Chrome',
+        i: 'IntelliJ IDEA CE',
         o: c_o_app,
         h: 'Utilities/Terminal',
       }.each do |key, app| %>
