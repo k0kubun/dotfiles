@@ -47,3 +47,4 @@ dump.rdb
 .pytest_cache
 pp_.go
 /.purity
+/.idea
