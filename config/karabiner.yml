@@ -241,7 +241,7 @@ profiles:
 <%    end %>
 
     ################################################################################
-    # Terminal remaps
+    # Slack remaps
     ################################################################################
     - description: Slack remaps
       manipulators:
@@ -293,3 +293,24 @@ profiles:
           bundle_identifiers:
           - "^com\\.tinyspeck\\.slackmacgap$"
 <%    end %>
+
+    ################################################################################
+    # IntelliJ remaps
+    ################################################################################
+    - description: IntelliJ remaps
+      manipulators:
+
+      # C-k -> [Shfit-End, Backspace]
+      - type: basic
+        from:
+          key_code: k
+          modifiers:
+            mandatory: left_control
+        to:
+        - key_code: end
+          modifiers: left_shift
+        - key_code: delete_or_backspace
+        conditions:
+        - type: frontmost_application_if
+          bundle_identifiers:
+          - "^com\\.jetbrains\\.intellij\\.ce$"
