@@ -131,21 +131,17 @@ profiles:
 <%    end %>
 
     ################################################################################
-    # Non Terminal remaps
+    # Non-Terminal remaps
     ################################################################################
     - description: Non terminal remaps
       manipulators:
 
-      # Cmd-o -> Ctrl-Shift-Tab
-      # Cmd-p -> Ctrl-Shift-Tab
       # Cmd-b -> Opt-Left
       # Cmd-f -> Opt-Right
       # Cmd-d -> Opt-Delete
       # C-w -> Opt-Backspace
       # C-r -> Cmd-r
 <%    {
-        ['o', ['right_command']] => ['tab', ['right_control', 'left_shift']],
-        ['p', ['right_command']] => ['tab', ['right_control']],
         ['b', ['right_command']] => ['left_arrow', ['left_option']],
         ['f', ['right_command']] => ['right_arrow', ['left_option']],
         ['d', ['right_command']] => ['delete_forward', ['left_option']],
@@ -166,6 +162,35 @@ profiles:
         - type: frontmost_application_unless
           bundle_identifiers:
           - "^com\\.apple\\.Terminal$"
+<%    end %>
+
+    ################################################################################
+    # Non-Terminal & non-IntelliJ remaps
+    ################################################################################
+    - description: Non-terminal & non-IntelliJ remaps
+      manipulators:
+
+      # Cmd-o -> Ctrl-Shift-Tab
+      # Cmd-p -> Ctrl-Shift-Tab
+<%    {
+        ['o', ['right_command']] => ['tab', ['right_control', 'left_shift']],
+        ['p', ['right_command']] => ['tab', ['right_control']],
+      }.each do |from, to|
+        from_key, from_value = from
+        to_key,   to_value   = to %>
+      - type: basic
+        from:
+          key_code: <%= from_key %>
+          modifiers:
+            mandatory: <%= from_value %>
+        to:
+        - key_code: <%= to_key %>
+          modifiers: <%= to_value %>
+        conditions:
+        - type: frontmost_application_unless
+          bundle_identifiers:
+          - "^com\\.apple\\.Terminal$"
+          - "^com\\.jetbrains\\.intellij\\.ce$"
 <%    end %>
 
     ################################################################################
