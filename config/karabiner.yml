@@ -253,7 +253,7 @@ profiles:
       # Cmd-C-j -> Opt-Shift-Down
       # Cmd-Enter -> C-Enter
 <%    {
-        ['"n"', ['right_command']] => ['k', ['left_command']], # n is shorthand false
+        ['"n"', ['right_command']] => ['k', ['left_command']], # YAML: Just `n` becomes `false` instead of `"n"`
         ['k', ['right_command']] => ['up_arrow', ['left_option']],
         ['j', ['right_command']] => ['down_arrow', ['left_option']],
         ['k', ['right_command', 'left_control']] => ['up_arrow', ['left_option', 'left_shift']],
@@ -314,3 +314,26 @@ profiles:
         - type: frontmost_application_if
           bundle_identifiers:
           - "^com\\.jetbrains\\.intellij\\.ce$"
+
+      # C-p, C-n, C-b, C-f, C-a, C-e
+<%    {
+        ['"n"', ['left_control']] => 'down_arrow', # YAML: Just `n` becomes `false` instead of `"n"`
+        ['p', ['left_control']] => 'up_arrow',
+        ['b', ['left_control']] => 'left_arrow',
+        ['f', ['left_control']] => 'right_arrow',
+        ['a', ['left_control']] => 'home',
+        ['e', ['left_control']] => 'end',
+      }.each do |from, to|
+        from_key, from_value = from %>
+      - type: basic
+        from:
+          key_code: <%= from_key %>
+          modifiers:
+            mandatory: <%= from_value %>
+        to:
+        - key_code: <%= to %>
+        conditions:
+        - type: frontmost_application_if
+          bundle_identifiers:
+          - "^com\\.jetbrains\\.intellij\\.ce$"
+<%    end %>
