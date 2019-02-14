@@ -117,13 +117,13 @@ profiles:
 <%    at_office = (ENV['USER'] == 'kokubun') # I use "k0kubun" for personal PC
       {
         u: 'Google Chrome',
-        i: 'IntelliJ IDEA CE',
+        y: 'IntelliJ IDEA CE',
         o: c_o_app,
         h: 'Utilities/Terminal',
       }.each do |key, app| %>
       - type: basic
         from:
-          key_code: <%= key %>
+          key_code: '<%= key %>'
           modifiers:
             mandatory: [left_control]
         to:
