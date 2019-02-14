@@ -353,6 +353,7 @@ profiles:
         ['f', ['left_control']] => 'right_arrow',
         ['a', ['left_control']] => 'home',
         ['e', ['left_control']] => 'end',
+        ['d', ['left_control']] => 'delete_forward',
       }.each do |from, to|
         from_key, from_value = from %>
       - type: basic
