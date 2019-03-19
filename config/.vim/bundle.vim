@@ -35,9 +35,9 @@ NeoBundleLazy 'udalov/kotlin-vim', { 'autoload': { 'filetypes': ['kotlin'] } }
 " endif
 
 " Completion
-" if has("lua")
-"   NeoBundleLazy 'Shougo/neocomplete.vim', { 'autoload': { 'insert': 1 } }
-" endif
+if has("lua")
+  NeoBundleLazy 'Shougo/neocomplete.vim', { 'autoload': { 'insert': 1 } }
+endif
 
 " Skin
 NeoBundle 'w0ng/vim-hybrid'

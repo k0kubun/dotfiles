@@ -1,13 +1,13 @@
 " neocomplete
-" if has("lua")
-"   " if_lua is required for neocomplete! Execute: `brew install vim --with-lua`"
-"   let g:neocomplete#enable_at_startup = 1
-"   let g:neocomplete#enable_auto_select = 1
-"   inoremap <expr><C-[> neocomplete#smart_close_popup()."\<Esc>"
-"   let g:neocomplete#sources#dictionary#dictionaries = {
-"   \   'ruby': $HOME . '/.vim/dicts/ruby.dict',
-"   \ }
-" endif
+if has("lua")
+  " if_lua is required for neocomplete! Execute: `brew install vim --with-lua`"
+  let g:neocomplete#enable_at_startup = 1
+  let g:neocomplete#enable_auto_select = 1
+  inoremap <expr><C-[> neocomplete#smart_close_popup()."\<Esc>"
+  let g:neocomplete#sources#dictionary#dictionaries = {
+  \   'ruby': $HOME . '/.vim/dicts/ruby.dict',
+  \ }
+endif
 
 autocmd FileType python set completeopt-=preview
 
