@@ -342,15 +342,13 @@ profiles:
 
       # C-p -> ↑
       # C-n -> ↓
-      # C-b -> ←
-      # C-f -> →
+      # # C-b -> ←
+      # # C-f -> →
       # C-a -> Home
       # C-e -> End
 <%    {
         ['"n"', ['left_control']] => 'down_arrow', # YAML: Just `n` becomes `false` instead of `"n"`
         ['p', ['left_control']] => 'up_arrow',
-        ['b', ['left_control']] => 'left_arrow',
-        ['f', ['left_control']] => 'right_arrow',
         ['a', ['left_control']] => 'home',
         ['e', ['left_control']] => 'end',
         ['d', ['left_control']] => 'delete_forward',
