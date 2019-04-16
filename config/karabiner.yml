@@ -163,6 +163,17 @@ profiles:
           bundle_identifiers:
           - "^com\\.apple\\.Terminal$"
 <%    end %>
+      # ¥ -> \
+      - type: basic
+        from:
+          key_code: international3
+        to:
+        - key_code: international3
+          modifiers: right_option
+        conditions:
+        - type: frontmost_application_unless
+          bundle_identifiers:
+          - "^com\\.apple\\.Terminal$"
 
     ################################################################################
     # Non-Terminal & non-IntelliJ remaps
