@@ -14,7 +14,7 @@ function create-session() {
 		target_dir='.'
 	fi
 	target_dir=$(cd $target_dir; pwd)
-	session_name=$(echo $target_dir | grep -o "[^/]*/[^/]*$" | sed -e "s/\./,/g")
+	session_name=$(echo $target_dir | grep -o "[^/]*/[^/]*$" | sed -e "s/\./_/g")
 
 	# switch or create session
 	if tmux has-session -t $session_name > /dev/null 2>&1; then
