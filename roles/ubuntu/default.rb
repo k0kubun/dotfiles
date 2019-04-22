@@ -31,6 +31,7 @@ dotfile '.gdbinit'
 dotfile '.gtkrc-2.0'
 
 include_recipe 'ssh-agent'
+include_recipe 'gpg-agent'
 # include_recipe 'ddns-update'
 
 # For TZ=UTC
