@@ -1,6 +1,9 @@
 [user]
   name = Takashi Kokubun
   email = takashikkbn@gmail.com
+  signingkey = 149033D7861A9117B2D34B8D6FFC433B12EE23DD
+[commit]
+  gpgsign = true
 [include]
   path = .gitconfig.local
 [color]
