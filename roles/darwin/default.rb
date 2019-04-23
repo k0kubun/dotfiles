@@ -16,6 +16,8 @@ dotfile '.railsrc'
 dotfile '.rake'
 dotfile '.tmux.conf'
 
+include_recipe 'gpg-agent'
+
 file "#{ENV['HOME']}/.config/karabiner/karabiner.json" do
   yaml_path = File.expand_path('../../../config/karabiner.yml', __FILE__)
   yaml = ERB.new(File.read(yaml_path)).result
