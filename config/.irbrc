@@ -25,14 +25,14 @@ if !defined?(IRB::Irbrc) && RUBY_VERSION >= '2.5.0'
         on_regexp_beg: [RED],
         on_regexp_end: [RED],
       },
-      Ripper::EXPR_END => {
+      Ripper::EXPR_END => { # ruby 2.6+
         on_kw: [GREEN],
         on_int: [BLUE, BOLD],
         on_CHAR: [BLUE, BOLD],
         on_embexpr_end: [RED],
         on_tstring_end: [RED],
       },
-      (Ripper::EXPR_END|Ripper::EXPR_ENDARG) => {
+      (Ripper::EXPR_END|Ripper::EXPR_ENDARG) => { # ruby 2.5
         on_kw: [GREEN],
         on_int: [BLUE, BOLD],
         on_CHAR: [BLUE, BOLD],
