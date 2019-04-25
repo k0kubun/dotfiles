@@ -13,8 +13,8 @@
   editor = vim
   filemode = true
   #pager = less -r
-[init]
-  templatedir = ~/.git-template
+#[init]
+#  templatedir = ~/.git-template
 [push]
 	default = simple
 [branch]
