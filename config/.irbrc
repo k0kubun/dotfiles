@@ -102,9 +102,9 @@ if !defined?(IRB::Irbrc) && RUBY_VERSION >= '2.5.0'
       private
 
       def dispatch_seq(token, expr, str)
-        # if token == :on_comment # may leak colors on multi lines
-        #   [BLUE, BOLD]
-        if TOKEN_KEYWORDS.fetch(token, []).include?(str)
+        if token == :on_comment # may leak colors on multi lines
+          [BLUE, BOLD]
+        elsif TOKEN_KEYWORDS.fetch(token, []).include?(str)
           [CYAN, BOLD]
         elsif seq = EXPR_TOKEN_SEQ.fetch(expr.to_i, {})[token]
           seq
@@ -122,7 +122,7 @@ if !defined?(IRB::Irbrc) && RUBY_VERSION >= '2.5.0'
         script_lines[file] = IRB::Irbrc.colorize_code(File.read(file)).lines
         super
       end
-      result.gsub(/^( +(=>)? +)(\d+):/, "\\1\e[#{IRB::Irbrc::BLUE}m\e[#{IRB::Irbrc::BOLD}m\\3\e[#{IRB::Irbrc::CLEAR}m:")
+      "#{result.gsub(/^( +(=>)? +)(\d+):/, "\\1\e[#{IRB::Irbrc::BLUE}m\e[#{IRB::Irbrc::BOLD}m\\3\e[#{IRB::Irbrc::CLEAR}m:")}\e[#{IRB::Irbrc::CLEAR}m"
     end
   })
 end
