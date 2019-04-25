@@ -15,57 +15,21 @@ if !defined?(IRB::Irbrc) && RUBY_VERSION >= '2.5.0'
       on_const: ['ENV'],
     }
 
-    EXPR_TOKEN_SEQ = {
-      Ripper::EXPR_BEG => {
-        on_qwords_beg: [RED],
-        on_kw: [GREEN],
-        on_embexpr_beg: [RED],
-        on_tstring_beg: [RED],
-        on_tstring_content: [RED],
-        on_regexp_beg: [RED],
-        on_regexp_end: [RED],
-      },
-      Ripper::EXPR_END => { # ruby 2.6+
-        on_kw: [GREEN],
-        on_int: [BLUE, BOLD],
-        on_CHAR: [BLUE, BOLD],
-        on_embexpr_end: [RED],
-        on_tstring_end: [RED],
-      },
-      (Ripper::EXPR_END|Ripper::EXPR_ENDARG) => { # ruby 2.5
-        on_kw: [GREEN],
-        on_int: [BLUE, BOLD],
-        on_CHAR: [BLUE, BOLD],
-        on_embexpr_end: [RED],
-        on_tstring_end: [RED],
-      },
-      Ripper::EXPR_CMDARG => {
-        on_tstring_beg: [RED],
-        on_tstring_content: [RED],
-        on_const: [BLUE, BOLD, UNDERLINE],
-      },
-      Ripper::EXPR_ARG => {
-        on_const: [BLUE, BOLD, UNDERLINE],
-      },
-      Ripper::EXPR_CLASS => {
-        on_kw: [GREEN],
-      },
-      Ripper::EXPR_FNAME => {
-        on_kw: [GREEN],
-        on_symbeg: [BLUE],
-      },
-      (Ripper::EXPR_FNAME|Ripper::EXPR_FITEM) => {
-        on_kw: [GREEN],
-      },
-      Ripper::EXPR_ENDFN => {
-        on_ident: [BLUE, BOLD],
-        on_embexpr_end: [RED],
-      },
-      (Ripper::EXPR_BEG|Ripper::EXPR_LABEL) => {
-        on_kw: [GREEN],
-        on_tstring_beg: [RED],
-        on_tstring_content: [RED],
-      },
+    TOKEN_SEQ_EXPRS = {
+      on_CHAR:            [[BLUE, BOLD],            [Ripper::EXPR_END]],
+      on_const:           [[BLUE, BOLD, UNDERLINE], [Ripper::EXPR_ARG, Ripper::EXPR_CMDARG]],
+      on_embexpr_beg:     [[RED],                   [Ripper::EXPR_BEG, Ripper::EXPR_END]],
+      on_embexpr_end:     [[RED],                   [Ripper::EXPR_END, Ripper::EXPR_ENDFN]],
+      on_ident:           [[BLUE, BOLD],            [Ripper::EXPR_ENDFN]],
+      on_int:             [[BLUE, BOLD],            [Ripper::EXPR_END]],
+      on_kw:              [[GREEN],                 [Ripper::EXPR_CLASS, Ripper::EXPR_BEG, Ripper::EXPR_END, Ripper::EXPR_FNAME]],
+      on_qwords_beg:      [[RED],                   [Ripper::EXPR_BEG]],
+      on_regexp_beg:      [[RED],                   [Ripper::EXPR_BEG]],
+      on_regexp_end:      [[RED],                   [Ripper::EXPR_BEG]],
+      on_symbeg:          [[BLUE],                  [Ripper::EXPR_FNAME]],
+      on_tstring_beg:     [[RED],                   [Ripper::EXPR_BEG, Ripper::EXPR_END, Ripper::EXPR_CMDARG]],
+      on_tstring_content: [[RED],                   [Ripper::EXPR_BEG, Ripper::EXPR_CMDARG]],
+      on_tstring_end:     [[RED],                   [Ripper::EXPR_END]],
     }
 
     class << self
@@ -106,7 +70,7 @@ if !defined?(IRB::Irbrc) && RUBY_VERSION >= '2.5.0'
           [BLUE, BOLD]
         elsif TOKEN_KEYWORDS.fetch(token, []).include?(str)
           [CYAN, BOLD]
-        elsif seq = EXPR_TOKEN_SEQ.fetch(expr.to_i, {})[token]
+        elsif (seq, exprs = TOKEN_SEQ_EXPRS[token]; exprs&.any? { |e| (expr & e) != Ripper::EXPR_NONE })
           seq
         else
           nil
