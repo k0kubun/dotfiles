@@ -7,6 +7,7 @@ autoload :JSON, 'json'
 autoload :YAML, 'yaml'
 autoload :Psych, 'psych'
 autoload :ERB, 'erb'
+autoload :Digest, 'digest'
 
 if defined?(IRB::Color) # just for consistency
   clear = "\e[0m"
