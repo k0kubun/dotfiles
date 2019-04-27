@@ -22,4 +22,5 @@ if defined?(IRB::Color) # just for consistency
     PROMPT_C: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%n#{clear}:%i]* ",
     RETURN: "=> %s\n",
   }
+  IRB.conf[:SAVE_HISTORY] = 1000
 end
