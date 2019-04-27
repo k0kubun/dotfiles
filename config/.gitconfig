@@ -23,6 +23,7 @@
   rebase = true
 [ghq]
   root = ~/src
+  completeUser = false
 [url "git@github.com:"]
   pushInsteadOf = https://github.com/
   pushInsteadOf = git://github.com/
