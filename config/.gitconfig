@@ -30,10 +30,5 @@
 [url "git@gist.github.com:"]
   pushInsteadOf = https://gist.github.com/
   pushInsteadOf = git://gist.github.com/
-[rebuild]
-  repo = k0kubun/dotfiles
-  scriptdir = script
-  directory = ~/src/github.com/k0kubun/dotfiles
-  dependency = symlink.sh brew.sh cask.sh ruby.sh karabiner.sh
 [submodule]
   recurse = true
