@@ -1,26 +1,25 @@
 [user]
   name = Takashi Kokubun
   email = takashikkbn@gmail.com
-  signingkey = 149033D7861A9117B2D34B8D6FFC433B12EE23DD
+  signingKey = "149033D7861A9117B2D34B8D6FFC433B12EE23DD"
 [commit]
   gpgsign = true
+[core]
+  excludesFile = ~/.gitignore
+  editor = vim
+  filemode = true
 [include]
   path = .gitconfig.local
 [color]
   ui = true
-[core]
-  excludesfile = ~/.gitignore
-  editor = vim
-  filemode = true
-  #pager = less -r
-#[init]
-#  templatedir = ~/.git-template
 [push]
 	default = simple
-[branch]
-	autosetuprebase = always
 [pull]
   rebase = true
+[branch]
+	autoSetupRebase = always
+[submodule]
+  recurse = true
 [ghq]
   root = ~/src
   completeUser = false
@@ -30,5 +29,3 @@
 [url "git@gist.github.com:"]
   pushInsteadOf = https://gist.github.com/
   pushInsteadOf = git://gist.github.com/
-[submodule]
-  recurse = true
