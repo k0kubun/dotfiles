@@ -32,9 +32,9 @@ function gd() {
 
 function gl(){
 	if [ $# -ne 0 ]; then
-		git --no-pager log --date=iso --pretty=format:'%h %Cgreen%ad %Cblue%an %Creset%s %C(blue)%d%Creset' "$@"
+		git --no-pager log --date=iso --no-show-signature --pretty=format:'%h %Cgreen%ad %Cblue%an %Creset%s %C(blue)%d%Creset' "$@"
 	else
-		git --no-pager log --date=iso --pretty=format:'%h %Cgreen%ad %Cblue%an %Creset%s %C(blue)%d%Creset' -10
+		git --no-pager log --date=iso --no-show-signature --pretty=format:'%h %Cgreen%ad %Cblue%an %Creset%s %C(blue)%d%Creset' -10
 	fi
 }
 

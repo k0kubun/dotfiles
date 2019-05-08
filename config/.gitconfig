@@ -12,6 +12,8 @@
   path = .gitconfig.local
 [color]
   ui = true
+[log]
+  showSignature = true
 [push]
 	default = simple
 [pull]
