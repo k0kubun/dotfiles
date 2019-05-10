@@ -87,6 +87,12 @@ define_keymap(lambda wm_class: wm_class in ("FocusProxy"), {
 
     K("C-d"): K("delete"),
     K("M-d"): K("C-delete"),
+
+    # workaround prefix key bug
+    K("M-r"): {
+        K("KEY_3"): K("C-M-KEY_3"),
+        K("KEY_0"): K("C-M-KEY_0"),
+    },
 }, "IDEA keys (modified from 'Mainly for Nocturn')")
 
 define_keymap(lambda wm_class: wm_class in ("Google-chrome", "Slack"), {
