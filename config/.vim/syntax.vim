@@ -38,6 +38,13 @@ autocmd BufNewFile,BufRead *.elb set filetype=ruby
 autocmd BufNewFile,BufRead *.route set filetype=ruby
 autocmd BufNewFile,BufRead *.group set filetype=ruby
 
+" binary editor
+autocmd BufNewFile,BufRead *.class Vinarise
+autocmd BufNewFile,BufRead *.o Vinarise
+autocmd BufNewFile,BufRead *.o VinarisePluginDump
+autocmd BufNewFile,BufRead *.so Vinarise
+autocmd BufNewFile,BufRead *.so VinarisePluginDump
+
 " To fix sh mode's syntax highlight for `$()`.
 " https://www.reddit.com/r/vim/comments/25g1sp/why_doesnt_vim_syntax_like_my_shell_files/chlc4ep/
 let g:is_posix = 1
