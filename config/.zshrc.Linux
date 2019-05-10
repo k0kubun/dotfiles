@@ -44,3 +44,8 @@ export BUNDLER_EDITOR="vim"
 function environ() {
 	ruby -e 'puts STDIN.read.split("\x0").map{|l| l.split("=", 2)}.to_h["'$1'"]'
 }
+
+# IDEA
+function idea() {
+	nohup /usr/local/bin/idea "$@" >/dev/null 2>&1 &
+}
