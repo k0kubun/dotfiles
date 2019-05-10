@@ -23,7 +23,7 @@ define_modmap({
     # Key.RO: Key.RO,
 })
 
-define_keymap(lambda wm_class: wm_class not in ("Google-chrome", "Slack", "Gnome-terminal"), {
+define_keymap(lambda wm_class: wm_class not in ("Google-chrome", "Slack", "Gnome-terminal", "FocusProxy"), {
     # Emacs basic
     K("C-b"): K("left"),
     K("C-f"): K("right"),
@@ -55,6 +55,39 @@ define_keymap(lambda wm_class: wm_class not in ("Google-chrome", "Slack", "Gnome
     K("C-d"): K("delete"),
     K("M-d"): K("C-delete"),
 }, "Mainly for Nocturn (but probably work arounded)")
+
+define_keymap(lambda wm_class: wm_class in ("FocusProxy"), {
+    # Emacs basic
+    #K("C-b"): K("left"),
+    #K("C-f"): K("right"),
+    K("C-p"): K("up"),
+    K("C-n"): K("down"),
+
+    # Emacs word
+    K("M-b"): K("C-left"),
+    K("M-f"): K("C-right"),
+
+    # Emacs lines
+    K("C-a"): K("home"), # TODO: Alt-C-a
+    K("C-e"): K("end"),  # TODO: Alt-C-e
+    K("C-k"): [K("Shift-end"), K("backspace")], # TODO: Alt-C-k
+
+    # Alt -> Ctrl
+    K("M-a"): K("C-a"),
+    K("M-z"): K("C-z"),
+    K("M-x"): K("C-x"),
+    #K("M-c"): K("C-c"),
+    K("M-v"): K("C-v"),
+    K("M-w"): K("C-w"),
+    K("M-t"): K("C-t"),
+    K("M-l"): K("C-l"),
+
+    # actually these are vim insert mode bindings, but compatible with shell
+    K("C-w"): [K("C-Shift-left"), K("delete")],
+
+    K("C-d"): K("delete"),
+    K("M-d"): K("C-delete"),
+}, "IDEA keys (modified from 'Mainly for Nocturn')")
 
 define_keymap(lambda wm_class: wm_class in ("Google-chrome", "Slack"), {
     # Emacs basic
