@@ -3,12 +3,14 @@ Pry.editor = 'vim'
 Pry.config.pager = false
 Pry.config.prompt = [
   proc { |target_self, nest_level, pry|
+    input_method = (pry.respond_to?(:input_ring) ? :input_ring : :input_array)
     nested = (nest_level.zero?) ? '' : ":#{nest_level}"
-    "[\e[34m#{pry.input_ring.size}\e[0m] \e[36m\e[1m#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}\e[0m (\e[32m\e[1m#{Pry.view_clip(target_self)}\e[0m)#{nested}> "
+    "[\e[34m#{pry.public_send(input_method).size}\e[0m] \e[36m\e[1m#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}\e[0m (\e[32m\e[1m#{Pry.view_clip(target_self)}\e[0m)#{nested}> "
   },
   proc { |target_self, nest_level, pry|
+    input_method = (pry.respond_to?(:input_ring) ? :input_ring : :input_array)
     nested = (nest_level.zero?) ?  '' : ":#{nest_level}"
-    "[\e[34m#{pry.input_ring.size}\e[0m] \e[36m\e[1m#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}\e[0m (\e[32m\e[1m#{Pry.view_clip(target_self)}\e[0m)#{nested}* "
+    "[\e[34m#{pry.public_send(input_method).size}\e[0m] \e[36m\e[1m#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}\e[0m (\e[32m\e[1m#{Pry.view_clip(target_self)}\e[0m)#{nested}* "
   }
 ]
 
