@@ -8,6 +8,7 @@ autoload :YAML, 'yaml'
 autoload :Psych, 'psych'
 autoload :ERB, 'erb'
 autoload :Digest, 'digest'
+autoload :Ripper, 'ripper'
 
 if defined?(IRB::Color) # just for consistency
   clear = "\e[0m"
