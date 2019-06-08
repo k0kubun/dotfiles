@@ -30,6 +30,12 @@ dotfile '.railsrc'
 dotfile '.gdbinit'
 dotfile '.gtkrc-2.0'
 
+directory "#{ENV['HOME']}/.config/systemd/user/default.target.wants" do
+  owner node[:user]
+  group node[:user]
+  mode '755'
+end
+
 include_recipe 'ssh-agent'
 include_recipe 'gpg-agent'
 # include_recipe 'ddns-update'
