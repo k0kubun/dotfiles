@@ -1,0 +1,17 @@
+<application>
+  <component name="ProjectManager">
+    <defaultProject>
+      <component name="DefaultGradleProjectSettings">
+        <option name="isMigrated" value="true" />
+      </component>
+      <component name="GradleLocalSettings">
+        <option name="projectSyncType">
+          <map>
+            <entry key="$USER_HOME$/src/github.com/k0kubun/gitstar-ranking/worker" value="PREVIEW" />
+            <entry key="$USER_HOME$/src/github.com/k0kubun/jjvm" value="PREVIEW" />
+          </map>
+        </option>
+      </component>
+    </defaultProject>
+  </component>
+</application>

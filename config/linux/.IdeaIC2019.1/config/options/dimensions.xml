@@ -1,0 +1,15 @@
+<application>
+  <component name="DimensionService">
+    <location key="NewModule_or_Project.wizard.0.0.3840.2160@192dpi" x="1430" y="649" />
+    <location key="FileChooserDialogImpl.0.0.3840.2160@192dpi" x="2484" y="518" />
+    <location key="com.intellij.ide.util.TipDialog.0.0.3840.2160@192dpi" x="1319" y="737" />
+    <location key="SettingsEditor.0.0.3840.2160@192dpi" x="1495" y="362" />
+    <location key="search.everywhere.popup.0.0.3840.2160@192dpi" x="1710" y="55" />
+    <location key="Registry.0.0.3840.2160@192dpi" x="1504" y="367" />
+    <size key="NewModule_or_Project.wizard.0.0.3840.2160@192dpi" width="1734" height="874" />
+    <size key="FileChooserDialogImpl.0.0.3840.2160@192dpi" width="848" height="984" />
+    <size key="SettingsEditor.0.0.3840.2160@192dpi" width="2058" height="1418" />
+    <size key="search.everywhere.popup.0.0.3840.2160@192dpi" width="1422" height="2556" />
+    <size key="Registry.0.0.3840.2160@192dpi" width="1827" height="1316" />
+  </component>
+</application>

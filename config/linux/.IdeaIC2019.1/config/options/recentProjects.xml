@@ -1,0 +1,44 @@
+<application>
+  <component name="RecentProjectsManager">
+    <option name="recentPaths">
+      <list>
+        <option value="$USER_HOME$/src/github.com/k0kubun/jjvm" />
+        <option value="$USER_HOME$/src/github.com/k0kubun/gitstar-ranking/worker" />
+      </list>
+    </option>
+    <option name="openPaths">
+      <list>
+        <option value="$USER_HOME$/src/github.com/k0kubun/jjvm" />
+      </list>
+    </option>
+    <option name="lastPath" value="$USER_HOME$/src/github.com/k0kubun/jjvm" />
+    <option name="pid" value="" />
+    <option name="additionalInfo">
+      <map>
+        <entry key="$USER_HOME$/src/github.com/k0kubun/gitstar-ranking/worker">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IC-191.7479.19" />
+              <option name="productionCode" value="IC" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1559978866665" />
+              <option name="buildTimestamp" value="1559024594928" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+        <entry key="$USER_HOME$/src/github.com/k0kubun/jjvm">
+          <value>
+            <RecentProjectMetaInfo>
+              <option name="build" value="IC-191.7479.19" />
+              <option name="productionCode" value="IC" />
+              <option name="binFolder" value="$APPLICATION_HOME_DIR$/bin" />
+              <option name="projectOpenTimestamp" value="1559997461578" />
+              <option name="buildTimestamp" value="1559024612349" />
+            </RecentProjectMetaInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="lastProjectLocation" value="$USER_HOME$/src/github.com/k0kubun" />
+  </component>
+</application>
