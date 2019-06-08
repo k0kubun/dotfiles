@@ -23,7 +23,7 @@ define_modmap({
     # Key.RO: Key.RO,
 })
 
-define_keymap(lambda wm_class: wm_class not in ("Google-chrome", "Slack", "Gnome-terminal", "FocusProxy"), {
+define_keymap(lambda wm_class: wm_class not in ("Google-chrome", "Slack", "Gnome-terminal", "jetbrains-idea-ce"), {
     # Emacs basic
     K("C-b"): K("left"),
     K("C-f"): K("right"),
@@ -56,7 +56,7 @@ define_keymap(lambda wm_class: wm_class not in ("Google-chrome", "Slack", "Gnome
     K("M-d"): K("C-delete"),
 }, "Mainly for Nocturn (but probably work arounded)")
 
-define_keymap(lambda wm_class: wm_class in ("FocusProxy"), {
+define_keymap(lambda wm_class: wm_class in ("jetbrains-idea-ce"), {
     # Emacs basic
     #K("C-b"): K("left"),
     #K("C-f"): K("right"),
