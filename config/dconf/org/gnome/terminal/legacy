@@ -1,0 +1,19 @@
+[keybindings]
+paste='<Alt>v'
+copy='<Alt>c'
+
+[profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+audible-bell=false
+use-system-font=false
+use-transparent-background=true
+use-theme-colors=false
+font='Inconsolata Medium 18'
+use-theme-transparency=false
+cursor-blink-mode='off'
+background-color='rgb(0,0,0)'
+background-transparency-percent=10
+scrollbar-policy='never'
+
+[/]
+schema-version=uint32 3
+default-show-menubar=false
