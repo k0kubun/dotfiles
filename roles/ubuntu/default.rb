@@ -48,7 +48,3 @@ include_recipe 'gpg-agent'
 #   mode '644'
 #   only_if 'which mysql'
 # end
-
-link "#{ENV['HOME']}/.git-template/hooks" do
-  to "#{ENV['HOME']}/.githooks"
-end
