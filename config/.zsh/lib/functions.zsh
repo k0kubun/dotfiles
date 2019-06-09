@@ -113,11 +113,6 @@ function format-all() {
 	)
 }
 
-functions tags-update() {
-	source ~/.githooks/ctags
-}
-alias t="tags-update"
-
 function u() {
 	src=$(\ls | grep \.uml)
 	png=$(echo $src | sed 's/\.uml/\.png/')
