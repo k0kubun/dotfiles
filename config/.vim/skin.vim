@@ -3,7 +3,7 @@ set t_Co=256
 set background=dark
 colorscheme hybrid
 hi Normal ctermbg=NONE
-hi LineNr ctermfg=242
+" hi LineNr ctermfg=242
 
 " Anywhere SID.
 function! s:SID_PREFIX()

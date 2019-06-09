@@ -67,7 +67,8 @@ NeoBundle 'Shougo/vimproc', {
 " Git
 NeoBundle 'tpope/vim-fugitive'
 NeoBundleLazy 'k0kubun/vim-open-github', { 'autoload': { 'commands': ['OpenGithub'] } }
-NeoBundleLazy 'airblade/vim-gitgutter', { 'autoload': { 'insert': 1 } }
+NeoBundle 'airblade/vim-gitgutter'
+" NeoBundleLazy 'airblade/vim-gitgutter', { 'autoload': { 'insert': 1 } }
 
 NeoBundleCheck
 

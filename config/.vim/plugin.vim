@@ -27,9 +27,6 @@ augroup END
 " let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
 " let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
 
-" vim-gitgutter
-let g:gitgutter_sign_column_always = 1
-
 " gocode
 " set rtp+=$GOROOT/misc/vim
 " let g:go_fmt_autofmt = 1
@@ -86,3 +83,12 @@ augroup END
 
 " sqlcomplete disable
 let g:omni_sql_no_default_maps = 1
+
+" vim-gitgutter
+highlight GitGutterAdd ctermfg=28
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=9
+" highlight GitGutterAdd ctermfg=10 ctermbg=22
+" highlight GitGutterChange ctermfg=11 ctermbg=58
+" highlight GitGutterDelete ctermfg=9 ctermbg=52
+let g:gitgutter_sign_removed = '-'
