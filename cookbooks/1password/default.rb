@@ -37,6 +37,8 @@ end
 
 remote_file "#{ENV['HOME']}/.config/systemd/user/agile1pagent.service" do
   source 'files/agile1pagent.service'
+  owner node[:user]
+  group node[:user]
 end
 
 # user_service 'agile1pagent' do
