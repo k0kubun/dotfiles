@@ -1,9 +1,0 @@
-<application>
-  <component name="CodeFoldingSettings">
-    <option name="COLLAPSE_IMPORTS" value="false" />
-  </component>
-  <component name="JavaCodeFoldingSettings">
-    <option name="collapseConstructorGenericParameters" value="false" />
-    <option name="collapseOneLineMethods" value="false" />
-  </component>
-</application>
