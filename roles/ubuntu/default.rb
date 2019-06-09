@@ -25,6 +25,7 @@ end
 dotfile '.Xmodmap'
 # dotfile '.rake'
 dotfile '.gemrc'
+dotfile '.irbrc'
 dotfile '.pryrc'
 dotfile '.railsrc'
 dotfile '.gdbinit'
