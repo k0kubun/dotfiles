@@ -86,9 +86,11 @@ let g:omni_sql_no_default_maps = 1
 
 " vim-gitgutter
 highlight GitGutterAdd ctermfg=28
-highlight GitGutterChange ctermfg=3
-highlight GitGutterDelete ctermfg=9
 " highlight GitGutterAdd ctermfg=10 ctermbg=22
+highlight GitGutterChange ctermfg=3
 " highlight GitGutterChange ctermfg=11 ctermbg=58
-" highlight GitGutterDelete ctermfg=9 ctermbg=52
+if !has('mac')
+  highlight GitGutterDelete ctermfg=9
+  " highlight GitGutterDelete ctermfg=9 ctermbg=52
+endif
 let g:gitgutter_sign_removed = '-'
