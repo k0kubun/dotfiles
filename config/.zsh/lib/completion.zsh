@@ -36,3 +36,9 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 # autoload predict-on
 # predict-on
+
+# suppress broken completion
+_gradle() {
+  return 1;
+}
+compdef _gradle ./gradlew
