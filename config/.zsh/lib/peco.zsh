@@ -17,7 +17,9 @@ bindkey '^r' peco-select-history
 
 # integrate all source code with ghq
 function peco-src() {
-	local selected_dir=$(ghq list | peco --query "$LBUFFER" --prompt "[ghq list]")
+	local selected_dir=$(\
+		/usr/bin/ruby --disable-gems -rbenchmark -e 'm = Benchmark.measure { system("ghq list") }; File.open("/tmp/ghq-list", "a+") { |f| f.puts("%.3fs" % m.total) }'\
+		| peco --query "$LBUFFER" --prompt "[ghq list]")
 	if [ -n "$selected_dir" ]; then
 		full_dir="${GOPATH}/src/${selected_dir}"
 
