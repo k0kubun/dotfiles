@@ -19,7 +19,7 @@ if defined?(IRB::Color) # just for consistency
   IRB.conf[:PROMPT][:DEFAULT] = {
     PROMPT_I: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%n#{clear}:%i]> ",
     PROMPT_N: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%n#{clear}:%i]> ",
-    PROMPT_S: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%n#{clear}:%i%l] ",
+    PROMPT_S: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%n#{clear}:%i]%l ",
     PROMPT_C: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%n#{clear}:%i]* ",
     RETURN: "=> %s\n",
   }
