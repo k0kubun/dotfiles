@@ -46,6 +46,22 @@ function environ() {
 }
 
 # IDEA
+function idea-id() {
+	wmctrl -x -l | grep sun-awt-X11-XFramePeer.jetbrains-idea-ce | awk '{print $1}' | tr -d '\n'
+}
+function idea-on() {
+	xprop -id $(idea-id) -format _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY 0xFFFFFFFF
+}
+function idea-off() {
+	xprop -id $(idea-id) -format _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY 0xEFFFFFFF
+}
 function idea() {
 	nohup /usr/local/bin/idea "$@" >/dev/null 2>&1 &
+	printf "waiting"
+	while test -z "$(idea-id)"; do
+		sleep 0.2
+		printf "."
+	done
+	echo " ok"
+	idea-off
 }
