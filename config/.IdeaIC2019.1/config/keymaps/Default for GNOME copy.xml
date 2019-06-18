@@ -53,8 +53,5 @@
     <keyboard-shortcut first-keystroke="shift alt 3" />
   </action>
   <action id="Vcs.UpdateProject" />
-  <action id="VimPluginToggle">
-    <keyboard-shortcut first-keystroke="alt i" />
-    <keyboard-shortcut first-keystroke="ctrl c" />
-  </action>
+  <action id="VimPluginToggle" />
 </keymap>
