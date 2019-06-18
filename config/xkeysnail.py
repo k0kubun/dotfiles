@@ -83,7 +83,7 @@ define_keymap(lambda wm_class: wm_class in ("jetbrains-idea-ce"), {
     K("M-l"): K("C-l"),
 
     # actually these are vim insert mode bindings, but compatible with shell
-    K("C-w"): [K("C-Shift-left"), K("delete")],
+    # K("C-w"): [K("C-Shift-left"), K("delete")],
 
     K("C-d"): K("delete"),
     K("M-d"): K("C-delete"),
@@ -92,6 +92,10 @@ define_keymap(lambda wm_class: wm_class in ("jetbrains-idea-ce"), {
     K("M-r"): {
         K("KEY_3"): K("C-M-KEY_3"),
         K("KEY_0"): K("C-M-KEY_0"),
+    },
+    K("C-w"): {
+        K("h"): K("C-M-KEY_1"),
+        K("l"): K("C-M-KEY_2"),
     },
 }, "IDEA keys (modified from 'Mainly for Nocturn')")
 
