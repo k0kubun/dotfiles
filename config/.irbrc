@@ -17,10 +17,10 @@ if defined?(IRB::Color) # just for consistency
   blue = "\e[34m"
   cyan = "\e[36m"
   IRB.conf[:PROMPT][:DEFAULT] = {
-    PROMPT_I: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%n#{clear}:%i]> ",
-    PROMPT_N: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%n#{clear}:%i]> ",
-    PROMPT_S: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%n#{clear}:%i]%l ",
-    PROMPT_C: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%n#{clear}:%i]* ",
+    PROMPT_I: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%2n#{clear}:%i]> ",
+    PROMPT_N: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%2n#{clear}:%i]> ",
+    PROMPT_S: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%2n#{clear}:%i]%l ",
+    PROMPT_C: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%2n#{clear}:%i]* ",
     RETURN: "=> %s\n",
   }
   IRB.conf[:SAVE_HISTORY] = 1000
