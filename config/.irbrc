@@ -1,14 +1,15 @@
 # frozen_string_literal: true
 require 'time' # Time.parse
-autoload :URI, 'uri'
 autoload :Base64, 'base64'
-autoload :SecureRandom, 'securerandom'
-autoload :JSON, 'json'
-autoload :YAML, 'yaml'
-autoload :Psych, 'psych'
-autoload :ERB, 'erb'
+autoload :CSV, 'csv'
 autoload :Digest, 'digest'
+autoload :ERB, 'erb'
+autoload :JSON, 'json'
+autoload :Psych, 'psych'
 autoload :Ripper, 'ripper'
+autoload :SecureRandom, 'securerandom'
+autoload :URI, 'uri'
+autoload :YAML, 'yaml'
 
 if defined?(IRB::Color) # just for consistency
   clear = "\e[0m"

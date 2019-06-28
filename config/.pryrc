@@ -39,12 +39,14 @@ Pry::Commands.alias_command('exit!', 'exit-program') # to hook at_exit
 # end
 
 require 'time' # Time.parse
-autoload :Ripper, 'ripper'
-autoload :URI, 'uri'
 autoload :Base64, 'base64'
-autoload :SecureRandom, 'securerandom'
-autoload :JSON, 'json'
-autoload :YAML, 'yaml'
-autoload :Psych, 'psych'
-autoload :ERB, 'erb'
+autoload :CSV, 'csv'
 autoload :Digest, 'digest'
+autoload :ERB, 'erb'
+autoload :JSON, 'json'
+autoload :Psych, 'psych'
+autoload :Ripper, 'ripper'
+autoload :Ripper, 'ripper'
+autoload :SecureRandom, 'securerandom'
+autoload :URI, 'uri'
+autoload :YAML, 'yaml'
