@@ -3,7 +3,7 @@
         "keymap": {
             "C-g": "abort",
             "\n": "commit-unhandled",
-            "C-m": "commit-unhandled",
+            "C-j": "commit-unhandled",
             "\b": "delete",
             "C-h": "delete",
             "/": "abbrev",

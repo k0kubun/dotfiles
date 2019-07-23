@@ -162,3 +162,7 @@ define_keymap(lambda wm_class: wm_class in ("Slack"), {
     K("M-key_8"): K("C-key_8"),
     K("M-key_9"): K("C-key_9"),
 }, "Tab global2")
+
+define_keymap(None, {
+    K("C-j"): K("C-m"),
+}, "SKK hack for chrome")
