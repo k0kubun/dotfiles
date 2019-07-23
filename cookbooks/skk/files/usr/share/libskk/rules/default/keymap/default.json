@@ -1,0 +1,23 @@
+{
+    "define": {
+        "keymap": {
+            "C-g": "abort",
+            "\n": "commit-unhandled",
+            "C-m": "commit-unhandled",
+            "\b": "delete",
+            "C-h": "delete",
+            "/": "abbrev",
+            "\\": "kuten",
+            " ": "next-candidate",
+            "\t": "complete",
+            "C-i": "complete",
+            ">": "special-midasi",
+            "x": "previous-candidate",
+            "X": "purge-candidate",
+            "C-f": "expand-preedit",
+            "C-b": "shrink-preedit",
+            "Right": "expand-preedit",
+            "Left": "shrink-preedit"
+        }
+    }
+}
