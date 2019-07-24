@@ -15,16 +15,19 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+function ghq-list() {
+	if [[ $OPTIMIZE_GHQ_LIST = true ]]; then
+		(cd ~/src; \ls -d github.com/*/* | sed 's/\/$//')
+	else
+		ghq list
+	fi
+}
+
 # integrate all source code with ghq
 function peco-src() {
-	local ghq_list=$(time ghq list)
-	echo; echo
-	local selected_dir=$(echo "$ghq_list" | peco --query "$LBUFFER" --prompt "[ghq list]")
+	local selected_dir=$(ghq-list | peco --query "$LBUFFER" --prompt "[ghq list]")
 	if [ -n "$selected_dir" ]; then
 		full_dir="${GOPATH}/src/${selected_dir}"
-
-		# Log repository access to ghq-cache
-		# (ghq-cache log $full_dir &)
 
 		BUFFER="cd ${full_dir}"
 		zle accept-line
