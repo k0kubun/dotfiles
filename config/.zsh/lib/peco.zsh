@@ -17,7 +17,7 @@ bindkey '^r' peco-select-history
 
 function ghq-list() {
 	if [[ $OPTIMIZE_GHQ_LIST = true ]]; then
-		(cd ~/src; \ls -d github.com/*/* | sed 's/\/$//')
+		(cd ~/src; \ls -d github.com/*/* | sed 's/\/$//' | sort)
 	else
 		ghq list
 	fi
