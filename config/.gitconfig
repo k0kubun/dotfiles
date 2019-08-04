@@ -8,6 +8,7 @@
   excludesFile = ~/.gitignore
   editor = vim
   filemode = true
+  #commentChar = ">"
 [include]
   path = .gitconfig.local
 [color]
