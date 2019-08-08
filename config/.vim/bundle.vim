@@ -34,6 +34,7 @@ NeoBundleLazy 'udalov/kotlin-vim', { 'autoload': { 'filetypes': ['kotlin'] } }
 "   NeoBundleLazy 'artur-shaik/vim-javacomplete2', { 'autoload': { 'filetypes': ['java'] } }
 " endif
 " NeoBundleLazy 'lcolaholicl/vim-v', { 'autoload': { 'filetypes': ['v'] } }
+NeoBundleLazy 'PProvost/vim-ps1', { 'autoload': { 'filetypes': ['ps1'] } }
 
 " Completion
 if has("lua")

@@ -32,6 +32,7 @@ autocmd BufNewFile,BufRead insns.def set filetype=cruby
 autocmd BufNewFile,BufRead *.inc set filetype=cruby
 autocmd BufNewFile,BufRead Makefile.inc set filetype=make
 autocmd BufNewFile,BufRead *.v set filetype=v
+autocmd BufNewFile,BufRead *.ps1 set filetype=ps1
 
 " codenize.tools
 autocmd BufNewFile,BufRead *.iam set filetype=ruby
