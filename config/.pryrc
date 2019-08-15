@@ -14,7 +14,11 @@ prompt_procs = [
   }
 ]
 if Pry::Prompt.respond_to?(:new)
-  Pry.config.prompt = Pry::Prompt.new('color', 'custom colored prompt', prompt_procs)
+  begin
+    Pry.config.prompt = Pry::Prompt.new('color', 'custom colored prompt', prompt_procs)
+  rescue ArgumentError
+    Pry.config.prompt = prompt_procs
+  end
 else
   Pry.config.prompt = prompt_procs
 end
