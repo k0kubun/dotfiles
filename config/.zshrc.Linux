@@ -47,7 +47,7 @@ function environ() {
 
 # IDEA
 function idea-id() {
-	wmctrl -x -l | grep sun-awt-X11-XFramePeer.jetbrains-idea-ce | awk '{print $1}' | tr -d '\n'
+	wmctrl -x -l | grep jetbrains-idea-ce.jetbrains-idea-ce | awk '{print $1}' | tr -d '\n'
 }
 function idea-on() {
 	xprop -id $(idea-id) -format _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY 0xFFFFFFFF
