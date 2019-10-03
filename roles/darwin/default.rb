@@ -25,10 +25,10 @@ file "#{ENV['HOME']}/.config/karabiner/karabiner.json" do
   content YAML.load(yaml).to_json
 end
 
-link "#{ENV['HOME']}/Library/LaunchAgents/homebrew.mxcl.mysql.plist" do
-  to '/usr/local/opt/mysql/homebrew.mxcl.mysql.plist'
-end
+# link "#{ENV['HOME']}/Library/LaunchAgents/homebrew.mxcl.mysql.plist" do
+#   to '/usr/local/opt/mysql/homebrew.mxcl.mysql.plist'
+# end
 
-link "#{ENV['HOME']}/.git-template/hooks" do
-  to "#{ENV['HOME']}/.githooks"
-end
+# link "#{ENV['HOME']}/.git-template/hooks" do
+#   to "#{ENV['HOME']}/.githooks"
+# end
