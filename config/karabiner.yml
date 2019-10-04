@@ -1,5 +1,5 @@
 <%
-at_office = (ENV['USER'] == 'kokubun') # I use "k0kubun" for personal PC
+at_office = `hostname`.start_with?('TD-')
 c_o_app = at_office ? 'Slack' : 'Nocturn'
 #c_o_app = 'Keynote'
 %>
