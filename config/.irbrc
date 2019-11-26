@@ -11,6 +11,9 @@ autoload :SecureRandom, 'securerandom'
 autoload :URI, 'uri'
 autoload :YAML, 'yaml'
 
+IRB.conf[:SAVE_HISTORY] = 1000
+IRB.conf[:USE_MULTILINE] = true
+
 if defined?(IRB::Color) # just for consistency
   clear = "\e[0m"
   bold = "\e[1m"
@@ -24,5 +27,4 @@ if defined?(IRB::Color) # just for consistency
     PROMPT_C: "#{cyan}#{bold}%N#{clear}(#{green}#{bold}%m#{clear})[#{blue}%02n#{clear}:%i]* ",
     RETURN: "=> %s\n",
   }
-  IRB.conf[:SAVE_HISTORY] = 1000
 end
