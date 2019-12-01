@@ -1,3 +1,17 @@
+# frozen_string_literal: true
+require 'time' # Time.parse
+autoload :Base64, 'base64'
+autoload :CSV, 'csv'
+autoload :Digest, 'digest'
+autoload :ERB, 'erb'
+autoload :JSON, 'json'
+autoload :Psych, 'psych'
+autoload :Ripper, 'ripper'
+autoload :Ripper, 'ripper'
+autoload :SecureRandom, 'securerandom'
+autoload :URI, 'uri'
+autoload :YAML, 'yaml'
+
 Pry.editor = 'vim'
 
 Pry.config.pager = false
@@ -46,16 +60,3 @@ Pry::Commands.alias_command('exit!', 'exit-program') # to hook at_exit
 # def ppp(code)
 #   puts Pry.Code(code).highlighted
 # end
-
-require 'time' # Time.parse
-autoload :Base64, 'base64'
-autoload :CSV, 'csv'
-autoload :Digest, 'digest'
-autoload :ERB, 'erb'
-autoload :JSON, 'json'
-autoload :Psych, 'psych'
-autoload :Ripper, 'ripper'
-autoload :Ripper, 'ripper'
-autoload :SecureRandom, 'securerandom'
-autoload :URI, 'uri'
-autoload :YAML, 'yaml'
