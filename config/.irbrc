@@ -8,6 +8,7 @@ autoload :JSON, 'json'
 autoload :Psych, 'psych'
 autoload :Ripper, 'ripper'
 autoload :SecureRandom, 'securerandom'
+autoload :StringIO, 'stringio'
 autoload :URI, 'uri'
 autoload :YAML, 'yaml'
 
