@@ -353,8 +353,6 @@ profiles:
 
       # C-p -> ↑
       # C-n -> ↓
-      # # C-b -> ←
-      # # C-f -> →
       # C-a -> Home
       # C-e -> End
 <%    {
@@ -396,4 +394,54 @@ profiles:
         - type: frontmost_application_if
           bundle_identifiers:
           - "^com\\.jetbrains\\.intellij\\.ce$"
+<%    end %>
+
+    ################################################################################
+    # Word remaps
+    ################################################################################
+    - description: Word remaps
+      manipulators:
+
+      # C-k -> [Shfit-End, Backspace]
+      - type: basic
+        from:
+          key_code: k
+          modifiers:
+            mandatory: left_control
+        to:
+        - key_code: end
+          modifiers: left_shift
+        - key_code: delete_or_backspace
+        conditions:
+        - type: frontmost_application_if
+          bundle_identifiers:
+          - "^com\\.microsoft\\.Word$"
+
+      # C-p -> ↑
+      # C-n -> ↓
+      # C-b -> ←
+      # C-f -> →
+      # C-a -> Home
+      # C-e -> End
+<%    {
+        ['"n"', ['left_control']] => 'down_arrow', # YAML: Just `n` becomes `false` instead of `"n"`
+        ['p', ['left_control']] => 'up_arrow',
+        ['b', ['left_control']] => 'left_arrow',
+        ['f', ['left_control']] => 'right_arrow',
+        ['a', ['left_control']] => 'home',
+        ['e', ['left_control']] => 'end',
+        ['d', ['left_control']] => 'delete_forward',
+      }.each do |from, to|
+        from_key, from_value = from %>
+      - type: basic
+        from:
+          key_code: <%= from_key %>
+          modifiers:
+            mandatory: <%= from_value %>
+        to:
+        - key_code: <%= to %>
+        conditions:
+        - type: frontmost_application_if
+          bundle_identifiers:
+          - "^com\\.microsoft\\.Word$"
 <%    end %>
