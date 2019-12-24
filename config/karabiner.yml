@@ -117,7 +117,7 @@ profiles:
 <%    at_office = (ENV['USER'] == 'kokubun') # I use "k0kubun" for personal PC
       {
         u: 'Google Chrome',
-        y: 'IntelliJ IDEA CE',
+        y: 'IntelliJ IDEA',
         o: c_o_app,
         h: 'Utilities/Terminal',
       }.each do |key, app| %>
@@ -201,7 +201,7 @@ profiles:
         - type: frontmost_application_unless
           bundle_identifiers:
           - "^com\\.apple\\.Terminal$"
-          - "^com\\.jetbrains\\.intellij\\.ce$"
+          - "^com\\.jetbrains\\.intellij(\\.ce)?$"
 <%    end %>
 
     ################################################################################
@@ -349,7 +349,7 @@ profiles:
         conditions:
         - type: frontmost_application_if
           bundle_identifiers:
-          - "^com\\.jetbrains\\.intellij\\.ce$"
+          - "^com\\.jetbrains\\.intellij(\\.ce)?$"
 
       # C-p -> ↑
       # C-n -> ↓
@@ -373,7 +373,7 @@ profiles:
         conditions:
         - type: frontmost_application_if
           bundle_identifiers:
-          - "^com\\.jetbrains\\.intellij\\.ce$"
+          - "^com\\.jetbrains\\.intellij(\\.ce)?$"
 <%    end %>
 
       # Cmd-Enter -> Opt-Enter
@@ -393,7 +393,7 @@ profiles:
         conditions:
         - type: frontmost_application_if
           bundle_identifiers:
-          - "^com\\.jetbrains\\.intellij\\.ce$"
+          - "^com\\.jetbrains\\.intellij(\\.ce)?$"
 <%    end %>
 
     ################################################################################
