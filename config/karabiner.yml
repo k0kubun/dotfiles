@@ -201,7 +201,6 @@ profiles:
         - type: frontmost_application_unless
           bundle_identifiers:
           - "^com\\.apple\\.Terminal$"
-          - "^com\\.jetbrains\\.intellij(\\.ce)?$"
 <%    end %>
 
     ################################################################################
