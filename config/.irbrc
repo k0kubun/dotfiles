@@ -13,7 +13,6 @@ autoload :URI, 'uri'
 autoload :YAML, 'yaml'
 
 IRB.conf[:SAVE_HISTORY] = 1000
-IRB.conf[:USE_MULTILINE] = true
 
 if defined?(IRB::Color) # just for consistency
   clear = "\e[0m"
