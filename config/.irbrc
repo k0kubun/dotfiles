@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require 'time' # Time.parse
 autoload :Base64, 'base64'
+autoload :CGI, 'cgi'
 autoload :CSV, 'csv'
 autoload :Digest, 'digest'
 autoload :ERB, 'erb'
