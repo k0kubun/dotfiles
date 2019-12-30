@@ -31,7 +31,7 @@ define :github_binary, version: nil, repository: nil, archive: nil, binary_path:
     not_if "test -f #{bin_path}"
     cwd "/tmp"
   end
-  execute "mv /tmp/#{params[:binary_path] || cmd} #{bin_path} && chmod +x #{path}" do
+  execute "mv /tmp/#{params[:binary_path] || cmd} #{bin_path} && chmod +x #{bin_path}" do
     not_if "test -f #{bin_path}"
   end
 end
