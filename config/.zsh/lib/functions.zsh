@@ -151,10 +151,6 @@ function install-all() {
 	rm .ruby-version
 }
 
-function ip() {
-	echo $(ipconfig getifaddr en0)
-}
-
 function forward() {
 	host=$1
 	local_port=$2
