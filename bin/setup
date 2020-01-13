@@ -22,7 +22,7 @@ if ! [ -f "bin/${mitamae_cache}" ]; then
       ;;
   esac
 
-  curl -o "bin/${mitamae_bin}.tar.gz" -fL "https://github.com/k0kubun/mitamae/releases/download/v${mitamae_version}/${mitamae_bin}.tar.gz"
+  curl -o "bin/${mitamae_bin}.tar.gz" -fL "https://github.com/itamae-kitchen/mitamae/releases/download/v${mitamae_version}/${mitamae_bin}.tar.gz"
   sha256="$(/usr/bin/openssl dgst -sha256 "bin/${mitamae_bin}.tar.gz" | cut -d" " -f2)"
   if [ "$mitamae_sha256" != "$sha256" ]; then
     echo "checksum verification failed!\nexpected: ${mitamae_sha256}\n  actual: ${sha256}"
