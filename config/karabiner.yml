@@ -139,14 +139,16 @@ profiles:
       # Cmd-b -> Opt-Left
       # Cmd-f -> Opt-Right
       # Cmd-d -> Opt-Delete
-      # C-w -> Opt-Backspace
       # C-r -> Cmd-r
+      # Cmd-o -> Ctrl-Shift-Tab
+      # Cmd-p -> Ctrl-Shift-Tab
 <%    {
         ['b', ['right_command']] => ['left_arrow', ['left_option']],
         ['f', ['right_command']] => ['right_arrow', ['left_option']],
         ['d', ['right_command']] => ['delete_forward', ['left_option']],
-        ['w', ['left_control']] => ['delete_or_backspace', ['left_option']],
         ['r', ['left_control']] => ['r', ['left_command']],
+        ['o', ['right_command']] => ['tab', ['right_control', 'left_shift']],
+        ['p', ['right_command']] => ['tab', ['right_control']],
       }.each do |from, to|
         from_key, from_value = from
         to_key,   to_value   = to %>
@@ -181,11 +183,9 @@ profiles:
     - description: Non-terminal & non-IntelliJ remaps
       manipulators:
 
-      # Cmd-o -> Ctrl-Shift-Tab
-      # Cmd-p -> Ctrl-Shift-Tab
+      # C-w -> Opt-Backspace
 <%    {
-        ['o', ['right_command']] => ['tab', ['right_control', 'left_shift']],
-        ['p', ['right_command']] => ['tab', ['right_control']],
+        ['w', ['left_control']] => ['delete_or_backspace', ['left_option']],
       }.each do |from, to|
         from_key, from_value = from
         to_key,   to_value   = to %>
@@ -201,6 +201,7 @@ profiles:
         - type: frontmost_application_unless
           bundle_identifiers:
           - "^com\\.apple\\.Terminal$"
+          - "^com\\.jetbrains\\.intellij(\\.ce)?$"
 <%    end %>
 
     ################################################################################
