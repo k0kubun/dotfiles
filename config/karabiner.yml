@@ -127,7 +127,7 @@ profiles:
           modifiers:
             mandatory: [left_control]
         to:
-        - shell_command: open "/Applications/<%= app %>.app"
+        - shell_command: open "<%= ("/System" if app =~ /Terminal/) %>/Applications/<%= app %>.app"
 <%    end %>
 
     ################################################################################
