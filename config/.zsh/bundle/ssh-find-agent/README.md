@@ -1,33 +1,44 @@
-# ssh-find-agent
+# ssh_find_agent
 
-ssh-find-agent is a tool for locating existing ssh compatible agent processes (e.g., ssh-agent, gpg-agent, gnome-keyring, osx-keychain); and, optionally, setting `SSH_AUTH_SOCK` accordingly.
+ssh_find_agent is a tool for locating existing ssh compatible agent processes (e.g., ssh-agent, gpg-agent, gnome-keyring, osx-keychain); and, optionally, setting `SSH_AUTH_SOCK` accordingly.
+
+## Build Status
+
+[![Build Status](https://travis-ci.org/wwalker/ssh-find-agent.svg?branch=master)](https://travis-ci.org/wwalker/ssh-find-agent)
+
 
 ## Usage
 
 Somewhere in shell initialization (`~/.bashrc` or `~./.zshrc`)
 
 ```bash
-. ssh-find-agent.sh
+. ssh_find_agent.sh
 ```
 
 Add the following to automatically choose the first agent
 ```bash
-ssh-find-agent -a
+ssh_find_agent -a
 if [ -z "$SSH_AUTH_SOCK" ]
 then
-   eval $(ssh_agent) > /dev/null
+   eval $(ssh-agent) > /dev/null
    ssh-add -l >/dev/null || alias ssh='ssh-add -l >/dev/null || ssh-add && unalias ssh; ssh'
 fi
 ```
 
+... or, as `ssh_find_agent` with `-a` or `-c` returns non-zero if it cannot find a live-agent, simply:
+
+```bash
+ssh_find_agent -a || eval $(ssh-agent) > /dev/null
+```
+
 To choose the agent manually run
 ```bash
-ssh-find-agent -c
+ssh_find_agent -c
 ```
 
 To list the agents run
 ```bash
-ssh-find-agent
+ssh_find_agent
 ```
 
 NOTE: The choose option is Useful when you actually want multiple agents forwaded.  eg. pairing
