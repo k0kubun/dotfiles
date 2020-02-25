@@ -1,4 +1,0 @@
-dist: trusty
-language: bash
-script:
-  - bash test/test.sh

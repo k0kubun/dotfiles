@@ -7,3 +7,6 @@
 [submodule "config/.githooks/codestyle"]
 	path = config/.githooks/codestyle
 	url = https://github.com/airlift/codestyle.git
+[submodule "config/.zsh/bundle/ssh-find-agent"]
+	path = config/.zsh/bundle/ssh-find-agent
+	url = https://github.com/wwalker/ssh-find-agent
