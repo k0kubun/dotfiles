@@ -35,8 +35,8 @@ alias ss='eval "$(ssh-agent)"; ssh-add ~/.ssh/id_rsa.github'
 export PATH="${HOME}/.cabal/bin:${PATH}"
 export PATH="/usr/local/llvm/bin:${PATH}"
 
-. ~/.zsh/bundle/ssh-find-agent/ssh-find-agent.sh
-set_ssh_agent_socket
+# ssh-agent.service uses SSH_AUTH_SOCK=%t/ssh-agent.socket
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 export EDITOR="vim"
 export BUNDLER_EDITOR="vim"
