@@ -1,9 +1,9 @@
 #!/bin/sh
 set -e
 
-mitamae_version="1.11.0"
-mitamae_linux_sha256="4a2039ca5d70d0bed2d3aa55c4621f1fb9b03127103f71ccb43042acfeebfe7c"
-mitamae_darwin_sha256="5c85d9635d1756ee230873d0b1f8e9bb45bc330de05bb581f63178da47515901"
+mitamae_version="1.11.3"
+mitamae_linux_sha256="72d6277886b1561ff87b54bd349fd6a3b07128de83c20e27420f7a7e5fffd80f"
+mitamae_darwin_sha256="4d0aa6e15924373b3b3dc2ca498935d62e0fc9cb267e1d17a457dd1978e3b70d"
 
 mitamae_cache="mitamae-${mitamae_version}"
 if ! [ -f "bin/${mitamae_cache}" ]; then
