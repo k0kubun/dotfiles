@@ -34,6 +34,7 @@ dump.rdb
 /.force-ruby
 /.ruby-svn-check
 /.ruby
+/.ruby2
 /.r6*
 /.before
 /.after
