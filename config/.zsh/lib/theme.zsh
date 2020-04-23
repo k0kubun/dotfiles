@@ -1,6 +1,11 @@
 autoload -Uz vcs_info
 
 precmd() {
+  if [[ $ZSH_SIMPLE_PROMPT = true ]]; then
+    PROMPT="
+$ "
+    return
+  fi
   local last_status="$?"
   LANG=en_US.UTF-8 vcs_info
 
@@ -23,4 +28,8 @@ $ "
     PROMPT="%F{cyan}%1v%f%F{blue}%2v%f%F{red}%3v%f%4v%F{green}%5v%f
 $ "
 	fi
+}
+
+simple-prompt() {
+  export ZSH_SIMPLE_PROMPT=true
 }
