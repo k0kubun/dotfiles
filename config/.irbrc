@@ -14,6 +14,7 @@ autoload :Shellwords, 'shellwords'
 autoload :StringIO, 'stringio'
 autoload :URI, 'uri'
 autoload :YAML, 'yaml'
+autoload :Zlib, 'zlib'
 
 IRB.conf[:SAVE_HISTORY] = 1000
 
