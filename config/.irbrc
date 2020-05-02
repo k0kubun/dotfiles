@@ -32,3 +32,16 @@ if defined?(IRB::Color) # just for consistency
     RETURN: "=> %s\n",
   }
 end
+
+def self.pbpaste
+  case RUBY_PLATFORM
+  when /darwin/
+    `pbpaste`
+  when /linux/
+    `xsel -b`
+  when /mingw/
+    `cat /dev/clipboard`
+  else
+    raise "unsupported platform: #{RUBY_PLATFORM}"
+  end.chomp
+end
