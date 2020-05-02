@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-require 'time' # Time.parse
 autoload :Base64, 'base64'
 autoload :CGI, 'cgi'
 autoload :CSV, 'csv'
@@ -15,6 +14,23 @@ autoload :StringIO, 'stringio'
 autoload :URI, 'uri'
 autoload :YAML, 'yaml'
 autoload :Zlib, 'zlib'
+
+IRB::METHOD_AUTOLOAD = Hash.new({
+  to_json: 'json',
+  to_yaml: 'yaml',
+}).merge({
+  Time => { parse: 'time' },
+})
+
+Kernel.module_eval do
+  def method_missing(name, *args, &block)
+    if lib = IRB::METHOD_AUTOLOAD[self][name]
+      require lib
+      return self.public_send(name, *args, &block)
+    end
+    super
+  end
+end
 
 IRB.conf[:SAVE_HISTORY] = 1000
 
