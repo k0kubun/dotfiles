@@ -21,7 +21,6 @@ IRB::METHOD_AUTOLOAD = Hash.new({
 }).merge({
   Time => { parse: 'time' },
 })
-
 Kernel.module_eval do
   def method_missing(name, *args, &block)
     if lib = IRB::METHOD_AUTOLOAD[self][name]
@@ -33,7 +32,6 @@ Kernel.module_eval do
 end
 
 IRB.conf[:SAVE_HISTORY] = 1000
-
 if defined?(IRB::Color) # just for consistency
   clear = "\e[0m"
   bold = "\e[1m"
