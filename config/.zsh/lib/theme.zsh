@@ -1,11 +1,13 @@
 autoload -Uz vcs_info
 
-precmd() {
-  if [[ $ZSH_SIMPLE_PROMPT = true ]]; then
-    PROMPT="
+if [[ $ZSH_SIMPLE_PROMPT = true ]]; then
+  PROMPT="
 $ "
-    return
-  fi
+  setopt noignore_eof
+  return
+fi
+
+precmd() {
   local last_status="$?"
   LANG=en_US.UTF-8 vcs_info
 
@@ -30,6 +32,7 @@ $ "
 	fi
 }
 
-simple-prompt() {
+"\$"() {
   export ZSH_SIMPLE_PROMPT=true
+  $SHELL
 }
