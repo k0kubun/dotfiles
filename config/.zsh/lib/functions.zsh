@@ -158,7 +158,7 @@ function forward() {
 	ssh -L $local_port:127.0.0.1:$target_port $host
 }
 
-function before-vtune() {
+function vtune-prepare() {
   sudo bash -c "
     echo 0 > /proc/sys/kernel/yama/ptrace_scope
     echo 0 > /proc/sys/kernel/perf_event_paranoid
