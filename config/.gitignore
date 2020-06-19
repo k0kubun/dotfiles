@@ -52,3 +52,4 @@ pp_.go
 *.iml
 venv
 *.gcov
+cachegrind.out.*
