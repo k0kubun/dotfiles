@@ -53,10 +53,6 @@ function gg() {
 	fi
 }
 
-function up() {
-	git branch --set-upstream-to=$@/master master
-}
-
 function mine() {
 	if [[ -n `git remote | grep mine` ]]; then
 		echo "remote mine is already set up"
