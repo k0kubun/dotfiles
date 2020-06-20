@@ -32,3 +32,6 @@
 [url "git@gist.github.com:"]
   pushInsteadOf = https://gist.github.com/
   pushInsteadOf = git://gist.github.com/
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
