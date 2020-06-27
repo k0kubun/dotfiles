@@ -9,10 +9,6 @@ define_modmap({
     # Katakana Hiragana -> Alt
     Key.KATAKANAHIRAGANA: Key.RIGHT_META,
 
-    # Alt_L <-> Control_R
-    Key.LEFT_ALT: Key.RIGHT_CTRL,
-    Key.RIGHT_CTRL: Key.LEFT_ALT,
-
     # Muhenkan -> Control_L
     Key.MUHENKAN: Key.LEFT_CTRL,
 
