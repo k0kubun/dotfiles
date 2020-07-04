@@ -33,6 +33,8 @@ dump.rdb
 /.tmp
 /.force-ruby
 /.ruby-svn-check
+/.ruby-vm-check
+/.ruby-clang
 /.ruby
 /.ruby2
 /.r6*
