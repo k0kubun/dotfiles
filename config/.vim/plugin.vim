@@ -42,6 +42,7 @@ let g:extra_whitespace_ignored_filetypes = ['unite']
 let g:unite_redraw_hold_candidates = 70000
 
 " vim-go
+let g:go_gopls_enabled = 0
 " let g:go_fmt_autosave = 1
 " let g:go_fmt_fail_silently = 1
 
