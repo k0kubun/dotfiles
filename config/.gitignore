@@ -41,6 +41,7 @@ dump.rdb
 /.before
 /.after
 /.debug
+/.ruby-assert
 /.ruby-debug
 *.pyc
 /.objfcn
