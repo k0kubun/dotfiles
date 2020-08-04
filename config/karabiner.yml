@@ -148,8 +148,8 @@ profiles:
         ['f', ['right_command']] => ['right_arrow', ['left_option']],
         ['d', ['right_command']] => ['delete_forward', ['left_option']],
         ['r', ['left_control']] => ['r', ['left_command']],
-        ['o', ['right_command']] => ['tab', ['right_control', 'left_shift']],
-        ['p', ['right_command']] => ['tab', ['right_control']],
+        ['o', ['right_command']] => ['close_bracket', ['left_command', 'left_shift']],
+        ['p', ['right_command']] => ['non_us_pound', ['left_command', 'left_shift']],
       }.each do |from, to|
         from_key, from_value = from
         to_key,   to_value   = to %>
