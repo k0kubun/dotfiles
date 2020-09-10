@@ -19,6 +19,11 @@ let g:netrw_dirhistmax = 0       " Prevent clipboard pollution by clipboard^=unn
 filetype plugin on               " Enable filetype handling
 let loaded_matchparen = 1        " Don't highlight match parenthesis
 
+" Well, backspace suddenly broke.
+if has('mac')
+  noremap! <C-?> <C-h>
+endif
+
 " Copy to clipboard by yank
 set clipboard&
 if has('mac') || has('win32unix')
