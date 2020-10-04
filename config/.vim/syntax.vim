@@ -34,6 +34,7 @@ autocmd BufNewFile,BufRead Makefile.inc set filetype=make
 autocmd BufNewFile,BufRead *.v set filetype=v
 autocmd BufNewFile,BufRead *.ps1 set filetype=ps1
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
+autocmd BufNewFile,BufRead *.tmpl set filetype=c
 
 " codenize.tools
 autocmd BufNewFile,BufRead *.iam set filetype=ruby
