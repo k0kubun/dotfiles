@@ -3,7 +3,7 @@ Description=xkeysnail
 After=gdm.service
 
 [Service]
-ExecStart=/usr/local/bin/xkeysnail --watch /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xkeysnail.py
+ExecStart=/usr/local/bin/xkeysnail /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xkeysnail.py
 Restart=always
 Environment=DISPLAY=:0
 
