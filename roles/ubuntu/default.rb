@@ -23,6 +23,8 @@ if has_package?('wine') || has_package?('wine-stable')
   include_cookbook '1password'
 end
 
+package 'wmctrl'
+
 dotfile '.Xmodmap'
 # dotfile '.rake'
 dotfile '.gemrc'
