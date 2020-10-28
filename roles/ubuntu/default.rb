@@ -6,7 +6,6 @@ node.reverse_merge!(
 
 include_role 'base'
 
-# include_cookbook 'xremap'
 include_cookbook 'skk'
 include_cookbook 'git'
 include_cookbook 'ghq'
@@ -14,9 +13,10 @@ include_cookbook 'peco'
 include_cookbook 'zsh'
 include_cookbook 'tmux'
 include_cookbook 'vim'
+include_cookbook 'xkeysnail'
 # include_cookbook 'thunderbolt'
 include_cookbook 'docker'
-include_cookbook 'kubernetes'
+# include_cookbook 'kubernetes'
 
 if has_package?('wine') || has_package?('wine-stable')
   include_cookbook '1password'
