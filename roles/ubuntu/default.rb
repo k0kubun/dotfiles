@@ -17,6 +17,7 @@ include_cookbook 'xkeysnail'
 # include_cookbook 'thunderbolt'
 include_cookbook 'docker'
 # include_cookbook 'kubernetes'
+include_cookbook 'nocturn'
 
 if has_package?('wine') || has_package?('wine-stable')
   include_cookbook '1password'
