@@ -13,10 +13,9 @@ include_cookbook 'peco'
 include_cookbook 'zsh'
 include_cookbook 'tmux'
 include_cookbook 'vim'
+include_cookbook 'ruby'
 include_cookbook 'xkeysnail'
-# include_cookbook 'thunderbolt'
 include_cookbook 'docker'
-# include_cookbook 'kubernetes'
 include_cookbook 'nocturn'
 
 if has_package?('wine') || has_package?('wine-stable')
