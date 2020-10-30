@@ -1,0 +1,22 @@
+[legacy]
+confirm-close=false
+menu-accelerator-enabled=false
+
+[legacy/keybindings]
+copy='<Alt>c'
+paste='<Alt>v'
+
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+audible-bell=false
+background-color='rgb(0,0,0)'
+background-transparency-percent=15
+cursor-blink-mode='off'
+font='Inconsolata Medium 19'
+foreground-color='rgb(255,255,255)'
+palette=['rgb(46,52,54)', 'rgb(218,24,24)', 'rgb(89,183,45)', 'rgb(246,204,23)', 'rgb(66,132,218)', 'rgb(190,99,205)', 'rgb(8,203,207)', 'rgb(234,239,229)', 'rgb(85,87,83)', 'rgb(239,41,41)', 'rgb(161,250,73)', 'rgb(252,233,79)', 'rgb(114,159,207)', 'rgb(173,127,168)', 'rgb(52,226,226)', 'rgb(238,238,236)']
+scrollbar-policy='never'
+use-system-font=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=true
+visible-name='k0kubun'
