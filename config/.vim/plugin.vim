@@ -45,6 +45,8 @@ let g:unite_redraw_hold_candidates = 70000
 let g:go_gopls_enabled = 0
 " let g:go_fmt_autosave = 1
 " let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
+" Note: GoInstallBinaries goimports
 
 " let g:skk_jisyo = '~/vim-skk-jisyo.utf8'
 if has('mac')
