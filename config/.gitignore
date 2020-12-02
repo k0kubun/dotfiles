@@ -52,3 +52,4 @@ pp_.go
 venv
 *.gcov
 cachegrind.out.*
+.java-version
