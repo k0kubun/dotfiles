@@ -250,6 +250,7 @@ profiles:
       # Cmd-f -> Opt-f, Cmd-b -> Opt-b, Cmd-d -> Opt-d
       # Cmd-j -> Opt-j, Cmd-k -> Opt-k
       # Cmd-o -> Opt-o, Cmd-o -> Opt-p
+      # Cmd-Enter -> Opt-Enter
 <%    {
         ['i', ['right_command']] => ['i', ['left_option']],
         ['r', ['right_command']] => ['r', ['left_option']],
@@ -262,6 +263,7 @@ profiles:
         ['k', ['right_command']] => ['k', ['left_option']],
         ['o', ['right_command']] => ['o', ['left_option']],
         ['p', ['right_command']] => ['p', ['left_option']],
+        ['return_or_enter', ['right_command']] => ['return_or_enter', ['left_option']],
       }.each do |from, to|
         from_key, from_value = from
         to_key,   to_value   = to %>
