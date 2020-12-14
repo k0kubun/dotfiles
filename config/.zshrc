@@ -27,3 +27,22 @@ if [ -f ~/.zshrc.local ]; then source ~/.zshrc.local; fi
 
 export NVM_DIR="/Users/kokubun/.nvm"
 if [ -s "$NVM_DIR/nvm.sh" ]; then source "$NVM_DIR/nvm.sh"; fi  # This loads nvm
+
+# Must be after all ZLE
+source ~/.zsh/bundle/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# https://jonasjacek.github.io/colors/
+export TERM=xterm-256color
+
+ZSH_HIGHLIGHT_STYLES[default]=fg=255
+ZSH_HIGHLIGHT_STYLES[path]=fg=255
+ZSH_HIGHLIGHT_STYLES[arg0]=fg=217
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=217
+ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=217
+
+ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=229
+ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=229
+ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=229
+ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=80
+ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=80
+ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=80

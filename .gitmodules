@@ -7,3 +7,6 @@
 [submodule "config/.githooks/codestyle"]
 	path = config/.githooks/codestyle
 	url = https://github.com/airlift/codestyle.git
+[submodule "config/.zsh/bundle/zsh-syntax-highlighting"]
+	path = config/.zsh/bundle/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting
