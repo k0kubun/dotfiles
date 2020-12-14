@@ -36,9 +36,9 @@ export TERM=xterm-256color
 
 ZSH_HIGHLIGHT_STYLES[default]=fg=255
 ZSH_HIGHLIGHT_STYLES[path]=fg=255
-ZSH_HIGHLIGHT_STYLES[arg0]=fg=217
-ZSH_HIGHLIGHT_STYLES[precommand]=fg=217
-ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=217
+ZSH_HIGHLIGHT_STYLES[arg0]=fg=159
+ZSH_HIGHLIGHT_STYLES[precommand]=fg=159
+ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=159
 
 ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=229
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=229
