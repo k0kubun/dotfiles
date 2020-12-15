@@ -43,6 +43,11 @@ ZSH_HIGHLIGHT_STYLES[unknown-token]=fg=159
 ZSH_HIGHLIGHT_STYLES[single-quoted-argument]=fg=186
 ZSH_HIGHLIGHT_STYLES[double-quoted-argument]=fg=186
 ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]=fg=186
+
 ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]=fg=80
 ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]=fg=80
 ZSH_HIGHLIGHT_STYLES[back-dollar-quoted-argument]=fg=80
+
+ZSH_HIGHLIGHT_STYLES[command-substitution-delimiter]=fg=80
+ZSH_HIGHLIGHT_STYLES[process-substitution-delimiter]=fg=80
+ZSH_HIGHLIGHT_STYLES[back-quoted-argument-delimiter]=fg=80
