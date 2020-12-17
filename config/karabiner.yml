@@ -165,6 +165,7 @@ profiles:
         - type: frontmost_application_unless
           bundle_identifiers:
           - "^com\\.apple\\.Terminal$"
+          - "^jp\\.nanasi\\.myukkurivoice$"
 <%    end %>
       # ¥ -> \
       - type: basic

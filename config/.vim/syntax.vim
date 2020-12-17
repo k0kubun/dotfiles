@@ -35,6 +35,7 @@ autocmd BufNewFile,BufRead *.v set filetype=v
 autocmd BufNewFile,BufRead *.ps1 set filetype=ps1
 autocmd BufNewFile,BufRead *.ts set filetype=typescript
 autocmd BufNewFile,BufRead *.tmpl set filetype=c
+autocmd BufNewFile,BufRead *.dig set filetype=yaml
 
 " codenize.tools
 autocmd BufNewFile,BufRead *.iam set filetype=ruby
