@@ -141,15 +141,11 @@ profiles:
       # Cmd-f -> Opt-Right
       # Cmd-d -> Opt-Delete
       # C-r -> Cmd-r
-      # Cmd-o -> Ctrl-Shift-Tab
-      # Cmd-p -> Ctrl-Shift-Tab
 <%    {
         ['b', ['right_command']] => ['left_arrow', ['left_option']],
         ['f', ['right_command']] => ['right_arrow', ['left_option']],
         ['d', ['right_command']] => ['delete_forward', ['left_option']],
         ['r', ['left_control']] => ['r', ['left_command']],
-        ['o', ['right_command']] => ['close_bracket', ['left_command', 'left_shift']],
-        ['p', ['right_command']] => ['non_us_pound', ['left_command', 'left_shift']],
       }.each do |from, to|
         from_key, from_value = from
         to_key,   to_value   = to %>
@@ -186,8 +182,12 @@ profiles:
       manipulators:
 
       # C-w -> Opt-Backspace
+      # Cmd-o -> Ctrl-Shift-]
+      # Cmd-p -> Ctrl-Shift-\
 <%    {
         ['w', ['left_control']] => ['delete_or_backspace', ['left_option']],
+        ['o', ['right_command']] => ['close_bracket', ['left_command', 'left_shift']],
+        ['p', ['right_command']] => ['non_us_pound', ['left_command', 'left_shift']],
       }.each do |from, to|
         from_key, from_value = from
         to_key,   to_value   = to %>
@@ -385,8 +385,12 @@ profiles:
 <%    end %>
 
       # Cmd-Enter -> Opt-Enter
+      # Cmd-o -> Ctrl-Shift-Tab
+      # Cmd-p -> Ctrl-Tab
 <%    {
         ['return_or_enter', ['right_command']] => ['return_or_enter', ['right_option']],
+        ['o', ['right_command']] => ['tab', ['right_control', 'left_shift']],
+        ['p', ['right_command']] => ['tab', ['right_control']],
       }.each do |from, to|
         from_key, from_value = from
         to_key,   to_value   = to %>
