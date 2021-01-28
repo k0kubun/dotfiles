@@ -33,6 +33,7 @@ end
 
 #IRB.conf[:USE_MULTILINE] = false
 IRB.conf[:SAVE_HISTORY] = 1000
+#IRB.conf[:INSPECT_MODE] = :inspect
 if defined?(IRB::Color) # just for consistency
   clear = "\e[0m"
   bold = "\e[1m"
