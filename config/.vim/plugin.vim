@@ -36,6 +36,8 @@ augroup END
 
 " disable trailing whitespace highlight in unite
 let g:extra_whitespace_ignored_filetypes = ['unite']
+"let g:extra_whitespace_ignored_filetypes = ['unite', 'cpp']
+"let g:extra_whitespace_ignored_filetypes = ['unite', 'sql']
 
 " Unite.vim redraw limit
 " let g:unite_redraw_hold_candidates = 26000
