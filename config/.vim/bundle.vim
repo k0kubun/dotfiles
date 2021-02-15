@@ -36,6 +36,7 @@ NeoBundleLazy 'udalov/kotlin-vim', { 'autoload': { 'filetypes': ['kotlin'] } }
 " NeoBundleLazy 'lcolaholicl/vim-v', { 'autoload': { 'filetypes': ['v'] } }
 NeoBundleLazy 'PProvost/vim-ps1', { 'autoload': { 'filetypes': ['ps1'] } }
 NeoBundleLazy 'leafgarland/typescript-vim', { 'autoload': { 'filetypes': ['typescript'] } }
+NeoBundleLazy 'motus/pig.vim', { 'autoload': { 'filetypes': ['pig'] } }
 
 " Completion
 if has("lua")
