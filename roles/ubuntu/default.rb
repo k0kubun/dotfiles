@@ -18,6 +18,7 @@ include_cookbook 'go'
 include_cookbook 'xkeysnail'
 include_cookbook 'docker'
 include_cookbook 'nocturn'
+include_cookbook 'idea'
 
 if has_package?('wine') || has_package?('wine-stable')
   include_cookbook '1password'

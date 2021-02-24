@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=IntelliJ IDEA
+Comment=JetBrains IntelliJ IDEA
+Path=<%= @path %>
+Exec=<%= @path %>/bin/idea.sh
+Icon=<%= @path %>/bin/idea.png
+Terminal=false
+Categories=Internet;
