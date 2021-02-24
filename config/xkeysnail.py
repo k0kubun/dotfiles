@@ -1,13 +1,12 @@
 import re
 from xkeysnail.transform import *
 
+intellij = ("jetbrains-idea-ce", "jetbrains-idea")
+
 # [Global modemap] Change modifier keys as in xmodmap
-define_modmap({
+global_modmap = {
     # Henkan -> Shift
     Key.HENKAN: Key.LEFT_SHIFT,
-
-    # Katakana Hiragana -> Alt
-    Key.KATAKANAHIRAGANA: Key.RIGHT_META,
 
     # Alt_L -> Control_R (for Ctrl+Click)
     Key.LEFT_ALT: Key.RIGHT_CTRL,
@@ -17,12 +16,26 @@ define_modmap({
 
     # CapsLock -> Escape
     Key.CAPSLOCK: Key.ESC,
+}
 
-    # Backslash -> Underscore (Without Shift, Like MacBook)
-    # Key.RO: Key.RO,
-})
+# Not IDEA: Kana -> Windows (because Alt is annoying in Electron apps like Slack, Nocturn)
+define_conditional_modmap(lambda wm_class: wm_class not in intellij, {
+    Key.KATAKANAHIRAGANA: Key.RIGHT_META,
+**global_modmap })
+# IDEA: Kana -> Alt (because Windows is annoying in IDEA)
+define_conditional_modmap(lambda wm_class: wm_class in intellij, {
+    Key.KATAKANAHIRAGANA: Key.LEFT_ALT,
+**global_modmap })
 
-define_keymap(lambda wm_class: wm_class not in ("Google-chrome", "Slack", "Gnome-terminal", "jetbrains-idea-ce", "jetbrains-idea"), {
+define_keymap(None, {
+    # Backslash -> Underscore
+    K("RO"): K("Shift-RO"),
+
+    # SKK hack for Chrome
+    K("C-j"): K("C-m"),
+}, "Globak keymap")
+
+define_keymap(lambda wm_class: wm_class not in ("Google-chrome", "Slack", "Gnome-terminal", *intellij), {
     # Emacs basic
     K("C-b"): K("left"),
     K("C-f"): K("right"),
@@ -55,34 +68,31 @@ define_keymap(lambda wm_class: wm_class not in ("Google-chrome", "Slack", "Gnome
     K("Super-d"): K("C-delete"),
 }, "Mainly for Nocturn (but probably work arounded)")
 
-define_keymap(lambda wm_class: wm_class in ("jetbrains-idea-ce", "jetbrains-idea"), {
+define_keymap(lambda wm_class: wm_class in intellij, {
     # Emacs basic
-    K("C-b"): K("left"),
-    K("C-f"): K("right"),
+    #K("C-b"): K("left"),  # for Vim
+    #K("C-f"): K("right"), # for Vim
     K("C-p"): K("up"),
     K("C-n"): K("down"),
 
     # Emacs word
-    K("Super-b"): K("C-left"),
-    K("Super-f"): K("C-right"),
+    K("M-b"): K("C-left"),
+    K("M-f"): K("C-right"),
 
     # Emacs lines
     K("C-a"): K("home"), # TODO: Alt-C-a
     K("C-e"): K("end"),  # TODO: Alt-C-e
     K("C-k"): [K("Shift-end"), K("backspace")], # TODO: Alt-C-k
 
-    # Suppress Super-s
-    K("Super-s"): K("M-s"),
-
     # Alt -> Ctrl
-    K("Super-a"): K("C-a"),
-    K("Super-z"): K("C-z"),
-    K("Super-x"): K("C-x"),
-    K("Super-c"): K("C-c"),
-    K("Super-v"): K("C-v"),
-    K("Super-w"): K("C-w"),
-    K("Super-t"): K("C-t"),
-    K("Super-l"): K("C-l"),
+    K("M-a"): K("C-a"),
+    K("M-z"): K("C-z"),
+    K("M-x"): K("C-x"),
+    K("M-c"): K("C-c"),
+    K("M-v"): K("C-v"),
+    K("M-w"): K("C-w"),
+    K("M-t"): K("C-t"),
+    K("M-l"): K("C-l"),
 
     # actually these are vim insert mode bindings, but compatible with shell
     # K("C-w"): [K("C-Shift-left"), K("delete")],
@@ -91,9 +101,9 @@ define_keymap(lambda wm_class: wm_class in ("jetbrains-idea-ce", "jetbrains-idea
     K("Super-d"): K("C-delete"),
 
     # workaround prefix key bug
-    K("Super-r"): {
-        K("KEY_3"): K("C-Super-KEY_3"),
-        K("KEY_0"): K("C-Super-KEY_0"),
+    K("M-r"): {
+        K("KEY_3"): K("C-M-KEY_3"),
+        K("KEY_0"): K("C-M-KEY_0"),
     },
     K("C-w"): {
         K("h"): K("C-Super-KEY_1"),
@@ -190,7 +200,3 @@ define_keymap(lambda wm_class: wm_class in ("Slack"), {
     K("Super-key_8"): K("C-key_8"),
     K("Super-key_9"): K("C-key_9"),
 }, "Tab global2")
-
-define_keymap(None, {
-    K("C-j"): K("C-m"),
-}, "SKK hack for chrome")
