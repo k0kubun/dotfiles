@@ -22,7 +22,7 @@ define_modmap({
     # Key.RO: Key.RO,
 })
 
-define_keymap(lambda wm_class: wm_class not in ("Google-chrome", "Slack", "Gnome-terminal", "jetbrains-idea-ce"), {
+define_keymap(lambda wm_class: wm_class not in ("Google-chrome", "Slack", "Gnome-terminal", "jetbrains-idea-ce", "jetbrains-idea"), {
     # Emacs basic
     K("C-b"): K("left"),
     K("C-f"): K("right"),
@@ -55,10 +55,10 @@ define_keymap(lambda wm_class: wm_class not in ("Google-chrome", "Slack", "Gnome
     K("Super-d"): K("C-delete"),
 }, "Mainly for Nocturn (but probably work arounded)")
 
-define_keymap(lambda wm_class: wm_class in ("jetbrains-idea-ce"), {
+define_keymap(lambda wm_class: wm_class in ("jetbrains-idea-ce", "jetbrains-idea"), {
     # Emacs basic
-    #K("C-b"): K("left"),
-    #K("C-f"): K("right"),
+    K("C-b"): K("left"),
+    K("C-f"): K("right"),
     K("C-p"): K("up"),
     K("C-n"): K("down"),
 
@@ -71,11 +71,14 @@ define_keymap(lambda wm_class: wm_class in ("jetbrains-idea-ce"), {
     K("C-e"): K("end"),  # TODO: Alt-C-e
     K("C-k"): [K("Shift-end"), K("backspace")], # TODO: Alt-C-k
 
+    # Suppress Super-s
+    K("Super-s"): K("M-s"),
+
     # Alt -> Ctrl
     K("Super-a"): K("C-a"),
     K("Super-z"): K("C-z"),
     K("Super-x"): K("C-x"),
-    #K("Super-c"): K("C-c"),
+    K("Super-c"): K("C-c"),
     K("Super-v"): K("C-v"),
     K("Super-w"): K("C-w"),
     K("Super-t"): K("C-t"),
