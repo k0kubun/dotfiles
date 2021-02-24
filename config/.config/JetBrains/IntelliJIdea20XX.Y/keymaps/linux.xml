@@ -1,1 +1,58 @@
-<keymap version="1" name="Linux" parent="Default for GNOME" />
+<keymap version="1" name="Linux" parent="Default for GNOME">
+  <action id="CloseContent">
+    <keyboard-shortcut first-keystroke="ctrl w" />
+  </action>
+  <action id="Console.TableResult.NavigateForeignAction">
+    <mouse-shortcut keystroke="control button1" />
+  </action>
+  <action id="Diff.FocusOppositePane" />
+  <action id="Diff.FocusOppositePaneAndScroll" />
+  <action id="EditSource">
+    <keyboard-shortcut first-keystroke="alt at" />
+  </action>
+  <action id="EditorLeft">
+    <keyboard-shortcut first-keystroke="left" />
+    <keyboard-shortcut first-keystroke="ctrl b" />
+  </action>
+  <action id="EditorRight">
+    <keyboard-shortcut first-keystroke="right" />
+    <keyboard-shortcut first-keystroke="ctrl f" />
+  </action>
+  <action id="EditorSelectWord" />
+  <action id="ExportToTextFile" />
+  <action id="Find">
+    <keyboard-shortcut first-keystroke="ctrl s" />
+  </action>
+  <action id="GotoDeclaration">
+    <mouse-shortcut keystroke="control button1" />
+  </action>
+  <action id="NextSplitter">
+    <keyboard-shortcut first-keystroke="ctrl t" />
+  </action>
+  <action id="NextTab">
+    <keyboard-shortcut first-keystroke="alt p" />
+  </action>
+  <action id="PreviousTab">
+    <keyboard-shortcut first-keystroke="alt o" />
+  </action>
+  <action id="SaveAll">
+    <keyboard-shortcut first-keystroke="alt s" />
+  </action>
+  <action id="Scala.ShowImplicits">
+    <keyboard-shortcut first-keystroke="shift ctrl alt equals" />
+    <keyboard-shortcut first-keystroke="shift ctrl alt add" />
+  </action>
+  <action id="ShowSettings">
+    <keyboard-shortcut first-keystroke="alt comma" />
+  </action>
+  <action id="SmartSelect" />
+  <action id="SplitVertically">
+    <keyboard-shortcut first-keystroke="ctrl alt 3" />
+  </action>
+  <action id="Switcher" />
+  <action id="TableResult.GrowSelection" />
+  <action id="Unsplit">
+    <keyboard-shortcut first-keystroke="ctrl alt 0" />
+  </action>
+  <action id="Vcs.UpdateProject" />
+</keymap>
