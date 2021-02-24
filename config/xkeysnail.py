@@ -90,7 +90,7 @@ define_keymap(lambda wm_class: wm_class in intellij, {
     K("M-x"): K("C-x"),
     K("M-c"): K("C-c"),
     K("M-v"): K("C-v"),
-    K("M-w"): K("C-w"),
+    #K("M-w"): K("C-w"), # avoid conflict with prefix
     K("M-t"): K("C-t"),
     K("M-l"): K("C-l"),
 

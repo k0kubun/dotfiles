@@ -1,6 +1,6 @@
 <keymap version="1" name="Linux" parent="Default for GNOME">
   <action id="CloseContent">
-    <keyboard-shortcut first-keystroke="ctrl w" />
+    <keyboard-shortcut first-keystroke="alt w" />
   </action>
   <action id="Console.TableResult.NavigateForeignAction">
     <mouse-shortcut keystroke="control button1" />
