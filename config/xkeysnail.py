@@ -88,7 +88,7 @@ define_keymap(lambda wm_class: wm_class in intellij, {
     K("M-a"): K("C-a"),
     K("M-z"): K("C-z"),
     K("M-x"): K("C-x"),
-    K("M-c"): K("C-c"),
+    #K("M-c"): K("C-c"), # use C-c for Esc, M-c for copy
     K("M-v"): K("C-v"),
     #K("M-w"): K("C-w"), # avoid conflict with prefix
     K("M-t"): K("C-t"),
