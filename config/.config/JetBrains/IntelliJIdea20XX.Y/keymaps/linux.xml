@@ -1,6 +1,6 @@
 <keymap version="1" name="Linux" parent="Default for GNOME">
   <action id="$Copy">
-    <keyboard-shortcut first-keystroke="ctrl insert" />
+    <keyboard-shortcut first-keystroke="alt c" />
   </action>
   <action id="CloseContent">
     <keyboard-shortcut first-keystroke="alt w" />
@@ -12,6 +12,9 @@
   <action id="Diff.FocusOppositePaneAndScroll" />
   <action id="EditSource">
     <keyboard-shortcut first-keystroke="alt at" />
+  </action>
+  <action id="Editor Copy">
+    <keyboard-shortcut first-keystroke="alt c" />
   </action>
   <action id="EditorEscape">
     <keyboard-shortcut first-keystroke="escape" />
