@@ -1,4 +1,7 @@
 <keymap version="1" name="Linux" parent="Default for GNOME">
+  <action id="$Copy">
+    <keyboard-shortcut first-keystroke="ctrl insert" />
+  </action>
   <action id="CloseContent">
     <keyboard-shortcut first-keystroke="alt w" />
   </action>
@@ -9,6 +12,10 @@
   <action id="Diff.FocusOppositePaneAndScroll" />
   <action id="EditSource">
     <keyboard-shortcut first-keystroke="alt at" />
+  </action>
+  <action id="EditorEscape">
+    <keyboard-shortcut first-keystroke="escape" />
+    <keyboard-shortcut first-keystroke="ctrl c" />
   </action>
   <action id="EditorLeft">
     <keyboard-shortcut first-keystroke="left" />
@@ -51,6 +58,10 @@
   </action>
   <action id="Switcher" />
   <action id="TableResult.GrowSelection" />
+  <action id="Terminal.CopySelectedText">
+    <keyboard-shortcut first-keystroke="shift ctrl c" />
+    <keyboard-shortcut first-keystroke="ctrl insert" />
+  </action>
   <action id="Unsplit">
     <keyboard-shortcut first-keystroke="ctrl alt 0" />
   </action>
