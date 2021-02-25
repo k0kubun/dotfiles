@@ -94,6 +94,9 @@ define_keymap(lambda wm_class: wm_class in intellij, {
     K("M-t"): K("C-t"),
     K("M-l"): K("C-l"),
 
+    # Esc workaround for Vim Emulator
+    K("C-c"): K("Esc"),
+
     # actually these are vim insert mode bindings, but compatible with shell
     # K("C-w"): [K("C-Shift-left"), K("delete")],
 
