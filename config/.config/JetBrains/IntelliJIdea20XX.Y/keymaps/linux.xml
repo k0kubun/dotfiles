@@ -2,6 +2,9 @@
   <action id="$Copy">
     <keyboard-shortcut first-keystroke="alt c" />
   </action>
+  <action id="$Paste">
+    <keyboard-shortcut first-keystroke="alt v" />
+  </action>
   <action id="CloseContent">
     <keyboard-shortcut first-keystroke="alt w" />
   </action>
@@ -15,6 +18,12 @@
   </action>
   <action id="Editor Copy">
     <keyboard-shortcut first-keystroke="alt c" />
+  </action>
+  <action id="Editor Paste">
+    <keyboard-shortcut first-keystroke="alt v" />
+  </action>
+  <action id="EditorDeleteToWordEnd">
+    <keyboard-shortcut first-keystroke="alt d" />
   </action>
   <action id="EditorEscape">
     <keyboard-shortcut first-keystroke="escape" />
