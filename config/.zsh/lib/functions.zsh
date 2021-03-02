@@ -104,15 +104,6 @@ function replace-all() {
 	done
 }
 
-function format-all() {
-	(
-		repo_root="$(git rev-parse --show-toplevel)"
-		cd "repo_root"
-		replace-githooks
-		find . -name "*.java" | sed -e "s|^\.\/|$repo_root/|" | xargs .git/hooks/idea-format.sh -s "$(readlink .git/hooks)/codestyle/IntelliJIdea14/Airlift.xml"
-	)
-}
-
 function u() {
 	src=$(\ls | grep \.uml)
 	png=$(echo $src | sed 's/\.uml/\.png/')
