@@ -36,6 +36,14 @@ nnoremap <silent> ;xc :qa!<CR>
 " Explore
 nnoremap <silent> ;e :<C-u>Explore<CR>
 
+" Tabline
+nnoremap [Tag] <Nop>
+nmap <Space> [Tag]
+map <silent> [Tag]t :tablast <bar> tabnew <bar> Explore <bar> vs<CR>
+map <silent> [Tag]w :tabclose<CR>
+map <silent> [Tag]p :tabnext<CR>
+map <silent> [Tag]o :tabprevious<CR>
+
 "===============================================================================
 " Styles
 "===============================================================================
