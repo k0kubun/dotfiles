@@ -2,8 +2,13 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+# colorscheme hybrid
 repo = 'w0ng/vim-hybrid'
 
 [[plugins]]
-# Make the current cursor transparent in netrw
+# Make a current cursor transparent
 repo = 'vim-scripts/netrw.vim'
+
+[[plugins]]
+# Used by statusline
+repo = 'tpope/vim-fugitive'
