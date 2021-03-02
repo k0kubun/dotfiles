@@ -66,10 +66,10 @@ set clipboard& clipboard+=unnamed,unnamedplus " Copy to clipboard by yank
 colorscheme hybrid
 hi Normal ctermbg=NONE
 
-set number        " Show line number
-set cmdheight=2   " 2-line command window
-set showtabline=2 " Always show a tab line
-set guicursor=    " Disable changing a cursor shape (NeoVim specific)
+set number               " Show line number
+set cmdheight=2          " 2-line command window
+set showtabline=2        " Always show a tab line
+set guicursor=a:blinkon0 " Disable nvim's cursor changes, and disable blink
 
 "===============================================================================
 " Tabline and statusline
