@@ -28,6 +28,9 @@ syntax enable
 colorscheme hybrid
 hi Normal ctermbg=NONE
 
+set number      " Show line number
+set cmdheight=2 " 2-line command window
+
 "===============================================================================
 " Key binding
 "===============================================================================
@@ -35,3 +38,9 @@ hi Normal ctermbg=NONE
 nnoremap <silent> ;xc :qa!<CR>
 " Explore
 nnoremap <silent> ;e :<C-u>Explore<CR>
+
+"===============================================================================
+" Editing
+"===============================================================================
+set nowrap                                    " Don't wrap lines
+set clipboard& clipboard+=unnamed,unnamedplus " Copy to clipboard by yank
