@@ -98,3 +98,5 @@ if !has('mac')
   " highlight GitGutterDelete ctermfg=9 ctermbg=52
 endif
 let g:gitgutter_sign_removed = '-'
+
+let g:openbrowser_github_select_current_line = 1
