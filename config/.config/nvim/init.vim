@@ -48,6 +48,14 @@ map <silent> [Tag]o :tabprevious<CR>
 nnoremap <silent> gh :let @/=''<CR>
 " Git Blame
 nnoremap <silent> gb :<C-u>Gblame<CR>
+" Paste
+if has('mac')
+  nnoremap gp :<C-u>r !pbpaste<CR>
+elseif has('win32unix')
+  nnoremap gp :<C-u>r !cat /dev/clipboard<CR>
+else
+  nnoremap gp :<C-u>r !xsel -b<CR>
+endif
 
 " binding.pry
 inoremap <C-v> require "pry";binding.pry
