@@ -23,12 +23,6 @@ filetype plugin indent on
 syntax enable
 
 "===============================================================================
-" Editing
-"===============================================================================
-set nowrap                                    " Don't wrap lines
-set clipboard& clipboard+=unnamed,unnamedplus " Copy to clipboard by yank
-
-"===============================================================================
 " Key binding
 "===============================================================================
 " End Vim
@@ -59,6 +53,12 @@ endif
 
 " binding.pry
 inoremap <C-v> require "pry";binding.pry
+
+"===============================================================================
+" Editing
+"===============================================================================
+set nowrap                                    " Don't wrap lines
+set clipboard& clipboard+=unnamed,unnamedplus " Copy to clipboard by yank
 
 "===============================================================================
 " Styles
