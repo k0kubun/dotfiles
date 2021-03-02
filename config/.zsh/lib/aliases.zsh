@@ -6,7 +6,7 @@ alias re="source ~/.zshrc"
 
 # vim
 function vi() {
-	vim ${=*/:/ +}
+	nvim ${=*/:/ +}
 }
 
 # Prefer brew's vim
