@@ -44,6 +44,14 @@ map <silent> [Tag]w :tabclose<CR>
 map <silent> [Tag]p :tabnext<CR>
 map <silent> [Tag]o :tabprevious<CR>
 
+" Delete highlight
+nnoremap <silent> gh :let @/=''<CR>
+" Git Blame
+nnoremap <silent> gb :<C-u>Gblame<CR>
+
+" binding.pry
+inoremap <C-v> require "pry";binding.pry
+
 "===============================================================================
 " Styles
 "===============================================================================
