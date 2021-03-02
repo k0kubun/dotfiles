@@ -3,3 +3,7 @@ repo = 'Shougo/dein.vim'
 
 [[plugins]]
 repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
+# Make the current cursor transparent in netrw
+repo = 'vim-scripts/netrw.vim'
