@@ -73,7 +73,7 @@ NeoBundle 'tpope/vim-fugitive'
 " NeoBundleLazy 'k0kubun/vim-open-github', { 'autoload': { 'commands': ['OpenGithub'] } }
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'tyru/open-browser-github.vim'
+NeoBundle 'k0kubun/open-browser-github.vim'
 " NeoBundleLazy 'airblade/vim-gitgutter', { 'autoload': { 'insert': 1 } }
 
 NeoBundleCheck

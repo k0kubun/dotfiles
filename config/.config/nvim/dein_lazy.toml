@@ -57,7 +57,7 @@ hook_post_source = '''
 '''
 
 [[plugins]]
-repo = 'tyru/open-browser-github.vim'
+repo = 'k0kubun/open-browser-github.vim'
 on_cmd = ['OpenGithubFile']
 depends = ['open-browser.vim']
 hook_post_source = '''
