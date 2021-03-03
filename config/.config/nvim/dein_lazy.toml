@@ -9,7 +9,7 @@ on_ft = ['toml']
 # Unite
 #===============================================================================
 [[plugins]]
-repo = 'Shougo/unite.vim'
+repo = 'k0kubun/unite.vim'
 on_cmd = ['Unite']
 depends = ['vimproc.vim']
 hook_post_source = '''
