@@ -68,7 +68,9 @@ inoremap <C-v> require "pry";binding.pry
 " Editing
 "===============================================================================
 set nowrap                                    " Don't wrap lines
+set nofoldenable                              " Ignore code folding comments
 set clipboard& clipboard+=unnamed,unnamedplus " Copy to clipboard by yank
+let g:netrw_dirhistmax = 0                    " Prevent clipboard pollution
 
 "===============================================================================
 " Styles

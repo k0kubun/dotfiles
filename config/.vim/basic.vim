@@ -13,6 +13,7 @@ set hlsearch                     " 検索結果ハイライト
 set laststatus=2                 " 常にステータスラインを表示
 set bs=start,indent              " インサートモードで文字を消せるようにする
 set cmdheight=2                  " コマンドラインウィンドウを2行で表示
+set nofoldenable
 
 set number                       " Show line number
 let g:netrw_dirhistmax = 0       " Prevent clipboard pollution by clipboard^=unnamed
