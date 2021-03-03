@@ -91,6 +91,13 @@ set cmdheight=2          " 2-line command window
 set showtabline=2        " Always show a tab line
 set guicursor=a:blinkon0 " Disable nvim's cursor changes, and disable blink
 
+" vim-gitgutter
+set t_Co=256
+highlight GitGutterAdd ctermfg=28
+highlight GitGutterChange ctermfg=3
+highlight GitGutterDelete ctermfg=160
+let g:gitgutter_sign_removed = '-'
+
 "===============================================================================
 " Tabline and statusline
 "===============================================================================

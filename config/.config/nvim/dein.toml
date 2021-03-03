@@ -1,14 +1,23 @@
+#===============================================================================
+# Dein
+#===============================================================================
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-# colorscheme hybrid
-[[plugins]]
+#===============================================================================
+# Styles
+#===============================================================================
+[[plugins]] # colorscheme hybrid
 repo = 'w0ng/vim-hybrid'
 
-# Transparent netrw cursor line
-[[plugins]]
+[[plugins]] # Transparent netrw cursor line
 repo = 'vim-scripts/netrw.vim'
 
-# Used by statusline
-[[plugins]]
+#===============================================================================
+# Git
+#===============================================================================
+[[plugins]] # Used by statusline
 repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
