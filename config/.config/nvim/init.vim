@@ -90,9 +90,9 @@ set number               " Show line number
 set cmdheight=2          " 2-line command window
 set showtabline=2        " Always show a tab line
 set guicursor=a:blinkon0 " Disable nvim's cursor changes, and disable blink
+set t_Co=256             " Allow 256 colors https://jonasjacek.github.io/colors
 
 " vim-gitgutter
-set t_Co=256
 highlight GitGutterAdd ctermfg=28
 highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=160
