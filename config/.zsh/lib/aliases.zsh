@@ -5,6 +5,7 @@
 alias re="source ~/.zshrc"
 
 # vim
+alias vim="nvim"
 function vi() {
 	nvim ${=*/:/ +}
 }
