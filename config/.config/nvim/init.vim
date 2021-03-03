@@ -23,11 +23,6 @@ filetype plugin indent on
 syntax enable
 
 "===============================================================================
-" Python support for denite.vim
-"===============================================================================
-let g:python3_host_prog = '/usr/bin/python3'
-
-"===============================================================================
 " Key binding
 "===============================================================================
 " End Vim
@@ -63,6 +58,9 @@ endif
 
 " binding.pry
 inoremap <C-v> require "pry";binding.pry
+
+" Deoplete completion
+inoremap <expr><CR> "\<C-n>" . deoplete#close_popup()
 
 "===============================================================================
 " Editing
