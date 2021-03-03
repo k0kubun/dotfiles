@@ -70,6 +70,7 @@ inoremap <C-v> require "pry";binding.pry
 set nowrap                                    " Don't wrap lines
 set nofoldenable                              " Don't fold code comments in .vim
 set noswapfile                                " Don't create .swp
+set ignorecase                                " Case-insensitive search
 set clipboard& clipboard+=unnamed,unnamedplus " Copy to clipboard by yank
 let g:netrw_dirhistmax = 0                    " Prevent clipboard pollution
 autocmd FileType * set formatoptions-=ro      " Disable automatic comment out
