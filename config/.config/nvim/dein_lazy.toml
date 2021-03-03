@@ -13,7 +13,8 @@ repo = 'Shougo/unite.vim'
 on_cmd = ['Unite']
 depends = ['vimproc.vim']
 hook_post_source = '''
-  autocmd FileType unite highlight CursorLine cterm=reverse
+  autocmd BufEnter,BufWinEnter \[unite\]* highlight! CursorLine ctermfg=Black ctermbg=Grey
+  autocmd BufLeave \[unite\]* highlight! CursorLine ctermfg=NONE ctermbg=NONE
 '''
 
 [[plugins]]
