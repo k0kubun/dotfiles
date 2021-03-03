@@ -17,5 +17,5 @@ hook_post_source = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/vimproc'
+repo = 'Shougo/vimproc.vim'
 build = 'make'
