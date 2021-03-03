@@ -34,24 +34,11 @@ let g:python3_host_prog = '/usr/bin/python3'
 nnoremap <silent> ;xc :qa!<CR>
 " Explore
 nnoremap <silent> ;e :<C-u>Explore<CR>
-" Denite
-nnoremap <silent> ;u :<C-u>Denite -start-filter -winheight=18 -prompt=>
-      \ `finddir('.git', ';') != '' ? 'file/rec/git' : 'file/rec'`<CR>
-"autocmd FileType denite imap ;q denite#do_map('quit')
-autocmd FileType denite call s:denite_binding()
-function! s:denite_binding() abort
-  nnoremap <silent><buffer><expr> <CR>      denite#do_map('do_action')
-  " nnoremap <silent><buffer><expr> d       denite#do_map('do_action', 'delete')
-  " nnoremap <silent><buffer><expr> p       denite#do_map('do_action', 'preview')
-  " nnoremap <silent><buffer><expr> ;q        denite#do_map('quit')
-  inoremap <silent><buffer><expr> ;q                                   denite#do_map('quit')
-  " nnoremap <silent><buffer><expr> i       denite#do_map('open_filter_buffer')
-  " nnoremap <silent><buffer><expr> <Space> denite#do_map('toggle_select').'j'
-
-  "call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
-  "call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
-endfunction
-" autocmd BufLeave * silent! iunmap ;q
+" Unite
+nnoremap <silent> ;u :<C-u>Unite -prompt=>\  -start-insert -silent
+      \ buffer `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+autocmd FileType unite imap ;q <C-u><C-h>
+autocmd BufLeave * silent! iunmap ;q
 
 " Tabline
 nnoremap [Tag] <Nop>

@@ -6,13 +6,16 @@ repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
 #===============================================================================
-# Denite
+# Unite
 #===============================================================================
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-on_cmd = ['Denite']
-hook_source = 'source ~/.config/nvim/rc/denite.vim'
+repo = 'Shougo/unite.vim'
+on_cmd = ['Unite']
+depends = ['vimproc.vim']
 hook_post_source = '''
-  call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
-  call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
+  autocmd FileType unite highlight CursorLine cterm=reverse
 '''
+
+[[plugins]]
+repo = 'Shougo/vimproc'
+build = 'make'
