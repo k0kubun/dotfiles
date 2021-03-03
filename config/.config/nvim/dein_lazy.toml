@@ -42,3 +42,27 @@ hook_post_source = '''
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
+
+#===============================================================================
+# Git
+#===============================================================================
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_post_source = '''
+  delfunction OpenBrowser
+  delcommand OpenBrowser
+  delfunction OpenBrowserSearch
+  delcommand OpenBrowserSearch
+  delcommand OpenBrowserSmartSearch
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser-github.vim'
+on_cmd = ['OpenGithubFile']
+depends = ['open-browser.vim']
+hook_post_source = '''
+  delcommand OpenGithubCommit
+  delcommand OpenGithubIssue
+  delcommand OpenGithubProject
+  delcommand OpenGithubPullReq
+'''
