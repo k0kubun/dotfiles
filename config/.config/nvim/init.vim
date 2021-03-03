@@ -60,7 +60,7 @@ endif
 inoremap <C-v> require "pry";binding.pry
 
 " Deoplete completion
-inoremap <expr><CR> "\<C-n>" . deoplete#close_popup()
+inoremap <expr><CR> deoplete#complete() . deoplete#close_popup()
 
 "===============================================================================
 " Indentation
