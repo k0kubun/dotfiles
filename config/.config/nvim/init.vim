@@ -31,7 +31,7 @@ nnoremap <silent> ;xc :qa!<CR>
 nnoremap <silent> ;e :<C-u>Explore<CR>
 " Unite
 nnoremap <silent> ;u :<C-u>Unite -prompt=>\  -start-insert -silent -ignorecase
-      \ buffer `finddir('.git', ';') != '' ? 'file_rec/git' : 'file_rec'`<CR>
+      \ buffer `finddir('.git', ';') != '' ? 'git_files' : 'file_rec'`<CR>
 autocmd FileType unite imap ;q <C-u><C-h>
 autocmd BufLeave * silent! iunmap ;q
 

@@ -40,6 +40,11 @@ hook_post_source = '''
 '''
 
 [[plugins]]
+repo = 'k0kubun/unite-git_files'
+on_cmd = ['Unite']
+depends = ['unite.vim']
+
+[[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 
