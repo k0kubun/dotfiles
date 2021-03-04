@@ -21,3 +21,12 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+
+#===============================================================================
+# SKK
+#===============================================================================
+[[plugins]]
+repo = 'tyru/skk.vim'
+
+[[plugins]]
+repo = 'tyru/skkdict.vim'
