@@ -80,6 +80,9 @@ set clipboard& clipboard+=unnamed,unnamedplus " Copy to clipboard by yank
 let g:netrw_dirhistmax = 0                    " Prevent clipboard pollution
 autocmd FileType * set formatoptions-=ro      " Disable automatic comment out
 
+" vim-trailing-whitespace
+let g:extra_whitespace_ignored_filetypes = ['unite']
+
 "===============================================================================
 " Styles
 "===============================================================================
