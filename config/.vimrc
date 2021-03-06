@@ -55,8 +55,6 @@ set hlsearch                     " 検索結果ハイライト
 set laststatus=2                 " 常にステータスラインを表示
 set bs=start,indent              " インサートモードで文字を消せるようにする
 
-let loaded_matchparen = 1        " Don't highlight match parenthesis
-
 " Well, backspace suddenly broke.
 if has('mac')
   noremap! <C-?> <C-h>
