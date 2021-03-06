@@ -1,4 +1,4 @@
-source ~/.vim/bundle.vim
+source ~/.config/nvim/init.vim
 
 source ~/.vim/basic.vim
 source ~/.vim/syntax.vim

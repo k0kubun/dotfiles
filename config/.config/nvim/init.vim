@@ -5,8 +5,13 @@ if &compatible
   set nocompatible
 endif
 
-let s:nvim = '~/.config/nvim/'
-set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+if has('nvim')
+  let s:nvim = '~/.config/nvim/'
+  set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+else
+  let s:nvim = '~/.config/vim/'
+  set runtimepath+=~/.config/vim/dein/repos/github.com/Shougo/dein.vim
+endif
 
 if dein#load_state(s:nvim . 'dein')
   call dein#begin(s:nvim . 'dein', [s:nvim . 'dein.toml', s:nvim . 'dein_lazy.toml'])
