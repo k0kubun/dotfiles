@@ -45,7 +45,7 @@ on_cmd = ['FixWhitespace']
 [[plugins]]
 repo = 'k0kubun/unite.vim'
 on_cmd = ['Unite']
-depends = ['vimproc.vim']
+depends = ['vimproc.vim', 'unite-git_files']
 hook_post_source = '''
   autocmd BufEnter,BufWinEnter \[unite\]* highlight! CursorLine ctermfg=Black ctermbg=Grey
   autocmd BufLeave \[unite\]* highlight! CursorLine ctermfg=NONE ctermbg=NONE
@@ -53,8 +53,6 @@ hook_post_source = '''
 
 [[plugins]]
 repo = 'k0kubun/unite-git_files'
-on_cmd = ['Unite']
-depends = ['unite.vim']
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
