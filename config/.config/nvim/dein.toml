@@ -32,3 +32,14 @@ on_if = 'has("mac")'
 [[plugins]]
 repo = 'tyru/skkdict.vim'
 on_if = 'has("mac")'
+
+#===============================================================================
+# NeoVim RPC
+#===============================================================================
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+on_if = '!has("nvim")'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+on_if = '!has("nvim")'

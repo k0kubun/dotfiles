@@ -1,6 +1,0 @@
-delfunction OpenBrowser
-delcommand OpenBrowser
-delfunction OpenBrowserSearch
-delcommand OpenBrowserSearch
-delcommand OpenBrowserSmartSearch
-delcommand OpenGithubCommit
