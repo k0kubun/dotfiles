@@ -86,10 +86,43 @@ autocmd BufNewFile,BufRead *.so VinarisePluginDump
 let g:is_posix = 1
 
 "===============================================================================
+" Indentation
+"===============================================================================
+set autoindent    " 自動でインデント
+set smartindent   " 新しい行を開始したときに、新しい行のインデントを現在行と同じ量にする。
+set cindent       " Cプログラムファイルの自動インデントを始める
+
+if has("autocmd")
+  autocmd FileType c          setlocal sw=4 sts=4 ts=4 et
+  "autocmd FileType c          setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType cpp        setlocal sw=4 sts=4 ts=8 et
+  autocmd FileType css        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType java       setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType kotlin     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType groovy     setlocal sw=4 sts=4 ts=4 et
+  autocmd FileType javascript setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType ruby       setlocal sw=2 sts=2 ts=2 et iskeyword+=? " iskeyword+=!
+  autocmd FileType haml       setlocal sw=2 sts=2 ts=2 et iskeyword+=? " iskeyword+=!
+  autocmd FileType python     setlocal sw=4 sts=4 ts=4 list listchars=tab:»- " noet
+  autocmd FileType slim       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType vim        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType haskell    setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType yacc       setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType go         setlocal sw=4 sts=4 ts=4 et noexpandtab
+  autocmd FileType zsh        setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType sh         setlocal sw=2 sts=2 ts=2 et
+  autocmd FileType asm        setlocal sw=4 sts=4 ts=4 et noexpandtab
+  autocmd FileType make       setlocal ts=4 list listchars=tab:»-
+  autocmd FileType cruby      setlocal list listchars=tab:»-
+
+  autocmd BufNewFile,BufRead configure.ac setlocal ts=8 list listchars=tab:»-
+endif
+
+set cinoptions+=g1,h1
+
+"===============================================================================
 " Others
 "===============================================================================
-source ~/.vim/indentation.vim
-
 source ~/.vim/skin.vim
 source ~/.vim/plugin.vim
 source ~/.vim/bind.vim
