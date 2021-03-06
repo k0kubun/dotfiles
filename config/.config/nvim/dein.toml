@@ -27,6 +27,8 @@ repo = 'airblade/vim-gitgutter'
 #===============================================================================
 [[plugins]]
 repo = 'tyru/skk.vim'
+on_if = 'has("mac")'
 
 [[plugins]]
 repo = 'tyru/skkdict.vim'
+on_if = 'has("mac")'
