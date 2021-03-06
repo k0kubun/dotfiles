@@ -1,5 +1,3 @@
 bin/mitamae*
 *.swp
-.vim/bundle/*
-!.vim/bundle/neobundle.vim
 config/.IdeaIC2019.1/config/options/recentProjects.xml
