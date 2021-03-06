@@ -1,6 +1,3 @@
-[submodule "config/.vim/dicts"]
-	path = config/.vim/dicts
-	url = https://github.com/pocke/dicts
 [submodule "config/.zsh/bundle/zsh-syntax-highlighting"]
 	path = config/.zsh/bundle/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
