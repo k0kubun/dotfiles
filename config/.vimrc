@@ -123,7 +123,61 @@ set cinoptions+=g1,h1
 "===============================================================================
 " Plugin
 "===============================================================================
-source ~/.vim/plugin.vim
+autocmd FileType python set completeopt-=preview
+
+" Unite.vim
+let g:unite_enable_start_insert = 1
+let g:unite_source_file_mru_limit = 20
+let g:unite_enable_auto_select = 0
+" let g:unite_source_grep_command = 'ag'
+
+" Unbind <C-e> in unite
+augroup test
+  autocmd!
+  autocmd FileType unite inoremap <buffer> <C-e> <Esc>
+augroup END
+
+" disable trailing whitespace highlight in unite
+"let g:extra_whitespace_ignored_filetypes = ['unite', 'cpp']
+"let g:extra_whitespace_ignored_filetypes = ['unite', 'sql']
+
+" Unite.vim redraw limit
+" let g:unite_redraw_hold_candidates = 26000
+let g:unite_redraw_hold_candidates = 70000
+
+" vim-go
+let g:go_gopls_enabled = 0
+" let g:go_fmt_autosave = 1
+" let g:go_fmt_fail_silently = 1
+let g:go_fmt_command = "goimports"
+
+" let g:skk_jisyo = '~/vim-skk-jisyo.utf8'
+if has('mac')
+  let g:skk_large_jisyo = '~/Library/Application Support/AquaSKK/SKK-JISYO.L'
+" elseif has('unix')
+"   let g:skk_large_jisyo = '/usr/share/skk/SKK-JISYO.L'
+endif
+
+if has('mac')
+  let g:skk_auto_save_jisyo = 1 " don't ask if save
+  let g:skk_keep_state = 0
+  let g:skk_kutouten_type = 'jp'
+  let g:skk_egg_like_newline = 0
+  let g:skk_show_annotation = 1
+  let g:skk_use_face = 1
+endif
+
+" matchit.vim for ruby
+source $VIMRUNTIME/macros/matchit.vim
+augroup matchit
+  au!
+  au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
+augroup END
+
+" sqlcomplete disable
+let g:omni_sql_no_default_maps = 1
+
+let g:openbrowser_github_select_current_line = 1
 
 "===============================================================================
 " Bind
