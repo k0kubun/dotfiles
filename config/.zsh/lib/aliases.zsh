@@ -5,9 +5,7 @@
 alias re="source ~/.zshrc"
 
 # vim
-if [[ $(uname) = Darwin ]]; then
-  alias vim="nvim"
-fi
+alias vim="nvim"
 function vi() {
   nvim ${=*/:/ +}
 }
