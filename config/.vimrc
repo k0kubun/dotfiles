@@ -218,7 +218,39 @@ let g:openbrowser_github_select_current_line = 1
 "===============================================================================
 " Bind
 "===============================================================================
-source ~/.vim/bind.vim
+" t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
+" for n in range(1, 9)
+"   execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+" endfor
+
+" Hash Rocket
+command! -bar -range=% NotRocket :<line1>,<line2>s/:\([a-z_]\+\)\s*=>/\1:/g
+vnoremap <silent> gr :NotRocket<CR>
+
+" Source .vimrc
+noremap <silent> ;s :<C-u>source<Space>~/.vimrc<CR>
+
+" windows new-window workaround
+if has('win32unix')
+  noremap <silent> <C-q> :<C-u>r !tmux new-window zsh<CR>
+endif
+
+" Golang
+noremap <silent> ;t :!go test .<CR>
+noremap <silent> ;r :!go run %<CR>
+
+" break undo chain when using insert mode deletions (:h i_CTRL-G_u)
+inoremap <C-u> <C-g>u<C-u>
+inoremap <C-w> <C-g>u<C-w>
+
+" pane size changer
+nnoremap <C-w>> <C-w>14>
+nnoremap <C-w>< <C-w>14<
+
+" inoremap <C-v> begin;require "pry";binding.pry;rescue LoadError;require "irb";IRB.setup(nil);IRB.dbg(binding);end
+
+" abbreviation
+autocmd FileType java abbr psvm public static void main(String[] args) {<CR>}<Esc>O<BS><Space><Space><Space>
 
 "===============================================================================
 " Others
