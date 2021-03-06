@@ -2,11 +2,15 @@
 # Language
 #===============================================================================
 [[plugins]]
+repo = 'udalov/kotlin-vim'
+on_ft = ['kotlin']
+
+[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
 #===============================================================================
-# Completion
+# Editing
 #===============================================================================
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
@@ -26,6 +30,14 @@ hook_source = '''
     let g:python3_host_prog = '/usr/bin/python3'
   endif
 '''
+
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+on_cmd = ['OverCommandLine']
+
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
+on_cmd = ['FixWhitespace']
 
 #===============================================================================
 # Unite
