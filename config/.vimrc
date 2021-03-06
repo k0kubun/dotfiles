@@ -4,6 +4,42 @@
 source ~/.config/nvim/init.vim
 
 "===============================================================================
+" Bundle
+"===============================================================================
+" " Language
+" NeoBundleLazy 'vim-ruby/vim-ruby', { 'autoload': { 'filetypes': 'ruby' } }
+" NeoBundle 'kana/vim-textobj-user'
+" NeoBundleLazy 'kana/vim-textobj-indent', { 'autoload': { 'filetypes': ['haml'] } } " `vii` to select block
+" NeoBundleLazy 'rhysd/vim-textobj-ruby', { 'autoload': { 'filetypes': 'ruby' } }
+" NeoBundleLazy 'mrkn/vim-cruby', { 'autoload': { 'filetypes': ['c', 'cruby'] } }
+" " NeoBundle 'tpope/vim-rails'
+" NeoBundleLazy 'tpope/vim-haml', { 'autoload': { 'filetypes': 'haml' } }
+" NeoBundleLazy 'slim-template/vim-slim', { 'autoload': { 'filetypes': 'slim' } }
+" NeoBundleLazy 'kchmck/vim-coffee-script', { 'autoload': { 'filetypes': ['coffee'] } }
+" NeoBundleLazy 'fatih/vim-go', { 'autoload': { 'filetypes': ['go'] } }
+" NeoBundleLazy 'vim-scripts/applescript.vim', { 'autoload': { 'filetypes': ['applescript'] } }
+" NeoBundleLazy 'Shougo/vinarise.vim', { 'autoload': { 'commands': ['Vinarise'] } }
+" " NeoBundleLazy 'rodjek/vim-puppet', { 'autoload': { 'filetypes': ['puppet'] } }
+" " NeoBundleLazy 'elixir-lang/vim-elixir', { 'autoload': { 'filetypes': ['elixir'] } }
+" NeoBundleLazy 'vim-jp/vim-cpp', { 'autoload': { 'filetypes': ['c', 'cpp'] } }
+" NeoBundleLazy 'othree/yajs.vim', { 'autoload': { 'filetypes': ['javascript'] } }
+" NeoBundleLazy 'othree/es.next.syntax.vim', { 'autoload': { 'filetypes': ['javascript'] } }
+" NeoBundleLazy 'gavocanov/vim-js-indent', { 'autoload': { 'filetypes': ['javascript'] } }
+" " NeoBundleLazy 'rust-lang/rust.vim', { 'autoload' : { 'filetypes': 'rust' } }
+" " NeoBundleLazy 'racer-rust/vim-racer', { 'autoload' : { 'filetypes': 'rust' } }
+" NeoBundleLazy 'Vimjas/vim-python-pep8-indent', { 'autoload': { 'filetypes': ['python'] } }
+" NeoBundleLazy 'udalov/kotlin-vim', { 'autoload': { 'filetypes': ['kotlin'] } }
+" " if has("python")
+" "   NeoBundleLazy 'artur-shaik/vim-javacomplete2', { 'autoload': { 'filetypes': ['java'] } }
+" " endif
+" " NeoBundleLazy 'lcolaholicl/vim-v', { 'autoload': { 'filetypes': ['v'] } }
+" NeoBundleLazy 'PProvost/vim-ps1', { 'autoload': { 'filetypes': ['ps1'] } }
+" NeoBundleLazy 'leafgarland/typescript-vim', { 'autoload': { 'filetypes': ['typescript'] } }
+" NeoBundleLazy 'motus/pig.vim', { 'autoload': { 'filetypes': ['pig'] } }
+
+" NeoBundleLazy 'tpope/vim-abolish', { 'autoload': { 'insert': 1 } }
+
+"===============================================================================
 " Basic
 "===============================================================================
 " Basic Settings
