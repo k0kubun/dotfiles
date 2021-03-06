@@ -65,6 +65,10 @@ else
   nnoremap gp :<C-u>r !xsel -b<CR>
 endif
 
+" Cursor in command line
+cmap <C-f> <Right>
+cmap <C-b> <Left>
+
 " binding.pry
 inoremap <C-v> require "pry";binding.pry
 
