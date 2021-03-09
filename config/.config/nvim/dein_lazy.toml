@@ -75,6 +75,9 @@ hook_post_source = '''
 repo = 'k0kubun/open-browser-github.vim'
 on_cmd = ['OpenGithubFile']
 depends = ['open-browser.vim']
+hook_source = '''
+  let g:openbrowser_github_url_exists_check = 'ignore'
+'''
 hook_post_source = '''
   delcommand OpenGithubCommit
   delcommand OpenGithubIssue
