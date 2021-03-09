@@ -1,0 +1,63 @@
+<keymap version="1" name="macOS" parent="Mac OS X 10.5+">
+  <action id="Back">
+    <keyboard-shortcut first-keystroke="meta alt left" />
+    <mouse-shortcut keystroke="button4" />
+  </action>
+  <action id="ChangesView.GroupBy.Directory" />
+  <action id="CloseActiveTab" />
+  <action id="Console.TableResult.Reload" />
+  <action id="DatabaseView.Refresh" />
+  <action id="Diff.FocusOppositePane" />
+  <action id="Diff.FocusOppositePaneAndScroll" />
+  <action id="Diff.NextChange">
+    <keyboard-shortcut first-keystroke="ctrl right" />
+  </action>
+  <action id="Diff.PrevChange">
+    <keyboard-shortcut first-keystroke="ctrl left" />
+  </action>
+  <action id="EditSource">
+    <keyboard-shortcut first-keystroke="meta at" />
+    <keyboard-shortcut first-keystroke="meta open_bracket" />
+  </action>
+  <action id="EditorLeft">
+    <keyboard-shortcut first-keystroke="ctrl b" />
+  </action>
+  <action id="EditorRight">
+    <keyboard-shortcut first-keystroke="ctrl f" />
+  </action>
+  <action id="EditorSelectWord" />
+  <action id="FileChooser.TogglePathShowing" />
+  <action id="Find">
+    <keyboard-shortcut first-keystroke="ctrl s" />
+  </action>
+  <action id="NextSplitter">
+    <keyboard-shortcut first-keystroke="ctrl t" />
+  </action>
+  <action id="NextTab">
+    <keyboard-shortcut first-keystroke="ctrl tab" />
+  </action>
+  <action id="OverrideMethods" />
+  <action id="ParameterInfo" />
+  <action id="PrevSplitter" />
+  <action id="PreviousTab">
+    <keyboard-shortcut first-keystroke="shift ctrl tab" />
+  </action>
+  <action id="Refactorings.QuickListPopupAction" />
+  <action id="Refresh" />
+  <action id="Replace" />
+  <action id="Rerun" />
+  <action id="Scala.ShowImplicits">
+    <keyboard-shortcut first-keystroke="shift ctrl alt equals" />
+    <keyboard-shortcut first-keystroke="shift ctrl alt add" />
+  </action>
+  <action id="SplitVertically">
+    <keyboard-shortcut first-keystroke="meta r" second-keystroke="3" />
+  </action>
+  <action id="Switcher" />
+  <action id="Unsplit">
+    <keyboard-shortcut first-keystroke="meta r" second-keystroke="0" />
+  </action>
+  <action id="Vcs.Log.Refresh" />
+  <action id="Vcs.UpdateProject" />
+  <action id="hg4idea.QRefresh" />
+</keymap>
