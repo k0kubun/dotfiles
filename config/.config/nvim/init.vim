@@ -9,10 +9,6 @@ if has('nvim')
   let s:nvim = '~/.config/nvim/'
   set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 else
-  " mkdir -p ~/.config/vim/dein/repos/github.com/Shougo
-  " ln -s ~/.config/nvim/dein/repos/github.com/Shougo/dein.vim ~/.config/vim/dein/repos/github.com/Shougo/dein.vim
-  " ln -s ~/.config/nvim/dein.toml ~/.config/vim/dein.toml
-  " ln -s ~/.config/nvim/dein_lazy.toml ~/.config/vim/dein_lazy.toml
   let s:nvim = '~/.config/vim/'
   set runtimepath+=~/.config/vim/dein/repos/github.com/Shougo/dein.vim
 endif
