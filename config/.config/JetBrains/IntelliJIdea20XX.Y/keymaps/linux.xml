@@ -5,6 +5,7 @@
   <action id="$Paste">
     <keyboard-shortcut first-keystroke="alt v" />
   </action>
+  <action id="ActivateProjectToolWindow" />
   <action id="CloseContent">
     <keyboard-shortcut first-keystroke="alt w" />
   </action>
