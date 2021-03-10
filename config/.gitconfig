@@ -6,7 +6,7 @@
   gpgsign = true
 [core]
   excludesFile = ~/.gitignore
-  editor = vim
+  editor = nvim
   filemode = true
   #commentChar = ">"
 [include]
