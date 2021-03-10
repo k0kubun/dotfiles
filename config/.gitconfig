@@ -32,3 +32,5 @@
 [url "git@gist.github.com:"]
   pushInsteadOf = https://gist.github.com/
   pushInsteadOf = git://gist.github.com/
+[credential]
+  helper = osxkeychain
