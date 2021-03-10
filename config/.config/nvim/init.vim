@@ -76,7 +76,8 @@ set softtabstop=0 " The number of spaces by Tab
 set tabstop=2     " Hard tab width
 set expandtab     " Indent with spaces
 
-autocmd FileType vim setlocal sw=2 sts=2 ts=2 et
+autocmd FileType kotlin setlocal sw=4 sts=4 ts=4 et
+autocmd FileType vim    setlocal sw=2 sts=2 ts=2 et
 
 "===============================================================================
 " Editing
