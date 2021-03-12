@@ -51,7 +51,7 @@ map <silent> [Tag]o :tabprevious<CR>
 " Delete highlight
 nnoremap <silent> gh :let @/=''<CR>
 " Git Blame
-nnoremap <silent> gb :<C-u>Gblame<CR>
+nnoremap <silent> gb :<C-u>Git blame<CR>
 " Paste
 if has('mac')
   nnoremap gp :<C-u>r !pbpaste<CR>
