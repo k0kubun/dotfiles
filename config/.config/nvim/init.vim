@@ -95,6 +95,9 @@ autocmd FileType * set formatoptions-=ro      " Disable automatic comment out
 " vim-trailing-whitespace
 let g:extra_whitespace_ignored_filetypes = ['unite']
 
+" SQLComplete:The dbext plugin must be loaded for dynamic SQL completion
+let g:omni_sql_no_default_maps = 1
+
 "===============================================================================
 " Styles
 "===============================================================================

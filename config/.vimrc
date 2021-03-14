@@ -209,9 +209,6 @@ augroup matchit
   au FileType ruby let b:match_words = '\<\(module\|class\|def\|begin\|do\|if\|unless\|case\)\>:\<\(elsif\|when\|rescue\)\>:\<\(else\|ensure\)\>:\<end\>'
 augroup END
 
-" sqlcomplete disable
-let g:omni_sql_no_default_maps = 1
-
 let g:openbrowser_github_select_current_line = 1
 
 "===============================================================================
