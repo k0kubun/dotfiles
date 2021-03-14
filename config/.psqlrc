@@ -1,5 +1,19 @@
-\set PROMPT1 '%[%033[1;36m%]%n %`date +%H:%M`%[%033[0m%] %R%# '
-\set PROMPT2 '                      %R%# '
+-- \set PROMPT1 '%[%033[1;36m%]%n %`date +%H:%M`%[%033[0m%] %R%# '
+-- \set PROMPT2 '                      %R%# '
+-- %n: user name
+-- %/: database name
+-- %R: = (single line) or - (continued)
+-- %#: # (superuser) or > (regular user)
+-- %033[1m: bold
+-- %033[1;32m: bold green
+-- %033[1;36m: bold cyan
+-- %033[34m: blue
+-- %033[0m: clear
+
+-- \set PROMPT1 '[%`date +%H:%M`] %`hostname` (%/)%R%# '
+\set PROMPT1 '[%033[34m%`date +%H:%M`%033[0m] %033[1;36m%`hostname`%033[0m (%033[1;32m%/%033[0m)%R%# '
+\set PROMPT2 '[%033[34m%`date +%H:%M`%033[0m] %033[1;36m%`hostname`%033[0m (%033[1;32m%/%033[0m)%R%# '
+
 \timing on
 \set HISTSIZE 1000000
 \pset pager off
