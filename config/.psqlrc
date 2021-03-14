@@ -2,3 +2,4 @@
 \set PROMPT2 '                      %R%# '
 \timing on
 \set HISTSIZE 1000000
+\pset pager off
