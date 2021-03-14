@@ -46,6 +46,7 @@
   <action id="GotoDeclaration">
     <mouse-shortcut keystroke="control button1" />
   </action>
+  <action id="HideActiveWindow" />
   <action id="NextSplitter">
     <keyboard-shortcut first-keystroke="ctrl t" />
   </action>
