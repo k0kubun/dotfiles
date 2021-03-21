@@ -77,7 +77,7 @@ if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
 
             def initialize(grep: nil)
               @grep = grep
-              @line_width = screen_width
+              @line_width = screen_width - MARGIN.length # right padding
             end
 
             def dump(name, strs)
@@ -122,7 +122,7 @@ if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
             def screen_width
               Reline.get_screen_size.last
             rescue Errno::EINVAL # in `winsize': Invalid argument - <STDIN>
-              79
+              80
             end
           end
           private_constant :Output
