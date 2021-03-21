@@ -16,7 +16,9 @@ dotfile '.config/nvim'
 #
 dotfile '.vimrc'
 
-directory "#{ENV['HOME']}/.config/vim/dein/repos/github.com/Shougo"
+directory "#{ENV['HOME']}/.config/vim/dein/repos/github.com/Shougo" do
+  user node[:user]
+end
 
 dotfile '.config/vim/dein/repos/github.com/Shougo/dein.vim' do
   source '.config/nvim/dein/repos/github.com/Shougo/dein.vim'
