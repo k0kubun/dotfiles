@@ -140,8 +140,8 @@ if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
         if line.sub!(/\A\s*ls\s/, '')
           grep = nil
           line.gsub!(/(-G|--grep)\s+([^\s]+)/) { grep = $2; '' }
-          line = line.tap(&:chomp!).empty? ? 'self' : line
-          line.replace("IRB::ExtendCommand::Ls.new(irb_context).execute(#{line}, grep: /#{grep}/)")
+          line = line.tap(&:chomp!).empty? ? '' : "#{line},"
+          line.replace("IRB::ExtendCommand::Ls.new(irb_context).execute(#{line} grep: /#{grep}/)")
         end
         super
       end
