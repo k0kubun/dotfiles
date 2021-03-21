@@ -137,7 +137,7 @@ if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
     kwargs = Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.7.0') ? ', **' : ''
     line = __LINE__; eval %q{
       def evaluate(line, *__ARGS__)
-        if line.sub!(/\A\s*ls\s/, '')
+        if line.match?(/(-G|--grep)/) && line.sub!(/\A\s*ls\s/, '')
           grep = nil
           line.gsub!(/(-G|--grep)\s+([^\s]+)/) { grep = $2; '' }
           line = line.tap(&:chomp!).empty? ? '' : "#{line},"
