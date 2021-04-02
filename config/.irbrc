@@ -49,6 +49,27 @@ if defined?(IRB::Color) # just for consistency
   }
 end
 
+begin
+  require 'irb/cmd/whereami'
+rescue LoadError
+  require 'irb/cmd/nop'
+  module IRB
+    module ExtendCommand
+      class Whereami < Nop
+        def execute(*)
+          code = irb_context.workspace.code_around_binding
+          if code
+            puts code
+          else
+            puts "The current context doesn't have code."
+          end
+        end
+      end
+    end
+  end
+  IRB::ExtendCommandBundle.def_extend_command(:irb_whereami, :Whereami, 'irb/cmd/nop', [:whereami, IRB::ExtendCommandBundle::NO_OVERRIDE])
+end
+
 if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
   begin
     require 'irb/cmd/ls'
@@ -242,8 +263,8 @@ if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
 
   IRB::ReidlineInputMethod.prepend(Module.new{
     def check_termination(&block)
-      @check_termination_proc = proc do |code|
-        next true if code == "@\n"
+      super do |code|
+        next true if code == "@\n" || code.start_with?('ls ')
         block.call(code)
       end
     end
@@ -257,7 +278,9 @@ if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
             "$#{block.call(output[1..-1], complete: complete)}"
           elsif output.include?('-G')
             left, right = output.split('-G', 2)
-            "#{block.call(left, complete: complete)}-G#{block.call(right, complete: complete)}"
+            "#{block.call(left, complete: complete)}-G#{right}"
+          elsif output == "@\n"
+            output
           else
             block.call(output, complete: complete)
           end
