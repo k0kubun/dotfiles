@@ -217,7 +217,7 @@ if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
     IRB::ExtendCommandBundle.def_extend_command(:irb_show_source, :ShowSource, 'irb/cmd/nop', [:show_source, IRB::ExtendCommandBundle::NO_OVERRIDE])
   end
 
-  # Convert -G/--grep to keyword args
+  # Convert @, $, and -G/--grep
   IRB::Context.prepend(Module.new{
     kwargs = Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.7.0') ? ', **' : ''
     line = __LINE__; eval %q{
