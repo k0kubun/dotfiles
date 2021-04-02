@@ -137,14 +137,47 @@ if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
     kwargs = Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.7.0') ? ', **' : ''
     line = __LINE__; eval %q{
       def evaluate(line, *__ARGS__)
-        if line.match?(/(-G|--grep)/) && line.sub!(/\A\s*ls\s/, '')
-          grep = nil
-          line.gsub!(/(-G|--grep)\s+([^\s]+)/) { grep = $2; '' }
-          line = line.tap(&:chomp!).empty? ? '' : "#{line},"
-          line.replace("IRB::ExtendCommand::Ls.new(irb_context).execute(#{line} grep: /#{grep}/)")
+        case line
+        when "@\n"
+          line.replace("whereami\n")
+        when /\A\$ /
+          line.replace("show_source #{line.sub(/\A\$ /, '').strip.dump}\n")
+        when /(-G|--grep)/
+          if line.sub!(/\A\s*ls\s/, '')
+            grep = nil
+            line.gsub!(/(-G|--grep)\s+([^\s]+)/) { grep = $2; '' }
+            line = line.tap(&:chomp!).empty? ? '' : "#{line},"
+            line.replace("IRB::ExtendCommand::Ls.new(irb_context).execute(#{line} grep: /#{grep}/)")
+          end
         end
         super
       end
     }.sub(/__ARGS__/, kwargs), nil, __FILE__, line
+  })
+
+  IRB::ReidlineInputMethod.prepend(Module.new{
+    def check_termination(&block)
+      @check_termination_proc = proc do |code|
+        next true if code == "@\n"
+        block.call(code)
+      end
+    end
+  })
+
+  Reline.singleton_class.prepend(Module.new{
+    def output_modifier_proc=(block)
+      super(
+        proc do |output, complete:|
+          if output.start_with?('$')
+            "$#{block.call(output[1..-1], complete: complete)}"
+          elsif output.include?('-G')
+            left, right = output.split('-G', 2)
+            "#{block.call(left, complete: complete)}-G#{block.call(right, complete: complete)}"
+          else
+            block.call(output, complete: complete)
+          end
+        end
+      )
+    end
   })
 end
