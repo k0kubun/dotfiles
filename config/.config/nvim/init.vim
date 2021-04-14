@@ -149,6 +149,18 @@ let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 set statusline=%{fugitive#statusline()}\ %<%f\ %=%{&fenc!=''?&fenc:&enc}\ %y\ %l/%L:%c\ %#Cursor#%#StatusLine#
 
 "===============================================================================
+" Python (deoplete, vinarise)
+"===============================================================================
+if has('mac')
+  " brew install python
+  " /usr/local/bin/pip3 install pynvim
+  " :UpdateRemotePlugins
+  let g:python3_host_prog = '/usr/local/bin/python3'
+else
+  let g:python3_host_prog = '/usr/bin/python3'
+endif
+
+"===============================================================================
 " .vimrc.local
 "===============================================================================
 augroup vimrc-local

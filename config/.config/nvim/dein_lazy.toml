@@ -22,15 +22,6 @@ hook_source = '''
 
   " Select the first line by default
   set completeopt+=noinsert
-
-  if has('mac')
-    " brew install python
-    " /usr/local/bin/pip3 install pynvim
-    " :UpdateRemotePlugins
-    let g:python3_host_prog = '/usr/local/bin/python3'
-  else
-    let g:python3_host_prog = '/usr/bin/python3'
-  endif
 '''
 
 [[plugins]]
