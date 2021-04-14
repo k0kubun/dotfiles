@@ -41,6 +41,10 @@ on_cmd = ['OverCommandLine']
 repo = 'bronson/vim-trailing-whitespace'
 on_cmd = ['FixWhitespace']
 
+[[plugins]]
+repo = 'Shougo/vinarise.vim'
+on_cmd = ['Vinarise']
+
 #===============================================================================
 # Unite
 #===============================================================================
