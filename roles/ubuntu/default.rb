@@ -48,3 +48,8 @@ include_recipe 'gpg-agent'
 #   mode '644'
 #   only_if 'which mysql'
 # end
+
+# For dual boot Windows
+execute 'timedatectl set-local-rtc true' do
+  only_if "timedatectl status | grep 'RTC in local TZ: no'"
+end
