@@ -5,6 +5,6 @@ Name=Nocturn
 Comment=Multi-platform Twitter Client built with React, Redux and Electron
 Path=/opt/Nocturn-linux-x64
 Exec=/opt/Nocturn-linux-x64/Nocturn
-Icon=/opt/Nocturn-linux-x64/resources/icon.png
+Icon=/home/k0kubun/src/github.com/k0kubun/Nocturn/resources/Nocturn.png
 Terminal=false
 Categories=Internet;Communication;Electron;
