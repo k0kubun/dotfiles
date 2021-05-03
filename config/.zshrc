@@ -25,9 +25,6 @@ source ~/.zsh/lib/theme.zsh
 if [ -f ~/.zshrc.`uname` ]; then source ~/.zshrc.`uname`; fi
 if [ -f ~/.zshrc.local ]; then source ~/.zshrc.local; fi
 
-export NVM_DIR="/Users/kokubun/.nvm"
-if [ -s "$NVM_DIR/nvm.sh" ]; then source "$NVM_DIR/nvm.sh"; fi  # This loads nvm
-
 # Must be after all ZLE
 source ~/.zsh/bundle/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
