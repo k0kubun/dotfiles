@@ -1,9 +1,7 @@
-set-option -g default-command "reattach-to-user-namespace -l zsh"
-
 bind-key -n M-{ previous-window
 bind-key -n M-} next-window
 
-bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "pbcopy"
 
 # workaround...
 # `tmux ls | peco` is somehow broken
