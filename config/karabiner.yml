@@ -215,11 +215,13 @@ profiles:
       # Cmd-s -> Cmd-f
       # C-f -> Right (For Confluence)
       # C-p -> Up (For Treasure Data)
+      # C-d -> Delete (For Lucidchart)
       # Cmd-Enter -> Enter (To disable comment on GitHub)
 <%    {
         ['s', ['right_command']] => ['f', ['right_command']],
         ['f', ['left_control']] => ['right_arrow', []],
         ['p', ['left_control']] => ['up_arrow', []],
+        ['d', ['left_control']] => ['delete_forward', []],
         ['return_or_enter', ['right_command']] => ['return_or_enter', []],
       }.each do |from, to|
         from_key, from_value = from
