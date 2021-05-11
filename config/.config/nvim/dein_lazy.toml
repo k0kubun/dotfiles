@@ -23,6 +23,9 @@ hook_source = '''
   " Select the first line by default
   set completeopt+=noinsert
 '''
+hook_post_source = '''
+  call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
+'''
 
 [[plugins]]
 repo = 'osyo-manga/vim-over'
