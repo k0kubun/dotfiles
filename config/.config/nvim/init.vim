@@ -88,6 +88,7 @@ autocmd FileType proto  setlocal sw=4 sts=4 ts=4 et
 " Syntax
 "===============================================================================
 autocmd BufNewFile,BufRead *.ipynb set filetype=json
+autocmd BufNewFile,BufRead insns.def set filetype=c
 
 "===============================================================================
 " Editing
