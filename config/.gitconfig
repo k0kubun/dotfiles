@@ -23,6 +23,8 @@
 	autoSetupRebase = always
 [submodule]
   recurse = true
+[init]
+  defaultBranch = master
 [ghq]
   root = ~/src
   completeUser = false
