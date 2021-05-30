@@ -67,6 +67,7 @@ cmap <C-b> <Left>
 
 " binding.pry
 inoremap <C-v> require "pry";binding.pry
+autocmd FileType python inoremap <C-v> import code; code.interact(local=dict(globals(), **locals()))
 
 "===============================================================================
 " Indentation
