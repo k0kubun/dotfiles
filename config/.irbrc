@@ -240,7 +240,7 @@ if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
 
   # Convert @, $, and -G/--grep
   IRB::Context.prepend(Module.new{
-    kwargs = Gem::Version.new(RUBY_VERSION) >= Gem::Version.new('2.7.0') ? ', **' : ''
+    kwargs = RUBY_VERSION >= '2.7.0' ? ', **' : ''
     line = __LINE__; eval %q{
       def evaluate(line, *__ARGS__)
         case line
