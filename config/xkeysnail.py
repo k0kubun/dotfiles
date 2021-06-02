@@ -15,7 +15,7 @@ global_modmap = {
     Key.MUHENKAN: Key.LEFT_CTRL,
 
     # CapsLock -> Escape
-    # Key.CAPSLOCK: Key.ESC,
+    Key.CAPSLOCK: Key.ESC,
     Key.LEFT_CTRL: Key.ESC,
 }
 
