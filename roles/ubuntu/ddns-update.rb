@@ -29,6 +29,12 @@ remote_file "#{ENV['HOME']}/.config/systemd/user/ddns-update.timer" do
   group node[:user]
 end
 
+directory "#{ENV['HOME']}/.config/systemd/user/timers.target.wants" do
+  owner node[:user]
+  group node[:user]
+  mode '755'
+end
+
 link "#{ENV['HOME']}/.config/systemd/user/timers.target.wants/ddns-update.timer" do
   to "#{ENV['HOME']}/.config/systemd/user/ddns-update.timer"
 end
