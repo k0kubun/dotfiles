@@ -40,7 +40,7 @@ end
 ip_path = File.expand_path('./current', __dir__)
 
 old_ip = File.read(ip_path)
-new_ip = `curl -s http://ieserver.net/ipcheck.shtml`
+new_ip = `curl -s https://api.ipify.org`
 
 if old_ip == new_ip
   puts "[#{Time.now}] Not changed from: #{old_ip}"
