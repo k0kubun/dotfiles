@@ -39,7 +39,7 @@ end
 
 include_recipe 'ssh-agent'
 include_recipe 'gpg-agent'
-# include_recipe 'ddns-update'
+include_recipe 'ddns-update'
 
 # For TZ=UTC
 # remote_file '/lib/systemd/system/mysql.service' do
