@@ -86,11 +86,27 @@ if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
             klass  = (obj.class == Class || obj.class == Module ? obj : obj.class)
 
             o.dump("constants", obj.constants) if obj.respond_to?(:constants)
-            o.dump("#{klass}.methods", obj.singleton_methods(false))
-            o.dump("#{klass}#methods", klass.public_instance_methods(false))
+            dump_methods(o, klass, obj)
             o.dump("instance variables", obj.instance_variables)
             o.dump("class variables", klass.class_variables)
             o.dump("locals", locals)
+          end
+
+          def dump_methods(o, klass, obj)
+            singleton_class = begin obj.singleton_class; rescue TypeError; nil end
+            maps = class_method_map((singleton_class || klass).ancestors)
+            maps.each do |mod, methods|
+              name = mod == singleton_class ? "#{klass}.methods" : "#{mod}#methods"
+              o.dump(name, methods)
+            end
+          end
+
+          def class_method_map(classes)
+            dumped = Set.new
+            classes.reject { |mod| mod >= Object }.map do |mod|
+              methods = mod.public_instance_methods(false).select { |m| dumped.add?(m) }
+              [mod, methods]
+            end.reverse
           end
 
           class Output
