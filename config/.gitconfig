@@ -9,8 +9,6 @@
   editor = nvim
   filemode = true
   #commentChar = ">"
-[include]
-  path = .gitconfig.local
 [color]
   ui = true
 #[log]
@@ -34,5 +32,13 @@
 [url "git@gist.github.com:"]
   pushInsteadOf = https://gist.github.com/
   pushInsteadOf = git://gist.github.com/
-[credential]
-  helper = osxkeychain
+[include]
+  path = .gitconfig.local
+
+## macOS
+#[credential]
+#  helper = osxkeychain
+
+## Linux
+#[credential]
+#  helper = store
