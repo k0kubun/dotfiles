@@ -1,0 +1,3 @@
+# .gitconfig.local
+[credential]
+  helper = osxkeychain

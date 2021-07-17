@@ -34,11 +34,3 @@
   pushInsteadOf = git://gist.github.com/
 [include]
   path = .gitconfig.local
-
-## macOS
-#[credential]
-#  helper = osxkeychain
-
-## Linux
-#[credential]
-#  helper = store
