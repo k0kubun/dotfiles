@@ -28,10 +28,9 @@ repo = 'airblade/vim-gitgutter'
 [[plugins]]
 repo = 'tyru/skk.vim'
 on_if = 'has("mac")'
-
-[[plugins]]
-repo = 'tyru/skkdict.vim'
-on_if = 'has("mac")'
+hook_source = '''
+  let g:skk_large_jisyo = '~/Library/Application Support/AquaSKK/SKK-JISYO.L'
+'''
 
 #===============================================================================
 # NeoVim RPC
