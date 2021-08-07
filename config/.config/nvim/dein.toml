@@ -26,10 +26,10 @@ repo = 'airblade/vim-gitgutter'
 # SKK
 #===============================================================================
 [[plugins]]
-repo = 'tyru/skk.vim'
+repo = 'tyru/eskk.vim'
 on_if = 'has("mac")'
 hook_source = '''
-  let g:skk_large_jisyo = '~/Library/Application Support/AquaSKK/SKK-JISYO.L'
+  let g:eskk#large_dictionary = {'path': "~/Library/Application Support/AquaSKK/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp'}
 '''
 
 #===============================================================================
