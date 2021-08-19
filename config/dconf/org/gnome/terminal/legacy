@@ -1,3 +1,4 @@
+# Usage: dconf load /org/gnome/terminal/legacy/ < config/dconf/org/gnome/terminal/legacy
 [keybindings]
 paste='<Alt>v'
 copy='<Alt>c'
