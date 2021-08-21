@@ -1,3 +1,15 @@
+# dconf dump /org/gnome/terminal/legacy/ > config/dconf_dump_org_gnome_terminal
+# dconf load /org/gnome/terminal/legacy/ < config/dconf_dump_org_gnome_terminal
+[/]
+confirm-close=false
+default-show-menubar=false
+menu-accelerator-enabled=false
+schema-version=uint32 3
+
+[keybindings]
+copy='<Alt>c'
+paste='<Alt>v'
+
 [legacy]
 confirm-close=false
 menu-accelerator-enabled=false
@@ -20,3 +32,17 @@ use-theme-colors=false
 use-theme-transparency=false
 use-transparent-background=true
 visible-name='k0kubun'
+
+[profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+audible-bell=false
+background-color='rgb(0,0,0)'
+background-transparency-percent=10
+cursor-blink-mode='off'
+font='Inconsolata Medium 20'
+foreground-color='rgb(255,255,255)'
+palette=['rgb(23,29,31)', 'rgb(227,4,4)', 'rgb(44,157,48)', 'rgb(238,206,63)', 'rgb(45,114,202)', 'rgb(191,86,207)', 'rgb(40,189,189)', 'rgb(224,224,224)', 'rgb(85,87,83)', 'rgb(239,41,41)', 'rgb(92,198,67)', 'rgb(230,215,91)', 'rgb(114,159,207)', 'rgb(173,127,168)', 'rgb(62,198,198)', 'rgb(244,233,233)']
+scrollbar-policy='never'
+use-system-font=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=true
