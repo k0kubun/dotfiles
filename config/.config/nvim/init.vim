@@ -128,9 +128,6 @@ highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=160
 let g:gitgutter_sign_removed = '-'
 
-" tex
-autocmd FileType tex hi Error NONE
-
 "===============================================================================
 " Tabline and statusline
 "===============================================================================
