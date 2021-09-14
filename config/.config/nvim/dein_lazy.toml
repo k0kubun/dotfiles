@@ -12,6 +12,9 @@ on_ft = ['toml']
 [[plugins]]
 repo = 'lervag/vimtex'
 on_ft = ['tex']
+hook_source = '''
+  let g:vimtex_matchparen_enabled = 0
+'''
 # apt install latexmk
 
 #===============================================================================
