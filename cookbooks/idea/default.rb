@@ -1,6 +1,9 @@
+idea = Dir.glob('/opt/idea-IU-*').first
+return if idea.nil?
+
 node.reverse_merge!(
   idea: {
-    path: '/opt/idea-IU-203.7148.57',
+    path: idea,
   }
 )
 
