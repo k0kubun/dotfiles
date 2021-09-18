@@ -78,12 +78,13 @@ set tabstop=2     " Hard tab width
 set expandtab     " Indent with spaces
 
 autocmd FileType c      setlocal sw=4 sts=4 ts=8 et list listchars=tab:»-
+autocmd FileType cpp    setlocal sw=4 sts=4 ts=4 et
 autocmd FileType go     setlocal sw=4 sts=4 ts=4 noet
 autocmd FileType kotlin setlocal sw=4 sts=4 ts=4 et
-autocmd FileType vim    setlocal sw=2 sts=2 ts=2 et
-autocmd FileType python setlocal sw=4 sts=4 ts=4 et list listchars=tab:»-
-autocmd FileType cpp    setlocal sw=4 sts=4 ts=4 et
+autocmd FileType make   setlocal sw=4 sts=4 ts=4 noet list listchars=tab:»-
 autocmd FileType proto  setlocal sw=4 sts=4 ts=4 et
+autocmd FileType python setlocal sw=4 sts=4 ts=4 et list listchars=tab:»-
+autocmd FileType vim    setlocal sw=2 sts=2 ts=2 et
 
 "===============================================================================
 " Syntax
