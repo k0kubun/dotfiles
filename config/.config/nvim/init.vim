@@ -93,6 +93,7 @@ autocmd FileType vim    setlocal sw=2 sts=2 ts=2 et
 autocmd BufNewFile,BufRead *.ipynb set filetype=json
 autocmd BufNewFile,BufRead insns.def set filetype=c
 autocmd BufNewFile,BufRead *.h set filetype=c
+autocmd BufNewFile,BufRead *.tiger set filetype=tiger
 
 "===============================================================================
 " Editing
