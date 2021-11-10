@@ -32,6 +32,7 @@ Kernel.module_eval do
 end
 
 #IRB.conf[:USE_MULTILINE] = false
+IRB.conf[:USE_AUTOCOMPLETE] = false
 IRB.conf[:SAVE_HISTORY] = 1000
 #IRB.conf[:INSPECT_MODE] = :inspect
 if defined?(IRB::Color) # just for consistency
