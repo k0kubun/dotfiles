@@ -110,8 +110,8 @@ define_keymap(lambda wm_class: wm_class in intellij, {
         K("KEY_0"): K("C-M-KEY_0"),
     },
     K("C-w"): {
-        K("h"): K("C-Super-KEY_1"),
-        K("l"): K("C-Super-KEY_2"),
+        K("h"): K("C-M-KEY_1"),
+        K("l"): K("C-M-KEY_2"),
     },
 }, "IDEA keys (modified from 'Mainly for Nocturn')")
 

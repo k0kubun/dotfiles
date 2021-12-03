@@ -49,9 +49,13 @@
   <action id="HideActiveWindow" />
   <action id="NextSplitter">
     <keyboard-shortcut first-keystroke="ctrl t" />
+    <keyboard-shortcut first-keystroke="ctrl alt 1" />
   </action>
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="alt p" />
+  </action>
+  <action id="PrevSplitter">
+    <keyboard-shortcut first-keystroke="ctrl alt 2" />
   </action>
   <action id="PreviousTab">
     <keyboard-shortcut first-keystroke="alt o" />
