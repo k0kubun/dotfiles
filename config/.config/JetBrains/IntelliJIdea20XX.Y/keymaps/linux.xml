@@ -48,14 +48,13 @@
   </action>
   <action id="HideActiveWindow" />
   <action id="NextSplitter">
-    <keyboard-shortcut first-keystroke="ctrl t" />
-    <keyboard-shortcut first-keystroke="ctrl alt 1" />
+    <keyboard-shortcut first-keystroke="ctrl w" second-keystroke="l" />
   </action>
   <action id="NextTab">
     <keyboard-shortcut first-keystroke="alt p" />
   </action>
   <action id="PrevSplitter">
-    <keyboard-shortcut first-keystroke="ctrl alt 2" />
+    <keyboard-shortcut first-keystroke="ctrl w" second-keystroke="h" />
   </action>
   <action id="PreviousTab">
     <keyboard-shortcut first-keystroke="alt o" />
@@ -71,17 +70,12 @@
     <keyboard-shortcut first-keystroke="alt comma" />
   </action>
   <action id="SmartSelect" />
-  <action id="SplitVertically">
-    <keyboard-shortcut first-keystroke="ctrl alt 3" />
-  </action>
   <action id="Switcher" />
   <action id="TableResult.GrowSelection" />
   <action id="Terminal.CopySelectedText">
     <keyboard-shortcut first-keystroke="shift ctrl c" />
     <keyboard-shortcut first-keystroke="ctrl insert" />
   </action>
-  <action id="Unsplit">
-    <keyboard-shortcut first-keystroke="ctrl alt 0" />
-  </action>
+  <action id="UsageFiltering.WriteAccess" />
   <action id="Vcs.UpdateProject" />
 </keymap>

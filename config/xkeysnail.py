@@ -109,10 +109,6 @@ define_keymap(lambda wm_class: wm_class in intellij, {
         K("KEY_3"): K("C-M-KEY_3"),
         K("KEY_0"): K("C-M-KEY_0"),
     },
-    K("C-w"): {
-        K("h"): K("C-M-KEY_1"),
-        K("l"): K("C-M-KEY_2"),
-    },
 }, "IDEA keys (modified from 'Mainly for Nocturn')")
 
 define_keymap(lambda wm_class: wm_class in ("Google-chrome", "Slack"), {
