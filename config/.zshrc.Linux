@@ -29,9 +29,6 @@ alias x='startx'
 
 alias ss='eval "$(ssh-agent)"; ssh-add ~/.ssh/id_rsa.github'
 
-#setxkbmap -rules evdev -model us-layout us
-#xmodmap ~/.Xmodmap 2> /dev/null
-
 export PATH="${HOME}/.cabal/bin:${PATH}"
 export PATH="/usr/local/llvm/bin:${PATH}"
 

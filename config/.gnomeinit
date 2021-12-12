@@ -1,3 +1,0 @@
-#!/bin/sh
-xset r rate 200 80
-setxkbmap -layout us
