@@ -4,12 +4,10 @@ After=graphical.target
 
 [Service]
 ExecStartPre=/usr/bin/sudo -u k0kubun bash -c "until xhost \"+SI:localuser:root\"; do sleep 1; done"
-ExecStart=/usr/local/bin/xkeysnail /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xkeysnail.py
+ExecStart=/usr/local/bin/xkeysnail /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xkeysnail.py --watch
+ExecStartPost=/usr/bin/sudo -u k0kubun bash -c "sleep 0.5 && xset r rate 200 80"
 
-#ExecStartPost=/usr/bin/sudo -u k0kubun bash -c "sleep 0.5 && setxkbmap -layout jp && xset r rate 200 80"
 #Environment=DISPLAY=:0
-
-ExecStartPost=/usr/bin/sudo -u k0kubun bash -c "sleep 0.5 && setxkbmap -layout jp && xset r rate 200 80"
 Environment=DISPLAY=:1
 
 Restart=always
