@@ -15,7 +15,6 @@ include_cookbook 'tmux'
 include_cookbook 'vim'
 include_cookbook 'ruby'
 include_cookbook 'go'
-include_cookbook 'xkeysnail'
 include_cookbook 'docker'
 include_cookbook 'nocturn'
 include_cookbook 'idea'
@@ -40,6 +39,7 @@ end
 include_recipe 'ssh-agent'
 include_recipe 'gpg-agent'
 include_recipe 'ddns-update'
+include_recipe 'xremap'
 
 # For TZ=UTC
 # remote_file '/lib/systemd/system/mysql.service' do

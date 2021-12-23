@@ -1,0 +1,17 @@
+# Usage:
+# $ cp xremap.service ~/.config/systemd/user/xremap.service
+# $ systemctl --user start xremap && systemctl --user enable xremap
+[Unit]
+Description=xremap
+
+[Service]
+# ExecStart=/home/k0kubun/.cargo/bin/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml
+ExecStart=/home/k0kubun/src/github.com/k0kubun/xremap/target/debug/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml
+ExecStartPost=/usr/bin/xset r rate 200 80
+Restart=always
+
+# For xset
+Environment=DISPLAY=<%= ENV.fetch('DISPLAY') %>
+
+[Install]
+WantedBy=default.target
