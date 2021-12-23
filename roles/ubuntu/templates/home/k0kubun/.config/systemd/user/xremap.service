@@ -8,7 +8,7 @@ Description=xremap
 # ExecStart=/home/k0kubun/.cargo/bin/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml
 ExecStart=/home/k0kubun/src/github.com/k0kubun/xremap/target/debug/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml
 
-ExecStartPost=/usr/bin/bash -xc "sleep 0.5; while ! DISPLAY=:0 xset r rate 200 80; do sleep 1; done"
+ExecStartPost=/usr/bin/bash -xc "sleep 0.4; DISPLAY=:0 xset r rate 200 80 || true"
 Restart=always
 
 [Install]
