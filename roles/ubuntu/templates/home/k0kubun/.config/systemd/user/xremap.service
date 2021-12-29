@@ -5,8 +5,8 @@
 Description=xremap
 
 [Service]
-# ExecStart=/home/k0kubun/.cargo/bin/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml
-ExecStart=/home/k0kubun/src/github.com/k0kubun/xremap/target/debug/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml
+# ExecStart=/home/k0kubun/.cargo/bin/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml --watch
+ExecStart=/home/k0kubun/src/github.com/k0kubun/xremap/target/debug/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml --watch
 
 ExecStartPost=/usr/bin/bash -xc "sleep 0.5; while ! DISPLAY=:0 xset r rate 200 80; do sleep 1; done"
 Restart=always
