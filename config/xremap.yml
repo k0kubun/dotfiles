@@ -33,6 +33,17 @@ keymap:
       # SKK hack for Chrome
       C-j: C-m
 
+  - name: Launchers
+    remap:
+      C-y:
+        launch: ["wmctrl", "-x", "-a", "jetbrains-idea.jetbrains-idea"]
+      C-u:
+        launch: ["wmctrl", "-x", "-a", "google-chrome.Google-chrome"]
+      C-o:
+        launch: ["wmctrl", "-x", "-a", "nocturn.Nocturn"]
+      C-h:
+        launch: ["wmctrl", "-x", "-a", "gnome-terminal-server.Gnome-terminal"]
+
   - name: Default (Nocturn, etc.)
     application:
       not: [Google-chrome, Slack, Gnome-terminal, jetbrains-idea]
