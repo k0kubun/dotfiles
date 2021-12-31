@@ -1,14 +1,18 @@
 # Usage:
 #   cp xremap.service ~/.config/systemd/user/xremap.service
 #   systemctl --user start xremap && systemctl --user enable xremap
+#
+# Note: This assumes that you do NOT have /var/lib/systemd/linger/$USER.
+# If you do, run: sudo loginctl disable-linger $USER
 [Unit]
 Description=xremap
 
 [Service]
 # ExecStart=/home/k0kubun/.cargo/bin/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml --watch
-ExecStart=/home/k0kubun/src/github.com/k0kubun/xremap/target/debug/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml --watch
+# ExecStart=/home/k0kubun/src/github.com/k0kubun/xremap/target/debug/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml --watch
+ExecStart=/home/k0kubun/src/github.com/k0kubun/xremap/target/debug/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml
 
-ExecStartPost=/usr/bin/bash -xc "sleep 0.5; while ! DISPLAY=:0 xset r rate 200 80; do sleep 1; done"
+ExecStartPost=/usr/bin/env DISPLAY=:0 xset r rate 200 80
 Restart=always
 
 [Install]
