@@ -1,3 +1,5 @@
+package 'wmctrl'
+
 remote_file "#{ENV['HOME']}/.config/systemd/user/xremap.service" do
   owner node[:user]
   group node[:user]

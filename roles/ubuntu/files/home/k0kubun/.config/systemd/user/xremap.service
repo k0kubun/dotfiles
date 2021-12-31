@@ -2,9 +2,10 @@
 Description=xremap
 
 [Service]
+Restart=always
+ExecStartPre=setxkbmap -layout jp
+ExecStartPre=xset r rate 200 80
+
 # ExecStart=/home/k0kubun/.cargo/bin/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml --watch
 # ExecStart=/home/k0kubun/src/github.com/k0kubun/xremap/target/debug/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml --watch
 ExecStart=/home/k0kubun/src/github.com/k0kubun/xremap/target/debug/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml
-
-ExecStartPre=xset r rate 200 80
-Restart=always

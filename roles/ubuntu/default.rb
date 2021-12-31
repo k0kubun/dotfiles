@@ -19,8 +19,6 @@ include_cookbook 'docker'
 include_cookbook 'nocturn'
 include_cookbook 'idea'
 
-include_recipe 'xorg'
-
 dotfile '.Xmodmap'
 # dotfile '.rake'
 dotfile '.gemrc'
