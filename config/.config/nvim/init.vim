@@ -77,7 +77,8 @@ set softtabstop=0 " The number of spaces by Tab
 set tabstop=2     " Hard tab width
 set expandtab     " Indent with spaces
 
-autocmd FileType c      setlocal sw=4 sts=4 ts=8 et list listchars=tab:»-
+" autocmd FileType c      setlocal sw=4 sts=4 ts=8 et list listchars=tab:»-
+autocmd FileType c      setlocal sw=4 sts=4 ts=4 noet list listchars=tab:»-
 autocmd FileType cpp    setlocal sw=4 sts=4 ts=4 et
 autocmd FileType go     setlocal sw=4 sts=4 ts=4 noet list listchars=tab:»-
 autocmd FileType java   setlocal sw=4 sts=4 ts=4 et
