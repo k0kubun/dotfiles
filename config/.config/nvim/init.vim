@@ -66,7 +66,7 @@ cmap <C-f> <Right>
 cmap <C-b> <Left>
 
 " binding.pry
-inoremap <C-v> require "pry";binding.pry
+inoremap <C-v> binding.irb
 autocmd FileType python inoremap <C-v> import code; code.interact(local=dict(globals(), **locals()))
 
 "===============================================================================

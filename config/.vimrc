@@ -243,7 +243,7 @@ inoremap <C-w> <C-g>u<C-w>
 nnoremap <C-w>> <C-w>14>
 nnoremap <C-w>< <C-w>14<
 
-" inoremap <C-v> begin;require "pry";binding.pry;rescue LoadError;require "irb";IRB.setup(nil);IRB.dbg(binding);end
+" inoremap <C-v> binding.irb
 
 " abbreviation
 autocmd FileType java abbr psvm public static void main(String[] args) {<CR>}<Esc>O<BS><Space><Space><Space>
