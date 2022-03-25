@@ -109,6 +109,7 @@ keymap:
       #M-w: C-w # avoid conflict with prefix
       M-t: C-t
       M-l: C-l
+      M-space: Super-space
 
       # actually these are vim insert mode bindings, but compatible with shell
       # C-w: [C-Shift-left, delete]
