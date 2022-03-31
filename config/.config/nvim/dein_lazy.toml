@@ -22,12 +22,12 @@ hook_source = '''
 # apt install latexmk
 
 [[plugins]]
-repo = 'iRyukizo/tiger-syntax'
-on_ft = ['tiger']
+repo = 'leafgarland/typescript-vim'
+on_ft = ['typescript', 'typescriptreact']
 
 [[plugins]]
-repo = 'dylon/vim-antlr'
-on_ft = ['antlr4']
+repo = 'peitalin/vim-jsx-typescript'
+on_ft = ['typescriptreact']
 
 #===============================================================================
 # Editing
