@@ -7,7 +7,6 @@
             "\b": "delete",
             "C-h": "delete",
             "/": "abbrev",
-            "\\": "kuten",
             " ": "next-candidate",
             "\t": "complete",
             "C-i": "complete",
