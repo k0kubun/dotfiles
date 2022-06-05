@@ -34,13 +34,16 @@ syntax enable
 nnoremap <silent> ;xc :qa!<CR>
 " Explore
 nnoremap <silent> ;e :<C-u>Explore<CR>
+
 " Unite
 nnoremap <silent> ;u :<C-u>Unite -prompt=>\  -start-insert -silent -ignorecase
       \ buffer `finddir('.git', ';') != '' ? 'git_files' : 'file_rec'`<CR>
 autocmd FileType unite imap ;q <C-u><C-h>
 autocmd BufLeave * silent! iunmap ;q
+" IdeaVim compatibility
+autocmd FileType unite imap <Esc> <C-u><C-h>
 
-" Tabline
+" Tabs
 nnoremap [Tag] <Nop>
 nmap <Space> [Tag]
 map <silent> [Tag]t :tablast <bar> tabnew <bar> Explore <bar> vs<CR>

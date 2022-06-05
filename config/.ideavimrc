@@ -26,3 +26,16 @@ map Q gq
 
 " Find more examples here: https://jb.gg/share-ideavimrc
 set ideajoin
+
+" Action list: https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
+
+" Unite
+nnoremap <silent> ;u :action SearchEverywhere<CR>
+
+" Tabs
+nnoremap [Tag] <Nop>
+nmap <Space> [Tag]
+map <silent> [Tag]t :action SearchEverywhere<CR>
+map <silent> [Tag]w :action CloseContent<CR>
+map <silent> [Tag]p :action NextTab<CR>
+map <silent> [Tag]o :action PreviousTab<CR>
