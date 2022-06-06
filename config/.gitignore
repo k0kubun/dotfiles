@@ -20,8 +20,6 @@ dump.rdb
 .byebug_history
 .vagrant
 .bundle
-[
-]
 /.trunk
 /.trunk2
 /.opt_call
