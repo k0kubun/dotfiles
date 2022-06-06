@@ -40,8 +40,6 @@ nnoremap <silent> ;u :<C-u>Unite -prompt=>\  -start-insert -silent -ignorecase
       \ buffer `finddir('.git', ';') != '' ? 'git_files' : 'file_rec'`<CR>
 autocmd FileType unite imap ;q <C-u><C-h>
 autocmd BufLeave * silent! iunmap ;q
-" IdeaVim compatibility
-autocmd FileType unite imap <Esc> <C-u><C-h>
 
 " Tabs
 nnoremap [Tag] <Nop>
