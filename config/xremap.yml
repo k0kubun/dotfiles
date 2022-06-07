@@ -41,7 +41,8 @@ keymap:
       C-u:
         launch: ["wmctrl", "-x", "-a", "google-chrome.Google-chrome"]
       C-o:
-        launch: ["wmctrl", "-x", "-a", "nocturn.Nocturn"]
+        #launch: ["wmctrl", "-x", "-a", "nocturn.Nocturn"]
+        launch: ["wmctrl", "-x", "-a", "slack.Slack"]
         #launch: ["wmctrl", "-x", "-a", "evince.Evince"]
       C-h:
         launch: ["wmctrl", "-x", "-a", "gnome-terminal-server.Gnome-terminal"]
