@@ -80,6 +80,7 @@ set expandtab     " Indent with spaces
 
 autocmd FileType asm    setlocal sw=4 sts=4 ts=4 et
 autocmd FileType c      setlocal sw=4 sts=4 ts=8 et list listchars=tab:»-
+autocmd FileType config setlocal sw=4 sts=4 ts=8 et list listchars=tab:»-
 autocmd FileType cpp    setlocal sw=4 sts=4 ts=4 et
 autocmd FileType go     setlocal sw=4 sts=4 ts=4 noet list listchars=tab:»-
 autocmd FileType java   setlocal sw=4 sts=4 ts=4 et
