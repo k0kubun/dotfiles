@@ -37,19 +37,9 @@ on_ft = ['dart']
 # Editing
 #===============================================================================
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
+repo = 'neoclide/coc.nvim'
+rev  = 'release'
 on_i = 1
-# on_if = 'has("python3")'
-on_if = 'has("nvim")'
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-
-  " Select the first line by default
-  set completeopt+=noinsert
-'''
-hook_post_source = '''
-  call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
-'''
 
 [[plugins]]
 repo = 'osyo-manga/vim-over'

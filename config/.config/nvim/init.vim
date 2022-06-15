@@ -70,6 +70,9 @@ cmap <C-b> <Left>
 inoremap <C-v> binding.irb
 autocmd FileType python inoremap <C-v> import code; code.interact(local=dict(globals(), **locals()))
 
+" coc
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 "===============================================================================
 " Indentation
 "===============================================================================
@@ -158,7 +161,7 @@ let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 set statusline=%{fugitive#statusline()}\ %<%f\ %=%{&fenc!=''?&fenc:&enc}\ %y\ %l/%L:%c\ %#Cursor#%#StatusLine#
 
 "===============================================================================
-" Python (deoplete, vinarise)
+" Python (coc, vinarise)
 "===============================================================================
 if has('mac')
   " brew install python
