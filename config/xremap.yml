@@ -57,6 +57,7 @@ keymap:
   - name: Default
     application:
       not:
+        - Code
         - Gnome-terminal
         - jetbrains-idea
         - jetbrains-clion
@@ -92,7 +93,23 @@ keymap:
   #
   # Editor-specific bindings
   #
-  - name: Terminal
+  - name: VScode
+    application:
+      only: Code
+    remap:
+      # Emacs lines
+      C-a: home # TODO: Alt-C-a
+      C-e: end # TODO: Alt-C-e
+      C-k: [Shift-end, backspace] # TODO: Alt-C-k
+
+      # Alt -> Ctrl
+      Super-v: C-v
+
+      # Tabs
+      Super-o: C-Shift-tab
+      Super-p: C-tab
+
+  - name: Terminal / Vim
     application:
       only: Gnome-terminal
     remap:
@@ -105,7 +122,6 @@ keymap:
       Super-f: M-f
       Super-d: M-d
       Super-i: M-i
-      Super-w: M-w
       Super-w: M-w
       Super-t: M-t
       Super-c: M-c
@@ -166,6 +182,7 @@ keymap:
       # Tabs
       Super-o: C-Shift-tab
       Super-p: C-tab
+
       # Search
       Super-s: C-f
 
