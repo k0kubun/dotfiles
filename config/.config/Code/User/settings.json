@@ -1,0 +1,7 @@
+{
+    "redhat.telemetry.enabled": false,
+    "editor.minimap.enabled": false,
+    "editor.inlayHints.enabled": "off",
+    "editor.codeLens": false,
+    "security.workspace.trust.enabled": false
+}
