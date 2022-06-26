@@ -97,10 +97,17 @@ keymap:
     application:
       only: Code
     remap:
+      # Emacs basic
+      # C-b: left  # for Vim
+      # C-f: right # for Vim
+      C-p: up
+      C-n: down
+      C-d: delete
+
       # Emacs lines
-      C-a: home # TODO: Alt-C-a
-      C-e: end # TODO: Alt-C-e
-      C-k: [Shift-end, backspace] # TODO: Alt-C-k
+      C-a: home
+      C-e: end
+      C-k: [Shift-end, backspace]
 
       # Alt -> Ctrl
       Super-v: C-v
