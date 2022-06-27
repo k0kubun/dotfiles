@@ -3,6 +3,7 @@
         "[Darcula]": {
             "textMateRules": [
                 { "settings": { "foreground": "#cc8242" }, "scope": ["support.type.primitive.go"] },
+                { "settings": { "foreground": "#6fafbd" }, "scope": ["variable.field.go"] },
                 //{ "settings": { "foreground": "#9876aa" }, "scope": ["variable.other.assignment.go"] },
             ],
         },
