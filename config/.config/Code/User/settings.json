@@ -2,9 +2,18 @@
     "editor.tokenColorCustomizations": {
         "[Darcula]": {
             "textMateRules": [
+                /* Go */
                 { "settings": { "foreground": "#cc8242" }, "scope": ["support.type.primitive.go"] },
                 { "settings": { "foreground": "#6fafbd" }, "scope": ["variable.field.go"] },
                 //{ "settings": { "foreground": "#9876aa" }, "scope": ["variable.other.assignment.go"] },
+
+                /* Ruby */
+                { "settings": { "foreground": "#6a8757" }, "scope": ["punctuation.section.regexp.ruby", "punctuation.section.embedded.begin.ruby", "punctuation.section.embedded.end.ruby"] },
+                { "settings": { "foreground": "#7a9ec2" }, "scope": ["variable.other.constant.ruby", "support.class.ruby", "entity.name.type.class.ruby"] },
+                { "settings": { "foreground": "#9cdced" }, "scope": ["variable.other.readwrite.global.ruby"] },
+                { "settings": { "foreground": "#af87af" }, "scope": ["variable.other.readwrite.instance.ruby"] },
+                { "settings": { "foreground": "#bcbcbc" }, "scope": ["meta.embedded.line.ruby"] },
+                { "settings": { "foreground": "#d75f5f" }, "scope": ["constant.language.nil.ruby", "constant.numeric.ruby", "constant.language.symbol.ruby", "constant.language.symbol.hashkey.ruby", "constant.language.boolean.ruby"] },
             ],
         },
         "[Default Dark+]": {
@@ -30,8 +39,4 @@
     "editor.cursorBlinking": "solid",
     "editor.bracketPairColorization.enabled": false,
     "workbench.colorTheme": "Darcula",
-    "theme-by-language.themes": {
-        "*": "Darcula",
-        "ruby": "Default Dark+"
-    },
 }
