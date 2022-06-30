@@ -31,6 +31,9 @@
             ],
         },
     },
+    "files.associations": {
+        "insns.def": "c",
+    },
     "redhat.telemetry.enabled": false,
     "editor.minimap.enabled": false,
     "editor.inlayHints.enabled": "off",
