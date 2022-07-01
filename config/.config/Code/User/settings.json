@@ -34,6 +34,11 @@
     "files.associations": {
         "insns.def": "c",
     },
+    "[c]": {
+        "editor.tabSize": 8,
+        "editor.detectIndentation": false,
+        "editor.renderWhitespace": "boundary",
+    },
     "redhat.telemetry.enabled": false,
     "editor.minimap.enabled": false,
     "editor.inlayHints.enabled": "off",
