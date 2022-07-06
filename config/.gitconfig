@@ -19,6 +19,8 @@
   rebase = true
 [branch]
 	autoSetupRebase = always
+[blame]
+  ignoreRevsFile = .git-blame-ignore-revs
 [submodule]
   recurse = true
 [init]
