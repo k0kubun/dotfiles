@@ -53,3 +53,4 @@ venv
 cachegrind.out.*
 .java-version
 .ipynb_checkpoints/
+.vscode
