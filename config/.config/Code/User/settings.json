@@ -45,4 +45,5 @@
     "editor.cursorBlinking": "solid",
     "editor.bracketPairColorization.enabled": false,
     "workbench.colorTheme": "Darcula",
+    "workbench.tree.indent": 24,
 }
