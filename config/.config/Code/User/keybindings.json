@@ -16,7 +16,7 @@
     {
         "key": "[Semicolon] u",
         "command": "workbench.action.quickOpen",
-        "when": "vim.mode != Insert"
+        "when": "neovim.mode != 'insert'"
     },
     {
         "key": "ctrl+s",
