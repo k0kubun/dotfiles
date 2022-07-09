@@ -37,6 +37,7 @@
     "[c]": {
         "editor.renderWhitespace": "boundary",
     },
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
     "redhat.telemetry.enabled": false,
     "editor.minimap.enabled": false,
     "editor.inlayHints.enabled": "off",
