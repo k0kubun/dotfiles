@@ -47,4 +47,5 @@
     "editor.bracketPairColorization.enabled": false,
     "workbench.colorTheme": "Darcula",
     "workbench.tree.indent": 24,
+    "files.insertFinalNewline": true,
 }
