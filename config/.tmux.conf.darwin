@@ -1,5 +1,5 @@
 bind-key -n M-{ previous-window
-bind-key -n M-} next-window
+#bind-key -n M-} next-window
 
 bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "pbcopy"
 
