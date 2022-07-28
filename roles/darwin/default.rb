@@ -22,7 +22,7 @@ file "#{ENV['HOME']}/.config/karabiner/karabiner.json" do
   yaml_path = File.expand_path('../../../config/karabiner.yml', __FILE__)
   yaml = ERB.new(File.read(yaml_path)).result
 
-  content YAML.load(yaml).to_json
+  content JSON.pretty_generate(YAML.load(yaml))
 end
 
 # link "#{ENV['HOME']}/Library/LaunchAgents/homebrew.mxcl.mysql.plist" do

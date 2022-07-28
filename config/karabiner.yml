@@ -115,10 +115,9 @@ profiles:
       # C-u: Google Chrome
       # C-o: Nocturn, Slack
       # C-h: Terminal
-<%    at_office = (ENV['USER'] == 'kokubun') # I use "k0kubun" for personal PC
-      {
+<%    {
         u: 'Google Chrome',
-        y: 'IntelliJ IDEA',
+        y: 'Visual Studio Code',
         o: c_o_app,
         h: 'Utilities/Terminal',
       }.each do |key, app| %>
