@@ -14,447 +14,264 @@ profiles:
   virtual_hid_keyboard:
     caps_lock_delay_milliseconds: 0
     keyboard_type: jis
-  devices:
-  - disable_built_in_keyboard_if_exists: false
-    identifiers:
-      is_keyboard: true
-      is_pointing_device: false
-      product_id: 588
-      vendor_id: 1452
-    ignore: false
-  fn_function_keys:
-    f1: display_brightness_decrement
-    f10: mute
-    f11: volume_decrement
-    f12: volume_increment
-    f2: display_brightness_increment
-    f3: mission_control
-    f4: launchpad
-    f5: illumination_decrement
-    f6: illumination_increment
-    f7: rewind
-    f8: play_or_pause
-    f9: fastforward
 
+  ##############################################################################
+  # Modmap
+  ##############################################################################
   simple_modifications:
-    # For both
+    # CapsLock/Ctrl_L -> Esc
     caps_lock: escape
-    left_option: right_command
-
-    # For macbook US
-    #left_command: left_control
-
-    # SAVIOR
-    japanese_pc_nfer: 'left_control'
-    japanese_pc_xfer: 'left_shift'
-    japanese_pc_katakana: 'right_command'
-
-    # For macbook JIS:
-    japanese_eisuu: "left_control"
-    japanese_kana: "left_shift"
     left_control: escape
 
-  # Main configurations
+    # HHKB: [Alt_L] [Muhenkan] [Space] [Henkan] [KatakanaHiragana]
+    left_option: right_command # for Command+Click
+    japanese_pc_nfer: left_control
+    japanese_pc_xfer: left_shift
+    japanese_pc_katakana: right_command
+
+  ##############################################################################
+  # Keymap
+  ##############################################################################
   complex_modifications:
-    parameters:
-      basic.to_if_alone_timeout_milliseconds: 1000
     rules:
-
-    ################################################################################
-    # US Macbook
-    ################################################################################
-    - description: US Macbook
-      manipulators:
-
-      # `~ -> \|
-      # Right Shift -> _
-<%    {
-        grave_accent_and_tilde: 'international3', # `~ -> \|
-        right_shift: 'international1', # shfit -> _
-      }.each do |from, to| %>
-      - type: basic
-        from:
-          key_code: <%= from %>
-        to:
-        - key_code: <%= to %>
-        conditions:
-        - type: device_if
-          identifiers:
-          # Apple Internal Keyboard (US)
-          - vendor_id: 1452
-            product_id: 588
-<%    end %>
-
-    ################################################################################
-    # SandS
-    ################################################################################
-    - description: Change spacebar to left_shift. (Post spacebar if pressed alone)
-      manipulators:
-      - type: basic
-        from:
-          key_code: spacebar
-          modifiers:
-            optional: [any]
-        to:
-        - key_code: left_shift
-        to_if_alone:
-        - key_code: spacebar
-        conditions:
-        - type: device_if
-          identifiers:
-          # Apple Internal Keyboard (US)
-          - vendor_id: 1452
-            product_id: 588
-
-    ################################################################################
-    # Launchers
-    ################################################################################
+    #
+    # Global bindings
+    #
     - description: Launchers
       manipulators:
-
-      # C-u: Google Chrome
-      # C-o: Nocturn, Slack
-      # C-h: Terminal
-<%    {
-        u: 'Google Chrome',
-        y: 'Visual Studio Code',
-        o: c_o_app,
-        h: 'Utilities/Terminal',
-      }.each do |key, app| %>
-      - type: basic
-        from:
-          key_code: '<%= key %>'
-          modifiers:
-            mandatory: [left_control]
-        to:
-        - shell_command: open "<%= ("/System" if app =~ /Terminal/) %>/Applications/<%= app %>.app"
-<%    end %>
-
-    ################################################################################
-    # Non-Terminal remaps
-    ################################################################################
-    - description: Non terminal remaps
-      manipulators:
-
-      # Cmd-b -> Opt-Left
-      # Cmd-f -> Opt-Right
-      # Cmd-d -> Opt-Delete
-      # C-r -> Cmd-r
-<%    {
-        ['b', ['right_command']] => ['left_arrow', ['left_option']],
-        ['f', ['right_command']] => ['right_arrow', ['left_option']],
-        ['d', ['right_command']] => ['delete_forward', ['left_option']],
-        ['r', ['left_control']] => ['r', ['left_command']],
-      }.each do |from, to|
-        from_key, from_value = from
-        to_key,   to_value   = to %>
-      - type: basic
-        from:
-          key_code: <%= from_key %>
-          modifiers:
-            mandatory: <%= from_value %>
-        to:
-        - key_code: <%= to_key %>
-          modifiers: <%= to_value %>
-        conditions:
-        - type: frontmost_application_unless
-          bundle_identifiers:
-          - "^com\\.apple\\.Terminal$"
-          - "^jp\\.nanasi\\.myukkurivoice$"
-<%    end %>
-      # ¥ -> \
-      - type: basic
-        from:
-          key_code: international3
-        to:
-        - key_code: international3
-          modifiers: right_option
-        conditions:
-        - type: frontmost_application_unless
-          bundle_identifiers:
-          - "^com\\.apple\\.Terminal$"
-
-    ################################################################################
-    # Non-Terminal & non-IntelliJ remaps
-    ################################################################################
-    - description: Non-terminal & non-IntelliJ remaps
-      manipulators:
-
-      # C-w -> Opt-Backspace
-      # Cmd-o -> Ctrl-Shift-]
-      # Cmd-p -> Ctrl-Shift-\
-<%    {
-        ['w', ['left_control']] => ['delete_or_backspace', ['left_option']],
-        ['o', ['right_command']] => ['close_bracket', ['left_command', 'left_shift']],
-        ['p', ['right_command']] => ['non_us_pound', ['left_command', 'left_shift']],
-      }.each do |from, to|
-        from_key, from_value = from
-        to_key,   to_value   = to %>
-      - type: basic
-        from:
-          key_code: <%= from_key %>
-          modifiers:
-            mandatory: <%= from_value %>
-        to:
-        - key_code: <%= to_key %>
-          modifiers: <%= to_value %>
-        conditions:
-        - type: frontmost_application_unless
-          bundle_identifiers:
-          - "^com\\.apple\\.Terminal$"
-          - "^com\\.jetbrains\\.intellij(\\.ce)?$"
-<%    end %>
-
-    ################################################################################
-    # Chrome remaps
-    ################################################################################
-    - description: Chrome remaps
-      manipulators:
-
-      # Cmd-s -> Cmd-f
-      # C-f -> Right (For Confluence)
-      # C-p -> Up (For Treasure Data)
-      # C-d -> Delete (For Lucidchart)
-      # Cmd-Enter -> Enter (To disable comment on GitHub)
-<%    {
-        ['s', ['right_command']] => ['f', ['right_command']],
-        ['f', ['left_control']] => ['right_arrow', []],
-        ['p', ['left_control']] => ['up_arrow', []],
-        ['d', ['left_control']] => ['delete_forward', []],
-        ['return_or_enter', ['right_command']] => ['return_or_enter', []],
-      }.each do |from, to|
-        from_key, from_value = from
-        to_key,   to_value   = to %>
-      - type: basic
-        from:
-          key_code: <%= from_key %>
-          modifiers:
-            mandatory: <%= from_value %>
-        to:
-        - key_code: <%= to_key %>
-<%      unless to_value.empty? %>
-          modifiers: <%= to_value %>
+<%      {
+          u: '/Applications/Google Chrome.app',
+          y: '/Applications/Visual Studio Code.app',
+          o: "/Applications/#{c_o_app}.app",
+          h: '/System/Applications/Utilities/Terminal.app',
+        }.each do |key, app| %>
+        - type: basic
+          from:
+            key_code: '<%= key %>'
+            modifiers:
+              mandatory: [left_control]
+          to:
+            - shell_command: open "<%= app %>"
 <%      end %>
-        conditions:
-        - type: frontmost_application_if
-          bundle_identifiers:
-          - "^com\\.google\\.Chrome$"
-<%    end %>
 
-    ################################################################################
-    # Terminal remaps
-    ################################################################################
-    - description: Terminal remaps
+    #
+    # Non-editor bindings
+    #
+    - description: Default
       manipulators:
+<%      {
+          # Emacs word
+          ['b', ['right_command']] => ['left_arrow', ['left_option']],          # Cmd-b -> Opt-Left
+          ['f', ['right_command']] => ['right_arrow', ['left_option']],         # Cmd-f -> Opt-Right
+          ['w', ['left_control']]  => ['delete_or_backspace', ['left_option']], # C-w   -> Opt-Backspace
+          ['d', ['right_command']] => ['delete_forward', ['left_option']],      # Cmd-d -> Opt-Delete
+        }.each do |from, to|
+          from_key, from_value = from
+          to_key,   to_value   = to %>
+        - type: basic
+          from:
+            key_code: <%= from_key %>
+            modifiers:
+              mandatory: <%= from_value %>
+          to:
+            - key_code: <%= to_key %>
+              modifiers: <%= to_value %>
+          conditions:
+            - type: frontmost_application_unless
+              bundle_identifiers:
+                - "^com\\.apple\\.Terminal$"
+                - "^com\\.microsoft\\.VSCode$"
+<%      end %>
 
-      # Cmd-i -> Opt-i, Cmd-r -> Opt-r
-      # Cmd-t -> Opt-t, Cmd-w -> Opt-w
-      # Cmd-f -> Opt-f, Cmd-b -> Opt-b, Cmd-d -> Opt-d
-      # Cmd-j -> Opt-j, Cmd-k -> Opt-k
-      # Cmd-o -> Opt-o, Cmd-o -> Opt-p
-      # Cmd-Enter -> Opt-Enter
-      # Cmd-x -> Opt-x
-<%    {
-        ['i', ['right_command']] => ['i', ['left_option']],
-        ['r', ['right_command']] => ['r', ['left_option']],
-        ['t', ['right_command']] => ['t', ['left_option']],
-        ['w', ['right_command']] => ['w', ['left_option']],
-        ['f', ['right_command']] => ['f', ['left_option']],
-        ['b', ['right_command']] => ['b', ['left_option']],
-        ['d', ['right_command']] => ['d', ['left_option']],
-        ['j', ['right_command']] => ['j', ['left_option']],
-        ['k', ['right_command']] => ['k', ['left_option']],
-        ['o', ['right_command']] => ['o', ['left_option']],
-        ['p', ['right_command']] => ['p', ['left_option']],
-        ['return_or_enter', ['right_command']] => ['return_or_enter', ['left_option']],
-        ['x', ['right_command']] => ['x', ['left_option']],
-      }.each do |from, to|
-        from_key, from_value = from
-        to_key,   to_value   = to %>
-      - type: basic
-        from:
-          key_code: <%= from_key %>
-          modifiers:
-            mandatory: <%= from_value %>
-        to:
-        - key_code: <%= to_key %>
-          modifiers: <%= to_value %>
-        conditions:
-        - type: frontmost_application_if
-          bundle_identifiers:
-          - "^com\\.apple\\.Terminal$"
-<%    end %>
-
-    ################################################################################
-    # Slack remaps
-    ################################################################################
-    - description: Slack remaps
+    #
+    # Editor-specific bindings
+    #
+    - description: Terminal / Vim
       manipulators:
+        # Cmd-i -> Opt-i, Cmd-r -> Opt-r
+        # Cmd-t -> Opt-t, Cmd-w -> Opt-w
+        # Cmd-f -> Opt-f, Cmd-b -> Opt-b, Cmd-d -> Opt-d
+        # Cmd-j -> Opt-j, Cmd-k -> Opt-k
+        # Cmd-o -> Opt-o, Cmd-o -> Opt-p
+        # Cmd-Enter -> Opt-Enter
+        # Cmd-x -> Opt-x
+<%      {
+          ['i', ['right_command']] => ['i', ['left_option']],
+          ['r', ['right_command']] => ['r', ['left_option']],
+          ['t', ['right_command']] => ['t', ['left_option']],
+          ['w', ['right_command']] => ['w', ['left_option']],
+          ['f', ['right_command']] => ['f', ['left_option']],
+          ['b', ['right_command']] => ['b', ['left_option']],
+          ['d', ['right_command']] => ['d', ['left_option']],
+          ['j', ['right_command']] => ['j', ['left_option']],
+          ['k', ['right_command']] => ['k', ['left_option']],
+          ['o', ['right_command']] => ['o', ['left_option']],
+          ['p', ['right_command']] => ['p', ['left_option']],
+          ['return_or_enter', ['right_command']] => ['return_or_enter', ['left_option']],
+          ['x', ['right_command']] => ['x', ['left_option']],
+        }.each do |from, to|
+          from_key, from_value = from
+          to_key,   to_value   = to %>
+        - type: basic
+          from:
+            key_code: <%= from_key %>
+            modifiers:
+              mandatory: <%= from_value %>
+          to:
+            - key_code: <%= to_key %>
+              modifiers: <%= to_value %>
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.apple\\.Terminal$"
+<%      end %>
 
-      # Cmd-n -> Cmd-k
-      # Cmd-k -> Opt-Up
-      # Cmd-j -> Opt-Down
-      # Cmd-C-k -> Opt-Shift-Up
-      # Cmd-C-j -> Opt-Shift-Down
-      # Cmd-Enter -> Opt-Enter
-<%    {
-        ['"n"', ['right_command']] => ['k', ['left_command']], # YAML: Just `n` becomes `false` instead of `"n"`
-        ['k', ['right_command']] => ['up_arrow', ['left_option']],
-        ['j', ['right_command']] => ['down_arrow', ['left_option']],
-        ['k', ['right_command', 'left_control']] => ['up_arrow', ['left_option', 'left_shift']],
-        ['j', ['right_command', 'left_control']] => ['down_arrow', ['left_option', 'left_shift']],
-        ['return_or_enter', ['right_command']] => ['return_or_enter', ['left_option']],
-      }.each do |from, to|
-        from_key, from_value = from
-        to_key,   to_value   = to %>
-      - type: basic
-        from:
-          key_code: <%= from_key %>
-          modifiers:
-            mandatory: <%= from_value %>
-        to:
-        - key_code: <%= to_key %>
-          modifiers: <%= to_value %>
-        conditions:
-        - type: frontmost_application_if
-          bundle_identifiers:
-          - "^com\\.tinyspeck\\.slackmacgap$"
-<%    end %>
-
-      # C-1 -> Cmd-1 ... C-9 -> Cmd-9
-<%    (1..9).each do |i| %>
-      - from:
-          key_code: '<%= i %>'
-          modifiers:
-            mandatory:
-            - left_control
-        to:
-        - key_code: '<%= i %>'
-          modifiers:
-          - right_command
-        type: basic
-        conditions:
-        - type: frontmost_application_if
-          bundle_identifiers:
-          - "^com\\.tinyspeck\\.slackmacgap$"
-<%    end %>
-
-    ################################################################################
-    # IntelliJ remaps
-    ################################################################################
-    - description: IntelliJ remaps
+    - description: JetBrains IDE
       manipulators:
+        # C-k -> [Shfit-End, Backspace]
+        - type: basic
+          from:
+            key_code: k
+            modifiers:
+              mandatory: left_control
+          to:
+            - key_code: end
+              modifiers: left_shift
+            - key_code: delete_or_backspace
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.jetbrains\\.intellij(\\.ce)?$"
 
-      # C-k -> [Shfit-End, Backspace]
-      - type: basic
-        from:
-          key_code: k
-          modifiers:
-            mandatory: left_control
-        to:
-        - key_code: end
-          modifiers: left_shift
-        - key_code: delete_or_backspace
-        conditions:
-        - type: frontmost_application_if
-          bundle_identifiers:
-          - "^com\\.jetbrains\\.intellij(\\.ce)?$"
+        # C-p -> ↑
+        # C-n -> ↓
+        # C-a -> Home
+        # C-e -> End
+<%      {
+          ['"n"', ['left_control']] => 'down_arrow', # YAML: Just `n` becomes `false` instead of `"n"`
+          ['p', ['left_control']] => 'up_arrow',
+          ['a', ['left_control']] => 'home',
+          ['e', ['left_control']] => 'end',
+          ['d', ['left_control']] => 'delete_forward',
+        }.each do |from, to|
+          from_key, from_value = from %>
+        - type: basic
+          from:
+            key_code: <%= from_key %>
+            modifiers:
+              mandatory: <%= from_value %>
+          to:
+            - key_code: <%= to %>
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.jetbrains\\.intellij(\\.ce)?$"
+<%      end %>
 
-      # C-p -> ↑
-      # C-n -> ↓
-      # C-a -> Home
-      # C-e -> End
-<%    {
-        ['"n"', ['left_control']] => 'down_arrow', # YAML: Just `n` becomes `false` instead of `"n"`
-        ['p', ['left_control']] => 'up_arrow',
-        ['a', ['left_control']] => 'home',
-        ['e', ['left_control']] => 'end',
-        ['d', ['left_control']] => 'delete_forward',
-      }.each do |from, to|
-        from_key, from_value = from %>
-      - type: basic
-        from:
-          key_code: <%= from_key %>
-          modifiers:
-            mandatory: <%= from_value %>
-        to:
-        - key_code: <%= to %>
-        conditions:
-        - type: frontmost_application_if
-          bundle_identifiers:
-          - "^com\\.jetbrains\\.intellij(\\.ce)?$"
-<%    end %>
+        # Cmd-Enter -> Opt-Enter
+        # Cmd-o -> Ctrl-Shift-Tab
+        # Cmd-p -> Ctrl-Tab
+<%      {
+          ['return_or_enter', ['right_command']] => ['return_or_enter', ['right_option']],
+          ['o', ['right_command']] => ['tab', ['right_control', 'left_shift']],
+          ['p', ['right_command']] => ['tab', ['right_control']],
+        }.each do |from, to|
+          from_key, from_value = from
+          to_key,   to_value   = to %>
+        - type: basic
+          from:
+            key_code: <%= from_key %>
+            modifiers:
+              mandatory: <%= from_value %>
+          to:
+            - key_code: <%= to_key %>
+              modifiers: <%= to_value %>
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.jetbrains\\.intellij(\\.ce)?$"
+<%      end %>
 
-      # Cmd-Enter -> Opt-Enter
-      # Cmd-o -> Ctrl-Shift-Tab
-      # Cmd-p -> Ctrl-Tab
-<%    {
-        ['return_or_enter', ['right_command']] => ['return_or_enter', ['right_option']],
-        ['o', ['right_command']] => ['tab', ['right_control', 'left_shift']],
-        ['p', ['right_command']] => ['tab', ['right_control']],
-      }.each do |from, to|
-        from_key, from_value = from
-        to_key,   to_value   = to %>
-      - type: basic
-        from:
-          key_code: <%= from_key %>
-          modifiers:
-            mandatory: <%= from_value %>
-        to:
-        - key_code: <%= to_key %>
-          modifiers: <%= to_value %>
-        conditions:
-        - type: frontmost_application_if
-          bundle_identifiers:
-          - "^com\\.jetbrains\\.intellij(\\.ce)?$"
-<%    end %>
-
-    ################################################################################
-    # Word remaps
-    ################################################################################
-    - description: Word remaps
+    #
+    # Application-specific bindings
+    #
+    - description: Chrome
       manipulators:
+<%      {
+          # Tabs
+          ['o', ['right_command']] => ['close_bracket', ['left_command', 'left_shift']],
+          ['p', ['right_command']] => ['non_us_pound', ['left_command', 'left_shift']],
 
-      # C-k -> [Shfit-End, Backspace]
-      - type: basic
-        from:
-          key_code: k
-          modifiers:
-            mandatory: left_control
-        to:
-        - key_code: end
-          modifiers: left_shift
-        - key_code: delete_or_backspace
-        conditions:
-        - type: frontmost_application_if
-          bundle_identifiers:
-          - "^com\\.microsoft\\.Word$"
+          # Search
+          ['s', ['right_command']] => ['f', ['right_command']],              # Cmd-s -> Cmd-f
 
-      # C-p -> ↑
-      # C-n -> ↓
-      # C-b -> ←
-      # C-f -> →
-      # C-a -> Home
-      # C-e -> End
-<%    {
-        ['"n"', ['left_control']] => 'down_arrow', # YAML: Just `n` becomes `false` instead of `"n"`
-        ['p', ['left_control']] => 'up_arrow',
-        ['b', ['left_control']] => 'left_arrow',
-        ['f', ['left_control']] => 'right_arrow',
-        ['a', ['left_control']] => 'home',
-        ['e', ['left_control']] => 'end',
-        ['d', ['left_control']] => 'delete_forward',
-      }.each do |from, to|
-        from_key, from_value = from %>
-      - type: basic
-        from:
-          key_code: <%= from_key %>
-          modifiers:
-            mandatory: <%= from_value %>
-        to:
-        - key_code: <%= to %>
-        conditions:
-        - type: frontmost_application_if
-          bundle_identifiers:
-          - "^com\\.microsoft\\.Word$"
-<%    end %>
+          # Disable comment on GitHub
+          ['return_or_enter', ['right_command']] => ['return_or_enter', []], # Cmd-Enter -> Enter
+        }.each do |from, to|
+          from_key, from_value = from
+          to_key,   to_value   = to %>
+        - type: basic
+          from:
+            key_code: <%= from_key %>
+            modifiers:
+              mandatory: <%= from_value %>
+          to:
+            - key_code: <%= to_key %>
+<%        unless to_value.empty? %>
+              modifiers: <%= to_value %>
+<%        end %>
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.google\\.Chrome$"
+<%      end %>
+
+    - description: Slack
+      manipulators:
+        # Cmd-n -> Cmd-k
+        # Cmd-k -> Opt-Up
+        # Cmd-j -> Opt-Down
+        # Cmd-C-k -> Opt-Shift-Up
+        # Cmd-C-j -> Opt-Shift-Down
+        # Cmd-Enter -> Opt-Enter
+<%      {
+          ['"n"', ['right_command']] => ['k', ['left_command']], # YAML: Just `n` becomes `false` instead of `"n"`
+          ['k', ['right_command']] => ['up_arrow', ['left_option']],
+          ['j', ['right_command']] => ['down_arrow', ['left_option']],
+          ['k', ['right_command', 'left_control']] => ['up_arrow', ['left_option', 'left_shift']],
+          ['j', ['right_command', 'left_control']] => ['down_arrow', ['left_option', 'left_shift']],
+          ['return_or_enter', ['right_command']] => ['return_or_enter', ['left_option']],
+        }.each do |from, to|
+          from_key, from_value = from
+          to_key,   to_value   = to %>
+        - type: basic
+          from:
+            key_code: <%= from_key %>
+            modifiers:
+              mandatory: <%= from_value %>
+          to:
+            - key_code: <%= to_key %>
+              modifiers: <%= to_value %>
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.tinyspeck\\.slackmacgap$"
+<%      end %>
+
+        # C-1 -> Cmd-1 ... C-9 -> Cmd-9
+<%      (1..9).each do |i| %>
+        - from:
+            key_code: '<%= i %>'
+            modifiers:
+              mandatory:
+                - left_control
+          to:
+            - key_code: '<%= i %>'
+              modifiers:
+                - right_command
+          type: basic
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.tinyspeck\\.slackmacgap$"
+<%      end %>

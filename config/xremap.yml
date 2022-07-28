@@ -134,7 +134,6 @@ keymap:
       Super-c: M-c
       Super-v: M-v
 
-  # TODO: Refactor or remove this
   - name: JetBrains IDE
     application:
       only:
