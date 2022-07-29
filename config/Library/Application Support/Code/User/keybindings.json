@@ -11,6 +11,11 @@
         "when": "neovim.mode != 'insert'"
     },
     {
+        "key": "ctrl+s",
+        "command": "actions.find",
+        "when": "editorFocus || editorIsOpen"
+    },
+    {
         "key": "ctrl+shift+p",
         "command": "-vscode-neovim.send",
         "when": "editorTextFocus && neovim.mode == 'visual'"
