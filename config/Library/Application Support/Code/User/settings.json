@@ -48,28 +48,7 @@
     "workbench.colorTheme": "Darcula",
     "workbench.tree.indent": 24,
     "files.insertFinalNewline": true,
-    "go.toolsManagement.autoUpdate": true,
-    "ruby.useLanguageServer": false,
-    "ruby.lint": {
-        "rubocop": false
-    },
-    "ruby.codeCompletion": false,
-    "ruby.intellisense": false,
-    "ruby.format": false,
-    "[ruby]": {
-        "editor.defaultFormatter": "Shopify.ruby-lsp",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 2,
-        "editor.insertSpaces": true
-    },
-    "byesig.fold": false,
-    "byesig.enabled": true,
-    "byesig.opacity": 0.5,
-    "byesig.showIcon": false,
     "files.trimTrailingWhitespace": true,
-    "editor.rulers": [
-        120
-    ],
     "editor.fontSize": 16,
     "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
 }
