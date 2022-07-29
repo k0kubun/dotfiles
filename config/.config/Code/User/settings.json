@@ -48,4 +48,6 @@
     "workbench.colorTheme": "Darcula",
     "workbench.tree.indent": 24,
     "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
 }

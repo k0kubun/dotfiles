@@ -49,6 +49,5 @@
     "workbench.tree.indent": 24,
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
-    "editor.fontSize": 16,
     "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
 }
