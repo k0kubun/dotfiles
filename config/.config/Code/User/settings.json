@@ -14,6 +14,9 @@
                 { "settings": { "foreground": "#af87af" }, "scope": ["variable.other.readwrite.instance.ruby", "variable.other.readwrite.class.ruby"] },
                 { "settings": { "foreground": "#bcbcbc" }, "scope": ["meta.embedded.line.ruby", "punctuation.definition.constant.hashkey.ruby"] },
                 { "settings": { "foreground": "#d75f5f" }, "scope": ["constant.language.nil.ruby", "constant.numeric.ruby", "constant.language.symbol.ruby", "constant.language.symbol.hashkey.ruby", "constant.language.boolean.ruby"] },
+
+                /* Rust */
+                { "settings": { "foreground": "#bbb529" }, "scope": ["meta.attribute.rust"] },
             ],
         },
         "[Default Dark+]": {
