@@ -1,0 +1,75 @@
+{
+    "editor.tokenColorCustomizations": {
+        "[Darcula]": {
+            "textMateRules": [
+                /* Go */
+                { "settings": { "foreground": "#cc8242" }, "scope": ["support.type.primitive.go"] },
+                { "settings": { "foreground": "#6fafbd" }, "scope": ["variable.field.go"] },
+                //{ "settings": { "foreground": "#9876aa" }, "scope": ["variable.other.assignment.go"] },
+
+                /* Ruby */
+                { "settings": { "foreground": "#6a8757" }, "scope": ["punctuation.section.regexp.ruby", "punctuation.section.embedded.begin.ruby", "punctuation.section.embedded.end.ruby"] },
+                { "settings": { "foreground": "#7a9ec2" }, "scope": ["variable.other.constant.ruby", "support.class.ruby", "entity.name.type.class.ruby"] },
+                { "settings": { "foreground": "#9cdced" }, "scope": ["variable.other.readwrite.global.ruby"] },
+                { "settings": { "foreground": "#af87af" }, "scope": ["variable.other.readwrite.instance.ruby", "variable.other.readwrite.class.ruby"] },
+                { "settings": { "foreground": "#bcbcbc" }, "scope": ["meta.embedded.line.ruby", "punctuation.definition.constant.hashkey.ruby"] },
+                { "settings": { "foreground": "#d75f5f" }, "scope": ["constant.language.nil.ruby", "constant.numeric.ruby", "constant.language.symbol.ruby", "constant.language.symbol.hashkey.ruby", "constant.language.boolean.ruby"] },
+            ],
+        },
+        "[Default Dark+]": {
+            "textMateRules": [
+                { "settings": { "foreground": "#767676" }, "scope": ["comment"] },
+                { "settings": { "foreground": "#87afaf" }, "scope": ["keyword", "keyword.control"] },
+                { "settings": { "foreground": "#87afd7" }, "scope": ["keyword.control.start-block.ruby"] },
+                { "settings": { "foreground": "#af87af" }, "scope": ["variable.other.readwrite.instance.ruby"] },
+                { "settings": { "foreground": "#afaf5f" }, "scope": ["string", "string.regexp", "punctuation.section.regexp.ruby", "punctuation.section.embedded.begin.ruby", "punctuation.section.embedded.end.ruby"] },
+                { "settings": { "foreground": "#bcbcbc" }, "scope": ["punctuation.separator.inheritance.ruby", "punctuation.section", "variable.parameter.function.ruby", "variable.other.ruby", "variable.other.block.ruby", "support.function.kernel.ruby"] },
+                { "settings": { "foreground": "#d75f5f" }, "scope": ["constant.language.nil.ruby", "constant.numeric.ruby", "constant.language.symbol.ruby", "constant.language.symbol.hashkey.ruby", "constant.language.boolean.ruby"] },
+                { "settings": { "foreground": "#d7875f" }, "scope": ["entity.name.type", "variable.other.constant", "entity.other.inherited-class", "support.class.ruby"] },
+                { "settings": { "foreground": "#ffd75f" }, "scope": ["entity.name.function.ruby"] },
+                //{ "settings": { "foreground": "#bcbcbc" }, "scope": "meta.function-call.ruby" },
+            ],
+        },
+    },
+    "files.associations": {
+        "insns.def": "c",
+    },
+    "[c]": {
+        "editor.renderWhitespace": "boundary",
+    },
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "redhat.telemetry.enabled": false,
+    "editor.minimap.enabled": false,
+    "editor.inlayHints.enabled": "off",
+    "editor.codeLens": false,
+    "security.workspace.trust.enabled": false,
+    "editor.cursorBlinking": "solid",
+    "editor.bracketPairColorization.enabled": false,
+    "workbench.colorTheme": "Darcula",
+    "workbench.tree.indent": 24,
+    "files.insertFinalNewline": true,
+    "go.toolsManagement.autoUpdate": true,
+    "ruby.useLanguageServer": false,
+    "ruby.lint": {
+        "rubocop": false
+    },
+    "ruby.codeCompletion": false,
+    "ruby.intellisense": false,
+    "ruby.format": false,
+    "[ruby]": {
+        "editor.defaultFormatter": "Shopify.ruby-lsp",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+    "byesig.fold": false,
+    "byesig.enabled": true,
+    "byesig.opacity": 0.5,
+    "byesig.showIcon": false,
+    "files.trimTrailingWhitespace": true,
+    "editor.rulers": [
+        120
+    ],
+    "editor.fontSize": 16,
+    "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+}
