@@ -52,7 +52,12 @@ map <silent> [Tag]o :tabprevious<CR>
 " Delete highlight
 nnoremap <silent> gh :let @/=''<CR>
 " Git Blame
-nnoremap <silent> gb :<C-u>Git blame<CR>
+if exists("g:vscode")
+  nnoremap <silent> gb :call VSCodeNotify('gitlens.toggleFileBlame')<CR>
+  nnoremap <silent> gq :call VSCodeNotify('gitlens.toggleFileBlame')<CR>
+else
+  nnoremap <silent> gb :<C-u>Git blame<CR>
+endif
 " Paste
 if has('mac')
   nnoremap gp :<C-u>r !pbpaste<CR>

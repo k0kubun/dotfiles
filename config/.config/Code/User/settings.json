@@ -53,6 +53,9 @@
     "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
 
+    // Gitlens
+    "gitlens.blame.highlight.enabled": false,
+
     // Disable unwanted features
     "editor.minimap.enabled": false,
     "editor.inlayHints.enabled": "off",
