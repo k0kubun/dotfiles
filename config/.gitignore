@@ -54,3 +54,5 @@ cachegrind.out.*
 .java-version
 .ipynb_checkpoints/
 .vscode
+rb_mjit_header.h.new
+ripper.tmp.y
