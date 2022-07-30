@@ -1,4 +1,10 @@
 {
+    // Basic
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+
+    // Theme
+    "workbench.colorTheme": "Darcula",
     "editor.tokenColorCustomizations": {
         "[Darcula]": {
             "textMateRules": [
@@ -34,23 +40,27 @@
             ],
         },
     },
+
+    // CRuby
     "files.associations": {
         "insns.def": "c",
     },
-    "[c]": {
-        "editor.renderWhitespace": "boundary",
-    },
+
+    // UI
+    "workbench.tree.indent": 24,
+
+    // Neovim
+    "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
     "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
-    "redhat.telemetry.enabled": false,
+
+    // Disable unwanted features
     "editor.minimap.enabled": false,
     "editor.inlayHints.enabled": "off",
     "editor.codeLens": false,
     "security.workspace.trust.enabled": false,
     "editor.cursorBlinking": "solid",
     "editor.bracketPairColorization.enabled": false,
-    "workbench.colorTheme": "Darcula",
-    "workbench.tree.indent": 24,
-    "files.insertFinalNewline": true,
-    "files.trimTrailingWhitespace": true,
-    "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+
+    // Others
+    "redhat.telemetry.enabled": false,
 }

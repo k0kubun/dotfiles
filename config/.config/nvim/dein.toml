@@ -27,7 +27,7 @@ repo = 'airblade/vim-gitgutter'
 #===============================================================================
 [[plugins]]
 repo = 'tyru/eskk.vim'
-on_if = 'has("mac")'
+on_if = 'has("mac") && !exists("g:vscode")'
 hook_source = '''
   let g:eskk#large_dictionary = {'path': "~/Library/Application Support/AquaSKK/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp'}
 '''

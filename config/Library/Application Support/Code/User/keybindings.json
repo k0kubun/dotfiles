@@ -23,5 +23,5 @@
     {
         "key": "ctrl+shift+p",
         "command": "workbench.action.showCommands"
-    }
+    },
 ]
