@@ -55,6 +55,7 @@
 
     // Gitlens
     "gitlens.blame.highlight.enabled": false,
+    "gitlens.currentLine.enabled": false,
 
     // Disable unwanted features
     "editor.minimap.enabled": false,
