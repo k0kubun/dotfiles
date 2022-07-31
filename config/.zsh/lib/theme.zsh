@@ -12,7 +12,7 @@ precmd() {
   LANG=en_US.UTF-8 vcs_info
 
   local left1="$(pwd) "
-  local left2="[$(arch)] $(hostname | sed -e 's/\.local$//') "
+  local left2="[$(uname -m)] $(hostname | sed -e 's/\.local$//') "
   local left3="status: $last_status"
 	local right1="$vcs_info_msg_0_"
 
