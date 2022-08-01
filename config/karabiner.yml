@@ -228,6 +228,9 @@ profiles:
           # Search
           ['s', ['right_command']] => ['f', ['right_command']],              # Cmd-s -> Cmd-f
 
+          # Reload
+          ['r', ['left_control']] => ['r', ['left_command']],                # C-r -> Cmd-r
+
           # Disable comment on GitHub
           ['return_or_enter', ['right_command']] => ['return_or_enter', []], # Cmd-Enter -> Enter
         }.each do |from, to|
