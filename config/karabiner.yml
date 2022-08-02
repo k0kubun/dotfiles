@@ -92,14 +92,19 @@ profiles:
           # Tabs
           ['o', ['right_command']] => ['close_bracket', ['left_command', 'left_shift']],
           ['p', ['right_command']] => ['non_us_pound', ['left_command', 'left_shift']],
+
+          # ¥ -> \
+          ['international3'] => ['international3', ['right_option']],
         }.each do |from, to|
           from_key, from_value = from
           to_key,   to_value   = to %>
         - type: basic
           from:
             key_code: <%= from_key %>
+<%        if from_value %>
             modifiers:
               mandatory: <%= from_value %>
+<%        end %>
           to:
             - key_code: <%= to_key %>
               modifiers: <%= to_value %>
