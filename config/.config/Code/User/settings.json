@@ -75,15 +75,11 @@
     "ruby.format": false,
     "[ruby]": {
         "editor.defaultFormatter": "Shopify.ruby-lsp",
-        "editor.formatOnSave": true,
+        "editor.formatOnSave": false,
         "editor.tabSize": 2,
-        "editor.insertSpaces": true
+        "editor.insertSpaces": true,
     },
-    "byesig.fold": false,
-    "byesig.enabled": true,
-    "byesig.opacity": 0.5,
-    "byesig.showIcon": false,
-    "editor.rulers": [120],
+    "byesig.enabled": false,
 
     // Others
     "redhat.telemetry.enabled": false,
