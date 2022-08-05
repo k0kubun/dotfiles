@@ -73,14 +73,7 @@
     "ruby.codeCompletion": false,
     "ruby.intellisense": false,
     "ruby.format": false,
-    "[ruby]": {
-        "editor.defaultFormatter": null,
-        "editor.formatOnSave": false,
-        "editor.tabSize": 2,
-        "editor.insertSpaces": true,
-    },
     "byesig.enabled": false,
-    "editor.rulers": null,
 
     // Others
     "redhat.telemetry.enabled": false,
