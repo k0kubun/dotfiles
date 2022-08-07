@@ -46,6 +46,11 @@
         "insns.def": "c",
     },
 
+    // Go
+    "[go]": {
+        "editor.renderWhitespace": "boundary",
+    },
+
     // UI
     "workbench.tree.indent": 24,
 
@@ -73,7 +78,6 @@
     "ruby.codeCompletion": false,
     "ruby.intellisense": false,
     "ruby.format": false,
-    "byesig.enabled": false,
 
     // Others
     "redhat.telemetry.enabled": false,
