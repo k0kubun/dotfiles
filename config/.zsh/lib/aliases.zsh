@@ -1,6 +1,3 @@
-# override system ctags
-# alias ctags="/usr/local/bin/ctags"
-
 # .zshrc reload
 alias re="source ~/.zshrc"
 
@@ -16,5 +13,5 @@ export PATH="/opt/brew/bin:/usr/local/bin:${PATH}"
 # cd by dir name only for ..
 alias ..="cd .."
 
-# Short hand for karabiner gem
-alias dsl='karabiner dsl'
+# bundler
+alias be="bundle exec"

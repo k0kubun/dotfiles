@@ -16,12 +16,6 @@ if [ -e ~/.ssh/agent_env ]; then
 	source ~/.ssh/agent_env > /dev/null
 fi
 
-# Ruby
-export PATH="/usr/share/rbenv/bin:$HOME/.rbenv/bin:$PATH"
-if which rbenv > /dev/null; then
-	source ~/.zsh/lib/ruby.zsh
-fi
-
 export BUNDLE_JOBS=16
 alias be="bundle exec"
 
