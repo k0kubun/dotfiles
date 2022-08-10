@@ -1,7 +1,7 @@
 # tmux
 export PATH="$HOME/bin:$PATH"
 alias tmux="tmux -2"
-if [ -z "$TMUX" -a -z "$STY" -a -z "$SSH_TTY" ]; then
+if [[ -z "$TMUX" && -z "$STY" && -z "$SSH_TTY" && "$TERM_PROGRAM" != "vscode" ]]; then
 	if type tmux > /dev/null 2>&1; then
 		tmux new-session -A -s "*scratch*"
 	fi
