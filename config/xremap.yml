@@ -36,6 +36,16 @@ keymap:
       # SKK hack for Chrome
       C-j: C-m
 
+      # Launcher
+      Super-Space: Super-A
+
+      # Lock
+      Ctrl-Super-L: Super-L
+
+      # Screenshot
+      Ctrl-Shift-3: Shift-Print
+      Ctrl-Shift-4: Shift-Ctrl-Alt-R
+
   - name: Launchers
     remap:
       C-y:
