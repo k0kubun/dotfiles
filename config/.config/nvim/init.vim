@@ -77,6 +77,7 @@ autocmd FileType python inoremap <C-v> import code; code.interact(local=dict(glo
 
 " coc
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+"inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 "===============================================================================
 " Indentation

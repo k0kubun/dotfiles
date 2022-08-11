@@ -38,7 +38,7 @@ on_ft = ['dart']
 #===============================================================================
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-rev  = 'release'
+rev  = 'v0.0.81'
 on_i = 1
 
 [[plugins]]
