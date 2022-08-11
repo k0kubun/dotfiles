@@ -5,6 +5,7 @@ confirm-close=false
 default-show-menubar=false
 menu-accelerator-enabled=false
 schema-version=uint32 3
+theme-variant='dark'
 
 [keybindings]
 copy='<Alt>c'
@@ -37,10 +38,15 @@ visible-name='k0kubun'
 audible-bell=false
 background-color='rgb(0,0,0)'
 background-transparency-percent=10
+bold-is-bright=false
+cursor-background-color='rgb(87,87,87)'
 cursor-blink-mode='off'
+cursor-colors-set=true
+cursor-foreground-color='rgb(255,255,255)'
 font='Inconsolata Medium 20'
 foreground-color='rgb(255,255,255)'
-palette=['rgb(23,29,31)', 'rgb(227,4,4)', 'rgb(44,157,48)', 'rgb(238,206,63)', 'rgb(45,114,202)', 'rgb(191,86,207)', 'rgb(40,189,189)', 'rgb(224,224,224)', 'rgb(85,87,83)', 'rgb(239,41,41)', 'rgb(92,198,67)', 'rgb(230,215,91)', 'rgb(114,159,207)', 'rgb(173,127,168)', 'rgb(62,198,198)', 'rgb(244,233,233)']
+highlight-colors-set=false
+palette=['rgb(0,0,0)', 'rgb(227,4,4)', 'rgb(44,157,48)', 'rgb(238,206,63)', 'rgb(45,114,202)', 'rgb(191,86,207)', 'rgb(40,189,189)', 'rgb(224,224,224)', 'rgb(85,87,83)', 'rgb(239,41,41)', 'rgb(92,198,67)', 'rgb(230,215,91)', 'rgb(114,159,207)', 'rgb(173,127,168)', 'rgb(62,198,198)', 'rgb(244,233,233)']
 scrollbar-policy='never'
 use-system-font=false
 use-theme-colors=false
