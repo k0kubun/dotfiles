@@ -51,6 +51,11 @@
         "editor.renderWhitespace": "boundary",
     },
 
+    // Rust
+    "[rust]": {
+        "editor.formatOnSave": true,
+    },
+
     // UI
     "workbench.tree.indent": 24,
 
