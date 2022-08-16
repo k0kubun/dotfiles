@@ -53,7 +53,8 @@
 
     // Rust
     "[rust]": {
-        "editor.formatOnSave": true,
+        // This should be xremap-specific
+        // "editor.formatOnSave": true,
     },
 
     // UI
@@ -74,15 +75,6 @@
     "security.workspace.trust.enabled": false,
     "editor.cursorBlinking": "solid",
     "editor.bracketPairColorization.enabled": false,
-
-    // Shopify
-    "ruby.useLanguageServer": false,
-    "ruby.lint": {
-        "rubocop": false
-    },
-    "ruby.codeCompletion": false,
-    "ruby.intellisense": false,
-    "ruby.format": false,
 
     // Others
     "redhat.telemetry.enabled": false,
