@@ -118,6 +118,9 @@ keymap:
       C-e: end
       C-k: [Shift-end, backspace]
 
+      # Ignore C-p for Command Palette
+      Shift-C-p: Shift-C-p
+
       # Alt -> Ctrl
       Super-v: C-v
 
