@@ -65,14 +65,19 @@ profiles:
           ['f', ['right_command']] => ['right_arrow', ['left_option']],         # Cmd-f -> Opt-Right
           ['w', ['left_control']]  => ['delete_or_backspace', ['left_option']], # C-w   -> Opt-Backspace
           ['d', ['right_command']] => ['delete_forward', ['left_option']],      # Cmd-d -> Opt-Delete
+
+          # ¥ -> \
+          ['international3'] => ['international3', ['right_option']],
         }.each do |from, to|
           from_key, from_value = from
           to_key,   to_value   = to %>
         - type: basic
           from:
             key_code: <%= from_key %>
+<%        if from_value %>
             modifiers:
               mandatory: <%= from_value %>
+<%        end %>
           to:
             - key_code: <%= to_key %>
               modifiers: <%= to_value %>
