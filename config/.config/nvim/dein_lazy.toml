@@ -38,7 +38,7 @@ on_ft = ['dart']
 #===============================================================================
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-rev  = 'v0.0.81'
+rev  = 'release'
 on_i = 1
 
 [[plugins]]
@@ -63,6 +63,10 @@ depends = ['vimproc.vim', 'unite-git_files']
 hook_post_source = '''
   autocmd BufEnter,BufWinEnter \[unite\]* highlight! CursorLine ctermfg=Black ctermbg=Grey
   autocmd BufLeave \[unite\]* highlight! CursorLine ctermfg=NONE ctermbg=NONE
+
+  autocmd FileType unite imap     <buffer>        <CR>  <Plug>(unite_do_default_action)
+  autocmd FileType unite imap     <buffer>        <Tab> <Plug>(unite_choose_action)
+  autocmd FileType unite inoremap <buffer> <expr> <C-y> unite#do_action('yank')
 '''
 
 [[plugins]]
