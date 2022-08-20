@@ -78,5 +78,4 @@
 
     // Others
     "redhat.telemetry.enabled": false,
-    "makefile.makeDirectory": ".ruby",
 }
