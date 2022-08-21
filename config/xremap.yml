@@ -44,7 +44,7 @@ keymap:
 
       # Screenshot
       Ctrl-Shift-3: Shift-Print
-      Ctrl-Shift-4: Shift-Ctrl-Alt-R
+      Ctrl-Shift-4: Print
 
   - name: Launchers
     remap:
