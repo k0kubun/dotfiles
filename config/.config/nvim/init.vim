@@ -127,6 +127,10 @@ let g:extra_whitespace_ignored_filetypes = ['unite']
 " SQLComplete:The dbext plugin must be loaded for dynamic SQL completion
 let g:omni_sql_no_default_maps = 1
 
+# I have no idea what I'm doing, but this seems to fix:
+# https://github.com/neovim/neovim/issues/8906
+set nomodeline
+
 "===============================================================================
 " Styles
 "===============================================================================
