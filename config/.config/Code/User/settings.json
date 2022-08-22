@@ -78,5 +78,5 @@
 
     // Others
     "redhat.telemetry.enabled": false,
-    "editor.fontSize": 16,
+    "editor.fontSize": 14,
 }
