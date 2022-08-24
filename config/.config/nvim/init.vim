@@ -37,8 +37,11 @@ nnoremap <silent> ;e :<C-u>Explore<CR>
 
 " fzf (TODO: check .git?)
 nnoremap <silent> ;u :<C-u>call fzf#run(fzf#wrap({'source': 'git ls-files', 'options': '--reverse'}))<CR>
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7, 'relative': v:true, 'yoffset': 0.0 } }
-"let g:fzf_layout = { 'tmux': '-p90%,60%' }
+if exists('$TMUX')
+  let g:fzf_layout = { 'tmux': '-p90%,60%' }
+else
+  let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7, 'relative': v:true, 'yoffset': 0.0 } }
+endif
 "let g:fzf_action = { 'ctrl-K': 'kill-line' }
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
