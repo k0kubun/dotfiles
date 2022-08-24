@@ -35,11 +35,24 @@ nnoremap <silent> ;xc :qa!<CR>
 " Explore
 nnoremap <silent> ;e :<C-u>Explore<CR>
 
-" Unite
-nnoremap <silent> ;u :<C-u>Unite -prompt=>\  -start-insert -silent -ignorecase
-      \ buffer `finddir('.git', ';') != '' ? 'git_files' : 'file_rec'`<CR>
-autocmd FileType unite imap ;q <C-u><C-h>
-autocmd BufLeave * silent! iunmap ;q
+" fzf (TODO: check .git?)
+nnoremap <silent> ;u :<C-u>call fzf#run(fzf#wrap({'source': 'git ls-files', 'options': '--reverse'}))<CR>
+"let g:fzf_layout = { 'tmux': '-p90%,60%' }
+"let g:fzf_action = { 'ctrl-K': 'kill-line' }
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Keyword'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
 " Tabs
 nnoremap [Tag] <Nop>
