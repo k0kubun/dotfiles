@@ -80,3 +80,6 @@ alias bd="bundler-directory"
 
 # https://github.com/k0kubun/grimoire
 alias grimoire-peco="grimoire | peco --initial-matcher=Regexp"
+
+# fzf, actually for Vim
+export FZF_DEFAULT_OPTS='--bind=ctrl-k:kill-line'
