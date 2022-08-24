@@ -58,6 +58,9 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
+" fzf-preview
+let g:fzf_preview_fzf_preview_window_option = 'down'
+
 " Tabs
 nnoremap [Tag] <Nop>
 nmap <Space> [Tag]
