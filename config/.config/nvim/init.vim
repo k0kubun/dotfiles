@@ -47,7 +47,7 @@ function! s:my_fzf_files() abort
   endif
 endfunction
 nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
-let g:fzf_preview_direct_window_option = { 'width': 0.9, 'height': 0.6, 'relative': v:true, 'yoffset': 0.0 }
+let g:fzf_preview_direct_window_option = { 'width': 0.9, 'height': 0.6, 'yoffset': 0.0 }
 
 " Tabs
 nnoremap <Plug>(tag)           <Nop>
