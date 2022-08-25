@@ -47,7 +47,6 @@ function! s:my_fzf_files() abort
   endif
 endfunction
 nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
-let g:coc_global_extensions = ['coc-fzf-preview']
 
 " Tabs
 nnoremap <Plug>(tag)           <Nop>
