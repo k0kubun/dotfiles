@@ -37,11 +37,6 @@ on_ft = ['dart']
 # Editing
 #===============================================================================
 [[plugins]]
-repo = 'neoclide/coc.nvim'
-rev  = 'release'
-#on_i = 1
-
-[[plugins]]
 repo = 'osyo-manga/vim-over'
 on_cmd = ['OverCommandLine']
 
