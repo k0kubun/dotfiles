@@ -39,9 +39,11 @@ nnoremap <silent> ;e :<C-u>Explore<CR>
 function! s:my_fzf_files() abort
   let git_root = system('git rev-parse --show-toplevel 2>/dev/null')
   if git_root ==# ''
-    CocCommand fzf-preview.DirectoryFiles
+    FzfPreviewDirectoryFilesRpc
+    " CocCommand fzf-preview.DirectoryFiles
   else
-    CocCommand fzf-preview.ProjectFiles
+    FzfPreviewProjectFilesRpc
+    " CocCommand fzf-preview.ProjectFiles
   endif
 endfunction
 nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
