@@ -36,7 +36,18 @@ nnoremap <silent> ;xc :qa!<CR>
 nnoremap <silent> ;e :<C-u>Explore<CR>
 
 " fzf-preview
-nnoremap <silent> ;u :<C-u>FzfPreviewProjectFiles<CR>
+function! s:my_fzf_files() abort
+  let git_root = system('git rev-parse --show-toplevel 2>/dev/null')
+  if git_root ==# ''
+    "FzfPreviewDirectoryFiles
+    CocCommand fzf-preview.DirectoryFiles
+  else
+    "FzfPreviewProjectFiles
+    CocCommand fzf-preview.ProjectFiles
+  endif
+endfunction
+nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
+let g:coc_global_extensions = ['coc-fzf-preview']
 
 " Tabs
 nnoremap <Plug>(tag)           <Nop>
