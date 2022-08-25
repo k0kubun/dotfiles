@@ -52,7 +52,7 @@ let g:fzf_preview_direct_window_option = { 'width': 0.9, 'height': 0.6, 'relativ
 " Tabs
 nnoremap <Plug>(tag)           <Nop>
 nmap     <Space>               <Plug>(tag)
-nnoremap <silent> <Plug>(tag)t <Cmd>tablast <bar> tabnew <bar> Explore <bar> vs<CR>
+nnoremap <silent> <Plug>(tag)t <Cmd>tablast <bar> tabnew <bar> Explore<CR>
 nnoremap <silent> <Plug>(tag)w <Cmd>tabclose<CR>
 nnoremap <silent> <Plug>(tag)p <Cmd>tabnext<CR>
 nnoremap <silent> <Plug>(tag)o <Cmd>tabprevious<CR>
