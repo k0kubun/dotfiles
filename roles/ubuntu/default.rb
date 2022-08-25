@@ -19,6 +19,8 @@ include_cookbook 'docker'
 include_cookbook 'nocturn'
 include_cookbook 'idea'
 
+package 'fzf'
+
 dotfile '.Xmodmap'
 # dotfile '.rake'
 dotfile '.gemrc'
