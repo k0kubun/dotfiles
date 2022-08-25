@@ -14,5 +14,4 @@ dotfile '.config/nvim'
 #
 # Vim
 #
-dotfile '.vimrc'
 dotfile '.config/vim'
