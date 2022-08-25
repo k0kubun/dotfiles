@@ -39,10 +39,10 @@ nnoremap <silent> ;e :<C-u>Explore<CR>
 function! s:my_fzf_files() abort
   let git_root = system('git rev-parse --show-toplevel 2>/dev/null')
   if git_root ==# ''
-    FzfPreviewDirectoryFilesRpc --add-fzf-arg=--preview=''
+    FzfPreviewDirectoryFilesRpc --add-fzf-arg=--preview='' --add-fzf-arg=--exact
     " CocCommand fzf-preview.DirectoryFiles
   else
-    FzfPreviewProjectFilesRpc --add-fzf-arg=--preview=''
+    FzfPreviewProjectFilesRpc --add-fzf-arg=--preview='' --add-fzf-arg=--exact
     " CocCommand fzf-preview.ProjectFiles
   endif
 endfunction
