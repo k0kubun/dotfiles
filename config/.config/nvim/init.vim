@@ -47,7 +47,7 @@ function! s:my_fzf_files() abort
   endif
 endfunction
 nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
-let g:fzf_preview_direct_window_option = { 'width': 0.9, 'height': 0.5 }
+let g:fzf_preview_direct_window_option = { 'width': 0.9, 'height': 0.6, 'relative': v:true, 'yoffset': 0.0 }
 
 " Tabs
 nnoremap <Plug>(tag)           <Nop>
@@ -56,7 +56,6 @@ nnoremap <silent> <Plug>(tag)t <Cmd>tablast <bar> tabnew <bar> Explore <bar> vs<
 nnoremap <silent> <Plug>(tag)w <Cmd>tabclose<CR>
 nnoremap <silent> <Plug>(tag)p <Cmd>tabnext<CR>
 nnoremap <silent> <Plug>(tag)o <Cmd>tabprevious<CR>
-
 
 " Delete highlight
 nnoremap <silent> gh :let @/=''<CR>
