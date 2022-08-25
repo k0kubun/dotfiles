@@ -11,9 +11,6 @@ repo = 'Shougo/dein.vim'
 [[plugins]] # colorscheme hybrid
 repo = 'w0ng/vim-hybrid'
 
-[[plugins]] # Transparent netrw cursor line
-repo = 'vim-scripts/netrw.vim'
-
 #===============================================================================
 # Git
 #===============================================================================
