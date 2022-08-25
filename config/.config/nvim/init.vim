@@ -62,12 +62,13 @@ let g:fzf_colors =
 "let g:fzf_preview_fzf_preview_window_option = 'down'
 
 " Tabs
-nnoremap [Tag] <Nop>
-nmap <Space> [Tag]
-map <silent> [Tag]t :tablast <bar> tabnew <bar> Explore <bar> vs<CR>
-map <silent> [Tag]w :tabclose<CR>
-map <silent> [Tag]p :tabnext<CR>
-map <silent> [Tag]o :tabprevious<CR>
+nnoremap <Plug>(tag)           <Nop>
+nmap     <Space>               <Plug>(tag)
+nnoremap <silent> <Plug>(tag)t <Cmd>tablast <bar> tabnew <bar> Explore <bar> vs<CR>
+nnoremap <silent> <Plug>(tag)w <Cmd>tabclose<CR>
+nnoremap <silent> <Plug>(tag)p <Cmd>tabnext<CR>
+nnoremap <silent> <Plug>(tag)o <Cmd>tabprevious<CR>
+
 
 " Delete highlight
 nnoremap <silent> gh :let @/=''<CR>
