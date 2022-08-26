@@ -36,44 +36,44 @@ nnoremap <silent> ;xc :qa!<CR>
 nnoremap <silent> ;e :<C-u>Explore<CR>
 
 " fzf
-"function! s:my_fzf_files() abort
-"  let git_root = system('git rev-parse --show-toplevel 2>/dev/null')
-"  if git_root ==# ''
-"    call fzf#run(fzf#wrap({'source': 'find .', 'options': '--reverse --exact'}))
-"  else
-"    call fzf#run(fzf#wrap({'source': 'git ls-files', 'options': '--reverse --exact'}))
-"  endif
-"endfunction
-"nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
-"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'yoffset': 0.0 } }
-"let g:fzf_colors =
-"\ { 'fg':      ['fg', 'Normal'],
-"  \ 'bg':      ['bg', 'Normal'],
-"  \ 'hl':      ['fg', 'Keyword'],
-"  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-"  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-"  \ 'hl+':     ['fg', 'Statement'],
-"  \ 'info':    ['fg', 'PreProc'],
-"  \ 'border':  ['fg', 'Ignore'],
-"  \ 'prompt':  ['fg', 'Conditional'],
-"  \ 'pointer': ['fg', 'Exception'],
-"  \ 'marker':  ['fg', 'Keyword'],
-"  \ 'spinner': ['fg', 'Label'],
-"  \ 'header':  ['fg', 'Comment'] }
-
-" fzf-preview
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Keyword'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'yoffset': 0.0 } }
 function! s:my_fzf_files() abort
   let git_root = system('git rev-parse --show-toplevel 2>/dev/null')
   if git_root ==# ''
-    FzfPreviewDirectoryFilesRpc --add-fzf-arg=--preview='' --add-fzf-arg=--exact --experimental-fast
-    " CocCommand fzf-preview.DirectoryFiles
+    call fzf#run(fzf#wrap({'source': 'find .', 'options': '--reverse --exact'}))
   else
-    FzfPreviewProjectFilesRpc --add-fzf-arg=--preview='' --add-fzf-arg=--exact --experimental-fast
-    " CocCommand fzf-preview.ProjectFiles
+    call fzf#run(fzf#wrap({'source': 'git ls-files', 'options': '--reverse --exact'}))
   endif
 endfunction
 nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
-let g:fzf_preview_direct_window_option = { 'width': 0.9, 'height': 0.6, 'yoffset': 0.0 }
+
+" fzf-preview
+"let g:fzf_preview_direct_window_option = { 'width': 0.9, 'height': 0.6, 'yoffset': 0.0 }
+"function! s:my_fzf_files() abort
+"  let git_root = system('git rev-parse --show-toplevel 2>/dev/null')
+"  if git_root ==# ''
+"    FzfPreviewDirectoryFilesRpc --add-fzf-arg=--preview='' --add-fzf-arg=--exact --experimental-fast
+"    " CocCommand fzf-preview.DirectoryFiles
+"  else
+"    FzfPreviewProjectFilesRpc --add-fzf-arg=--preview='' --add-fzf-arg=--exact --experimental-fast
+"    " CocCommand fzf-preview.ProjectFiles
+"  endif
+"endfunction
+"nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
 
 " Tabs
 nnoremap <Plug>(tag)           <Nop>
