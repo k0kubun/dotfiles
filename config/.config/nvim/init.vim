@@ -35,6 +35,32 @@ nnoremap <silent> ;xc :qa!<CR>
 " Explore
 nnoremap <silent> ;e :<C-u>Explore<CR>
 
+" fzf
+"function! s:my_fzf_files() abort
+"  let git_root = system('git rev-parse --show-toplevel 2>/dev/null')
+"  if git_root ==# ''
+"    call fzf#run(fzf#wrap({'source': 'find .', 'options': '--reverse --exact'}))
+"  else
+"    call fzf#run(fzf#wrap({'source': 'git ls-files', 'options': '--reverse --exact'}))
+"  endif
+"endfunction
+"nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
+"let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'yoffset': 0.0 } }
+"let g:fzf_colors =
+"\ { 'fg':      ['fg', 'Normal'],
+"  \ 'bg':      ['bg', 'Normal'],
+"  \ 'hl':      ['fg', 'Keyword'],
+"  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+"  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+"  \ 'hl+':     ['fg', 'Statement'],
+"  \ 'info':    ['fg', 'PreProc'],
+"  \ 'border':  ['fg', 'Ignore'],
+"  \ 'prompt':  ['fg', 'Conditional'],
+"  \ 'pointer': ['fg', 'Exception'],
+"  \ 'marker':  ['fg', 'Keyword'],
+"  \ 'spinner': ['fg', 'Label'],
+"  \ 'header':  ['fg', 'Comment'] }
+
 " fzf-preview
 function! s:my_fzf_files() abort
   let git_root = system('git rev-parse --show-toplevel 2>/dev/null')
