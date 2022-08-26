@@ -60,6 +60,7 @@ function! s:my_fzf_files() abort
   endif
 endfunction
 nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
+set timeoutlen=1000 ttimeoutlen=0
 
 " fzf-preview
 "let g:fzf_preview_direct_window_option = { 'width': 0.9, 'height': 0.6, 'yoffset': 0.0 }
