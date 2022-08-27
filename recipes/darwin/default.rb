@@ -1,8 +1,10 @@
-include_cookbook 'git'
+package 'git'
 include_cookbook 'vim'
 include_cookbook 'zsh'
 
 dotfile '.gemrc'
+dotfile '.gitconfig'
+dotfile '.gitignore'
 dotfile '.karabiner'
 dotfile '.peco'
 dotfile '.pryrc'

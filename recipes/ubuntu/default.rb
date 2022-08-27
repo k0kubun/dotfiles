@@ -6,7 +6,6 @@ node.reverse_merge!(
 
 include_recipe 'systemd'
 include_cookbook 'skk'
-include_cookbook 'git'
 include_cookbook 'zsh'
 include_cookbook 'tmux'
 include_cookbook 'vim'
@@ -16,11 +15,14 @@ include_cookbook 'docker'
 include_cookbook 'nocturn'
 include_cookbook 'idea'
 
+package 'git'
 package 'fzf'
 
 dotfile '.Xmodmap'
 dotfile '.gdbinit'
 dotfile '.gemrc'
+dotfile '.gitconfig'
+dotfile '.gitignore'
 dotfile '.gtkrc-2.0'
 dotfile '.irbrc'
 dotfile '.peco'
