@@ -4,8 +4,7 @@ node.reverse_merge!(
   },
 )
 
-include_recipe '../base'
-
+include_recipe 'systemd'
 include_cookbook 'skk'
 include_cookbook 'git'
 include_cookbook 'ghq'
