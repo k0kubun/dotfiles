@@ -60,11 +60,6 @@ on_cmd = ['Vinarise']
 repo = 'junegunn/fzf'
 on_cmd = ['call']
 
-[[plugins]]
-repo = 'yuki-yano/fzf-preview.vim'
-rev = 'release/rpc'
-on_cmd = ['call']
-
 #===============================================================================
 # Git
 #===============================================================================

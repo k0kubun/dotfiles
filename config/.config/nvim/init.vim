@@ -62,20 +62,6 @@ endfunction
 nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
 set timeoutlen=1000 ttimeoutlen=0
 
-" fzf-preview
-"let g:fzf_preview_direct_window_option = { 'width': 0.9, 'height': 0.6, 'yoffset': 0.0 }
-"function! s:my_fzf_files() abort
-"  let git_root = system('git rev-parse --show-toplevel 2>/dev/null')
-"  if git_root ==# ''
-"    FzfPreviewDirectoryFilesRpc --add-fzf-arg=--preview='' --add-fzf-arg=--exact --experimental-fast
-"    " CocCommand fzf-preview.DirectoryFiles
-"  else
-"    FzfPreviewProjectFilesRpc --add-fzf-arg=--preview='' --add-fzf-arg=--exact --experimental-fast
-"    " CocCommand fzf-preview.ProjectFiles
-"  endif
-"endfunction
-"nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
-
 " Tabs
 nnoremap <Plug>(tag)           <Nop>
 nmap     <Space>               <Plug>(tag)
