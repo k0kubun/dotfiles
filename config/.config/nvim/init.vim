@@ -17,6 +17,7 @@ if dein#load_state(s:dein_cache)
 
   " Dein
   call dein#add('Shougo/dein.vim')
+  call dein#add('haya14busa/dein-command.vim', { 'on_cmd': ['Dein'] })
 
   " Styles
   call dein#add('nvim-lualine/lualine.nvim')
@@ -57,7 +58,6 @@ endif
 if dein#check_install()
   call dein#install()
 endif
-" call dein#recache_runtimepath()
 
 filetype plugin indent on
 syntax enable
