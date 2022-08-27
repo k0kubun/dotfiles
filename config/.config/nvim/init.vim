@@ -6,7 +6,7 @@ if &compatible
 endif
 
 let s:dein_cache = $HOME . '/.cache/dein'
-let s:dein_path  = expand(s:dein_cache . 'repos/github.com/Shougo/dein.vim')
+let s:dein_path  = expand(s:dein_cache . '/repos/github.com/Shougo/dein.vim')
 if !isdirectory(s:dein_path)
   execute '!git clone --depth=1 https://github.com/Shougo/dein.vim' s:dein_path
 endif
