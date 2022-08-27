@@ -9,7 +9,7 @@ include_recipe 'skk'
 include_recipe 'zsh'
 include_cookbook 'tmux'
 include_cookbook 'ruby'
-include_cookbook 'docker'
+include_recipe 'docker'
 include_cookbook 'nocturn'
 
 package 'git'
