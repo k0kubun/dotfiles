@@ -6,6 +6,7 @@ MItamae::RecipeContext.class_eval do
 end
 
 node.reverse_merge!(
+  os: run_command('uname').stdout.strip.downcase,
   user: ENV['SUDO_USER'] || ENV['USER'],
 )
 
