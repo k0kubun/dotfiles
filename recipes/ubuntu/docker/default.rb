@@ -1,6 +1,6 @@
 node.reverse_merge!(
   docker: {
-    users: [],
+    users: %w[k0kubun],
   },
 )
 

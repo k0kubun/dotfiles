@@ -1,20 +1,3 @@
-node.reverse_merge!(
-  docker: {
-    users: %w[k0kubun],
-  },
-)
-
-include_recipe 'systemd'
-include_recipe 'skk'
-include_recipe 'zsh'
-include_cookbook 'tmux'
-include_recipe 'ruby'
-include_recipe 'docker'
-include_recipe 'nocturn'
-
-package 'git'
-package 'fzf'
-
 directory "#{ENV['HOME']}/.config"
 
 dotfile '.Xmodmap'
@@ -29,9 +12,26 @@ dotfile '.irbrc'
 dotfile '.peco'
 dotfile '.pryrc'
 dotfile '.railsrc'
+dotfile '.tmux.conf'
 dotfile '.zsh'
 dotfile '.zshrc'
 dotfile '.zshrc.Linux'
+
+dotfile '.tmux.conf.local' do
+  source '.tmux.conf.linux'
+end
+
+include_recipe 'systemd'
+include_recipe 'skk'
+include_recipe 'zsh'
+include_recipe 'ruby'
+include_recipe 'docker'
+include_recipe 'nocturn'
+
+package 'tmux'
+package 'xclip'
+package 'git'
+package 'fzf'
 
 directory "#{ENV['HOME']}/.config/systemd/user/default.target.wants" do
   owner node[:user]
