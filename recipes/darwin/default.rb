@@ -1,8 +1,7 @@
-package 'git'
-include_cookbook 'zsh'
-
 directory "#{ENV['HOME']}/.config"
 
+dotfile '.config/nvim'
+dotfile '.config/vim'
 dotfile '.gemrc'
 dotfile '.gitconfig'
 dotfile '.gitignore'
@@ -12,8 +11,11 @@ dotfile '.pryrc'
 dotfile '.psqlrc'
 dotfile '.railsrc'
 dotfile '.tmux.conf'
-dotfile '.config/nvim'
-dotfile '.config/vim'
+dotfile '.zsh'
+dotfile '.zshrc'
+dotfile '.zshrc.darwin'
+
+package 'git'
 
 include_recipe 'gpg-agent'
 

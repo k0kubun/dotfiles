@@ -6,7 +6,7 @@ node.reverse_merge!(
 
 include_recipe 'systemd'
 include_cookbook 'skk'
-include_cookbook 'zsh'
+include_recipe 'zsh'
 include_cookbook 'tmux'
 include_cookbook 'ruby'
 # include_cookbook 'go'
@@ -31,6 +31,9 @@ dotfile '.irbrc'
 dotfile '.peco'
 dotfile '.pryrc'
 dotfile '.railsrc'
+dotfile '.zsh'
+dotfile '.zshrc'
+dotfile '.zshrc.Linux'
 
 directory "#{ENV['HOME']}/.config/systemd/user/default.target.wants" do
   owner node[:user]
