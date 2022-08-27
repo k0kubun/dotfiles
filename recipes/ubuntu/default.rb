@@ -2,7 +2,6 @@ directory "#{ENV['HOME']}/.config"
 
 dotfile '.Xmodmap'
 dotfile '.config/nvim'
-dotfile '.config/vim'
 dotfile '.gdbinit'
 dotfile '.gemrc'
 dotfile '.gitconfig'

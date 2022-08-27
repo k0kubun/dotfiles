@@ -1,7 +1,6 @@
 directory "#{ENV['HOME']}/.config"
 
 dotfile '.config/nvim'
-dotfile '.config/vim'
 dotfile '.gemrc'
 dotfile '.gitconfig'
 dotfile '.gitignore'
