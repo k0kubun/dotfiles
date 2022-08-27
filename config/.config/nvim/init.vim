@@ -11,44 +11,49 @@ if !isdirectory(s:dein_path)
   execute '!git clone --depth=1 https://github.com/Shougo/dein.vim' s:dein_path
 endif
 let &runtimepath .= ',' . s:dein_path
-call dein#begin(s:dein_cache)
 
-" Dein
-call dein#add('Shougo/dein.vim')
+if dein#load_state(s:dein_cache)
+  call dein#begin(s:dein_cache)
 
-" Styles
-call dein#add('nvim-lualine/lualine.nvim')
-call dein#add('w0ng/vim-hybrid')
+  " Dein
+  call dein#add('Shougo/dein.vim')
 
-" Git
-call dein#add('tpope/vim-fugitive')
-call dein#add('airblade/vim-gitgutter')
+  " Styles
+  call dein#add('nvim-lualine/lualine.nvim')
+  call dein#add('w0ng/vim-hybrid')
 
-" SKK
-call dein#add('tyru/eskk.vim', { 'on_if': 'has("mac") && !exists("g:vscode")' })
+  " Git
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('airblade/vim-gitgutter')
 
-" Language
-call dein#add('vim-ruby/vim-ruby', { 'on_ft': ['ruby'], 'lazy': 1 })
-call dein#add('udalov/kotlin-vim', { 'on_ft': ['kotlin'], 'lazy': 1 })
-call dein#add('cespare/vim-toml', { 'on_ft': ['toml'], 'lazy': 1 })
-call dein#add('lervag/vimtex', { 'on_ft': ['tex'], 'lazy': 1 }) " apt install latexmk
-call dein#add('leafgarland/typescript-vim', { 'on_ft': ['typescript', 'typescriptreact'], 'lazy': 1 })
-call dein#add('peitalin/vim-jsx-typescript', { 'on_ft': ['typescriptreact'], 'lazy': 1 })
-call dein#add('dart-lang/dart-vim-plugin', { 'on_ft': ['dart'], 'lazy': 1 })
+  " SKK
+  call dein#add('tyru/eskk.vim', { 'on_if': 'has("mac") && !exists("g:vscode")' })
 
-" Editing
-call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1, 'lazy': 1 })
-call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'], 'lazy': 1 })
-call dein#add('bronson/vim-trailing-whitespace', { 'on_cmd': ['FixWhitespace'], 'lazy': 1 })
-call dein#add('Shougo/vinarise.vim', { 'on_cmd': ['Vinarise'], 'lazy': 1 })
-call dein#add('junegunn/fzf', { 'on_cmd': ['call'], 'lazy': 1 })
+  " Language
+  call dein#add('vim-ruby/vim-ruby', { 'on_ft': ['ruby'], 'lazy': 1 })
+  call dein#add('udalov/kotlin-vim', { 'on_ft': ['kotlin'], 'lazy': 1 })
+  call dein#add('cespare/vim-toml', { 'on_ft': ['toml'], 'lazy': 1 })
+  call dein#add('lervag/vimtex', { 'on_ft': ['tex'], 'lazy': 1 }) " apt install latexmk
+  call dein#add('leafgarland/typescript-vim', { 'on_ft': ['typescript', 'typescriptreact'], 'lazy': 1 })
+  call dein#add('peitalin/vim-jsx-typescript', { 'on_ft': ['typescriptreact'], 'lazy': 1 })
+  call dein#add('dart-lang/dart-vim-plugin', { 'on_ft': ['dart'], 'lazy': 1 })
 
-" Git
-call dein#add('tyru/open-browser.vim', { 'hook_post_source': 'call SetupOpenBrowser()', 'lazy': 1 })
-call dein#add('k0kubun/open-browser-github.vim', { 'on_cmd': ['OpenGithubFile'],
-      \ 'depends': ['open-browser.vim'], 'hook_post_source': 'call SetupOpenBrowserGithub()', 'lazy': 1 })
+  " Editing
+  call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1, 'lazy': 1 })
+  call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'], 'lazy': 1 })
+  call dein#add('bronson/vim-trailing-whitespace', { 'on_cmd': ['FixWhitespace'], 'lazy': 1 })
+  call dein#add('Shougo/vinarise.vim', { 'on_cmd': ['Vinarise'], 'lazy': 1 })
+  call dein#add('junegunn/fzf', { 'on_cmd': ['call'], 'lazy': 1 })
 
-call dein#end()
+  " Git
+  call dein#add('tyru/open-browser.vim', { 'hook_post_source': 'call SetupOpenBrowser()', 'lazy': 1 })
+  call dein#add('k0kubun/open-browser-github.vim', { 'on_cmd': ['OpenGithubFile'],
+        \ 'depends': ['open-browser.vim'], 'hook_post_source': 'call SetupOpenBrowserGithub()', 'lazy': 1 })
+
+  call dein#end()
+  call dein#save_state()
+endif
+
 if dein#check_install()
   call dein#install()
 endif
