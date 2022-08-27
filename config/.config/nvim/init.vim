@@ -14,8 +14,21 @@ let &runtimepath .= ',' . s:dein_path
 
 let s:nvim = '~/src/github.com/k0kubun/dotfiles/config/.config/nvim/'
 if dein#load_state(s:dein_cache)
-  call dein#begin(s:dein_cache, [s:nvim . 'dein.toml', s:nvim . 'dein_lazy.toml'])
-  call dein#load_toml(s:nvim . 'dein.toml')
+  call dein#begin(s:dein_cache, [s:nvim . 'dein_lazy.toml'])
+
+  " Dein
+  call dein#add('Shougo/dein.vim')
+
+  " Styles
+  call dein#add('w0ng/vim-hybrid')
+
+  " Git
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('airblade/vim-gitgutter')
+
+  " SKK
+  call dein#add('tyru/eskk.vim', { 'on_if': 'has("mac") && !exists("g:vscode")' })
+
   call dein#load_toml(s:nvim . 'dein_lazy.toml', {'lazy': 1})
   call dein#end()
   call dein#save_state()
@@ -138,6 +151,10 @@ let g:omni_sql_no_default_maps = 1
 " I have no idea what I'm doing, but this seems to fix:
 " https://github.com/neovim/neovim/issues/8906
 set nomodeline
+
+if dein#tap('eskk.vim')
+  let g:eskk#large_dictionary = {'path': "~/Library/Application Support/AquaSKK/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp'}
+endif
 
 "===============================================================================
 " Styles
