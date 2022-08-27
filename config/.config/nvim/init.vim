@@ -62,17 +62,6 @@ endif
 filetype plugin indent on
 syntax enable
 
-"===============================================================================
-" Plugins
-"===============================================================================
-if dein#tap('eskk.vim')
-  let g:eskk#large_dictionary = {'path': '~/Library/Application Support/AquaSKK/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp'}
-endif
-
-if dein#tap('vimtex')
-  let g:vimtex_matchparen_enabled = 0
-endif
-
 if dein#tap('open-browser.vim')
   function! SetupOpenBrowser() abort
     delfunction OpenBrowser
@@ -206,6 +195,14 @@ let g:omni_sql_no_default_maps = 1
 " I have no idea what I'm doing, but this seems to fix:
 " https://github.com/neovim/neovim/issues/8906
 set nomodeline
+
+if dein#tap('eskk.vim')
+  let g:eskk#large_dictionary = {'path': '~/Library/Application Support/AquaSKK/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp'}
+endif
+
+if dein#tap('vimtex')
+  let g:vimtex_matchparen_enabled = 0
+endif
 
 "===============================================================================
 " Styles
