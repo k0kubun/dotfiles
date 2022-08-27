@@ -3,9 +3,9 @@ if which tmux > /dev/null; then
 fi
 
 alias ls="ls -Gla"
-export BUNDLE_JOBS=4
+export BUNDLE_JOBS=8
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 
 if [ -z "$(pgrep gpg-agent)" ]; then
-    eval $(gpg-agent --daemon)
+  eval $(gpg-agent --daemon)
 fi
