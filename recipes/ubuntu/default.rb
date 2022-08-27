@@ -4,7 +4,7 @@ node.reverse_merge!(
   },
 )
 
-include_role 'base'
+include_recipe '../base'
 
 include_cookbook 'skk'
 include_cookbook 'git'

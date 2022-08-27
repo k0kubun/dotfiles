@@ -1,4 +1,4 @@
-include_role 'base'
+include_recipe '../base'
 
 include_cookbook 'git'
 include_cookbook 'vim'
