@@ -5,7 +5,7 @@ node.reverse_merge!(
 )
 
 include_recipe 'systemd'
-include_cookbook 'skk'
+include_recipe 'skk'
 include_recipe 'zsh'
 include_cookbook 'tmux'
 include_cookbook 'ruby'
