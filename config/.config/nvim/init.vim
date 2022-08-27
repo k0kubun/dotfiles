@@ -46,9 +46,9 @@ if dein#load_state(s:dein_cache)
   call dein#add('junegunn/fzf', { 'on_cmd': ['call'], 'lazy': 1 })
 
   " Git
-  call dein#add('tyru/open-browser.vim', { 'hook_post_source': 'call SetupOpenBrowser', 'lazy': 1 })
+  call dein#add('tyru/open-browser.vim', { 'hook_post_source': 'call SetupOpenBrowser()', 'lazy': 1 })
   call dein#add('k0kubun/open-browser-github.vim', { 'on_cmd': ['OpenGithubFile'],
-        \ 'depends': ['open-browser.vim'], 'hook_post_source': 'call SetupOpenBrowserGithub', 'lazy': 1 })
+        \ 'depends': ['open-browser.vim'], 'hook_post_source': 'call SetupOpenBrowserGithub()', 'lazy': 1 })
 
   call dein#end()
   call dein#save_state()
