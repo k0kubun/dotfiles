@@ -31,25 +31,25 @@ if dein#load_state(s:dein_cache)
   call dein#add('tyru/eskk.vim', { 'on_if': 'has("mac") && !exists("g:vscode")' })
 
   " Language
-  call dein#add('vim-ruby/vim-ruby', { 'on_ft': ['ruby'], 'lazy': 1 })
-  call dein#add('udalov/kotlin-vim', { 'on_ft': ['kotlin'], 'lazy': 1 })
-  call dein#add('cespare/vim-toml', { 'on_ft': ['toml'], 'lazy': 1 })
-  call dein#add('lervag/vimtex', { 'on_ft': ['tex'], 'lazy': 1 }) " apt install latexmk
-  call dein#add('leafgarland/typescript-vim', { 'on_ft': ['typescript', 'typescriptreact'], 'lazy': 1 })
-  call dein#add('peitalin/vim-jsx-typescript', { 'on_ft': ['typescriptreact'], 'lazy': 1 })
-  call dein#add('dart-lang/dart-vim-plugin', { 'on_ft': ['dart'], 'lazy': 1 })
+  call dein#add('vim-ruby/vim-ruby', { 'on_ft': ['ruby'] })
+  call dein#add('udalov/kotlin-vim', { 'on_ft': ['kotlin'] })
+  call dein#add('cespare/vim-toml', { 'on_ft': ['toml'] })
+  call dein#add('lervag/vimtex', { 'on_ft': ['tex'] }) " apt install latexmk
+  call dein#add('leafgarland/typescript-vim', { 'on_ft': ['typescript', 'typescriptreact'] })
+  call dein#add('peitalin/vim-jsx-typescript', { 'on_ft': ['typescriptreact'] })
+  call dein#add('dart-lang/dart-vim-plugin', { 'on_ft': ['dart'] })
 
   " Editing
-  call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1, 'lazy': 1 })
-  call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'], 'lazy': 1 })
-  call dein#add('bronson/vim-trailing-whitespace', { 'on_cmd': ['FixWhitespace'], 'lazy': 1 })
-  call dein#add('Shougo/vinarise.vim', { 'on_cmd': ['Vinarise'], 'lazy': 1 })
-  call dein#add('junegunn/fzf', { 'on_cmd': ['call'], 'lazy': 1 })
+  call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
+  call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'] })
+  call dein#add('bronson/vim-trailing-whitespace', { 'on_cmd': ['FixWhitespace'] })
+  call dein#add('Shougo/vinarise.vim', { 'on_cmd': ['Vinarise'] })
+  call dein#add('junegunn/fzf', { 'on_cmd': ['call'] })
 
   " Git
-  call dein#add('tyru/open-browser.vim', { 'hook_post_source': 'call SetupOpenBrowser()', 'lazy': 1 })
+  call dein#add('tyru/open-browser.vim', { 'hook_post_source': 'call SetupOpenBrowser()' })
   call dein#add('k0kubun/open-browser-github.vim', { 'on_cmd': ['OpenGithubFile'],
-        \ 'depends': ['open-browser.vim'], 'hook_post_source': 'call SetupOpenBrowserGithub()', 'lazy': 1 })
+        \ 'depends': ['open-browser.vim'], 'hook_post_source': 'call SetupOpenBrowserGithub()' })
 
   call dein#end()
   call dein#save_state()
