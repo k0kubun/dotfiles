@@ -10,7 +10,7 @@ include_recipe 'zsh'
 include_cookbook 'tmux'
 include_cookbook 'ruby'
 include_recipe 'docker'
-include_cookbook 'nocturn'
+include_recipe 'nocturn'
 
 package 'git'
 package 'fzf'
