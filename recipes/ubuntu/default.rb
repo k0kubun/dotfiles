@@ -40,14 +40,6 @@ include_recipe 'gpg-agent'
 include_recipe 'ddns-update'
 include_recipe 'xremap'
 
-# For TZ=UTC
-# remote_file '/lib/systemd/system/mysql.service' do
-#   owner 'root'
-#   group 'root'
-#   mode '644'
-#   only_if 'which mysql'
-# end
-
 # For dual boot Windows
 execute 'timedatectl set-local-rtc true' do
   only_if "timedatectl status | grep 'RTC in local TZ: no'"
