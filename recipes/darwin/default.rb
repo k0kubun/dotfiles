@@ -8,7 +8,6 @@ dotfile '.peco'
 dotfile '.pryrc'
 dotfile '.psqlrc'
 dotfile '.railsrc'
-dotfile '.rake'
 dotfile '.tmux.conf'
 
 include_recipe 'gpg-agent'

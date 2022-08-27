@@ -18,7 +18,6 @@ include_cookbook 'idea'
 
 package 'fzf'
 
-# dotfile '.rake'
 dotfile '.Xmodmap'
 dotfile '.gdbinit'
 dotfile '.gemrc'
