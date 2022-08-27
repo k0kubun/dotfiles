@@ -1,19 +1,7 @@
-MItamae::RecipeContext.class_eval do
-  def include_cookbook(name)
-    root_dir = File.expand_path('../..', __FILE__)
-    include_recipe File.join(root_dir, 'cookbooks', name, 'default')
-  end
-end
-
 node.reverse_merge!(
   os: run_command('uname').stdout.strip.downcase,
   user: ENV['SUDO_USER'] || ENV['USER'],
 )
 
-include_cookbook 'functions'
-
-directory "#{ENV['HOME']}/bin" do
-  owner node[:user]
-end
-
+include_recipe 'helpers'
 include_recipe node[:platform]
