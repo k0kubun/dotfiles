@@ -12,13 +12,10 @@ dotfile '.peco'
 dotfile '.pryrc'
 dotfile '.railsrc'
 dotfile '.tmux.conf'
+dotfile '.tmux.conf.local' => '.tmux.conf.linux'
 dotfile '.zsh'
 dotfile '.zshrc'
 dotfile '.zshrc.Linux'
-
-dotfile '.tmux.conf.local' do
-  source '.tmux.conf.linux'
-end
 
 include_recipe 'systemd'
 include_recipe 'skk'

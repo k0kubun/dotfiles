@@ -1,9 +1,16 @@
-define :dotfile, source: nil do
-  source = params[:source] || params[:name]
-  link File.join(ENV['HOME'], params[:name]) do
-    to File.expand_path("../../../config/#{source}", __FILE__)
-    user node[:user]
-    force true
+define :dotfile do
+  if params[:name].is_a?(String)
+    links = { params[:name] => params[:name] }
+  else
+    links = params[:name]
+  end
+
+  links.each do |link_from, link_to|
+    link File.join(ENV['HOME'], link_from) do
+      to File.expand_path("../../../config/#{link_to}", __FILE__)
+      user node[:user]
+      force true
+    end
   end
 end
 
