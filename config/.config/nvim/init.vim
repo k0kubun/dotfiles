@@ -66,7 +66,7 @@ syntax enable
 " Plugins
 "===============================================================================
 if dein#tap('eskk.vim')
-  let g:eskk#large_dictionary = {'path': "~/Library/Application Support/AquaSKK/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp'}
+  let g:eskk#large_dictionary = {'path': '~/Library/Application Support/AquaSKK/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp'}
 endif
 
 if dein#tap('vimtex')
