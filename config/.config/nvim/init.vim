@@ -29,16 +29,70 @@ if dein#load_state(s:dein_cache)
   " SKK
   call dein#add('tyru/eskk.vim', { 'on_if': 'has("mac") && !exists("g:vscode")' })
 
-  call dein#load_toml(s:nvim . 'dein_lazy.toml', {'lazy': 1})
+  " Language
+  call dein#add('vim-ruby/vim-ruby', { 'on_ft': ['ruby'], 'lazy': 1 })
+  call dein#add('udalov/kotlin-vim', { 'on_ft': ['kotlin'], 'lazy': 1 })
+  call dein#add('cespare/vim-toml', { 'on_ft': ['toml'], 'lazy': 1 })
+  call dein#add('lervag/vimtex', { 'on_ft': ['tex'], 'lazy': 1 }) " apt install latexmk
+  call dein#add('leafgarland/typescript-vim', { 'on_ft': ['typescript', 'typescriptreact'], 'lazy': 1 })
+  call dein#add('peitalin/vim-jsx-typescript', { 'on_ft': ['typescriptreact'], 'lazy': 1 })
+  call dein#add('dart-lang/dart-vim-plugin', { 'on_ft': ['dart'], 'lazy': 1 })
+
+  " Editing
+  call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1, 'lazy': 1 })
+  call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'], 'lazy': 1 })
+  call dein#add('bronson/vim-trailing-whitespace', { 'on_cmd': ['FixWhitespace'], 'lazy': 1 })
+  call dein#add('Shougo/vinarise.vim', { 'on_cmd': ['Vinarise'], 'lazy': 1 })
+  call dein#add('junegunn/fzf', { 'on_cmd': ['call'], 'lazy': 1 })
+
+  " Git
+  call dein#add('tyru/open-browser.vim', { 'hook_post_source': 'call SetupOpenBrowser', 'lazy': 1 })
+  call dein#add('k0kubun/open-browser-github.vim', { 'on_cmd': ['OpenGithubFile'],
+        \ 'depends': ['open-browser.vim'], 'hook_post_source': 'call SetupOpenBrowserGithub', 'lazy': 1 })
+
   call dein#end()
   call dein#save_state()
   if dein#check_install()
     call dein#install()
   endif
+  " call dein#recache_runtimepath()
 endif
 
 filetype plugin indent on
 syntax enable
+
+"===============================================================================
+" Plugins
+"===============================================================================
+if dein#tap('eskk.vim')
+  let g:eskk#large_dictionary = {'path': "~/Library/Application Support/AquaSKK/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp'}
+endif
+
+if dein#tap('vimtex')
+  let g:vimtex_matchparen_enabled = 0
+endif
+
+if dein#tap('open-browser.vim')
+  function! SetupOpenBrowser() abort
+    delfunction OpenBrowser
+    delcommand OpenBrowser
+    delfunction OpenBrowserSearch
+    delcommand OpenBrowserSearch
+    delcommand OpenBrowserSmartSearch
+  endfunction
+endif
+
+if dein#tap('open-browser-github.vim')
+  let g:openbrowser_github_select_current_line = 1
+  let g:openbrowser_github_url_exists_check = 'ignore'
+
+  function! SetupOpenBrowserGithub() abort
+    delcommand OpenGithubCommit
+    delcommand OpenGithubIssue
+    delcommand OpenGithubProject
+    delcommand OpenGithubPullReq
+  endfunction
+endif
 
 "===============================================================================
 " Key binding
@@ -151,10 +205,6 @@ let g:omni_sql_no_default_maps = 1
 " I have no idea what I'm doing, but this seems to fix:
 " https://github.com/neovim/neovim/issues/8906
 set nomodeline
-
-if dein#tap('eskk.vim')
-  let g:eskk#large_dictionary = {'path': "~/Library/Application Support/AquaSKK/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp'}
-endif
 
 "===============================================================================
 " Styles
