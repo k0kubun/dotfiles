@@ -1,8 +1,6 @@
 include_cookbook 'git'
 include_cookbook 'vim'
 include_cookbook 'zsh'
-include_cookbook 'ghq'
-include_cookbook 'peco'
 
 dotfile '.gemrc'
 dotfile '.karabiner'

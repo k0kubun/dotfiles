@@ -7,8 +7,6 @@ node.reverse_merge!(
 include_recipe 'systemd'
 include_cookbook 'skk'
 include_cookbook 'git'
-include_cookbook 'ghq'
-include_cookbook 'peco'
 include_cookbook 'zsh'
 include_cookbook 'tmux'
 include_cookbook 'vim'
@@ -20,14 +18,15 @@ include_cookbook 'idea'
 
 package 'fzf'
 
-dotfile '.Xmodmap'
 # dotfile '.rake'
+dotfile '.Xmodmap'
+dotfile '.gdbinit'
 dotfile '.gemrc'
+dotfile '.gtkrc-2.0'
 dotfile '.irbrc'
+dotfile '.peco'
 dotfile '.pryrc'
 dotfile '.railsrc'
-dotfile '.gdbinit'
-dotfile '.gtkrc-2.0'
 
 directory "#{ENV['HOME']}/.config/systemd/user/default.target.wants" do
   owner node[:user]

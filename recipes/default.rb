@@ -3,5 +3,5 @@ node.reverse_merge!(
   user: ENV['SUDO_USER'] || ENV['USER'],
 )
 
-include_recipe 'helpers'
+include_recipe 'base'
 include_recipe node[:platform]
