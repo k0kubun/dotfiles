@@ -24,11 +24,3 @@ file "#{ENV['HOME']}/.config/karabiner/karabiner.json" do
 
   content JSON.pretty_generate(YAML.load(yaml))
 end
-
-# link "#{ENV['HOME']}/Library/LaunchAgents/homebrew.mxcl.mysql.plist" do
-#   to '/usr/local/opt/mysql/homebrew.mxcl.mysql.plist'
-# end
-
-# link "#{ENV['HOME']}/.git-template/hooks" do
-#   to "#{ENV['HOME']}/.githooks"
-# end
