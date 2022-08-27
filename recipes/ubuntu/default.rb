@@ -11,7 +11,6 @@ include_cookbook 'tmux'
 include_cookbook 'ruby'
 include_cookbook 'docker'
 include_cookbook 'nocturn'
-include_cookbook 'idea'
 
 package 'git'
 package 'fzf'
