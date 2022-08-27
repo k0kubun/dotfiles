@@ -5,13 +5,8 @@ if &compatible
   set nocompatible
 endif
 
-if has('nvim')
-  let s:nvim = '~/.config/nvim/'
-  set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
-else
-  let s:nvim = '~/.config/vim/'
-  set runtimepath+=~/.config/vim/dein/repos/github.com/Shougo/dein.vim
-endif
+let s:nvim = '~/.config/nvim/'
+set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
 
 if dein#load_state(s:nvim . 'dein')
   call dein#begin(s:nvim . 'dein', [s:nvim . 'dein.toml', s:nvim . 'dein_lazy.toml'])
@@ -181,7 +176,7 @@ let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 set statusline=%{fugitive#statusline()}\ %<%f\ %=%{&fenc!=''?&fenc:&enc}\ %y\ %l/%L:%c\ %#Cursor#%#StatusLine#
 
 "===============================================================================
-" Python (coc, vinarise)
+" Python (vinarise)
 "===============================================================================
 if has('mac')
   " brew install python

@@ -29,14 +29,3 @@ on_if = 'has("mac") && !exists("g:vscode")'
 hook_source = '''
   let g:eskk#large_dictionary = {'path': "~/Library/Application Support/AquaSKK/SKK-JISYO.L", 'sorted': 1, 'encoding': 'euc-jp'}
 '''
-
-#===============================================================================
-# NeoVim RPC
-#===============================================================================
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-on_if = '!has("nvim")'
-
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-on_if = '!has("nvim")'
