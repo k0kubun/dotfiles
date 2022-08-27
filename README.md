@@ -1,6 +1,6 @@
 # dotfiles
 
-My development environment
+Bootstrap development environment
 
 ## Usage
 
