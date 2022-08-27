@@ -1,23 +1,14 @@
-case node[:platform]
-when 'arch'
-  package 'rust'
-  package 'cargo'
+local_ruby_block 'install rust' do
+  rustc_path = "#{ENV['HOME']}/.cargo/bin/rustc"
 
-  include_cookbook 'yaourt'
-  yaourt 'rust-src'
-else
-  local_ruby_block 'install rust' do
-    rustc_path = "#{ENV['HOME']}/.cargo/bin/rustc"
+  block do
+    system("sudo -E -u #{node[:user]} bash -c 'curl https://sh.rustup.rs -sSf | sh'")
 
-    block do
-      system("sudo -E -u #{node[:user]} bash -c 'curl https://sh.rustup.rs -sSf | sh'")
-
-      until File.exist?(rustc_path)
-        sleep 1
-      end
+    until File.exist?(rustc_path)
+      sleep 1
     end
-    not_if "test -f #{rustc_path}"
   end
+  not_if "test -f #{rustc_path}"
 end
 
 unless ENV['PATH'].include?("#{ENV['HOME']}/.cargo/bin:")
