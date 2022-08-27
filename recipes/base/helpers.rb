@@ -1,11 +1,6 @@
-node.reverse_merge!(
-  os: run_command('uname').stdout.strip.downcase,
-  user: ENV['SUDO_USER'] || ENV['USER'],
-)
-
 MItamae::RecipeContext.class_eval do
   def include_cookbook(name)
-    root_dir = File.expand_path('../..', __FILE__)
+    root_dir = File.expand_path('../../..', __FILE__)
     include_recipe File.join(root_dir, 'cookbooks', name, 'default')
   end
 end
@@ -13,7 +8,7 @@ end
 define :dotfile, source: nil do
   source = params[:source] || params[:name]
   link File.join(ENV['HOME'], params[:name]) do
-    to File.expand_path("../../config/#{source}", __FILE__)
+    to File.expand_path("../../../config/#{source}", __FILE__)
     user node[:user]
     force true
   end
@@ -32,6 +27,10 @@ define :github_binary, version: nil, repository: nil, archive: nil, binary_path:
   else
     raise "unexpected ext archive: #{archive}"
   end
+
+  directory "#{ENV['HOME']}/bin" do
+    owner node[:user]
+  end
   execute "curl -fSL -o /tmp/#{archive} #{url}" do
     not_if "test -f #{bin_path}"
   end
@@ -42,23 +41,4 @@ define :github_binary, version: nil, repository: nil, archive: nil, binary_path:
   execute "mv /tmp/#{params[:binary_path] || cmd} #{bin_path} && chmod +x #{bin_path}" do
     not_if "test -f #{bin_path}"
   end
-end
-
-directory "#{ENV['HOME']}/bin" do
-  owner node[:user]
-end
-
-github_binary 'ghq' do
-  repository 'motemen/ghq'
-  version 'v0.10.0'
-  archive "ghq_#{node[:os]}_amd64.zip"
-  binary_path "ghq_#{node[:os]}_amd64/ghq"
-end
-
-github_binary 'peco' do
-  repository 'peco/peco'
-  version 'v0.5.10'
-  ext = (node[:platform] == 'darwin' ? 'zip' : 'tar.gz')
-  archive "peco_#{node[:os]}_amd64.#{ext}"
-  binary_path "peco_#{node[:os]}_amd64/peco"
 end
