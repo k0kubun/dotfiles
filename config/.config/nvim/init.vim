@@ -6,10 +6,16 @@ if &compatible
 endif
 
 let s:nvim = '~/.config/nvim/'
-set runtimepath+=~/.config/nvim/dein/repos/github.com/Shougo/dein.vim
+let s:dein_cache = $HOME . '/.cache/dein'
+let s:dein_path  = expand(s:dein_cache . 'repos/github.com/Shougo/dein.vim')
+if !isdirectory(s:dein_path)
+  execute '!git clone --depth=1 https://github.com/Shougo/dein.vim' s:dein_path
+endif
+let &runtimepath .= ',' . s:dein_path
+let g:dein#install_max_processes = 8
 
-if dein#load_state(s:nvim . 'dein')
-  call dein#begin(s:nvim . 'dein', [s:nvim . 'dein.toml', s:nvim . 'dein_lazy.toml'])
+if dein#load_state(s:dein_cache)
+  call dein#begin(s:dein_cache, [s:nvim . 'dein.toml', s:nvim . 'dein_lazy.toml'])
   call dein#load_toml(s:nvim . 'dein.toml')
   call dein#load_toml(s:nvim . 'dein_lazy.toml', {'lazy': 1})
   call dein#end()
