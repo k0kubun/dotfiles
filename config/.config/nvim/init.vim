@@ -40,9 +40,9 @@ let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'yoffset': 0.0 } }
 function! s:my_fzf_files() abort
   let git_root = system('git rev-parse --show-toplevel 2>/dev/null')
   if git_root ==# ''
-    call fzf#run(fzf#wrap({'source': 'find .', 'options': '--reverse --exact'}))
+    call fzf#run(fzf#wrap({'source': 'find .', 'options': '--reverse --exact --no-sort'}))
   else
-    call fzf#run(fzf#wrap({'source': 'git ls-files', 'options': '--reverse --exact'}))
+    call fzf#run(fzf#wrap({'source': 'git ls-files', 'options': '--reverse --exact --no-sort'}))
   endif
 endfunction
 nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
