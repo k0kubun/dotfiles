@@ -8,7 +8,7 @@ include_recipe 'systemd'
 include_recipe 'skk'
 include_recipe 'zsh'
 include_cookbook 'tmux'
-include_cookbook 'ruby'
+include_recipe 'ruby'
 include_recipe 'docker'
 include_recipe 'nocturn'
 
