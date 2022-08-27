@@ -1,12 +1,12 @@
 function profile() {
-    START_TIME=`~/bin/unixnano`
-		source $1
-    END_TIME=`~/bin/unixnano`
+  START_TIME=`~/bin/unixnano`
+	source $1
+  END_TIME=`~/bin/unixnano`
 
-    TIME=`expr ${END_TIME} - ${START_TIME}`
-    SEC=`expr $TIME / 1000000000`
-    USEC=`expr $TIME % 1000000000`
-    echo "${SEC}.`printf '%09d' $USEC`: $1"
+  TIME=`expr ${END_TIME} - ${START_TIME}`
+  SEC=`expr $TIME / 1000000000`
+  USEC=`expr $TIME % 1000000000`
+  echo "${SEC}.`printf '%09d' $USEC`: $1"
 }
 
 bindkey -e
@@ -22,10 +22,13 @@ source ~/.zsh/lib/peco.zsh
 source ~/.zsh/lib/theme.zsh
 
 # Environment-local configurations
-if [ -f ~/.zshrc.`uname` ]; then source ~/.zshrc.`uname`; fi
-if [ -f ~/.zshrc.local ]; then source ~/.zshrc.local; fi
+if [[ -f ~/.zshrc.`uname` ]]; then source ~/.zshrc.`uname`; fi
+if [[ -f ~/.zshrc.local ]]; then source ~/.zshrc.local; fi
 
-# Must be after all ZLE
+# Enable syntax highlight: must be after all ZLE
+if [[ ! -d ~/.zsh/bundle/zsh-syntax-highlighting ]]; then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/bundle/zsh-syntax-highlighting
+fi
 source ~/.zsh/bundle/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # https://jonasjacek.github.io/colors/
