@@ -145,6 +145,7 @@ keymap:
       Super-t: M-t
       Super-c: M-c
       Super-v: M-v
+      Super-LeftBrace: M-LeftBrace # M-@
 
   - name: JetBrains IDE
     application:
