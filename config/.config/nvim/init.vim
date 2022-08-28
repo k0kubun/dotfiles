@@ -79,6 +79,7 @@ if dein#tap('coc.nvim')
   let g:coc_global_extensions = [
   \ 'coc-clangd',
   \ 'coc-rust-analyzer',
+  \ 'coc-solargraph',
   \]
 endif
 
