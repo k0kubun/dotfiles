@@ -216,8 +216,7 @@ hi Normal ctermbg=NONE
 set number        " Show line number
 set cmdheight=2   " 2-line command window
 set showtabline=2 " Always show a tab line
-set t_Co=256      " Allow 256 colors https://jonasjacek.github.io/colors
-set guicursor=n-v-c-sm-i-ci-ve:block,r-cr-o:hor20 " Fix Neovim cursor
+set guicursor=n-v-c-sm-i-ci-ve-r-cr-o:block " Fix Neovim cursor
 
 " vim-gitgutter
 highlight GitGutterAdd ctermfg=28
