@@ -1,12 +1,11 @@
 {
   "git.enableGutters": false,
   "suggest.maxCompleteItemCount": 10,
-  "diagnostic.messageTarget": "float",
+  "semanticTokens.filetypes": ["c", "rust"],
 
   // C
   "clangd.inlayHints.enable": false,
   "clangd.arguments": ["-header-insertion=never"],
-  "semanticTokens.filetypes": ["c"],
 
   // Rust
   "rust-analyzer.inlayHints.enable": false,
