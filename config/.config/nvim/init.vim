@@ -93,7 +93,7 @@ nnoremap <silent> ;xc :qa!<CR>
 nnoremap <silent> ;e :<C-u>Explore<CR>
 
 " fzf
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'yoffset': 0.0 } }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'yoffset': 0.1 } }
 function! s:my_fzf_files() abort
   let git_root = system('git rev-parse --show-toplevel 2>/dev/null')
   if git_root ==# ''
@@ -240,10 +240,9 @@ function! s:my_tabline()
   endfor
   return s . '%#TabLineFill#%T%=%#TabLine#'
 endfunction
-
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 
-"set statusline=%{fugitive#statusline()}\ %<%f\ %=%{&fenc!=''?&fenc:&enc}\ %y\ %l/%L:%c\ %#Cursor#%#StatusLine#
+set statusline=%{fugitive#statusline()}\ %<%f\ %=%{&fenc!=''?&fenc:&enc}\ %y\ %l/%L:%c\ %#Cursor#%#StatusLine#
 
 "===============================================================================
 " Python (vinarise)
