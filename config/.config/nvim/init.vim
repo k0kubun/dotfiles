@@ -144,9 +144,6 @@ inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Nop>"
 inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<Nop>"
 nnoremap <silent> <M-@> <Plug>(coc-definition)
 autocmd ColorScheme * highlight link CocMenuSel PmenuSel
-let g:coc_global_extensions = [
-\ 'coc-clangd',
-\]
 
 "===============================================================================
 " Indentation
