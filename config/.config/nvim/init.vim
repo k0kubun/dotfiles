@@ -262,7 +262,7 @@ set ignorecase                                " Case-insensitive search
 set clipboard& clipboard+=unnamed,unnamedplus " Copy to clipboard by yank
 let g:netrw_dirhistmax = 0                    " Prevent clipboard pollution
 let loaded_matchparen = 1                     " Don't highlight a cursor on paren
-autocmd FileType * set formatoptions-=ro      " Disable automatic comment out
+autocmd BufRead * set formatoptions-=cro      " Disable automatic comment out
 
 " vim-trailing-whitespace
 let g:extra_whitespace_ignored_filetypes = ['unite']
