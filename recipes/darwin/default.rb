@@ -1,6 +1,6 @@
-directory "#{ENV['HOME']}/.config"
-
-dotfile '.config/nvim'
+dotfile '.config/nvim/coc-settings.json'
+dotfile '.config/nvim/init.vim'
+dotfile '.config/solargraph/config.yml'
 dotfile '.gemrc'
 dotfile '.gitconfig'
 dotfile '.gitignore'

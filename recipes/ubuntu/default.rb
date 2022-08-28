@@ -1,7 +1,7 @@
-directory "#{ENV['HOME']}/.config"
-
 dotfile '.Xmodmap'
-dotfile '.config/nvim'
+dotfile '.config/nvim/coc-settings.json'
+dotfile '.config/nvim/init.vim'
+dotfile '.config/solargraph/config.yml'
 dotfile '.gdbinit'
 dotfile '.gemrc'
 dotfile '.gitconfig'

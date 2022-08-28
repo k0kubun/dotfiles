@@ -6,7 +6,11 @@ define :dotfile do
   end
 
   links.each do |link_from, link_to|
-    link File.join(ENV['HOME'], link_from) do
+    directory File.dirname(link_from = File.join(ENV['HOME'], link_from)) do
+      user node[:user]
+    end
+
+    link link_from do
       to File.expand_path("../../../config/#{link_to}", __FILE__)
       user node[:user]
       force true
