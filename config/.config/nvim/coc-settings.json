@@ -1,4 +1,7 @@
 {
   "git.enableGutters": false,
   "clangd.inlayHints.enable": false,
+  "semanticTokens.filetypes": ["c"],
+  "suggest.maxCompleteItemCount": 10,
+  "clangd.arguments": ["-header-insertion=never"]
 }
