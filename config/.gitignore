@@ -59,3 +59,4 @@ ripper.tmp.y
 .vim/coc-settings.json
 compile_commands.json
 .cache/clangd
+.ccls
