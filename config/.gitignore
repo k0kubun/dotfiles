@@ -56,3 +56,4 @@ cachegrind.out.*
 .vscode
 rb_mjit_header.h.new
 ripper.tmp.y
+.vim/coc-settings.json
