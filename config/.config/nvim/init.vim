@@ -147,6 +147,7 @@ autocmd ColorScheme * highlight link CocMenuSel PmenuSel
 let g:coc_global_extensions = [
 \ 'coc-clangd',
 \ 'coc-rust-analyzer',
+\ 'coc-solargraph',
 \]
 
 "===============================================================================
