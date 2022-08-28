@@ -90,6 +90,9 @@ endif
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#lsp#handler_enabled = v:true
+set completeopt+=noinsert
+call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
+call deoplete#custom#source('_', 'max_candidates', 10)
 
 " nvim-lspconfig
 lua << END
