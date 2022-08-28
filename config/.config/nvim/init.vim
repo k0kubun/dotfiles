@@ -42,6 +42,7 @@ if dein#load_state(s:dein_cache)
   call dein#add('neovim/nvim-lspconfig')
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('deoplete-plugins/deoplete-lsp')
+  call dein#add('nvim-lualine/lualine.nvim')
 
   " Editing
   call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'] })
@@ -89,6 +90,18 @@ endif
 
 if dein#tap('nvim-lspconfig')
   lua << END
+  require('lualine').setup({
+    options = {
+      --theme = 'gruvbox',
+      icons_enabled = false,
+      component_separators = { left = '', right = '' },
+      section_separators = { left = '', right = '' },
+    },
+    sections = {
+      lualine_c = { "require'lsp-status'.status()" },
+    },
+  })
+
   vim.diagnostic.config({
     virtual_text = false,
     update_in_insert = true,
