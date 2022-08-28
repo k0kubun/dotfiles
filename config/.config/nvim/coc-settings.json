@@ -1,7 +1,7 @@
 {
   "git.enableGutters": false,
   "suggest.maxCompleteItemCount": 10,
-  "semanticTokens.filetypes": ["c", "ruby", "rust"],
+  "semanticTokens.filetypes": ["c", "rust"],
 
   // C
   "clangd.inlayHints.enable": false,
