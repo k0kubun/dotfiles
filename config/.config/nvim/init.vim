@@ -38,10 +38,10 @@ if dein#load_state(s:dein_cache)
   call dein#add('neoclide/jsonc.vim', { 'on_ft': ['jsonc'] })
 
   " LSP
-  "call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
-  call dein#add('neovim/nvim-lspconfig')
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('deoplete-plugins/deoplete-lsp')
+  call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
+  "call dein#add('neovim/nvim-lspconfig')
+  "call dein#add('Shougo/deoplete.nvim')
+  "call dein#add('deoplete-plugins/deoplete-lsp')
 
   " Editing
   call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'] })
@@ -65,6 +65,58 @@ endif
 filetype plugin indent on
 syntax enable
 
+" coc
+if dein#tap('coc.nvim')
+  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Nop>"
+  inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<Nop>"
+  "nnoremap <silent> <M-@> <Plug>(coc-definition)
+  nnoremap <silent> <M-@> :<C-u>call CocAction('jumpDefinition', 'tabe')<CR>
+  autocmd ColorScheme * highlight link CocMenuSel PmenuSel
+  let g:coc_global_extensions = [
+  \ 'coc-clangd',
+  \ 'coc-rust-analyzer',
+  \]
+endif
+
+if dein#tap('deoplete.vim')
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#lsp#handler_enabled = v:true
+  set completeopt+=noinsert
+  call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
+  call deoplete#custom#source('_', 'max_candidates', 10)
+endif
+
+if dein#tap('nvim-lspconfig')
+  lua << END
+  local on_attach = function(client, bufnr)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    -- Mappings.
+    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+  end
+
+  local lspconfig = require'lspconfig'
+  lspconfig.solargraph.setup({
+    on_attach = on_attach,
+    settings = {
+      solargraph = {
+        diagnostics = true,
+        completion = true,
+      }
+    },
+  })
+END
+endif
+
 if dein#tap('open-browser.vim')
   function! SetupOpenBrowser() abort
     delfunction OpenBrowser
@@ -86,26 +138,6 @@ if dein#tap('open-browser-github.vim')
     delcommand OpenGithubPullReq
   endfunction
 endif
-
-" deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#lsp#handler_enabled = v:true
-set completeopt+=noinsert
-call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
-call deoplete#custom#source('_', 'max_candidates', 10)
-
-" nvim-lspconfig
-lua << END
-local lspconfig = require'lspconfig'
-lspconfig.solargraph.setup({
-  settings = {
-    solargraph = {
-      diagnostics = true,
-      completion = true,
-    }
-  },
-})
-END
 
 "===============================================================================
 " Key binding
@@ -161,20 +193,6 @@ cmap <C-b> <Left>
 " binding.irb
 autocmd FileType ruby inoremap <buffer> <C-v> binding.irb
 autocmd FileType python inoremap <C-v> import code; code.interact(local=dict(globals(), **locals()))
-
-" coc
-if dein#tap('coc.nvim')
-  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-  inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Nop>"
-  inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<Nop>"
-  "nnoremap <silent> <M-@> <Plug>(coc-definition)
-  nnoremap <silent> <M-@> :<C-u>call CocAction('jumpDefinition', 'tabe')<CR>
-  autocmd ColorScheme * highlight link CocMenuSel PmenuSel
-  let g:coc_global_extensions = [
-  \ 'coc-clangd',
-  \ 'coc-rust-analyzer',
-  \]
-endif
 
 "===============================================================================
 " Indentation
