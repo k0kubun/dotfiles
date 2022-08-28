@@ -37,15 +37,17 @@ if dein#load_state(s:dein_cache)
   call dein#add('lervag/vimtex', { 'on_ft': ['tex'] }) " apt install latexmk
   call dein#add('neoclide/jsonc.vim', { 'on_ft': ['jsonc'] })
 
+  " LSP
+  "call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
+  call dein#add('neovim/nvim-lspconfig')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('deoplete-plugins/deoplete-lsp')
+
   " Editing
   call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'] })
   call dein#add('bronson/vim-trailing-whitespace', { 'on_cmd': ['FixWhitespace'] })
   call dein#add('Shougo/vinarise.vim', { 'on_cmd': ['Vinarise'] })
   call dein#add('junegunn/fzf', { 'on_cmd': ['call'] })
-
-  " LSP
-  "call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
-  call dein#add('neovim/nvim-lspconfig')
 
   " Git
   call dein#add('tyru/open-browser.vim', { 'hook_post_source': 'call SetupOpenBrowser()' })
@@ -84,6 +86,23 @@ if dein#tap('open-browser-github.vim')
     delcommand OpenGithubPullReq
   endfunction
 endif
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#lsp#handler_enabled = v:true
+
+" nvim-lspconfig
+lua << END
+local lspconfig = require'lspconfig'
+lspconfig.solargraph.setup({
+  settings = {
+    solargraph = {
+      diagnostics = true,
+      completion = true,
+    }
+  },
+})
+END
 
 "===============================================================================
 " Key binding
@@ -265,33 +284,33 @@ let &statusline = '%!'. s:SID_PREFIX() . 'my_statusline()'
 
 lua << END
 require("scrollbar").setup({
-    marks = {
-        Error = {
-            text = { "-" },
-            priority = 1,
-            cterm = 160,
-        },
-        Warn = {
-            text = { "-" },
-            priority = 2,
-            cterm = 3,
-        },
-        Info = {
-            text = { "o" },
-            priority = 3,
-            cterm = 3,
-        },
-        Hint = {
-            text = { "-" },
-            priority = 4,
-            cterm = 252,
-        },
-        Misc = {
-            text = { "?" },
-            priority = 5,
-            cterm = 3,
-        },
+  marks = {
+    Error = {
+      text = { "-" },
+      priority = 1,
+      cterm = 160,
     },
+    Warn = {
+      text = { "-" },
+      priority = 2,
+      cterm = 3,
+    },
+    Info = {
+      text = { "o" },
+      priority = 3,
+      cterm = 3,
+    },
+    Hint = {
+      text = { "-" },
+      priority = 4,
+      cterm = 252,
+    },
+    Misc = {
+      text = { "?" },
+      priority = 5,
+      cterm = 3,
+    },
+  },
 })
 END
 
