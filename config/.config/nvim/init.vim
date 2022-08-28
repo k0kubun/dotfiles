@@ -37,13 +37,15 @@ if dein#load_state(s:dein_cache)
   call dein#add('lervag/vimtex', { 'on_ft': ['tex'] }) " apt install latexmk
   call dein#add('neoclide/jsonc.vim', { 'on_ft': ['jsonc'] })
 
+  " Coc
+  call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
+
   " LSP
-  "call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
-  call dein#add('neovim/nvim-lspconfig')
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('deoplete-plugins/deoplete-lsp')
-  call dein#add('nvim-lualine/lualine.nvim')
-  call dein#add('j-hui/fidget.nvim')
+  "call dein#add('neovim/nvim-lspconfig')
+  "call dein#add('Shougo/deoplete.nvim')
+  "call dein#add('deoplete-plugins/deoplete-lsp')
+  "call dein#add('nvim-lualine/lualine.nvim')
+  "call dein#add('j-hui/fidget.nvim')
 
   " Editing
   call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'] })
@@ -67,7 +69,6 @@ endif
 filetype plugin indent on
 syntax enable
 
-" coc
 if dein#tap('coc.nvim')
   inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
   inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Nop>"
@@ -138,7 +139,6 @@ if dein#tap('nvim-lspconfig')
 
   local lspconfig = require'lspconfig'
   lspconfig.solargraph.setup({ on_attach = on_attach })
-  --lspconfig.syntax_tree.setup({ on_attach = on_attach })
 END
 endif
 
