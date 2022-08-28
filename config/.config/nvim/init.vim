@@ -34,9 +34,7 @@ if dein#load_state(s:dein_cache)
   call dein#add('udalov/kotlin-vim', { 'on_ft': ['kotlin'] })
   call dein#add('cespare/vim-toml', { 'on_ft': ['toml'] })
   call dein#add('lervag/vimtex', { 'on_ft': ['tex'] }) " apt install latexmk
-  call dein#add('leafgarland/typescript-vim', { 'on_ft': ['typescript', 'typescriptreact'] })
-  call dein#add('peitalin/vim-jsx-typescript', { 'on_ft': ['typescriptreact'] })
-  call dein#add('dart-lang/dart-vim-plugin', { 'on_ft': ['dart'] })
+  call dein#add('neoclide/jsonc.vim', { 'on_ft': ['jsonc'] })
 
   " Editing
   call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
@@ -147,6 +145,7 @@ nnoremap <silent> <M-@> :<C-u>call CocAction('jumpDefinition', 'tabe')<CR>
 autocmd ColorScheme * highlight link CocMenuSel PmenuSel
 let g:coc_global_extensions = [
 \ 'coc-clangd',
+\ 'coc-rust-analyzer',
 \]
 
 "===============================================================================
@@ -177,6 +176,9 @@ autocmd FileType yaml   setlocal sw=2 sts=2 ts=2 et list listchars=tab:»-
 autocmd BufNewFile,BufRead *.ipynb set filetype=json
 autocmd BufNewFile,BufRead insns.def set filetype=c
 autocmd BufNewFile,BufRead *.h set filetype=c
+autocmd BufNewFile,BufRead settings.json set filetype=jsonc
+autocmd BufNewFile,BufRead keybindings.json set filetype=jsonc
+autocmd BufNewFile,BufRead coc-settings.json set filetype=jsonc
 
 "===============================================================================
 " Editing
