@@ -21,7 +21,6 @@ if dein#load_state(s:dein_cache)
 
   " Styles
   call dein#add('w0ng/vim-hybrid')
-  call dein#add('itchyny/lightline.vim')
 
   " Git
   call dein#add('tpope/vim-fugitive')
