@@ -38,11 +38,14 @@ if dein#load_state(s:dein_cache)
   call dein#add('neoclide/jsonc.vim', { 'on_ft': ['jsonc'] })
 
   " Editing
-  call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
   call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'] })
   call dein#add('bronson/vim-trailing-whitespace', { 'on_cmd': ['FixWhitespace'] })
   call dein#add('Shougo/vinarise.vim', { 'on_cmd': ['Vinarise'] })
   call dein#add('junegunn/fzf', { 'on_cmd': ['call'] })
+
+  " LSP
+  "call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
+  call dein#add('neovim/nvim-lspconfig')
 
   " Git
   call dein#add('tyru/open-browser.vim', { 'hook_post_source': 'call SetupOpenBrowser()' })
@@ -138,16 +141,18 @@ autocmd FileType ruby inoremap <buffer> <C-v> binding.irb
 autocmd FileType python inoremap <C-v> import code; code.interact(local=dict(globals(), **locals()))
 
 " coc
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Nop>"
-inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<Nop>"
-"nnoremap <silent> <M-@> <Plug>(coc-definition)
-nnoremap <silent> <M-@> :<C-u>call CocAction('jumpDefinition', 'tabe')<CR>
-autocmd ColorScheme * highlight link CocMenuSel PmenuSel
-let g:coc_global_extensions = [
-\ 'coc-clangd',
-\ 'coc-rust-analyzer',
-\]
+if dein#tap('coc.nvim')
+  inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+  inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Nop>"
+  inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<Nop>"
+  "nnoremap <silent> <M-@> <Plug>(coc-definition)
+  nnoremap <silent> <M-@> :<C-u>call CocAction('jumpDefinition', 'tabe')<CR>
+  autocmd ColorScheme * highlight link CocMenuSel PmenuSel
+  let g:coc_global_extensions = [
+  \ 'coc-clangd',
+  \ 'coc-rust-analyzer',
+  \]
+endif
 
 "===============================================================================
 " Indentation
@@ -250,7 +255,7 @@ let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 
 function! s:my_statusline()
   let s = '%{fugitive#statusline()} %<%f'
-  if len(coc#status()) > 0
+  if exists('coc#status') && len(coc#status()) > 0
     let s .= ' | %{coc#status()}'
   endif
   let s .= '%= %y %l/%L:%c %#Cursor#%#StatusLine#'
