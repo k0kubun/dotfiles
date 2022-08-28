@@ -1,4 +1,4 @@
-<keymap version="1" name="Linux" parent="Default for GNOME">
+<keymap version="1" name="Xremap">
   <action id="$Copy">
     <keyboard-shortcut first-keystroke="alt c" />
   </action>
