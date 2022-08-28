@@ -79,7 +79,7 @@ if dein#tap('coc.nvim')
   \]
 endif
 
-if dein#tap('deoplete.vim')
+if dein#tap('deoplete.nvim')
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#lsp#handler_enabled = v:true
   set completeopt+=noinsert
@@ -89,6 +89,25 @@ endif
 
 if dein#tap('nvim-lspconfig')
   lua << END
+  vim.diagnostic.config({
+    virtual_text = false,
+    update_in_insert = true,
+  })
+  vim.api.nvim_create_autocmd("CursorHold", {
+    buffer = bufnr,
+    callback = function()
+      local opts = {
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        border = 'rounded',
+        source = 'always',
+        prefix = ' ',
+        scope = 'cursor',
+      }
+      vim.diagnostic.open_float(nil, opts)
+    end
+  })
+
   local on_attach = function(client, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -106,15 +125,8 @@ if dein#tap('nvim-lspconfig')
   end
 
   local lspconfig = require'lspconfig'
-  lspconfig.solargraph.setup({
-    on_attach = on_attach,
-    settings = {
-      solargraph = {
-        diagnostics = true,
-        completion = true,
-      }
-    },
-  })
+  lspconfig.solargraph.setup({ on_attach = on_attach })
+  --lspconfig.syntax_tree.setup({ on_attach = on_attach })
 END
 endif
 
