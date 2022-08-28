@@ -142,7 +142,8 @@ autocmd FileType python inoremap <C-v> import code; code.interact(local=dict(glo
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Nop>"
 inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<Nop>"
-nnoremap <silent> <M-@> <Plug>(coc-definition)
+"nnoremap <silent> <M-@> <Plug>(coc-definition)
+nnoremap <silent> <M-@> :<C-u>call CocAction('jumpDefinition', 'tabe')<CR>
 autocmd ColorScheme * highlight link CocMenuSel PmenuSel
 let g:coc_global_extensions = [
 \ 'coc-clangd',
