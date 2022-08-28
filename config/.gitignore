@@ -60,3 +60,4 @@ ripper.tmp.y
 compile_commands.json
 .cache/clangd
 .ccls
+.solargraph.yml
