@@ -21,6 +21,7 @@ if dein#load_state(s:dein_cache)
 
   " Styles
   call dein#add('w0ng/vim-hybrid')
+  call dein#add('petertriho/nvim-scrollbar')
 
   " Git
   call dein#add('tpope/vim-fugitive')
@@ -228,7 +229,7 @@ highlight GitGutterDelete ctermfg=160
 let g:gitgutter_sign_removed = '-'
 
 "===============================================================================
-" Tabline and statusline
+" tabline, statusline, scrollbar
 "===============================================================================
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
@@ -256,6 +257,38 @@ function! s:my_statusline()
   return s
 endfunction
 let &statusline = '%!'. s:SID_PREFIX() . 'my_statusline()'
+
+lua << END
+require("scrollbar").setup({
+    marks = {
+        Error = {
+            text = { "-" },
+            priority = 1,
+            cterm = 160,
+        },
+        Warn = {
+            text = { "-" },
+            priority = 2,
+            cterm = 3,
+        },
+        Info = {
+            text = { "o" },
+            priority = 3,
+            cterm = 3,
+        },
+        Hint = {
+            text = { "-" },
+            priority = 4,
+            cterm = 252,
+        },
+        Misc = {
+            text = { "?" },
+            priority = 5,
+            cterm = 3,
+        },
+    },
+})
+END
 
 "===============================================================================
 " Python (vinarise)
