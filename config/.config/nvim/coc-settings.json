@@ -3,6 +3,9 @@
   "suggest.maxCompleteItemCount": 10,
   "semanticTokens.filetypes": ["c", "rust"],
 
+  // Ruby
+  "solargraph.diagnostics": true,
+
   // C
   "clangd.inlayHints.enable": false,
   "clangd.arguments": ["-header-insertion=never"],
