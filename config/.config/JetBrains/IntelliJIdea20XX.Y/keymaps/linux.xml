@@ -9,14 +9,16 @@
   <action id="CloseContent">
     <keyboard-shortcut first-keystroke="alt w" />
   </action>
+  <action id="Console.TableResult.NavigateAction" />
   <action id="Console.TableResult.NavigateForeignAction">
     <mouse-shortcut keystroke="control button1" />
   </action>
+  <action id="DatabaseView.OpenFamilyAction" />
   <action id="Diff.FocusOppositePane" />
   <action id="Diff.FocusOppositePaneAndScroll" />
-  <action id="EditSource">
-    <keyboard-shortcut first-keystroke="alt at" />
-  </action>
+  <action id="Documentation.EditSource" />
+  <action id="DomCollectionControl.Edit" />
+  <action id="DomElementsTreeView.GotoDomElementDeclarationAction" />
   <action id="Editor Copy">
     <keyboard-shortcut first-keystroke="alt c" />
   </action>
@@ -40,13 +42,18 @@
   </action>
   <action id="EditorSelectWord" />
   <action id="ExportToTextFile" />
+  <action id="ExternalSystem.OpenConfig" />
   <action id="Find">
     <keyboard-shortcut first-keystroke="ctrl s" />
   </action>
   <action id="GotoDeclaration">
     <mouse-shortcut keystroke="control button1" />
+    <keyboard-shortcut first-keystroke="alt at" />
   </action>
   <action id="HideActiveWindow" />
+  <action id="Jdbc.OpenEditor.Console" />
+  <action id="Jdbc.OpenEditor.Data" />
+  <action id="NavBar-navigate" />
   <action id="NextSplitter">
     <keyboard-shortcut first-keystroke="ctrl w" second-keystroke="l" />
   </action>
@@ -59,6 +66,8 @@
   <action id="PreviousTab">
     <keyboard-shortcut first-keystroke="alt o" />
   </action>
+  <action id="ProjectViewEditSource" />
+  <action id="RemoteHostView.EditSource" />
   <action id="SaveAll">
     <keyboard-shortcut first-keystroke="alt s" />
   </action>
@@ -70,6 +79,7 @@
     <keyboard-shortcut first-keystroke="alt comma" />
   </action>
   <action id="SmartSelect" />
+  <action id="Sql.EditParameter" />
   <action id="Switcher" />
   <action id="TableResult.GrowSelection" />
   <action id="Terminal.CopySelectedText">
@@ -77,5 +87,7 @@
     <keyboard-shortcut first-keystroke="ctrl insert" />
   </action>
   <action id="UsageFiltering.WriteAccess" />
+  <action id="Vcs.EditSource" />
   <action id="Vcs.UpdateProject" />
+  <action id="XDebugger.JumpToSource" />
 </keymap>
