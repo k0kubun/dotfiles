@@ -38,10 +38,10 @@ if dein#load_state(s:dein_cache)
   call dein#add('neoclide/jsonc.vim', { 'on_ft': ['jsonc'] })
 
   " LSP
-  call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
-  "call dein#add('neovim/nvim-lspconfig')
-  "call dein#add('Shougo/deoplete.nvim')
-  "call dein#add('deoplete-plugins/deoplete-lsp')
+  "call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
+  call dein#add('neovim/nvim-lspconfig')
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('deoplete-plugins/deoplete-lsp')
 
   " Editing
   call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'] })
@@ -96,6 +96,7 @@ if dein#tap('nvim-lspconfig')
     -- Mappings.
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', '<M-@>', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
