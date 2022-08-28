@@ -43,7 +43,7 @@ if dein#load_state(s:dein_cache)
   call dein#add('Shougo/deoplete.nvim')
   call dein#add('deoplete-plugins/deoplete-lsp')
   call dein#add('nvim-lualine/lualine.nvim')
-  call dein#add('arkav/lualine-lsp-progress')
+  call dein#add('j-hui/fidget.nvim')
 
   " Editing
   call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'] })
@@ -98,10 +98,8 @@ if dein#tap('nvim-lspconfig')
       component_separators = { left = '', right = '' },
       section_separators = { left = '', right = '' },
     },
-    sections = {
-      lualine_c = { 'lsp_progress' },
-    },
   })
+  require('fidget').setup{}
 
   vim.diagnostic.config({
     virtual_text = false,
