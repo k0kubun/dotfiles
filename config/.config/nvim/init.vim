@@ -247,7 +247,7 @@ function! s:my_tabline()
 endfunction
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 
-set statusline=%{fugitive#statusline()}\ %<%f\ %=%{&fenc!=''?&fenc:&enc}\ %y\ %l/%L:%c\ %#Cursor#%#StatusLine#
+set statusline=%{fugitive#statusline()}\ %<%f\ %=%{coc#status()}\ %y\ %l/%L:%c\ %#Cursor#%#StatusLine#
 
 "===============================================================================
 " Python (vinarise)

@@ -10,5 +10,5 @@
 
   // Rust
   "rust-analyzer.inlayHints.enable": false,
-  "rust-analyzer.disableProgressNotifications": true,
+  //"rust-analyzer.disableProgressNotifications": true,
 }
