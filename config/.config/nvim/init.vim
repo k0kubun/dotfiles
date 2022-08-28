@@ -20,8 +20,8 @@ if dein#load_state(s:dein_cache)
   call dein#add('haya14busa/dein-command.vim', { 'on_cmd': ['Dein'] })
 
   " Styles
-  call dein#add('nvim-lualine/lualine.nvim')
   call dein#add('w0ng/vim-hybrid')
+  call dein#add('itchyny/lightline.vim')
 
   " Git
   call dein#add('tpope/vim-fugitive')
@@ -242,7 +242,7 @@ endfunction
 
 let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 
-set statusline=%{fugitive#statusline()}\ %<%f\ %=%{&fenc!=''?&fenc:&enc}\ %y\ %l/%L:%c\ %#Cursor#%#StatusLine#
+"set statusline=%{fugitive#statusline()}\ %<%f\ %=%{&fenc!=''?&fenc:&enc}\ %y\ %l/%L:%c\ %#Cursor#%#StatusLine#
 
 "===============================================================================
 " Python (vinarise)
