@@ -93,7 +93,7 @@ nnoremap <silent> ;xc :qa!<CR>
 nnoremap <silent> ;e :<C-u>Explore<CR>
 
 " fzf
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'yoffset': 0.0 } }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6, 'yoffset': 0.1 } }
 function! s:my_fzf_files() abort
   let git_root = system('git rev-parse --show-toplevel 2>/dev/null')
   if git_root ==# ''
@@ -222,28 +222,11 @@ highlight GitGutterChange ctermfg=3
 highlight GitGutterDelete ctermfg=160
 let g:gitgutter_sign_removed = '-'
 
-"===============================================================================
-" Tabline and statusline
-"===============================================================================
-function! s:SID_PREFIX()
-  return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
-endfunction
-
-function! s:my_tabline()
-  let s = ''
-  for i in range(1, tabpagenr('$'))
-    let bufnr = tabpagebuflist(i)[tabpagewinnr(i) - 1]                          " First window appears first
-    let s .= '%'.i.'T' . '%#'.(i == tabpagenr() ? 'TabLineSel' : 'TabLine').'#' " TabLineSel | TabLine
-    let s .= i . ':[' . fnamemodify(bufname(bufnr), ':t') . ']'                 " i:[title]
-    let s .= getbufvar(bufnr, '&modified') ? '!' : ' '                          " !
-    let s .= '%#TabLineFill# '
-  endfor
-  return s . '%#TabLineFill#%T%=%#TabLine#'
-endfunction
-
-let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-
-"set statusline=%{fugitive#statusline()}\ %<%f\ %=%{&fenc!=''?&fenc:&enc}\ %y\ %l/%L:%c\ %#Cursor#%#StatusLine#
+" lightline
+let g:lightline = { 'colorscheme': 'seoul256' }
+let s:palette = g:lightline#colorscheme#seoul256#palette
+let s:palette.tabline.tabsel = [['#d0d0d0', '#5f8787', 252, 66, 'bold']]
+unlet s:palette
 
 "===============================================================================
 " Python (vinarise)
