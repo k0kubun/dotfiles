@@ -54,7 +54,7 @@ if dein#load_state(s:dein_cache)
   call dein#add('junegunn/fzf', { 'on_cmd': ['call'] })
 
   " Git
-  call dein#add('tyru/open-browser.vim', { 'hook_post_source': 'call SetupOpenBrowser()' })
+  call dein#add('tyru/open-browser.vim', { 'lazy': 1 })
   call dein#add('k0kubun/open-browser-github.vim', { 'on_cmd': ['OpenGithubFile'],
         \ 'depends': ['open-browser.vim'], 'hook_post_source': 'call SetupOpenBrowserGithub()' })
 
@@ -143,21 +143,17 @@ if dein#tap('nvim-lspconfig')
 END
 endif
 
-if dein#tap('open-browser.vim')
-  function! SetupOpenBrowser() abort
-    delfunction OpenBrowser
-    delcommand OpenBrowser
-    delfunction OpenBrowserSearch
-    delcommand OpenBrowserSearch
-    delcommand OpenBrowserSmartSearch
-  endfunction
-endif
-
 if dein#tap('open-browser-github.vim')
   let g:openbrowser_github_select_current_line = 1
   let g:openbrowser_github_url_exists_check = 'ignore'
 
   function! SetupOpenBrowserGithub() abort
+    delfunction OpenBrowser
+    delcommand OpenBrowser
+    delfunction OpenBrowserSearch
+    delcommand OpenBrowserSearch
+    delcommand OpenBrowserSmartSearch
+
     delcommand OpenGithubCommit
     delcommand OpenGithubIssue
     delcommand OpenGithubProject
