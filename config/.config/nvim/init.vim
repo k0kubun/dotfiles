@@ -16,8 +16,8 @@ if dein#load_state(s:dein_cache)
   call dein#begin(s:dein_cache)
 
   " Dein
+  " call dein#recache_runtimepath()
   call dein#add('Shougo/dein.vim')
-  call dein#add('haya14busa/dein-command.vim', { 'on_cmd': ['Dein'] })
 
   " Styles
   call dein#add('w0ng/vim-hybrid')
