@@ -142,6 +142,7 @@ profiles:
           ['p', ['right_command']] => ['p', ['left_option']],
           ['return_or_enter', ['right_command']] => ['return_or_enter', ['left_option']],
           ['x', ['right_command']] => ['x', ['left_option']],
+          ['open_bracket', ['right_command']] => ['open_bracket', ['left_option']],
         }.each do |from, to|
           from_key, from_value = from
           to_key,   to_value   = to %>
