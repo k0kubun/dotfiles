@@ -325,37 +325,39 @@ function! s:my_statusline()
 endfunction
 let &statusline = '%!'. s:SID_PREFIX() . 'my_statusline()'
 
-lua << END
-require("scrollbar").setup({
-  marks = {
-    Error = {
-      text = { "-" },
-      priority = 1,
-      cterm = 160,
+if dein#tap('nvim-scrollbar')
+  lua << END
+  require("scrollbar").setup({
+    marks = {
+      Error = {
+        text = { "-" },
+        priority = 1,
+        cterm = 160,
+      },
+      Warn = {
+        text = { "-" },
+        priority = 2,
+        cterm = 3,
+      },
+      Info = {
+        text = { "o" },
+        priority = 3,
+        cterm = 3,
+      },
+      Hint = {
+        text = { "-" },
+        priority = 4,
+        cterm = 252,
+      },
+      Misc = {
+        text = { "?" },
+        priority = 5,
+        cterm = 3,
+      },
     },
-    Warn = {
-      text = { "-" },
-      priority = 2,
-      cterm = 3,
-    },
-    Info = {
-      text = { "o" },
-      priority = 3,
-      cterm = 3,
-    },
-    Hint = {
-      text = { "-" },
-      priority = 4,
-      cterm = 252,
-    },
-    Misc = {
-      text = { "?" },
-      priority = 5,
-      cterm = 3,
-    },
-  },
-})
+  })
 END
+endif
 
 "===============================================================================
 " Python (vinarise)
