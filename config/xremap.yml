@@ -51,8 +51,8 @@ keymap:
       C-y:
         #launch: ["wmctrl", "-x", "-a", "jetbrains-idea.jetbrains-idea"]
         #launch: ["wmctrl", "-x", "-a", "jetbrains-clion.jetbrains-clion"]
-        #launch: ["wmctrl", "-x", "-a", "jetbrains-rubymine.jetbrains-rubymine"]
-        launch: ["wmctrl", "-x", "-a", "code.Code"]
+        launch: ["wmctrl", "-x", "-a", "jetbrains-rubymine.jetbrains-rubymine"]
+        #launch: ["wmctrl", "-x", "-a", "code.Code"]
       C-u:
         launch: ["wmctrl", "-x", "-a", "google-chrome.Google-chrome"]
       C-o:
