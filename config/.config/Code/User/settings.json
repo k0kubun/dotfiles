@@ -79,4 +79,17 @@
     // Others
     "redhat.telemetry.enabled": false,
     "editor.fontSize": 14,
+    "solargraph.diagnostics": true,
+    "rubyLsp.enabledFeatures": {
+        "documentHighlights": true,
+        "documentLink": true,
+        "documentSymbols": true,
+        "foldingRanges": true,
+        "selectionRanges": true,
+        "semanticHighlighting": true,
+        "formatting": true,
+        "diagnostics": true,
+        "codeActions": true,
+        "onTypeFormatting": true
+    },
 }
