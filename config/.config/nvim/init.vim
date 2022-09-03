@@ -58,6 +58,8 @@ if dein#load_state(s:dein_cache)
   call dein#add('k0kubun/open-browser-github.vim', { 'on_cmd': ['OpenGithubFile'],
         \ 'depends': ['open-browser.vim'], 'hook_post_source': 'call SetupOpenBrowserGithub()' })
 
+  let g:dein#ftplugin = { '_': 'set formatoptions-=c formatoptions-=r formatoptions-=o' }
+
   call dein#end()
   call dein#save_state()
 endif
@@ -65,8 +67,6 @@ endif
 if dein#check_install()
   call dein#install()
 endif
-
-let g:dein#ftplugin = { '_': 'set formatoptions-=c formatoptions-=r formatoptions-=o' }
 
 filetype plugin indent on
 syntax enable
