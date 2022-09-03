@@ -25,10 +25,11 @@ include_recipe 'ruby'
 include_recipe 'docker'
 include_recipe 'nocturn'
 
+package 'fzf'
+package 'git'
+package 'htop'
 package 'tmux'
 package 'xclip'
-package 'git'
-package 'fzf'
 
 directory "#{ENV['HOME']}/.config/systemd/user/default.target.wants" do
   owner node[:user]
