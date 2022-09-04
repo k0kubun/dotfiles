@@ -12,6 +12,7 @@ if !isdirectory(s:dein_path)
 endif
 let &runtimepath .= ',' . s:dein_path
 
+let g:dein#ftplugin = { '_': 'set formatoptions-=c formatoptions-=r formatoptions-=o' }
 if dein#load_state(s:dein_cache)
   call dein#begin(s:dein_cache)
 
@@ -57,8 +58,6 @@ if dein#load_state(s:dein_cache)
   call dein#add('tyru/open-browser.vim', { 'lazy': 1 })
   call dein#add('k0kubun/open-browser-github.vim', { 'on_cmd': ['OpenGithubFile'],
         \ 'depends': ['open-browser.vim'], 'hook_post_source': 'call SetupOpenBrowserGithub()' })
-
-  let g:dein#ftplugin = { '_': 'set formatoptions-=c formatoptions-=r formatoptions-=o' }
 
   call dein#end()
   call dein#save_state()
@@ -260,7 +259,7 @@ set ignorecase                                " Case-insensitive search
 set clipboard& clipboard+=unnamed,unnamedplus " Copy to clipboard by yank
 let g:netrw_dirhistmax = 0                    " Prevent clipboard pollution
 let loaded_matchparen = 1                     " Don't highlight a cursor on paren
-autocmd BufNewFile,BufRead * set formatoptions-=c formatoptions-=r formatoptions-=o " Disable automatic comment out
+autocmd BufNewFile,BufRead,FileType * set formatoptions-=c formatoptions-=r formatoptions-=o " Disable automatic comment out
 
 " vim-trailing-whitespace
 let g:extra_whitespace_ignored_filetypes = ['unite']
