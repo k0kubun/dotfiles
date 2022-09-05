@@ -37,6 +37,7 @@ end
 
 link "#{ENV['HOME']}/.config/systemd/user/timers.target.wants/ddns-update.timer" do
   to "#{ENV['HOME']}/.config/systemd/user/ddns-update.timer"
+  only_if 'test -f /opt/local/ddns-update/config.yml'
 end
 
 gem_package 'aws-sdk-route53' do
