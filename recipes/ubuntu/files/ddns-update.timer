@@ -1,9 +1,9 @@
 [Unit]
-Description=Timer to update IEServer DDNS
+Description=Timer to update Route53
 
 [Timer]
 OnBootSec=1min
-OnUnitActiveSec=5min
+OnUnitActiveSec=1h
 Unit=ddns-update.service
 
 [Install]
