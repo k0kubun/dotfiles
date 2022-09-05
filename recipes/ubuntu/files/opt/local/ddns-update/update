@@ -10,6 +10,7 @@ module DDNS
 
     config = YAML.load(File.read(CONFIG_PATH))
 
+    # Bitwarden: AWS ddns-update config.yml
     Aws.config[:region] = config.fetch('region')
     client = Aws::Route53::Client.new(
       access_key_id: config.fetch('access_key_id'),
