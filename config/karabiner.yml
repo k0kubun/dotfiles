@@ -263,6 +263,31 @@ profiles:
                 - "^com\\.google\\.Chrome$"
 <%      end %>
 
+    - description: Nocturn
+      manipulators:
+<%      {
+          # Tabs
+          ['o', ['right_command']] => ['close_bracket', ['left_command', 'left_shift']],
+          ['p', ['right_command']] => ['non_us_pound', ['left_command', 'left_shift']],
+        }.each do |from, to|
+          from_key, from_value = from
+          to_key,   to_value   = to %>
+        - type: basic
+          from:
+            key_code: <%= from_key %>
+            modifiers:
+              mandatory: <%= from_value %>
+          to:
+            - key_code: <%= to_key %>
+<%        unless to_value.empty? %>
+              modifiers: <%= to_value %>
+<%        end %>
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.electron\\.nocturn$"
+<%      end %>
+
     - description: Slack
       manipulators:
         # Cmd-n -> Cmd-k
