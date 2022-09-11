@@ -9,3 +9,6 @@ export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 if [ -z "$(pgrep gpg-agent)" ]; then
   eval $(gpg-agent --daemon)
 fi
+
+# Fix weird paste on Neovim
+unset zle_bracketed_paste
