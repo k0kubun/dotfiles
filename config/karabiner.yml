@@ -41,7 +41,7 @@ profiles:
       manipulators:
 <%      {
           u: '/Applications/Google Chrome.app',
-          #y: '/Applications/Visual Studio Code.app',
+          y: '/Applications/Visual Studio Code.app',
           o: "/Applications/#{c_o_app}.app",
           h: '/System/Applications/Utilities/Terminal.app',
         }.each do |key, app| %>
