@@ -92,4 +92,5 @@
         "codeActions": true,
         "onTypeFormatting": true
     },
+    "go.toolsManagement.autoUpdate": true,
 }
