@@ -12,7 +12,7 @@ autoload :Ripper, 'ripper'
 autoload :SecureRandom, 'securerandom'
 autoload :Shellwords, 'shellwords'
 autoload :StringIO, 'stringio'
-autoload :URI, 'uri'
+autoload :URI, 'uri/generic' # `autoload :URI, 'uri'` breaks Rails
 autoload :YAML, 'yaml'
 autoload :Zlib, 'zlib'
 
