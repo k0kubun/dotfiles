@@ -84,6 +84,13 @@ if dein#tap('coc.nvim')
   \]
 endif
 
+" Execute <Plug> like :ExecutePlugMap <Plug>(coc-rename)
+function! s:execute_plug_map(key) abort range
+  let key = nvim_replace_termcodes(a:key, v:true, v:true, v:true)
+  call nvim_feedkeys(key, 'n', v:false)
+endfunction
+command! -nargs=1 ExecutePlugMap call <SID>execute_plug_map(<f-args>)
+
 if dein#tap('deoplete.nvim')
   let g:deoplete#enable_at_startup = 1
   let g:deoplete#lsp#handler_enabled = v:true
