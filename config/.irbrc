@@ -71,6 +71,9 @@ rescue LoadError
   end
   IRB::ExtendCommandBundle.def_extend_command(:irb_whereami, :Whereami, 'irb/cmd/nop', [:whereami, IRB::ExtendCommandBundle::NO_OVERRIDE])
 end
+if IRB::ExtendCommandBundle.respond_to?(:def_alias_command)
+  IRB::ExtendCommandBundle.def_alias_command(:'@', :whereami)
+end
 
 if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
   begin
@@ -272,8 +275,8 @@ if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
     line = __LINE__; eval %q{
       def evaluate(line, *__ARGS__)
         case line
-        when "@\n"
-          line.replace("whereami\n")
+        #when "@\n"
+        #  line.replace("whereami\n")
         when /\A\$ /
           line.replace("show_source #{line.sub(/\A\$ /, '').strip.dump}\n")
         when /(-G|--grep)/
