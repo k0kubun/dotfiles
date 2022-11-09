@@ -2,6 +2,10 @@
 
 set -ex
 
+if [[ -n "$SPIN" ]]; then
+  exit # spin is not supported
+fi
+
 bin/setup
 
 # Homebrew does not allow sudo.
