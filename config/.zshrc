@@ -25,6 +25,9 @@ source ~/.zsh/lib/theme.zsh
 if [[ -f ~/.zshrc.`uname` ]]; then source ~/.zshrc.`uname`; fi
 if [[ -f ~/.zshrc.local ]]; then source ~/.zshrc.local; fi
 
+# Make scripts that want to put this line happy
+# [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+
 # Enable syntax highlight: must be after all ZLE
 if [[ ! -d ~/.zsh/bundle/zsh-syntax-highlighting ]]; then
   git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/bundle/zsh-syntax-highlighting
