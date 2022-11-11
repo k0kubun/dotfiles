@@ -71,9 +71,6 @@ rescue LoadError
   end
   IRB::ExtendCommandBundle.def_extend_command(:irb_whereami, :Whereami, 'irb/cmd/nop', [:whereami, IRB::ExtendCommandBundle::NO_OVERRIDE])
 end
-if IRB::ExtendCommandBundle.respond_to?(:def_alias_command)
-  IRB::ExtendCommandBundle.def_alias_command(:'@', :whereami)
-end
 
 if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
   begin
@@ -274,19 +271,19 @@ if defined?(IRB::Color) # used by IRB::ExtendCommand::Ls
     kwargs = RUBY_VERSION >= '2.7.0' ? ', **' : ''
     line = __LINE__; eval %q{
       def evaluate(line, *__ARGS__)
-        case line
+        #case line
         #when "@\n"
         #  line.replace("whereami\n")
-        when /\A\$ /
-          line.replace("show_source #{line.sub(/\A\$ /, '').strip.dump}\n")
-        when /(-G|--grep)/
-          if line.sub!(/\A\s*ls\s/, '')
-            grep = nil
-            line.gsub!(/(-G|--grep)\s+([^\s]+)/) { grep = $2; '' }
-            line = line.tap(&:chomp!).empty? ? '' : "#{line},"
-            line.replace("IRB::ExtendCommand::Ls.new(irb_context).execute(#{line} grep: /#{grep}/)")
-          end
-        end
+        #when /\A\$ /
+        #  line.replace("show_source #{line.sub(/\A\$ /, '').strip.dump}\n")
+        #when /(-G|--grep)/
+        #  if line.sub!(/\A\s*ls\s/, '')
+        #    grep = nil
+        #    line.gsub!(/(-G|--grep)\s+([^\s]+)/) { grep = $2; '' }
+        #    line = line.tap(&:chomp!).empty? ? '' : "#{line},"
+        #    line.replace("IRB::ExtendCommand::Ls.new(irb_context).execute(#{line} grep: /#{grep}/)")
+        #  end
+        #end
         super
       end
     }.sub(/__ARGS__/, kwargs), nil, __FILE__, line
