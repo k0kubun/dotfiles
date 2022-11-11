@@ -22,7 +22,7 @@
 [blame]
   # ignoreRevsFile = .git-blame-ignore-revs
 [submodule]
-  recurse = true
+  #recurse = true
 [init]
   defaultBranch = master
 [ghq]
