@@ -16,12 +16,14 @@ autoload :URI, 'uri/generic' # `autoload :URI, 'uri'` breaks Rails
 autoload :YAML, 'yaml'
 autoload :Zlib, 'zlib'
 
-IRB::METHOD_AUTOLOAD = Hash.new({
-  to_json: 'json',
-  to_yaml: 'yaml',
-}).merge({
-  Time => { parse: 'time' },
-})
+unless defined?(IRB::METHOD_AUTOLOAD)
+  IRB::METHOD_AUTOLOAD = Hash.new({
+    to_json: 'json',
+    to_yaml: 'yaml',
+  }).merge({
+    Time => { parse: 'time' },
+  })
+end
 Kernel.module_eval do
   def method_missing(name, *args, &block)
     if lib = IRB::METHOD_AUTOLOAD[self][name]
