@@ -29,8 +29,8 @@ export PATH="/usr/local/llvm/bin:${PATH}"
 # ssh-agent.service uses SSH_AUTH_SOCK=%t/ssh-agent.socket
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
-export EDITOR="vim"
-export BUNDLER_EDITOR="vim"
+export EDITOR="nvim"
+export BUNDLER_EDITOR="nvim"
 
 function environ() {
 	ruby -e 'puts STDIN.read.split("\x0").map{|l| l.split("=", 2)}.to_h["'$1'"]'
