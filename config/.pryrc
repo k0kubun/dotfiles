@@ -15,7 +15,7 @@ autoload :StringIO, 'stringio'
 autoload :URI, 'uri'
 autoload :YAML, 'yaml'
 
-Pry.editor = 'vim'
+Pry.editor = 'nvim'
 
 Pry.config.pager = false
 prompt_procs = [
