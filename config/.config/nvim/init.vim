@@ -233,7 +233,7 @@ set tabstop=2     " Hard tab width
 set expandtab     " Indent with spaces
 
 autocmd FileType asm    setlocal sw=4 sts=4 ts=4 et
-autocmd FileType c      setlocal sw=4 sts=4 ts=8 et list listchars=tab:»-
+autocmd FileType c      setlocal sw=4 sts=4 ts=8 et list listchars=tab:»- cino=:2,=2,l1
 autocmd FileType ruby   setlocal sw=2 sts=2 ts=2 et list listchars=tab:»-
 autocmd FileType config setlocal sw=4 sts=4 ts=8 et list listchars=tab:»-
 autocmd FileType cpp    setlocal sw=4 sts=4 ts=4 et
