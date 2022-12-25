@@ -22,3 +22,6 @@ export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 export EDITOR="nvim"
 export BUNDLER_EDITOR="nvim"
+
+# macOS-like fallback
+alias Grep="grep"
