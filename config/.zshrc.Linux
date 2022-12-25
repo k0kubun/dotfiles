@@ -1,11 +1,9 @@
-#if which tmux > /dev/null && pgrep xmonad > /dev/null; then
 if which tmux > /dev/null && pgrep gnome-session > /dev/null; then
 	source ~/.zsh/lib/tmux.zsh
 fi
 
 export GHQ=~/bin/ghq
 alias ls="ls -la --color"
-alias ll="ls -la --color"
 
 if [[ -d "${HOME}/.ssh" ]] && ! pgrep ssh-agent > /dev/null; then
 	ssh-agent > "${HOME}/.ssh/agent_env"
@@ -19,40 +17,8 @@ fi
 export BUNDLE_JOBS=16
 alias be="bundle exec"
 
-alias x='startx'
-
-alias ss='eval "$(ssh-agent)"; ssh-add ~/.ssh/id_rsa.github'
-
-export PATH="${HOME}/.cabal/bin:${PATH}"
-export PATH="/usr/local/llvm/bin:${PATH}"
-
 # ssh-agent.service uses SSH_AUTH_SOCK=%t/ssh-agent.socket
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 
 export EDITOR="nvim"
 export BUNDLER_EDITOR="nvim"
-
-function environ() {
-	ruby -e 'puts STDIN.read.split("\x0").map{|l| l.split("=", 2)}.to_h["'$1'"]'
-}
-
-# IDEA
-function idea-id() {
-	wmctrl -x -l | grep jetbrains-idea-ce.jetbrains-idea-ce | awk '{print $1}' | tr -d '\n'
-}
-function idea-on() {
-	xprop -id $(idea-id) -format _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY 0xFFFFFFFF
-}
-function idea-off() {
-	xprop -id $(idea-id) -format _NET_WM_WINDOW_OPACITY 32c -set _NET_WM_WINDOW_OPACITY 0xEFFFFFFF
-}
-function idea() {
-	nohup /usr/local/bin/idea "$@" >/dev/null 2>&1 &
-	printf "waiting"
-	while test -z "$(idea-id)"; do
-		sleep 0.2
-		printf "."
-	done
-	echo " ok"
-	idea-off
-}
