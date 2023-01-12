@@ -1,5 +1,6 @@
 {
   "git.enableGutters": false,
+  "inlayHint.enable": false,
   "suggest.maxCompleteItemCount": 10,
   "semanticTokens.filetypes": ["c", "rust"],
 
