@@ -1,5 +1,5 @@
 [Unit]
-Description=Update IEServer DDNS
+Description=Update Route53 DDNS
 
 [Service]
 Type=simple
