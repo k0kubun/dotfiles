@@ -94,4 +94,5 @@
     },
     "go.toolsManagement.autoUpdate": true,
     "update.mode": "none",
+    //"editor.inlineSuggest.enabled": true,
 }

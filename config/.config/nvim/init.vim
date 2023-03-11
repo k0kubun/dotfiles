@@ -228,7 +228,7 @@ autocmd FileType python inoremap <C-v> import code; code.interact(local=dict(glo
 set shiftwidth=2  " Indentation width
 set softtabstop=0 " The number of spaces by Tab
 set tabstop=2     " Hard tab width
-"set expandtab     " Indent with spaces
+set expandtab     " Indent with spaces
 
 autocmd FileType asm    setlocal sw=4 sts=4 ts=4 et
 autocmd FileType c      setlocal sw=4 sts=4 ts=8 et list listchars=tab:»- cino=:2,=2,l1
