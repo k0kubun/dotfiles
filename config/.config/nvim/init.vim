@@ -39,13 +39,6 @@ if dein#load_state(s:dein_cache)
   " Coc
   call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
 
-  " LSP
-  "call dein#add('neovim/nvim-lspconfig')
-  "call dein#add('Shougo/deoplete.nvim')
-  "call dein#add('deoplete-plugins/deoplete-lsp')
-  "call dein#add('nvim-lualine/lualine.nvim')
-  "call dein#add('j-hui/fidget.nvim')
-
   " Editing
   call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'] })
   call dein#add('bronson/vim-trailing-whitespace', { 'on_cmd': ['FixWhitespace'] })
@@ -95,58 +88,6 @@ if dein#tap('deoplete.nvim')
   set completeopt+=noinsert
   call deoplete#custom#source('_', 'matchers', ['matcher_fuzzy', 'matcher_length'])
   call deoplete#custom#source('_', 'max_candidates', 10)
-endif
-
-if dein#tap('nvim-lspconfig')
-  lua << END
-  require('lualine').setup({
-    options = {
-      --theme = 'gruvbox',
-      icons_enabled = false,
-      component_separators = { left = '', right = '' },
-      section_separators = { left = '', right = '' },
-    },
-  })
-  require('fidget').setup{}
-
-  vim.diagnostic.config({
-    virtual_text = false,
-    update_in_insert = true,
-  })
-  vim.api.nvim_create_autocmd("CursorHold", {
-    buffer = bufnr,
-    callback = function()
-      local opts = {
-        focusable = false,
-        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
-        border = 'rounded',
-        source = 'always',
-        prefix = ' ',
-        scope = 'cursor',
-      }
-      vim.diagnostic.open_float(nil, opts)
-    end
-  })
-
-  local on_attach = function(client, bufnr)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-    -- Mappings.
-    local bufopts = { noremap=true, silent=true, buffer=bufnr }
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set('n', '<M-@>', vim.lsp.buf.definition, bufopts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-    vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
-  end
-
-  local lspconfig = require'lspconfig'
-  lspconfig.solargraph.setup({ on_attach = on_attach })
-END
 endif
 
 if dein#tap('open-browser-github.vim')
