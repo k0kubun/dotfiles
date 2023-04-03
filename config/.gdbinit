@@ -2,6 +2,7 @@
 set history save on
 set history size 10000
 set history filename ~/.gdb_history
+set pagination off
 # set print pretty on
 set disassembly-flavor intel
 set auto-load safe-path /
