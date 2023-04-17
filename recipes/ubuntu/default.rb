@@ -23,7 +23,6 @@ include_recipe 'skk'
 include_recipe 'zsh'
 include_recipe 'ruby'
 include_recipe 'docker'
-include_recipe 'nocturn'
 
 package 'fzf'
 package 'git'
