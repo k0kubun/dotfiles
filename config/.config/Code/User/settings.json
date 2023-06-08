@@ -93,5 +93,6 @@
         "onTypeFormatting": true
     },
     "go.toolsManagement.autoUpdate": true,
+    "lldb.suppressUpdateNotifications": true,
     //"editor.inlineSuggest.enabled": true,
 }
