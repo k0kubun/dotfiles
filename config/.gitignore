@@ -37,6 +37,7 @@ dump.rdb
 /.r6*
 /.before
 /.after
+/.*-stats
 /.debug
 *.pyc
 /.objfcn
