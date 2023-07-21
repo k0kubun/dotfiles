@@ -1,4 +1,4 @@
-bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "xclip -selection c -i"
+bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel "xclip -selection c >/dev/null"
 
 # copy mode (tmux 2.1)
 bind-key -T copy-mode-vi v send -X begin-selection
