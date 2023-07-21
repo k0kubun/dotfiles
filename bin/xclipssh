@@ -25,6 +25,9 @@ while ssh "$ssh_host" "${display} clipnotify -s clipboard"; do
 done
 
 # Remove the lock for LocalCommand
-if [[ -f /tmp/xclipssh.log ]]; then
-  mv /tmp/xclipssh.log /tmp/xclipssh.log.old
-fi
+function remove_lock() {
+  if [[ -f /tmp/xclipssh.log ]]; then
+    mv /tmp/xclipssh.log /tmp/xclipssh.log.old
+  fi
+}
+trap remove_lock EXIT
