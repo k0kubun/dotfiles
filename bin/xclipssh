@@ -16,6 +16,14 @@ if [[ -z "$display" ]]; then
 fi
 echo "$display"
 
+# Remove the LocalCommand lock on SIGTERM
+function remove_lock() {
+  if [[ -f /tmp/xclipssh.log ]]; then
+    mv /tmp/xclipssh.log /tmp/xclipssh.log.old
+  fi
+}
+trap remove_lock SIGTERM
+
 # Replicate xclip to pbcopy
 while ssh "$ssh_host" "${display} clipnotify -s clipboard"; do
   if content=$(ssh "$ssh_host" "${display} xclip -out -selection clipboard"); then
@@ -24,10 +32,5 @@ while ssh "$ssh_host" "${display} clipnotify -s clipboard"; do
   fi
 done
 
-# Remove the lock for LocalCommand
-function remove_lock() {
-  if [[ -f /tmp/xclipssh.log ]]; then
-    mv /tmp/xclipssh.log /tmp/xclipssh.log.old
-  fi
-}
-trap remove_lock EXIT
+# Remove the LocalCommand lock on a successful exit
+remove_lock
