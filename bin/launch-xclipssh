@@ -1,0 +1,16 @@
+#!/bin/bash
+dotfiles=$(cd "$(dirname $0)"; cd ..; pwd)
+
+# Check the lock
+if [[ -f /tmp/xclipssh.log ]]; then
+  if pgrep -f xclipssh; then
+    # Do not duplicate xclipssh if already started.
+    exit
+  else
+    # Stale log is found. Remove the lock.
+    mv /tmp/xclipssh.log /tmp/xclipssh.log.old
+  fi
+fi
+
+# Start xclipssh
+nohup "${dotfiles}/bin/xclipssh" "$@" &> /tmp/xclipssh.log &
