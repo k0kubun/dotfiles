@@ -23,3 +23,8 @@ while ssh "$ssh_host" "${display} clipnotify -s clipboard"; do
     echo "=> $content"
   fi
 done
+
+# Remove the lock for LocalCommand
+if [[ -f /tmp/xclipssh.log ]]; then
+  mv /tmp/xclipssh.log /tmp/xclipssh.log.old
+fi
