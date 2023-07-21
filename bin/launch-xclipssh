@@ -8,7 +8,7 @@ if [[ -f /tmp/xclipssh.log ]]; then
     exit
   else
     # Stale log is found. Remove the lock.
-    mv /tmp/xclipssh.log /tmp/xclipssh.log.old
+    rm /tmp/xclipssh.log
   fi
 fi
 
