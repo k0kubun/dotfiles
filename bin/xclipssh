@@ -9,7 +9,7 @@ fi
 ssh_host=$1
 
 # Brute-force $DISPLAY
-display=$(cat /proc/*/environ 2> /dev/null | ruby -e 'print STDIN.read.split("\0").grep(/DISPLAY/).uniq.join(" ")')
+display=$(ssh "$ssh_host" 'cat /proc/*/environ 2> /dev/null | ruby -e "print STDIN.read.split(%[\0]).grep(/DISPLAY/).uniq.join(%[ ])"')
 if [[ -z "$display" ]]; then
   echo "Failed to find DISPLAY"
   exit 1
@@ -17,8 +17,8 @@ fi
 echo "$display"
 
 # Replicate xclip to pbcopy
-while clipnotify; do
-  if content=$(ssh "$ssh_host" "${display} xclip -out"); then
+while ssh "$ssh_host" "${display} clipnotify -s clipboard"; do
+  if content=$(ssh "$ssh_host" "${display} xclip -out -selection clipboard"); then
     printf "%s" "$content" | pbcopy
     echo "=> $content"
   fi
