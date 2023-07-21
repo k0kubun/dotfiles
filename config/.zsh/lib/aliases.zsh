@@ -7,9 +7,6 @@ function vi() {
   nvim ${=*/:/ +}
 }
 
-# Prefer brew's vim
-export PATH="/opt/brew/bin:/usr/local/bin:${PATH}"
-
 # cd by dir name only for ..
 alias ..="cd .."
 
