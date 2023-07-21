@@ -22,7 +22,7 @@ function remove_lock() {
     mv /tmp/xclipssh.log /tmp/xclipssh.log.old
   fi
 }
-trap remove_lock SIGTERM
+trap remove_lock TERM
 
 # Replicate xclip to pbcopy
 while ssh "$ssh_host" "${display} clipnotify -s clipboard"; do
