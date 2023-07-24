@@ -3,7 +3,7 @@ dotfiles=$(cd "$(dirname $0)"; cd ..; pwd)
 
 # Check the lock
 if [[ -f /tmp/xclipssh.log ]]; then
-  if pgrep -f xclipssh; then
+  if pgrep -q -f xclipssh; then
     # Do not duplicate xclipssh if already started.
     exit
   else
