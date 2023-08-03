@@ -207,6 +207,7 @@ keymap:
 
       # Search
       Super-s: C-f
+      C-s: C-f
 
   - name: Slack
     application:
