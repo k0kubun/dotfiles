@@ -78,7 +78,6 @@
 
     // Others
     "redhat.telemetry.enabled": false,
-    "editor.fontSize": 14,
     "solargraph.diagnostics": true,
     "rubyLsp.enabledFeatures": {
         "documentHighlights": true,
@@ -94,5 +93,7 @@
     },
     "go.toolsManagement.autoUpdate": true,
     "lldb.suppressUpdateNotifications": true,
+    "editor.fontFamily": "Monaco, 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontSize": 15,
     //"editor.inlineSuggest.enabled": true,
 }
