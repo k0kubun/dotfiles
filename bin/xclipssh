@@ -9,8 +9,8 @@ fi
 ssh_host=$1
 
 # Replicate xclip to pbcopy
-while ssh -Y "$ssh_host" "${display} clipnotify -s clipboard"; do
-  if content=$(ssh -Y "$ssh_host" "${display} xclip -out -selection clipboard"); then
+while ssh -Y "$ssh_host" "clipnotify -s clipboard"; do
+  if content=$(ssh -Y "$ssh_host" "xclip -out -selection clipboard"); then
     printf "%s" "$content" | pbcopy
     echo "=> $content"
   fi
