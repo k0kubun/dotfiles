@@ -63,3 +63,5 @@ compile_flags.txt
 .cache/clangd
 .ccls
 .solargraph.yml
+perf.data
+perf.data.old
