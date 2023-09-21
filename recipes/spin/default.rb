@@ -1,1 +1,1 @@
-execute 'echo hello world'
+include_recipe '../base'
