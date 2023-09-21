@@ -1,3 +1,4 @@
+alias ls="ls -la --color"
 alias co="git checkout"
 alias ga="git commit -am"
 alias gd="git diff"
