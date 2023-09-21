@@ -12,6 +12,7 @@ function gl(){
 }
 alias amend="git commit --amend"
 alias empty="git commit --allow-empty -m"
+alias re="source ~/.zshrc"
 
 source /etc/zsh/zshrc.default.inc.zsh
 
