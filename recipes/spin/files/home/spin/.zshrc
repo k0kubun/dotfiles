@@ -1,4 +1,3 @@
-alias ls="ls -la --color"
 alias co="git checkout"
 alias ga="git commit -am"
 alias gd="git diff"
@@ -15,3 +14,6 @@ alias amend="git commit --amend"
 alias empty="git commit --allow-empty -m"
 
 source /etc/zsh/zshrc.default.inc.zsh
+
+# Override the ls of zshrc.default.inc.zsh
+alias ls="ls --color --classify -la"
