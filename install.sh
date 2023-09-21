@@ -2,11 +2,13 @@
 
 set -ex
 
-if [[ -n "$SPIN" ]]; then
-  exit # spin is not supported
-fi
-
 bin/setup
+
+# Use a special setup on spin
+if [[ -n "$SPIN" ]]; then
+  sudo -E bin/mitamae local $@ recipes/spin/default.rb
+  exit
+fi
 
 # Homebrew does not allow sudo.
 case "$(uname)" in
