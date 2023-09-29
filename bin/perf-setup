@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+if [[ "$USER" != "root" ]]; then
+  exec sudo "$0" "$@"
+fi
+
+set -x
+echo 0 > /proc/sys/kernel/kptr_restrict
+echo -1 > /proc/sys/kernel/perf_event_paranoid
