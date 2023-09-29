@@ -194,6 +194,7 @@ autocmd BufNewFile,BufRead *.h set filetype=c
 autocmd BufNewFile,BufRead settings.json set filetype=jsonc
 autocmd BufNewFile,BufRead keybindings.json set filetype=jsonc
 autocmd BufNewFile,BufRead coc-settings.json set filetype=jsonc
+autocmd BufNewFile,BufRead *.lt set filetype=rust
 
 "===============================================================================
 " Editing
