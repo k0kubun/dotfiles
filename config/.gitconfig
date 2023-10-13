@@ -34,10 +34,6 @@
 [url "git@gist.github.com:"]
   pushInsteadOf = https://gist.github.com/
   pushInsteadOf = git://gist.github.com/
-[url "git@git.ruby-lang.org:ruby.git"]
-  pushinsteadof = https://github.com/ruby/ruby
-[url "https://github.com/ruby/ruby-"]
-  pushinsteadof = https://github.com/ruby/ruby-
 [include]
   path = .gitconfig.local
 [filter "lfs"]

@@ -65,4 +65,3 @@ compile_flags.txt
 .solargraph.yml
 perf.data
 perf.data.old
-perf.hist.*
