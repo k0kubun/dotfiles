@@ -22,3 +22,7 @@ alias ce="cabal exec"
 
 # Rust
 export PATH=$HOME/.cargo/bin:$PATH
+
+# ruby-install
+export RUBY_INSTALL_SRC_DIR="$HOME/.cache/ruby"
+export RUBY_INSTALL_RUBIES_DIR=/opt/rubies

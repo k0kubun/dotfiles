@@ -28,6 +28,10 @@ if [[ -f ~/.zshrc.local ]]; then source ~/.zshrc.local; fi
 # Make scripts that want to put this line happy
 # [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 # [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
+if false; then
+# cloudplatform: add Shopify clusters to your local kubernetes config
+export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/k0kubun/.kube/config:/Users/k0kubun/.kube/config.shopify.cloudplatform
+fi
 
 # Enable syntax highlight: must be after all ZLE
 if [[ ! -d ~/.zsh/bundle/zsh-syntax-highlighting ]]; then
