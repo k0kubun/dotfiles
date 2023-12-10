@@ -6,6 +6,7 @@
 
   // Ruby
   "solargraph.diagnostics": true,
+  "solargraph.checkGemVersion": false,
   //"languageserver": {
   //  "ruby-lsp": {
   //    "command": "ruby-lsp",
@@ -34,5 +35,7 @@
 
   // Rust
   "rust-analyzer.inlayHints.enable": false,
+  "rust-analyzer.updates.checkOnStartup": false,
+  //"rust-analyzer.updates.prompt": false,
   //"rust-analyzer.disableProgressNotifications": true,
 }
