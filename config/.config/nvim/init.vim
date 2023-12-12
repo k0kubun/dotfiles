@@ -35,6 +35,7 @@ if dein#load_state(s:dein_cache)
   call dein#add('cespare/vim-toml', { 'on_ft': ['toml'] })
   call dein#add('lervag/vimtex', { 'on_ft': ['tex'] }) " apt install latexmk
   call dein#add('neoclide/jsonc.vim', { 'on_ft': ['jsonc'] })
+  call dein#add('mrkn/vim-cruby', { 'on_ft': ['cruby'] })
 
   " Coc
   call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
