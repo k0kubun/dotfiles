@@ -32,3 +32,17 @@ if defined?(IRB::Color) # just for consistency
     RETURN: "=> %s\n",
   }
 end
+
+begin
+  require 'irb/cmd/debug'
+rescue LoadError
+else
+  module IRB::ExtendCommand
+    class Up < DebugCommand
+      def execute(*args)
+        super(pre_cmds: ['up', *args].join(' '))
+      end
+    end
+  end
+  IRB::ExtendCommandBundle.def_extend_command(:irb_up, :Up, 'cmd/nop', [:up, IRB::ExtendCommandBundle::NO_OVERRIDE])
+end
