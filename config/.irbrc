@@ -17,6 +17,7 @@ autoload :YAML, 'yaml'
 autoload :Zlib, 'zlib'
 
 IRB.conf[:USE_AUTOCOMPLETE] = false
+IRB.conf[:USE_PAGER] = false
 IRB.conf[:SAVE_HISTORY] = 1000
 if defined?(IRB::Color) # just for consistency
   clear = "\e[0m"
