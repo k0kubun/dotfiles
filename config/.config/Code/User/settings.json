@@ -48,7 +48,7 @@
 
     // Go
     "[go]": {
-        "editor.renderWhitespace": "boundary",
+        // "editor.renderWhitespace": "boundary",
     },
 
     // Rust
