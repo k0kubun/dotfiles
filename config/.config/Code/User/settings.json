@@ -62,7 +62,7 @@
 
     // Neovim
     "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
-    "vscode-neovim.neovimExecutablePaths.linux": "/usr/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
 
     // Gitlens
     "gitlens.blame.highlight.enabled": false,
