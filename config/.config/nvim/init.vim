@@ -72,6 +72,7 @@ if dein#tap('coc.nvim')
   autocmd ColorScheme * highlight link CocMenuSel PmenuSel
   let g:coc_global_extensions = [
   \ 'coc-clangd',
+  \ 'coc-go',
   \ 'coc-rust-analyzer',
   \ 'coc-solargraph',
   \]

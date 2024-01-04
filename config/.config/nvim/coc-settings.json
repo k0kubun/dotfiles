@@ -33,6 +33,9 @@
   "clangd.inlayHints.enable": false,
   "clangd.arguments": ["-header-insertion=never"],
 
+  // Go
+  "go.goplsPath": "/home/k0kubun/bin/gopls",
+
   // Rust
   "rust-analyzer.inlayHints.enable": false,
   "rust-analyzer.updates.checkOnStartup": false,
