@@ -66,3 +66,4 @@ compile_flags.txt
 perf.data
 perf.data.old
 ext/-test-/cxxanyargs/failure.failed
+perf.hist.*
