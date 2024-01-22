@@ -207,7 +207,7 @@ autocmd BufNewFile,BufRead parser.y set filetype=goyacc
 set nowrap                                    " Don't wrap lines
 set nofoldenable                              " Don't fold code comments in .vim
 set noswapfile                                " Don't create .swp
-set smartcase                                 " Case-sensitive only for uppercase
+set ignorecase                                " Case-insensitive search
 set clipboard& clipboard+=unnamed,unnamedplus " Copy to clipboard by yank
 let g:netrw_dirhistmax = 0                    " Prevent clipboard pollution
 let loaded_matchparen = 1                     " Don't highlight a cursor on paren
