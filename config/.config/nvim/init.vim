@@ -77,8 +77,13 @@ if dein#tap('coc.nvim')
   \ 'coc-solargraph',
   \]
 
+  function! MouseHoverOnClick()
+    if CocAction('hasProvider', 'hover') && !coc#float#has_float()
+      call CocAction('doHover')
+    endif
+  endfunction
   set mouse=a
-  nmap <LeftMouse> <LeftMouse>:call CocAction('doHover')<CR>
+  nmap <LeftMouse> <LeftMouse>:call MouseHoverOnClick()<CR>
 endif
 
 " Execute <Plug> like :ExecutePlugMap <Plug>(coc-rename)
