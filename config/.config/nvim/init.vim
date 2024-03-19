@@ -76,6 +76,9 @@ if dein#tap('coc.nvim')
   \ 'coc-rust-analyzer',
   \ 'coc-solargraph',
   \]
+
+  set mouse=a
+  nmap <LeftMouse> <LeftMouse>:call CocAction('doHover')<CR>
 endif
 
 " Execute <Plug> like :ExecutePlugMap <Plug>(coc-rename)
