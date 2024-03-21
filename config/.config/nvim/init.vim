@@ -221,6 +221,20 @@ let g:netrw_dirhistmax = 0                    " Prevent clipboard pollution
 let loaded_matchparen = 1                     " Don't highlight a cursor on paren
 autocmd BufNewFile,BufRead,FileType * set formatoptions-=c formatoptions-=r formatoptions-=o " Disable automatic comment out
 
+" Prioritize tmux over xclip as a clipboard provider
+let g:clipboard = {
+  \   'name': 'tmux',
+  \   'copy': {
+  \      '+': 'tmux load-buffer -',
+  \      '*': 'tmux load-buffer -',
+  \    },
+  \   'paste': {
+  \      '+': 'tmux save-buffer -',
+  \      '*': 'tmux save-buffer -',
+  \   },
+  \   'cache_enabled': 1,
+  \ }
+
 " vim-trailing-whitespace
 let g:extra_whitespace_ignored_filetypes = ['unite']
 
