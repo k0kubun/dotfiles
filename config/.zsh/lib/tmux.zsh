@@ -7,11 +7,6 @@ if [[ -z "$TMUX" && -z "$STY" && "$TERM_PROGRAM" != "vscode" ]]; then
     if type tmux > /dev/null 2>&1; then
       tmux new-session -A -s "*scratch*"
     fi
-  elif [[ "$(uname)" == Linux && -z "$DISPLAY" ]]; then
-    display=$(cat /proc/*/environ 2> /dev/null | ruby -e "print STDIN.read.split(%[\0]).grep(/DISPLAY/).first")
-    if [[ "$display" =~ DISPLAY= ]]; then
-      export "$display"
-    fi
   fi
 fi
 
