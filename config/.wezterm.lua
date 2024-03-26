@@ -6,5 +6,6 @@ config.font = wezterm.font('Monaco', { weight = 'Regular' })
 config.font_size = 18.0
 
 config.enable_tab_bar = false
+config.window_close_confirmation = 'NeverPrompt'
 
 return config
