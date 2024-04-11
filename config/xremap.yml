@@ -56,10 +56,11 @@ keymap:
       C-u:
         launch: ["wmctrl", "-x", "-a", "google-chrome.Google-chrome"]
       C-o:
-        launch: ["wmctrl", "-x", "-a", "chromium.Chromium"]
         #launch: ["wmctrl", "-x", "-a", "slack.Slack"]
+        launch: ["wmctrl", "-x", "-a", "chromium.Chromium"]
       C-h:
-        launch: ["wmctrl", "-x", "-a", "gnome-terminal-server.Gnome-terminal"]
+        #launch: ["wmctrl", "-x", "-a", "gnome-terminal-server.Gnome-terminal"]
+        launch: ["wmctrl", "-x", "-a", "org.wezfurlong.wezterm.org.wezfurlong.wezterm"]
 
   #
   # Non-editor bindings
@@ -69,6 +70,7 @@ keymap:
       not:
         - Code
         - Gnome-terminal
+        - wezterm
         - jetbrains-idea
         - jetbrains-clion
         - jetbrains-rubymine
@@ -132,7 +134,9 @@ keymap:
 
   - name: Terminal / Vim
     application:
-      only: Gnome-terminal
+      only:
+        - wezterm
+        - Gnome-terminal
     remap:
       Super-o: M-o
       Super-p: M-p
