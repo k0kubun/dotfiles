@@ -1,3 +1,4 @@
+keypress_delay_ms: 5
 modmap:
   - name: Global
     remap:
