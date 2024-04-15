@@ -1,6 +1,8 @@
 local wezterm = require 'wezterm'
+local act = wezterm.action
 local config = wezterm.config_builder()
 
+-- Styles
 config.window_background_opacity = 0.85
 config.font_size = 18.0
 if wezterm.target_triple:find('darwin') ~= nil then
@@ -9,6 +11,7 @@ else
   config.font = wezterm.font('Inconsolata')
 end
 
+-- Disable annoying features
 config.enable_tab_bar = false
 config.window_close_confirmation = 'NeverPrompt'
 config.window_padding = {
@@ -17,5 +20,12 @@ config.window_padding = {
   top = 0,
   bottom = 0,
 }
+
+-- Clipboard
+if wezterm.target_triple:find('linux') ~= nil then
+  config.keys = {
+    { key = 'v', mods = 'ALT', action = wezterm.action.PasteFrom 'Clipboard' },
+  }
+end
 
 return config
