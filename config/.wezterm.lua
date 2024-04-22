@@ -8,7 +8,7 @@ config.font_size = 18.0
 if wezterm.target_triple:find('darwin') ~= nil then
   config.font = wezterm.font('Monaco', { weight = 'Regular' })
 else
-  config.font = wezterm.font('Inconsolata')
+  config.font = wezterm.font_with_fallback { 'Inconsolata', 'Noto Sans CJK JP' }
 end
 
 -- Disable annoying features
