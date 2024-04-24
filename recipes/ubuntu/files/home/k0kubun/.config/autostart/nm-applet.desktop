@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Network Manager Applet
+Type=Application
+Exec=nm-applet
+Terminal=false

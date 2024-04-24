@@ -45,3 +45,9 @@ include_recipe 'xremap'
 execute 'timedatectl set-local-rtc true' do
   only_if "timedatectl status | grep 'RTC in local TZ: no'"
 end
+
+# Wireguard
+remote_file "#{ENV['HOME']}/.config/autostart/nm-applet.desktop" do
+  owner node[:user]
+  group node[:user]
+end
