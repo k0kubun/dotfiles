@@ -35,7 +35,7 @@ if defined?(IRB::Color) # just for consistency
 end
 
 begin
-  require 'irb/cmd/debug'
+  require 'irb/cmd/debug' unless defined?(IRB::ExtendCommand::Debug)
 rescue LoadError
 else
   module IRB::ExtendCommand
