@@ -6,7 +6,7 @@ alias ls="ls -Gla"
 export BUNDLE_JOBS=8
 export HOMEBREW_CASK_OPTS='--appdir=/Applications'
 
-if [ -z "$(pgrep gpg-agent)" ]; then
+if [ -z "$(pgrep gpg-agent)" ] && which gpg-agent > /dev/null; then
   eval $(gpg-agent --daemon)
 fi
 
