@@ -67,3 +67,4 @@ perf.data
 perf.data.old
 ext/-test-/cxxanyargs/failure.failed
 perf.hist.*
+yjit_*.log
