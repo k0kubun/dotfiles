@@ -99,5 +99,6 @@
         "asvetliakov.vscode-neovim": 1
     },
     "github.copilot.editor.enableCodeActions": false,
+    "editor.autoClosingBrackets": "never",
     //"editor.inlineSuggest.enabled": true,
 }
