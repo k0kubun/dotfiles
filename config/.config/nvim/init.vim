@@ -243,8 +243,10 @@ endif
 " Styles
 "===============================================================================
 colorscheme hybrid
+" Older Neovim or on Terminal.app
 hi Normal ctermbg=NONE
-" hi Normal guibg=NONE
+" Newer Neovim or on WezTerm / iTerm
+hi Normal guibg=NONE
 
 set number        " Show line number
 set cmdheight=2   " 2-line command window
