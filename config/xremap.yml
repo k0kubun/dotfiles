@@ -34,9 +34,6 @@ keymap:
       # Underscore without Shift
       RO: Shift-RO
 
-      # SKK hack for Chrome
-      C-j: C-m
-
       # Launcher
       Super-Space: Super-A
 
@@ -46,6 +43,14 @@ keymap:
       # Screenshot
       Ctrl-Shift-3: Shift-Print
       Ctrl-Shift-4: Print
+
+  - name: SKK hack for Chrome
+    application:
+      not:
+        - wezterm
+        - Gnome-terminal
+    remap:
+      C-j: C-m
 
   - name: Launchers
     remap:
@@ -234,13 +239,3 @@ keymap:
       Super-7: C-7
       Super-8: C-8
       Super-9: C-9
-
-  - name: Nocturn
-    application:
-      only: Nocturn
-    remap:
-      Super-j: M-j
-      Super-k: M-k
-      Super-o: M-o
-      Super-p: M-p
-      Super-Enter: Shift-Enter
