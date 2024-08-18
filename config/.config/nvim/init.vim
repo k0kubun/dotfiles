@@ -27,7 +27,7 @@ if dein#load_state(s:dein_cache)
   call dein#add('airblade/vim-gitgutter')
 
   " SKK
-  call dein#add('tyru/eskk.vim', { 'on_if': 'has("mac") && !exists("g:vscode")' })
+  call dein#add('vim-skk/eskk.vim')
 
   " Language
   call dein#add('vim-ruby/vim-ruby', { 'on_ft': ['ruby'] })
