@@ -232,7 +232,11 @@ let g:omni_sql_no_default_maps = 1
 set nomodeline
 
 if dein#tap('eskk.vim')
-  let g:eskk#large_dictionary = {'path': '~/Library/Application Support/AquaSKK/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp'}
+  if has('mac')
+    let g:eskk#large_dictionary = {'path': '~/Library/Application Support/AquaSKK/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp'}
+  else
+    let g:eskk#large_dictionary = {'path': '/usr/share/skk/SKK-JISYO.L', 'sorted': 1, 'encoding': 'euc-jp'}
+  endif
 endif
 
 if dein#tap('vimtex')
