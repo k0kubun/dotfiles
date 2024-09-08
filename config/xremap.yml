@@ -1,31 +1,20 @@
-keypress_delay_ms: 5
-modmap:
-  - name: Global
-    remap:
-      # CapsLock/Ctrl_L -> Esc
-      CapsLock: Esc
-      Ctrl_L: Esc
-
-      # HHKB: [Alt_L] [Muhenkan] [Space] [Henkan] [KatakanaHiragana]
-      Alt_L: Ctrl_R # for Ctrl+Click
-      Muhenkan: Ctrl_L
-      Henkan: Shift_L
-
-  - name: Kana -> Windows
-    application:
-      not: [jetbrains-idea, jetbrains-clion, jetbrains-rubymine]
-    remap:
-      # Use Windows since Alt is annoying in Electron apps (Slack, Nocturn)
-      KatakanaHiragana: Win_R
-
-  - name: Kana -> Alt
-    application:
-      only: [jetbrains-idea, jetbrains-clion, jetbrains-rubymine]
-    remap:
-      # Use Alt since Windows is annoying in IDEA
-      KatakanaHiragana: Alt_L
-
 keymap:
+  - name: Launchers
+    remap:
+      C-y:
+        #launch: ["wmctrl", "-x", "-a", "jetbrains-idea.jetbrains-idea"]
+        #launch: ["wmctrl", "-x", "-a", "jetbrains-clion.jetbrains-clion"]
+        #launch: ["wmctrl", "-x", "-a", "jetbrains-rubymine.jetbrains-rubymine"]
+        launch: ["wmctrl", "-x", "-a", "code.Code"]
+      C-u:
+        launch: ["wmctrl", "-x", "-a", "google-chrome.Google-chrome"]
+      C-o:
+        #launch: ["wmctrl", "-x", "-a", "slack.Slack"]
+        launch: ["wmctrl", "-x", "-a", "chromium.Chromium"]
+      C-h:
+        #launch: ["wmctrl", "-x", "-a", "gnome-terminal-server.Gnome-terminal"]
+        launch: ["wmctrl", "-x", "-a", "org.wezfurlong.wezterm.org.wezfurlong.wezterm"]
+
   #
   # Global bindings
   #
@@ -51,22 +40,6 @@ keymap:
         - Gnome-terminal
     remap:
       C-j: C-m
-
-  - name: Launchers
-    remap:
-      C-y:
-        #launch: ["wmctrl", "-x", "-a", "jetbrains-idea.jetbrains-idea"]
-        #launch: ["wmctrl", "-x", "-a", "jetbrains-clion.jetbrains-clion"]
-        #launch: ["wmctrl", "-x", "-a", "jetbrains-rubymine.jetbrains-rubymine"]
-        launch: ["wmctrl", "-x", "-a", "code.Code"]
-      C-u:
-        launch: ["wmctrl", "-x", "-a", "google-chrome.Google-chrome"]
-      C-o:
-        #launch: ["wmctrl", "-x", "-a", "slack.Slack"]
-        launch: ["wmctrl", "-x", "-a", "chromium.Chromium"]
-      C-h:
-        #launch: ["wmctrl", "-x", "-a", "gnome-terminal-server.Gnome-terminal"]
-        launch: ["wmctrl", "-x", "-a", "org.wezfurlong.wezterm.org.wezfurlong.wezterm"]
 
   #
   # Non-editor bindings
@@ -239,3 +212,31 @@ keymap:
       Super-7: C-7
       Super-8: C-8
       Super-9: C-9
+
+modmap:
+  - name: Global
+    remap:
+      # CapsLock/Ctrl_L -> Esc
+      CapsLock: Esc
+      Ctrl_L: Esc
+
+      # HHKB: [Alt_L] [Muhenkan] [Space] [Henkan] [KatakanaHiragana]
+      Alt_L: Ctrl_R # for Ctrl+Click
+      Muhenkan: Ctrl_L
+      Henkan: Shift_L
+
+  - name: Kana -> Windows
+    application:
+      not: [jetbrains-idea, jetbrains-clion, jetbrains-rubymine]
+    remap:
+      # Use Windows since Alt is annoying in Electron apps (Slack, Nocturn)
+      KatakanaHiragana: Win_R
+
+  - name: Kana -> Alt
+    application:
+      only: [jetbrains-idea, jetbrains-clion, jetbrains-rubymine]
+    remap:
+      # Use Alt since Windows is annoying in IDEA
+      KatakanaHiragana: Alt_L
+
+keypress_delay_ms: 5
