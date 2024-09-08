@@ -2,9 +2,6 @@ keymap:
   - name: Launchers
     remap:
       C-y:
-        #launch: ["wmctrl", "-x", "-a", "jetbrains-idea.jetbrains-idea"]
-        #launch: ["wmctrl", "-x", "-a", "jetbrains-clion.jetbrains-clion"]
-        #launch: ["wmctrl", "-x", "-a", "jetbrains-rubymine.jetbrains-rubymine"]
         launch: ["wmctrl", "-x", "-a", "code.Code"]
       C-u:
         launch: ["wmctrl", "-x", "-a", "google-chrome.Google-chrome"]
@@ -12,7 +9,6 @@ keymap:
         #launch: ["wmctrl", "-x", "-a", "slack.Slack"]
         launch: ["wmctrl", "-x", "-a", "chromium.Chromium"]
       C-h:
-        #launch: ["wmctrl", "-x", "-a", "gnome-terminal-server.Gnome-terminal"]
         launch: ["wmctrl", "-x", "-a", "org.wezfurlong.wezterm.org.wezfurlong.wezterm"]
 
   #
