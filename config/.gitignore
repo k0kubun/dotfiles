@@ -35,7 +35,7 @@ dump.rdb
 /.*jit
 /.*jit-*
 /.r6*
-/.before
+/.before*
 /.after
 /.*-stats
 /.debug
