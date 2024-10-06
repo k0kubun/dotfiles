@@ -93,7 +93,7 @@
     },
     "go.toolsManagement.autoUpdate": true,
     "lldb.suppressUpdateNotifications": true,
-    "editor.fontFamily": "Monaco, 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontFamily": "Monaco, Inconsolata",
     "editor.fontSize": 15,
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
