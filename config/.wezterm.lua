@@ -20,6 +20,7 @@ config.window_padding = {
   top = 0,
   bottom = 0,
 }
+config.audible_bell = 'Disabled'
 
 -- Clipboard
 if wezterm.target_triple:find('linux') ~= nil then
