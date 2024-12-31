@@ -1,6 +1,5 @@
 <%
-at_office = `hostname`.strip == 'macbook-pro.local'
-c_o_app = at_office ? 'Slack' : 'Nocturn'
+c_o_app = 'Slack'
 c_y_app = 'Visual Studio Code'
 #c_y_app = 'Keynote'
 %>
