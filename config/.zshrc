@@ -22,8 +22,8 @@ source ~/.zsh/lib/peco.zsh
 source ~/.zsh/lib/theme.zsh
 
 # Environment-local configurations
-if [[ -f ~/.zshrc.`uname` ]]; then source ~/.zshrc.`uname`; fi
 if [[ -f ~/.zshrc.local ]]; then source ~/.zshrc.local; fi
+if [[ -f ~/.zshrc.`uname` ]]; then source ~/.zshrc.`uname`; fi
 
 # Make scripts that want to put this line happy
 # [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
