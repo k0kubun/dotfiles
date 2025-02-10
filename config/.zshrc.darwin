@@ -16,3 +16,6 @@ unset zle_bracketed_paste
 # Podman
 alias docker="podman"
 alias docker-compose="podman-compose"
+
+# code
+export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
