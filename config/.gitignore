@@ -33,7 +33,7 @@ dump.rdb
 /.ruby
 /.ruby2
 /.*jit
-/.*jit-*
+/.*jit*
 /.r6*
 /.before*
 /.after
