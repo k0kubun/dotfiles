@@ -3,8 +3,8 @@ Description=xremap
 
 [Service]
 Restart=always
-ExecStartPre=setxkbmap -layout jp
 ExecStartPre=xset r rate 200 80
+ExecStartPost=bash -c 'sleep 1 && setxkbmap -layout jp'
 
 # ExecStart=/home/k0kubun/.cargo/bin/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml --watch
 # ExecStart=/home/k0kubun/src/github.com/k0kubun/xremap/target/debug/xremap /home/k0kubun/src/github.com/k0kubun/dotfiles/config/xremap.yml
