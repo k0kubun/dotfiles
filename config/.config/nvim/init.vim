@@ -78,7 +78,7 @@ if dein#tap('coc.nvim')
   \]
 
   function! MouseHoverOnClick()
-    if CocAction('hasProvider', 'hover') && !coc#float#has_float()
+    if CocAction('hasProvider', 'hover') "&& !coc#float#has_float()
       call CocAction('doHover')
     endif
   endfunction
@@ -91,7 +91,7 @@ if exists("g:neovide")
   let g:neovide_opacity = 0.9
   let g:neovide_normal_opacity = 0.8
   let g:neovide_floating_shadow = v:true
-  let g:neovide_cursor_animation_length = 0.150
+  let g:neovide_cursor_animation_length = 0
 endif
 
 " Execute <Plug> like :ExecutePlugMap <Plug>(coc-rename)
