@@ -2,7 +2,8 @@ keymap:
   - name: Launchers
     remap:
       C-y:
-        launch: ["wmctrl", "-x", "-a", "code.Code"]
+        #launch: ["wmctrl", "-x", "-a", "code.Code"]
+        launch: ["wmctrl", "-x", "-a", "neovide.neovide"]
         #launch: ["wmctrl", "-x", "-a", "cursor.Cursor"]
       C-u:
         launch: ["wmctrl", "-x", "-a", "google-chrome.Google-chrome"]
@@ -34,6 +35,7 @@ keymap:
     application:
       not:
         - wezterm
+        - neovide
         - Gnome-terminal
     remap:
       C-j: C-m
@@ -47,6 +49,7 @@ keymap:
         - Code
         - Gnome-terminal
         - wezterm
+        - neovide
         - jetbrains-idea
         - jetbrains-clion
         - jetbrains-rubymine
@@ -112,6 +115,7 @@ keymap:
     application:
       only:
         - wezterm
+        - neovide
         - Gnome-terminal
     remap:
       Super-o: M-o
