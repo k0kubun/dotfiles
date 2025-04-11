@@ -86,6 +86,14 @@ if dein#tap('coc.nvim')
   nmap <LeftMouse> <LeftMouse>:call MouseHoverOnClick()<CR>
 endif
 
+if exists("g:neovide")
+  set guifont=Monaco:h18
+  let g:neovide_opacity = 0.9
+  let g:neovide_normal_opacity = 0.8
+  let g:neovide_floating_shadow = v:true
+  let g:neovide_cursor_animation_length = 0.150
+endif
+
 " Execute <Plug> like :ExecutePlugMap <Plug>(coc-rename)
 function! s:execute_plug_map(key) abort range
   let key = nvim_replace_termcodes(a:key, v:true, v:true, v:true)

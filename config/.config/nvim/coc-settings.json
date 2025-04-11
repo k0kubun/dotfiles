@@ -4,6 +4,13 @@
   "suggest.maxCompleteItemCount": 10,
   "semanticTokens.filetypes": ["c", "rust"],
 
+  "hover.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "winblend": 30,
+    //"shadow": true,
+  },
+
   // Ruby
   "solargraph.diagnostics": true,
   "solargraph.checkGemVersion": false,

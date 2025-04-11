@@ -1,7 +1,8 @@
 <%
 c_o_app = 'Slack'
-c_y_app = 'Visual Studio Code'
+#c_y_app = 'Visual Studio Code'
 #c_y_app = 'Keynote'
+c_y_app = 'Neovide'
 %>
 global:
   check_for_updates_on_startup: false
@@ -82,6 +83,7 @@ profiles:
               bundle_identifiers:
                 - "^com\\.apple\\.Terminal$"
                 - "^com\\.github\\.wez\\.wezterm$"
+                - "^com\\.neovide\\.neovide$"
                 - "^com\\.microsoft\\.VSCode$"
 <%      end %>
     - description: Backslash
@@ -178,6 +180,7 @@ profiles:
             - type: frontmost_application_if
               bundle_identifiers:
                 - "^com\\.apple\\.Terminal$"
+                - "^com\\.neovide\\.neovide$"
                 - "^com\\.github\\.wez\\.wezterm$"
 <%      end %>
 
