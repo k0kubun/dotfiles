@@ -2,8 +2,8 @@ keymap:
   - name: Launchers
     remap:
       C-y:
-        #launch: ["wmctrl", "-x", "-a", "code.Code"]
-        launch: ["wmctrl", "-x", "-a", "neovide.neovide"]
+        launch: ["wmctrl", "-x", "-a", "code.Code"]
+        #launch: ["wmctrl", "-x", "-a", "neovide.neovide"]
         #launch: ["wmctrl", "-x", "-a", "cursor.Cursor"]
       C-u:
         launch: ["wmctrl", "-x", "-a", "google-chrome.Google-chrome"]
