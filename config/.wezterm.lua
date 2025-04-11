@@ -4,10 +4,11 @@ local config = wezterm.config_builder()
 
 -- Styles
 config.window_background_opacity = 0.85
-config.font_size = 20.0
 if wezterm.target_triple:find('darwin') ~= nil then
+  config.font_size = 20.0
   config.font = wezterm.font_with_fallback { 'Monaco', 'Hiragino Sans' }
 else
+  config.font_size = 18.0
   config.font = wezterm.font_with_fallback { 'Inconsolata', 'Noto Sans CJK JP' }
 end
 
