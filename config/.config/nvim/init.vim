@@ -90,6 +90,7 @@ if dein#tap('coc.nvim')
   endfunction
   set mouse=a
   nmap <LeftMouse> <LeftMouse>:call MouseHoverOnClick()<CR>
+  nnoremap <silent> ;h :call MouseHoverOnClick()<CR>
 endif
 
 if exists("g:neovide")
