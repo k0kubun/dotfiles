@@ -68,7 +68,13 @@ if dein#tap('coc.nvim')
   inoremap <silent><expr> <C-p> coc#pum#visible() ? coc#pum#prev(1) : "\<Nop>"
   inoremap <silent><expr> <C-n> coc#pum#visible() ? coc#pum#next(1) : "\<Nop>"
   "nnoremap <silent> <M-@> <Plug>(coc-definition)
-  nnoremap <silent> <M-@> :<C-u>call CocAction('jumpDefinition', 'tabe')<CR>
+
+  if exists("g:neovide") && has('mac')
+    nnoremap <silent> “ :<C-u>call CocAction('jumpDefinition', 'tabe')<CR>
+  else
+    nnoremap <silent> <M-@> :<C-u>call CocAction('jumpDefinition', 'tabe')<CR>
+  endif
+
   autocmd ColorScheme * highlight link CocMenuSel PmenuSel
   let g:coc_global_extensions = [
   \ 'coc-clangd',
@@ -86,12 +92,20 @@ if dein#tap('coc.nvim')
   nmap <LeftMouse> <LeftMouse>:call MouseHoverOnClick()<CR>
 endif
 
+"lua << EOF
+"vim.keymap.set('n', '<F6>', function()
+"  local c = vim.fn.getcharstr()
+"  print("Pressed:", vim.inspect(c))
+"end, { noremap = true })
+"EOF
+
 if exists("g:neovide")
   set guifont=Monaco:h18
   let g:neovide_opacity = 0.9
   let g:neovide_normal_opacity = 0.8
   let g:neovide_floating_shadow = v:true
   let g:neovide_cursor_animation_length = 0
+  let g:neovide_input_macos_alt_is_meta = v:true
 endif
 
 " Execute <Plug> like :ExecutePlugMap <Plug>(coc-rename)
