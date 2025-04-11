@@ -1,5 +1,6 @@
-dotfile '.config/nvim/coc-settings.json'
-dotfile '.config/nvim/init.vim'
+#dotfile '.config/nvim/coc-settings.json'
+#dotfile '.config/nvim/init.vim'
+dotfile '.config/nvim'
 dotfile '.config/solargraph/config.yml'
 dotfile '.gemrc'
 dotfile '.gitconfig'
