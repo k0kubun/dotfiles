@@ -100,7 +100,11 @@ endif
 "EOF
 
 if exists("g:neovide")
-  set guifont=Monaco:h18
+  if has('mac')
+    set guifont=Monaco:h18
+  else
+    set guifont=Inconsolata:h18
+  endif
   let g:neovide_opacity = 0.9
   let g:neovide_normal_opacity = 0.8
   let g:neovide_floating_shadow = v:true
