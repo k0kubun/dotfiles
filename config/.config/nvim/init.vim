@@ -40,7 +40,6 @@ if dein#load_state(s:dein_cache)
 
   " Coc
   call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
-  call dein#add('lewis6991/hover.nvim')
 
   " Editing
   call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'] })
@@ -83,10 +82,8 @@ if dein#tap('coc.nvim')
       call CocAction('doHover')
     endif
   endfunction
-
-  lua require('hover_coc')
-  "set mouse=a
-  "nmap <LeftMouse> <LeftMouse>:call MouseHoverOnClick()<CR>
+  set mouse=a
+  nmap <LeftMouse> <LeftMouse>:call MouseHoverOnClick()<CR>
 endif
 
 " Execute <Plug> like :ExecutePlugMap <Plug>(coc-rename)
