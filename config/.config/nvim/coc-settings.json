@@ -4,11 +4,25 @@
   "suggest.maxCompleteItemCount": 10,
   "semanticTokens.filetypes": ["c", "rust"],
 
+  "suggest.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "winblend": 30,
+  },
+  "diagnostic.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "winblend": 30,
+  },
+  "signature.floatConfig": {
+    "border": true,
+    "rounded": true,
+    "winblend": 30,
+  },
   "hover.floatConfig": {
     "border": true,
     "rounded": true,
     "winblend": 30,
-    //"shadow": true,
   },
 
   // Ruby
