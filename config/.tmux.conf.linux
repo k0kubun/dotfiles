@@ -5,3 +5,7 @@ bind-key -T copy-mode-vi v send -X begin-selection
 bind-key -T copy-mode-vi V send -X select-line
 bind-key -T copy-mode-vi C-v send -X rectangle-toggle
 bind-key -T copy-mode-vi Y send -X copy-line
+
+# Fix Neovim colors on wezterm
+set -g default-terminal "tmux-256color"
+set -ag terminal-overrides ",xterm-256color:RGB"
