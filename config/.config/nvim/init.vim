@@ -101,8 +101,13 @@ if exists("g:neovide")
   let g:neovide_opacity = 0.9
   let g:neovide_normal_opacity = 0.8
   let g:neovide_floating_shadow = v:true
-  let g:neovide_cursor_animation_length = 0
   let g:neovide_input_macos_alt_is_meta = v:true
+
+  let g:neovide_cursor_animation_length = 0
+  let g:neovide_position_animation_length = 0
+  let g:neovide_cursor_short_animation_length = 0
+  let g:neovide_scroll_animation_length = 0 "0.1
+  let g:neovide_cursor_animate_command_line = v:false
 endif
 
 " Execute <Plug> like :ExecutePlugMap <Plug>(coc-rename)

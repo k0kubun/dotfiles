@@ -7,22 +7,22 @@
   "suggest.floatConfig": {
     "border": true,
     "rounded": true,
-    "winblend": 30,
+    "winblend": 20,
   },
   "diagnostic.floatConfig": {
     "border": true,
     "rounded": true,
-    "winblend": 30,
+    "winblend": 20,
   },
   "signature.floatConfig": {
     "border": true,
     "rounded": true,
-    "winblend": 30,
+    "winblend": 20,
   },
   "hover.floatConfig": {
     "border": true,
     "rounded": true,
-    "winblend": 30,
+    "winblend": 20,
   },
 
   // Ruby
