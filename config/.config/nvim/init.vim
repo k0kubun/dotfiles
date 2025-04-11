@@ -92,13 +92,6 @@ if dein#tap('coc.nvim')
   nmap <LeftMouse> <LeftMouse>:call MouseHoverOnClick()<CR>
 endif
 
-"lua << EOF
-"vim.keymap.set('n', '<F6>', function()
-"  local c = vim.fn.getcharstr()
-"  print("Pressed:", vim.inspect(c))
-"end, { noremap = true })
-"EOF
-
 if exists("g:neovide")
   if has('mac')
     set guifont=Monaco:h18
