@@ -27,7 +27,7 @@ export BUNDLER_EDITOR="nvim"
 alias Grep="grep"
 
 # rr workaround
-alias rr="LD_PRELOAD=libstdc++.so.6 rr"
+# alias rr="LD_PRELOAD=libstdc++.so.6 rr"
 
 # Rust gdb
 # if [[ -z "$PYTHONPATH" ]]; then
