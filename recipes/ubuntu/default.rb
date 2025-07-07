@@ -48,7 +48,7 @@ execute 'timedatectl set-local-rtc true' do
 end
 
 # Wireguard
-remote_file "#{ENV['HOME']}/.config/autostart/nm-applet.desktop" do
-  owner node[:user]
-  group node[:user]
-end
+#remote_file "#{ENV['HOME']}/.config/autostart/nm-applet.desktop" do
+#  owner node[:user]
+#  group node[:user]
+#end
