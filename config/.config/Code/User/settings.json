@@ -94,7 +94,7 @@
     "go.toolsManagement.autoUpdate": true,
     "lldb.suppressUpdateNotifications": true,
     "editor.fontFamily": "Monaco, Inconsolata",
-    "editor.fontSize": 16,
+    "editor.fontSize": 20,
     "extensions.experimental.affinity": {
         "asvetliakov.vscode-neovim": 1
     },

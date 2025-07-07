@@ -8,8 +8,8 @@ if wezterm.target_triple:find('darwin') ~= nil then
   config.font_size = 20.0
   config.font = wezterm.font_with_fallback { 'Monaco', 'Hiragino Sans' }
 else
-  config.font_size = 18.0
-  config.font = wezterm.font_with_fallback { 'Inconsolata', 'Noto Sans CJK JP' }
+  config.font_size = 16.0
+  config.font = wezterm.font_with_fallback { 'Monaco', 'Noto Sans CJK JP' }
 end
 
 -- Disable annoying features
