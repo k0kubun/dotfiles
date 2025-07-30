@@ -100,5 +100,6 @@
     },
     "github.copilot.editor.enableCodeActions": false,
     "editor.autoClosingBrackets": "never",
+    "git.openRepositoryInParentFolders": "always",
     //"editor.inlineSuggest.enabled": true,
 }
