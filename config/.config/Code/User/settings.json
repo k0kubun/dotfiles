@@ -78,7 +78,7 @@
 
     // Others
     "redhat.telemetry.enabled": false,
-    "solargraph.diagnostics": true,
+    //"solargraph.diagnostics": true,
     "rubyLsp.enabledFeatures": {
         "documentHighlights": true,
         "documentLink": true,

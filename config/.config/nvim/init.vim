@@ -80,8 +80,8 @@ if dein#tap('coc.nvim')
   \ 'coc-clangd',
   \ 'coc-go',
   \ 'coc-rust-analyzer',
-  \ 'coc-solargraph',
   \]
+  " \ 'coc-solargraph',
 
   function! MouseHoverOnClick()
     if CocAction('hasProvider', 'hover') "&& !coc#float#has_float()

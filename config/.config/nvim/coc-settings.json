@@ -26,8 +26,8 @@
   },
 
   // Ruby
-  "solargraph.diagnostics": true,
-  "solargraph.checkGemVersion": false,
+  //"solargraph.diagnostics": true,
+  //"solargraph.checkGemVersion": false,
   //"languageserver": {
   //  "ruby-lsp": {
   //    "command": "ruby-lsp",
