@@ -70,3 +70,4 @@ ext/-test-/cxxanyargs/failure.failed
 perf.hist.*
 yjit_*.log
 .claude
+.solargraph.yml
