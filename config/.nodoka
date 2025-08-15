@@ -18,8 +18,8 @@ key *LControl = Esc
 
 # Launchers
 key C-U = &SetForegroundWindow(/./ && / - Google Chrome$/)
-key C-O = &SetForegroundWindow(/./ && /^Nocturn$/)
-key C-H = &SetForegroundWindow(/mintty/)
+key C-O = &SetForegroundWindow(/./ && /- Slack$/)
+key C-H = &SetForegroundWindow(/./ && /wslhost\.exe$/)
 
 # Screen Lock (Log off)
 key C-M-L = W-L
