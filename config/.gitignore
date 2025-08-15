@@ -71,3 +71,4 @@ perf.hist.*
 yjit_*.log
 .claude
 .solargraph.yml
+jitlist.txt
