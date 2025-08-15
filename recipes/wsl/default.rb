@@ -1,5 +1,7 @@
 dotfile '.config/nvim/coc-settings.json'
 dotfile '.config/nvim/init.vim'
+dotfile '.gitconfig'
+dotfile '.peco'
 dotfile '.tmux.conf'
 dotfile '.tmux.conf.local' => '.tmux.conf.linux'
 dotfile '.zsh'

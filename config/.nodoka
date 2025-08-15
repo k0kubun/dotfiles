@@ -70,12 +70,3 @@ key *LAlt = *LControl
 # Chrome Cmd handlers
 key M-L = C-L
 key M-S = C-F
-
-###############################################################################
-# Only WezTerm
-###############################################################################
-window OnlyWezTerm /^C:[^:]+[\\\]wezterm-gui\.exe/ : Global
-
-# For new-window workaround on tmux by M-t
-key M-T = C-Q
-key M-V = S-Insert
