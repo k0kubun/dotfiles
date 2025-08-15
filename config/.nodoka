@@ -13,9 +13,8 @@ key *NonConvert = *LControl
 mod Alt += Hiragana
 key *Hiragana = *RAlt
 
-# CapsLock -> Esc
-key Eisuu = Esc
-key S-Eisuu = Esc
+# Control -> Esc
+key *LControl = Esc
 
 # Launchers
 key C-U = &SetForegroundWindow(/./ && / - Google Chrome$/)
@@ -32,11 +31,10 @@ key M-V = C-v
 # \ -> _
 key BackSlash = S-BackSlash
 
-
 ###############################################################################
-# Unless Vim or Mintty
+# Unless WezTerm
 ###############################################################################
-window UnlessVimOrMintty /^(?!C:[^:]+[\\\](gvim|mintty)\.exe)/ : Global
+window UnlessWezTerm /^(?!C:[^:]+[\\\](wezterm-gui)\.exe)/ : Global
 
 # Emacs Bindings
 keyseq $EmacsEdit/kill-line = &EmacsEditKillLineFunc S-End C-X &Sync &EmacsEditKillLinePred((Delete), (Return Left))
@@ -54,12 +52,6 @@ key C-d = Delete
 key C-K	= $EmacsEdit/kill-line
 key M-d = $EmacsEdit/kill-word
 key C-w = $EmacsEdit/backward-kill-word
-
-
-###############################################################################
-# Unless Vim, Mintty or Nocturn
-###############################################################################
-window UnlessVimMinttyOrNocturn /^(?!C:[^:]+[\\\](gvim|mintty|Nocturn)\.exe)/ : Global
 
 # Tab management by Cmd
 key M-O = C-S-Tab
@@ -79,11 +71,10 @@ key *LAlt = *LControl
 key M-L = C-L
 key M-S = C-F
 
-
 ###############################################################################
-# Only Mintty
+# Only WezTerm
 ###############################################################################
-window OnlyMintty /^C:[^:]+[\\\]mintty\.exe/ : Global
+window OnlyWezTerm /^C:[^:]+[\\\]wezterm-gui\.exe/ : Global
 
 # For new-window workaround on tmux by M-t
 key M-T = C-Q
