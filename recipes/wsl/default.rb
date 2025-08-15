@@ -10,11 +10,9 @@ dotfile '.zshrc.Linux'
 
 package 'tmux'
 package 'zsh'
-package 'neovim'
-package 'nodejs'
-package 'npm'
+package 'htop'
 
-execute "chsh -s /bin/zsh #{node[:user]}" do
-  only_if "getent passwd #{node[:user]} | cut -d: -f7 | grep -q '^/bin/bash$'"
-  user 'root'
-end
+include_recipe 'zsh'
+include_recipe 'neovim'
+include_recipe 'systemd'
+include_recipe 'ssh-agent'
