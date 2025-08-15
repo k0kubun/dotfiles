@@ -50,7 +50,8 @@ key C-F = Right
 key M-B = C-Left
 key M-F = C-Right
 key C-d = Delete
-key C-K	= $EmacsEdit/kill-line
+#key C-K	= $EmacsEdit/kill-line
+key C-K	= S-End C-X
 key M-d = $EmacsEdit/kill-word
 key C-w = $EmacsEdit/backward-kill-word
 
