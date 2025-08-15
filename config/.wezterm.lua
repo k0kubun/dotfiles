@@ -15,7 +15,8 @@ elseif is_linux then
   config.font_size = 16.0
   config.font = wezterm.font_with_fallback { 'Monaco', 'Noto Sans CJK JP' }
 elseif is_windows then
-  config.font_size = 18.0
+  config.font_size = 16.0
+  config.font = wezterm.font_with_fallback { 'Monaco', 'Hiragino Sans' }
 end
 
 -- Disable annoying features
