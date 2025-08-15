@@ -27,7 +27,6 @@ key C-M-L = W-L
 # Cmd by Alt
 key M-A = C-a
 key M-C = C-c
-key M-V = C-v
 
 # \ -> _
 key BackSlash = S-BackSlash
@@ -60,6 +59,9 @@ key M-O = C-S-Tab
 key M-P = C-Tab
 key M-T = C-T
 key M-W = C-W
+
+# Cmd by Alt
+#key M-V = C-v
 
 ###############################################################################
 # Only Chrome

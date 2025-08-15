@@ -15,7 +15,7 @@ elseif is_linux then
   config.font_size = 16.0
   config.font = wezterm.font_with_fallback { 'Monaco', 'Noto Sans CJK JP' }
 elseif is_windows then
-  config.font_size = 16.0
+  config.font_size = 18.0
 end
 
 -- Disable annoying features
@@ -30,7 +30,7 @@ config.window_padding = {
 config.audible_bell = 'Disabled'
 
 -- Clipboard
-if is_linux then
+if is_linux or is_windows then
   config.keys = {
     { key = 'v', mods = 'ALT', action = wezterm.action.PasteFrom 'Clipboard' },
   }
