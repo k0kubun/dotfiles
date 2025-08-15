@@ -1,8 +1,3 @@
-# Use a different recipe for WSL
-if node[:kernel][:release] =~ /microsoft/i
-  return include_recipe '../wsl'
-end
-
 dotfile '.Xmodmap'
 dotfile '.config/nvim/coc-settings.json'
 dotfile '.config/nvim/init.vim'
