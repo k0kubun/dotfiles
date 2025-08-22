@@ -295,19 +295,6 @@ function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
 endfunction
 
-function! s:my_tabline()
-  let s = ''
-  for i in range(1, tabpagenr('$'))
-    let bufnr = tabpagebuflist(i)[tabpagewinnr(i) - 1]                          " First window appears first
-    let s .= '%'.i.'T' . '%#'.(i == tabpagenr() ? 'TabLineSel' : 'TabLine').'#' " TabLineSel | TabLine
-    let s .= i . ':[' . fnamemodify(bufname(bufnr), ':t') . ']'                 " i:[title]
-    let s .= getbufvar(bufnr, '&modified') ? '!' : ' '                          " !
-    let s .= '%#TabLineFill# '
-  endfor
-  return s . '%#TabLineFill#%T%=%#TabLine#'
-endfunction
-let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
-
 function! s:my_statusline()
   let s = '%{fugitive#statusline()} %<%f'
   if exists('coc#status') && len(coc#status()) > 0
