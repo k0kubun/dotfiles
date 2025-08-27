@@ -72,3 +72,4 @@ yjit_*.log
 .claude
 .solargraph.yml
 jitlist.txt
+*.rs.pending-snap
