@@ -226,6 +226,7 @@ autocmd FileType yaml   setlocal sw=2 sts=2 ts=2 et list listchars=tab:»-
 "===============================================================================
 autocmd BufNewFile,BufRead *.ipynb set filetype=json
 autocmd BufNewFile,BufRead insns.def set filetype=c
+autocmd BufNewFile,BufRead BytecodeList.def set filetype=cpp
 autocmd BufNewFile,BufRead *.h set filetype=c
 autocmd BufNewFile,BufRead settings.json set filetype=jsonc
 autocmd BufNewFile,BufRead keybindings.json set filetype=jsonc
