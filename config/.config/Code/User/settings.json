@@ -101,5 +101,7 @@
     "github.copilot.editor.enableCodeActions": false,
     "editor.autoClosingBrackets": "never",
     "git.openRepositoryInParentFolders": "always",
+    "extensions.ignoreRecommendations": true,
+    "markdown-preview-github-styles.colorTheme": "light",
     //"editor.inlineSuggest.enabled": true,
 }
