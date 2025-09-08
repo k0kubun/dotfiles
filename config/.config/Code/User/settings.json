@@ -102,5 +102,6 @@
     "git.openRepositoryInParentFolders": "always",
     "extensions.ignoreRecommendations": true,
     "markdown-preview-github-styles.colorTheme": "light",
+    "editor.fontSize": 16,
     //"editor.inlineSuggest.enabled": true,
 }
