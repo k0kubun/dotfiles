@@ -1,0 +1,106 @@
+{
+    // Basic
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+
+    // Theme
+    "workbench.colorTheme": "Darcula",
+    "editor.tokenColorCustomizations": {
+        "[Darcula]": {
+            "textMateRules": [
+                /* Go */
+                { "settings": { "foreground": "#cc8242" }, "scope": ["support.type.primitive.go"] },
+                { "settings": { "foreground": "#6fafbd" }, "scope": ["variable.field.go"] },
+                //{ "settings": { "foreground": "#9876aa" }, "scope": ["variable.other.assignment.go"] },
+
+                /* Ruby */
+                { "settings": { "foreground": "#6a8757" }, "scope": ["punctuation.section.regexp.ruby", "punctuation.section.embedded.begin.ruby", "punctuation.section.embedded.end.ruby"] },
+                { "settings": { "foreground": "#7a9ec2" }, "scope": ["variable.other.constant.ruby", "support.class.ruby", "entity.name.type.class.ruby"] },
+                { "settings": { "foreground": "#9cdced" }, "scope": ["variable.other.readwrite.global.ruby"] },
+                { "settings": { "foreground": "#af87af" }, "scope": ["variable.other.readwrite.instance.ruby", "variable.other.readwrite.class.ruby"] },
+                { "settings": { "foreground": "#bcbcbc" }, "scope": ["meta.embedded.line.ruby", "punctuation.definition.constant.hashkey.ruby", "punctuation.separator.inheritance.ruby"] },
+                { "settings": { "foreground": "#d75f5f" }, "scope": ["constant.language.nil.ruby", "constant.numeric.ruby", "constant.language.symbol.ruby", "constant.language.symbol.hashkey.ruby", "constant.language.boolean.ruby"] },
+
+                /* Rust */
+                { "settings": { "foreground": "#bbb529" }, "scope": ["meta.attribute.rust"] },
+            ],
+        },
+        "[Default Dark+]": {
+            "textMateRules": [
+                { "settings": { "foreground": "#767676" }, "scope": ["comment"] },
+                { "settings": { "foreground": "#87afaf" }, "scope": ["keyword", "keyword.control"] },
+                { "settings": { "foreground": "#87afd7" }, "scope": ["keyword.control.start-block.ruby"] },
+                { "settings": { "foreground": "#af87af" }, "scope": ["variable.other.readwrite.instance.ruby"] },
+                { "settings": { "foreground": "#afaf5f" }, "scope": ["string", "string.regexp", "punctuation.section.regexp.ruby", "punctuation.section.embedded.begin.ruby", "punctuation.section.embedded.end.ruby"] },
+                { "settings": { "foreground": "#bcbcbc" }, "scope": ["punctuation.separator.inheritance.ruby", "punctuation.section", "variable.parameter.function.ruby", "variable.other.ruby", "variable.other.block.ruby", "support.function.kernel.ruby"] },
+                { "settings": { "foreground": "#d75f5f" }, "scope": ["constant.language.nil.ruby", "constant.numeric.ruby", "constant.language.symbol.ruby", "constant.language.symbol.hashkey.ruby", "constant.language.boolean.ruby"] },
+                { "settings": { "foreground": "#d7875f" }, "scope": ["entity.name.type", "variable.other.constant", "entity.other.inherited-class", "support.class.ruby"] },
+                { "settings": { "foreground": "#ffd75f" }, "scope": ["entity.name.function.ruby"] },
+                //{ "settings": { "foreground": "#bcbcbc" }, "scope": "meta.function-call.ruby" },
+            ],
+        },
+    },
+
+    // CRuby
+    "files.associations": {
+        "insns.def": "c",
+    },
+
+    // Go
+    "[go]": {
+        // "editor.renderWhitespace": "boundary",
+    },
+
+    // Rust
+    "[rust]": {
+        // This should be xremap-specific
+        // "editor.formatOnSave": true,
+    },
+
+    // UI
+    "workbench.tree.indent": 24,
+
+    // Neovim
+    "vscode-neovim.neovimExecutablePaths.darwin": "/opt/homebrew/bin/nvim",
+    "vscode-neovim.neovimExecutablePaths.linux": "/usr/local/bin/nvim",
+
+    // Gitlens
+    "gitlens.blame.highlight.enabled": false,
+    "gitlens.currentLine.enabled": false,
+
+    // Disable unwanted features
+    "editor.minimap.enabled": false,
+    "editor.inlayHints.enabled": "off",
+    "editor.codeLens": false,
+    "security.workspace.trust.enabled": false,
+    "editor.cursorBlinking": "solid",
+    "editor.bracketPairColorization.enabled": false,
+
+    // Others
+    "redhat.telemetry.enabled": false,
+    //"solargraph.diagnostics": true,
+    "rubyLsp.enabledFeatures": {
+        "documentHighlights": true,
+        "documentLink": true,
+        "documentSymbols": true,
+        "foldingRanges": true,
+        "selectionRanges": true,
+        "semanticHighlighting": true,
+        "formatting": true,
+        "diagnostics": true,
+        "codeActions": true,
+        "onTypeFormatting": true
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "lldb.suppressUpdateNotifications": true,
+    "editor.fontFamily": "Monaco",
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "github.copilot.editor.enableCodeActions": false,
+    "editor.autoClosingBrackets": "never",
+    "git.openRepositoryInParentFolders": "always",
+    "extensions.ignoreRecommendations": true,
+    "markdown-preview-github-styles.colorTheme": "light",
+    //"editor.inlineSuggest.enabled": true,
+}
