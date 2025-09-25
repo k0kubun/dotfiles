@@ -104,5 +104,8 @@
     "markdown-preview-github-styles.colorTheme": "light",
     "editor.fontSize": 16,
     "editor.detectIndentation": false,
+    "remote.SSH.remotePlatform": {
+        "framework": "linux"
+    },
     //"editor.inlineSuggest.enabled": true,
 }
