@@ -31,6 +31,8 @@ if [[ -f ~/.zshrc.`uname` ]]; then source ~/.zshrc.`uname`; fi
 if false; then
 # cloudplatform: add Shopify clusters to your local kubernetes config
 export KUBECONFIG=${KUBECONFIG:+$KUBECONFIG:}/Users/k0kubun/.kube/config:/Users/k0kubun/.kube/config.shopify.cloudplatform
+# Added by tec agent
+[[ -x /Users/k0kubun/.local/state/tec/profiles/base/current/global/init ]] && eval "$(/Users/k0kubun/.local/state/tec/profiles/base/current/global/init zsh)"
 fi
 
 # Enable syntax highlight: must be after all ZLE
