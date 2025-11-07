@@ -1,4 +1,5 @@
 dotfile '.Xmodmap'
+dotfile '.bundle/config'
 dotfile '.config/nvim/coc-settings.json'
 dotfile '.config/nvim/init.vim'
 dotfile '.config/solargraph/config.yml'
