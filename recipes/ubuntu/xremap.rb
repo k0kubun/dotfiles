@@ -8,7 +8,7 @@ end
 directory "#{ENV['HOME']}/.config/autostart" do
   owner node[:user]
   group node[:user]
-  mode '755'
+  mode '775'
 end
 
 remote_file "#{ENV['HOME']}/.config/autostart/xremap.desktop" do
