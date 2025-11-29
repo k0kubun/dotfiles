@@ -74,3 +74,25 @@ key *LAlt = *LControl
 # Chrome Cmd handlers
 key M-L = C-L
 key M-S = C-F
+
+###############################################################################
+# Only MuMu
+###############################################################################
+window OnlyMuMu /^C:[^:]+[\\\]MuMuNxDevice\.exe/ : Global
+
+# 1/2/3/4
+key D-_1 = D-_1 U-_1
+key R-_1 =
+key U-_1 =
+
+key D-_2 = D-_2 U-_2
+key R-_2 =
+key U-_2 =
+
+key D-_3 = D-_3 U-_3
+key R-_3 =
+key U-_3 =
+
+key D-_4 = D-_4 U-_4
+key R-_4 =
+key U-_4 =
