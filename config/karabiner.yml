@@ -1,7 +1,7 @@
 <%
 c_o_app = 'Slack'
 c_y_app = 'Visual Studio Code'
-#c_y_app = 'Keynote'
+c_y_app = 'Keynote'
 %>
 global:
   check_for_updates_on_startup: false
@@ -113,7 +113,7 @@ profiles:
           conditions:
             - type: frontmost_application_unless
               bundle_identifiers:
-                - "^com\\.apple\\.Terminal$"
+                - "^com\\.microsoft\\.VSCode$"
 <%      end %>
 
     #
