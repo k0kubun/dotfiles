@@ -1,7 +1,7 @@
 <%
 c_o_app = 'Slack'
 c_y_app = 'Visual Studio Code'
-c_y_app = 'Keynote'
+#c_y_app = 'Keynote'
 %>
 global:
   check_for_updates_on_startup: false
