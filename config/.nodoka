@@ -20,6 +20,7 @@ key *LControl = Esc
 key C-U = &SetForegroundWindow(/./ && / - Google Chrome$/)
 key C-O = &SetForegroundWindow(/./ && /- Slack$/)
 key C-H = &SetForegroundWindow(/./ && /wslhost\.exe$/)
+key C-Y = &SetForegroundWindow(/./ && /Visual Studio Code$/)
 
 # Screen Lock (Log off)
 key C-M-L = W-L
