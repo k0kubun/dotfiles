@@ -44,4 +44,4 @@
 	process = git-lfs filter-process
 	required = true
 [fetch]
-	showForcedUpdates = false
+  #showForcedUpdates = false
