@@ -62,6 +62,7 @@ endif
 
 filetype plugin indent on
 syntax enable
+set background=dark
 set termguicolors
 
 if dein#tap('coc.nvim')
