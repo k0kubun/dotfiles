@@ -6,6 +6,12 @@
       "bindings": {
         "ctrl+b": null
       }
+    },
+    {
+      "context": "Chat",
+      "bindings": {
+        "ctrl+b": null
+      }
     }
   ]
 }
