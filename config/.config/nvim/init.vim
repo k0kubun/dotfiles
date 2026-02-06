@@ -163,7 +163,7 @@ function! s:my_fzf_files() abort
   endif
 endfunction
 nnoremap <silent> ;u :<C-u>call <SID>my_fzf_files()<CR>
-set timeoutlen=1000 ttimeoutlen=0
+set timeoutlen=1000 ttimeoutlen=50
 
 " Tabs
 nnoremap <Plug>(tag)           <Nop>
