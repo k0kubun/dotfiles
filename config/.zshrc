@@ -41,8 +41,11 @@ if [[ ! -d ~/.zsh/bundle/zsh-syntax-highlighting ]]; then
 fi
 source ~/.zsh/bundle/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# https://jonasjacek.github.io/colors/
-export TERM=xterm-256color
+# Disable xterm-256color to work around the :0000/0000/0000^G problem on Mac Mini
+if [[ -z "$TMUX" ]]; then
+  # https://jonasjacek.github.io/colors/
+  export TERM=xterm-256color
+fi
 
 ZSH_HIGHLIGHT_STYLES[default]=fg=255
 ZSH_HIGHLIGHT_STYLES[path]=fg=255
