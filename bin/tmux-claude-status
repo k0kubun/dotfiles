@@ -1,0 +1,51 @@
+#!/bin/bash
+# tmux-claude-status - Show Claude Code agent status in tmux status bar
+#
+# States:
+#   active  - Claude is actively working (CPU > 3%)
+#   action  - Claude needs user input (permission prompt or question)
+#   done    - Claude is idle, waiting for next task
+#
+# Output: colored tmux format string, empty if no Claude instances
+
+total=0 active=0 action=0 done_count=0
+
+# Cache process info (single ps call instead of per-pane)
+ps_info=$(ps -eo pid=,ppid=,%cpu=,comm= 2>/dev/null)
+
+while IFS=$'\t' read -r pane_id pane_pid; do
+    # Check if this pane's shell has a claude child process
+    line=$(echo "$ps_info" | awk -v ppid="$pane_pid" '$2 == ppid && $4 == "claude" {print; exit}')
+    [ -z "$line" ] && continue
+
+    claude_pid=$(echo "$line" | awk '{print $1}')
+    cpu=$(echo "$line" | awk '{print $3}')
+    ((total++))
+
+    # Capture last lines of pane to detect permission prompts
+    last_lines=$(tmux capture-pane -p -t "$pane_id" 2>/dev/null | tail -10)
+
+    # State: needs user action (permission/approval prompt or question)
+    if echo "$last_lines" | grep -qE '^\s*(Allow|Deny)'; then
+        ((action++))
+        continue
+    fi
+
+    # State: active vs done based on CPU usage
+    cpu_int=${cpu%%.*}
+    if [ "${cpu_int:-0}" -gt 3 ]; then
+        ((active++))
+    else
+        ((done_count++))
+    fi
+done < <(tmux list-panes -a -F '#{pane_id}	#{pane_pid}' 2>/dev/null)
+
+[ $total -eq 0 ] && exit 0
+
+# Build tmux-formatted status string
+# Labels: ⚙=working !=needs_action ✓=done
+printf '#[fg=colour255,bg=colour31,bold] CC:%d ' "$total"
+printf '#[nobold,fg=colour158]%d⚙ ' "$active"
+printf '#[fg=colour228]%d! ' "$action"
+printf '#[fg=colour252]%d✓' "$done_count"
+printf ' #[default]'
