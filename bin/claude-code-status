@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# Usage (~/.claude/settings.json):
+#   "statusLine": {
+#     "type": "command",
+#     "command": "~/src/github.com/k0kubun/dotfiles/bin/claude-code-status"
+#   }
+#
+input=$(cat)
+
+model=$(echo "$input" | jq -r '.model.display_name')
+used_pct=$(echo "$input" | jq -r '.context_window.used_percentage // empty')
+window_size=$(echo "$input" | jq -r '.context_window.context_window_size // empty')
+
+if [ -z "$used_pct" ] || [ -z "$window_size" ]; then
+  echo "$model"
+  exit 0
+fi
+
+it=$(echo "$input" | jq -r '.context_window.current_usage.input_tokens // 0')
+cc=$(echo "$input" | jq -r '.context_window.current_usage.cache_creation_input_tokens // 0')
+cr=$(echo "$input" | jq -r '.context_window.current_usage.cache_read_input_tokens // 0')
+used_tokens=$((it + cc + cr))
+
+used_pct=$(printf "%.0f" "$used_pct")
+formatted_used=$(printf "%'d" "$used_tokens" 2>/dev/null || echo "$used_tokens")
+formatted_window=$(printf "%'d" "$window_size" 2>/dev/null || echo "$window_size")
+
+echo "$model | ${used_pct}% (${formatted_used}/${formatted_window})"
