@@ -5,7 +5,7 @@
     {
       "context": "Chat",
       "bindings": {
-        "ctrl+b": null
+        "ctrl+b": "chat:cursorBackward"
       }
     }
   ]
