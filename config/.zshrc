@@ -20,6 +20,7 @@ source ~/.zsh/lib/git.zsh
 source ~/.zsh/lib/languages.zsh
 source ~/.zsh/lib/peco.zsh
 source ~/.zsh/lib/theme.zsh
+source ~/.zsh/lib/claude.zsh
 
 # Environment-local configurations
 if [[ -f ~/.zshrc.local ]]; then source ~/.zshrc.local; fi
