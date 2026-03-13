@@ -9,3 +9,4 @@ set auto-load safe-path /
 # dir ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/etc
 set debuginfod enabled off
 handle SIGPIPE nostop noprint pass
+handle SIG33 nostop noprint pass
