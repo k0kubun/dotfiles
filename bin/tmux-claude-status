@@ -15,7 +15,7 @@ ps_info=$(ps -eo pid=,ppid=,%cpu=,comm= 2>/dev/null)
 
 while IFS=$'\t' read -r pane_id pane_pid; do
     # Check if this pane's shell has a claude child process
-    line=$(echo "$ps_info" | awk -v ppid="$pane_pid" '$2 == ppid && $4 == "claude" {print; exit}')
+    line=$(echo "$ps_info" | awk -v ppid="$pane_pid" '$2 == ppid && ($4 == "claude" || $4 == ".claude-wrapped") {print; exit}')
     [ -z "$line" ] && continue
 
     claude_pid=$(echo "$line" | awk '{print $1}')
