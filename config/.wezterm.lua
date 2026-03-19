@@ -29,6 +29,8 @@ config.window_padding = {
   bottom = 0,
 }
 config.audible_bell = 'Disabled'
+-- Prevent IME from randomly overriding send_composed_key_when_left_alt_is_pressed per-window
+config.use_ime = false
 
 -- Clipboard
 if is_linux or is_windows then
