@@ -9,7 +9,7 @@ local is_windows = wezterm.target_triple:find('windows') ~= nil
 -- Styles
 config.window_background_opacity = 0.85
 if is_macos then
-  config.font_size = 20.0
+  config.font_size = 22.0
   config.font = wezterm.font_with_fallback { 'Monaco', 'Hiragino Sans' }
 elseif is_linux then
   config.font_size = 16.0
