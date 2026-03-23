@@ -38,6 +38,7 @@ directory "#{ENV['HOME']}/.config/systemd/user/default.target.wants" do
   mode '755'
 end
 
+include_recipe 'setup-perf'
 include_recipe 'ssh-agent'
 include_recipe 'gpg-agent'
 include_recipe 'ddns-update'
