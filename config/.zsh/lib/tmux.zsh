@@ -1,6 +1,12 @@
 # tmux
 export PATH="$HOME/bin:$PATH"
-alias tmux="tmux -2"
+function tmux() {
+  if [[ $# -eq 0 ]]; then
+    command tmux -2 new-session -A -s "*scratch*"
+  else
+    command tmux -2 "$@"
+  fi
+}
 if [[ -z "$TMUX" && -z "$STY" && "$TERM_PROGRAM" != "vscode" ]]; then
   if [[ -z "$SSH_TTY" ]]; then
     # Start tmux by default if not on SSH
