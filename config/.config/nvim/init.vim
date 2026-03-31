@@ -49,7 +49,7 @@ if dein#load_state(s:dein_cache)
 
   " Git
   call dein#add('tyru/open-browser.vim', { 'lazy': 1 })
-  call dein#add('k0kubun/open-browser-github.vim', { 'on_cmd': ['OpenGithubFile'],
+  call dein#add('k0kubun/open-browser-github.vim', { 'on_cmd': ['OpenGithubFile', 'ShowGithubFile', 'CopyGithubFile'],
         \ 'depends': ['open-browser.vim'], 'hook_post_source': 'call SetupOpenBrowserGithub()' })
 
   call dein#end()
