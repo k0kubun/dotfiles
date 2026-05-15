@@ -7,7 +7,13 @@ $ "
   return
 fi
 
+preexec() {
+  [[ -n $TMUX ]] && tmux set -t "$TMUX_PANE" -p '@running' 1;
+}
+
 precmd() {
+  [[ -n $TMUX ]] && tmux set -t "$TMUX_PANE" -p '@running' 0;
+
   local last_status="$?"
   LANG=en_US.UTF-8 vcs_info
 
