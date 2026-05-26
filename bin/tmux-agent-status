@@ -1,0 +1,154 @@
+#!/bin/bash
+# tmux-agent-status - Show Claude Code/Codex agent status in tmux status bar
+#
+# States:
+#   active  - agent is actively working (CPU > 3%)
+#   action  - agent needs user input (permission prompt or question)
+#   done    - agent is idle, waiting for next task
+#
+# Output: colored tmux format string, empty if no Claude/Codex instances
+
+claude_total=0 claude_active=0 claude_action=0 claude_done=0
+codex_total=0 codex_active=0 codex_action=0 codex_done=0
+
+# Cache process info (single ps call instead of per-pane)
+ps_info=$(ps -eo pid=,ppid=,%cpu=,comm=,args= 2>/dev/null)
+
+scan_pane() {
+    local root_pid="$1"
+
+    printf '%s\n' "$ps_info" | awk -v root_pid="$root_pid" '
+        function is_claude(comm) {
+            return comm == "claude" || comm == ".claude-wrapped"
+        }
+
+        function is_codex(comm, args) {
+            if (comm == "codex") {
+                return 1
+            }
+            if (comm == "node" || comm == "MainThread" || comm == "bun") {
+                return args ~ /\/bin\/codex/ || args ~ /\/codex\.js/
+            }
+            return 0
+        }
+
+        $1 != "" {
+            pid = $1
+            ppid = $2
+            cpu = $3 + 0
+            comm = $4
+            args = $0
+            sub(/^[[:space:]]*/, "", args)
+            sub(/^[^[:space:]]+[[:space:]]+/, "", args)
+            sub(/^[^[:space:]]+[[:space:]]+/, "", args)
+            sub(/^[^[:space:]]+[[:space:]]+/, "", args)
+            sub(/^[^[:space:]]+[[:space:]]*/, "", args)
+
+            children[ppid] = children[ppid] " " pid
+            comm_by_pid[pid] = comm
+            args_by_pid[pid] = args
+            cpu_by_pid[pid] = cpu
+        }
+
+        END {
+            stack[++top] = root_pid
+            while (top > 0) {
+                pid = stack[top--]
+                comm = comm_by_pid[pid]
+                args = args_by_pid[pid]
+
+                if (is_claude(comm)) {
+                    has_claude = 1
+                    claude_cpu += cpu_by_pid[pid]
+                }
+
+                if (is_codex(comm, args)) {
+                    has_codex = 1
+                    codex_cpu += cpu_by_pid[pid]
+                }
+
+                child_count = split(children[pid], child_pids, /[[:space:]]+/)
+                for (i = 1; i <= child_count; i++) {
+                    if (child_pids[i] != "") {
+                        stack[++top] = child_pids[i]
+                    }
+                }
+            }
+
+            claude_active = claude_cpu > 3 ? 1 : 0
+            codex_active = codex_cpu > 3 ? 1 : 0
+            printf "%d\t%d\t%d\t%d\n", has_claude, has_codex, claude_active, codex_active
+        }
+    '
+}
+
+needs_action() {
+    local pane_id="$1"
+    local last_lines
+
+    last_lines=$(tmux capture-pane -p -t "$pane_id" 2>/dev/null | tail -10)
+    echo "$last_lines" | grep -qEi '^[[:space:]]*(Allow|Deny|Approve|Reject)([[:space:]:]|$)|approval required|requires approval'
+}
+
+record_claude() {
+    ((claude_total++))
+
+    if [ "$pane_action" -eq 1 ]; then
+        ((claude_action++))
+    elif [ "$pane_claude_active" -eq 1 ]; then
+        ((claude_active++))
+    else
+        ((claude_done++))
+    fi
+}
+
+record_codex() {
+    ((codex_total++))
+
+    if [ "$pane_action" -eq 1 ]; then
+        ((codex_action++))
+    elif [ "$pane_codex_active" -eq 1 ]; then
+        ((codex_active++))
+    else
+        ((codex_done++))
+    fi
+}
+
+while IFS=$'\t' read -r pane_id pane_pid; do
+    IFS=$'\t' read -r pane_has_claude pane_has_codex pane_claude_active pane_codex_active <<< "$(scan_pane "$pane_pid")"
+    [ "$pane_has_claude" -eq 0 ] && [ "$pane_has_codex" -eq 0 ] && continue
+
+    if needs_action "$pane_id"; then
+        pane_action=1
+    else
+        pane_action=0
+    fi
+
+    [ "$pane_has_claude" -eq 1 ] && record_claude
+    [ "$pane_has_codex" -eq 1 ] && record_codex
+done < <(tmux list-panes -a -F '#{pane_id}	#{pane_pid}' 2>/dev/null)
+
+[ $claude_total -eq 0 ] && [ $codex_total -eq 0 ] && exit 0
+
+# Build tmux-formatted status string
+# Labels: ⚙=working !=needs_action ✓=done
+print_segment() {
+    local label="$1"
+    local bg="$2"
+    local total="$3"
+    local active="$4"
+    local action="$5"
+    local done_count="$6"
+
+    [ "$printed" -eq 1 ] && printf ' '
+    printf '#[fg=colour255,bg=%s,bold]%s:%d ' "$bg" "$label" "$total"
+    printf '#[nobold,fg=colour158]%d⚙ ' "$active"
+    printf '#[fg=colour228]%d! ' "$action"
+    printf '#[fg=colour252]%d✓' "$done_count"
+    printed=1
+}
+
+printed=0
+[ $claude_total -gt 0 ] && print_segment "CC" "colour36" "$claude_total" "$claude_active" "$claude_action" "$claude_done"
+[ $codex_total -gt 0 ] && print_segment "CX" "colour31" "$codex_total" "$codex_active" "$codex_action" "$codex_done"
+[ "$printed" -eq 1 ] && printf ' #[default]'
