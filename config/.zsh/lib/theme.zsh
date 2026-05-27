@@ -8,11 +8,15 @@ $ "
 fi
 
 preexec() {
-  [[ -n $TMUX ]] && tmux set -t "$TMUX_PANE" -p '@running' 1;
+  if [[ -n $TMUX ]]; then
+    tmux set -t "$TMUX_PANE" -p '@running' 1
+  fi
 }
 
 precmd() {
-  [[ -n $TMUX ]] && tmux set -t "$TMUX_PANE" -p '@running' 0;
+  if [[ -n $TMUX ]]; then
+    tmux set -t "$TMUX_PANE" -p '@running' 0
+  fi
 
   local last_status="$?"
   LANG=en_US.UTF-8 vcs_info
