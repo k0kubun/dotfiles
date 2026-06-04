@@ -1,0 +1,208 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat >&2 <<'USAGE'
+Usage:
+  retry-action <github-actions-job-url>
+
+Example:
+  retry-action 'https://github.com/ruby/ruby/actions/runs/26858419477/job/79206506705?pr=17188'
+
+Environment:
+  GITHUB_TOKEN must be set to a token with Actions write access.
+  RETRY_ACTION_POLL_INTERVAL controls polling seconds (default: 5).
+  RETRY_ACTION_TIMEOUT controls max wait seconds (default: 900).
+USAGE
+}
+
+die() {
+  echo "retry-action: $*" >&2
+  exit 1
+}
+
+log() {
+  echo "retry-action: $*" >&2
+}
+
+if [ "${1:-}" = "-h" ] || [ "${1:-}" = "--help" ]; then
+  usage
+  exit 0
+fi
+
+if [ "$#" -ne 1 ]; then
+  usage
+  exit 1
+fi
+
+url="$1"
+if [[ ! "$url" =~ ^https?://github\.com/([^/]+)/([^/]+)/actions/runs/([0-9]+)/job/([0-9]+)/?([?#].*)?$ ]]; then
+  die "expected a GitHub Actions job URL"
+fi
+
+owner="${BASH_REMATCH[1]}"
+repo="${BASH_REMATCH[2]}"
+run_id="${BASH_REMATCH[3]}"
+job_id="${BASH_REMATCH[4]}"
+
+[ -n "${GITHUB_TOKEN:-}" ] || die "GITHUB_TOKEN is required"
+command -v curl >/dev/null 2>&1 || die "curl is required"
+command -v ruby >/dev/null 2>&1 || die "ruby is required to parse GitHub API JSON"
+
+poll_interval="${RETRY_ACTION_POLL_INTERVAL:-5}"
+timeout="${RETRY_ACTION_TIMEOUT:-900}"
+if [[ ! "$poll_interval" =~ ^[0-9]+$ ]] || [ "$poll_interval" -le 0 ]; then
+  die "RETRY_ACTION_POLL_INTERVAL must be a positive integer"
+fi
+if [[ ! "$timeout" =~ ^[0-9]+$ ]] || [ "$timeout" -le 0 ]; then
+  die "RETRY_ACTION_TIMEOUT must be a positive integer"
+fi
+
+api_base="${GITHUB_API_URL:-https://api.github.com}"
+api_base="${api_base%/}"
+api_version="${GITHUB_API_VERSION:-2022-11-28}"
+repo_api="/repos/${owner}/${repo}"
+
+api() {
+  local method="$1"
+  local path="$2"
+  local allowed_statuses="${3:-}"
+  local tmp status
+  local curl_args
+
+  tmp="$(mktemp)"
+  curl_args=(
+    -sS
+    -L
+    -X "$method"
+    -H "Accept: application/vnd.github+json"
+    -H "Authorization: Bearer ${GITHUB_TOKEN}"
+    -H "X-GitHub-Api-Version: ${api_version}"
+    -o "$tmp"
+    -w "%{http_code}"
+  )
+
+  if [ "$method" != "GET" ]; then
+    curl_args+=(--data '')
+  fi
+
+  status="$(curl "${curl_args[@]}" "${api_base}${path}")" || {
+    rm -f "$tmp"
+    die "curl failed while calling ${method} ${path}"
+  }
+
+  if [[ ! "$status" =~ ^[0-9]+$ ]]; then
+    rm -f "$tmp"
+    die "curl returned an unexpected HTTP status: ${status}"
+  fi
+
+  if (( status < 200 || status >= 300 )); then
+    if [[ " ${allowed_statuses} " == *" ${status} "* ]]; then
+      cat "$tmp"
+      rm -f "$tmp"
+      return 0
+    fi
+
+    echo "retry-action: GitHub API ${method} ${path} failed with HTTP ${status}" >&2
+    if [ -s "$tmp" ]; then
+      sed 's/^/retry-action: /' "$tmp" >&2
+    fi
+    rm -f "$tmp"
+    exit 1
+  fi
+
+  cat "$tmp"
+  rm -f "$tmp"
+}
+
+jobs_from_json() {
+  ruby -rjson -e '
+    JSON.parse(STDIN.read).fetch("jobs").each do |job|
+      name = job["name"].to_s.tr("\t\r\n", "   ")
+      puts [job.fetch("id"), job.fetch("status"), job["conclusion"].to_s, name].join("\t")
+    end
+  '
+}
+
+jobs_count_from_json() {
+  ruby -rjson -e 'puts JSON.parse(STDIN.read).fetch("jobs").length'
+}
+
+fetch_jobs() {
+  local page=1
+  local json count
+
+  while :; do
+    json="$(api GET "${repo_api}/actions/runs/${run_id}/jobs?filter=latest&per_page=100&page=${page}")"
+    count="$(printf '%s' "$json" | jobs_count_from_json)"
+    printf '%s' "$json" | jobs_from_json
+
+    [ "$count" -lt 100 ] && break
+    page=$((page + 1))
+  done
+}
+
+count_jobs() {
+  awk -F '\t' 'NF { count++ } END { print count + 0 }'
+}
+
+count_active_jobs() {
+  awk -F '\t' '$2 != "completed" { count++ } END { print count + 0 }'
+}
+
+count_retryable_jobs() {
+  awk -F '\t' '
+    $2 == "completed" && ($3 == "failure" || $3 == "cancelled" || $3 == "timed_out" || $3 == "action_required") {
+      count++
+    }
+    END { print count + 0 }
+  '
+}
+
+print_active_jobs() {
+  awk -F '\t' '$2 != "completed" { printf "  - %s (%s)\n", $4, $2 }'
+}
+
+jobs="$(fetch_jobs)"
+total_jobs="$(printf '%s\n' "$jobs" | count_jobs)"
+[ "$total_jobs" -gt 0 ] || die "no jobs found for ${owner}/${repo} run ${run_id}"
+
+log "targeting ${owner}/${repo} run ${run_id} from job ${job_id}"
+
+active_jobs="$(printf '%s\n' "$jobs" | count_active_jobs)"
+if [ "$active_jobs" -gt 0 ]; then
+  log "found ${active_jobs}/${total_jobs} active jobs; requesting workflow cancellation"
+  api POST "${repo_api}/actions/runs/${run_id}/cancel" "409" >/dev/null
+
+  deadline=$(( $(date +%s) + timeout ))
+  while :; do
+    sleep "$poll_interval"
+
+    jobs="$(fetch_jobs)"
+    active_jobs="$(printf '%s\n' "$jobs" | count_active_jobs)"
+    if [ "$active_jobs" -eq 0 ]; then
+      log "all jobs are completed after cancellation"
+      break
+    fi
+
+    if [ "$(date +%s)" -ge "$deadline" ]; then
+      log "still-active jobs:"
+      printf '%s\n' "$jobs" | print_active_jobs >&2
+      die "timed out after ${timeout}s waiting for cancellation"
+    fi
+
+    log "waiting for ${active_jobs} active jobs to finish canceling"
+  done
+else
+  log "no active jobs; skipping cancellation"
+fi
+
+retryable_jobs="$(printf '%s\n' "$jobs" | count_retryable_jobs)"
+if [ "$retryable_jobs" -eq 0 ]; then
+  log "no failed, cancelled, timed-out, or action-required jobs found; skipping rerun"
+  exit 0
+fi
+
+log "requesting rerun of failed jobs (${retryable_jobs} retryable job conclusions visible)"
+api POST "${repo_api}/actions/runs/${run_id}/rerun-failed-jobs" >/dev/null
+log "rerun requested: https://github.com/${owner}/${repo}/actions/runs/${run_id}"
