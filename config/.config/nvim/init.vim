@@ -39,7 +39,10 @@ if dein#load_state(s:dein_cache)
   call dein#add('rhysd/vim-goyacc', { 'on_ft': ['goyacc'] })
 
   " Coc
-  call dein#add('neoclide/coc.nvim', { 'rev': 'release', 'on_i': 1 })
+  call dein#add('neoclide/coc.nvim', {
+        \ 'rev': 'release',
+        \ 'on_ft': ['c', 'cpp', 'cuda', 'objc', 'objcpp', 'opencl', 'objective-c', 'objective-cpp', 'go', 'gomod', 'rust'],
+        \ })
 
   " Editing
   call dein#add('osyo-manga/vim-over', { 'on_cmd': ['OverCommandLine'] })
