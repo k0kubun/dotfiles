@@ -367,3 +367,91 @@ profiles:
               bundle_identifiers:
                 - "^com\\.tinyspeck\\.slackmacgap$"
 <%      end %>
+
+    - description: MuMu
+      manipulators:
+        - type: basic
+          from: { key_code: '1' }
+          to:
+            - key_code: '1'
+            - key_code: vk_none
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.netease\\.mumu\\.nemux-global\\.emulator$"
+        - type: basic
+          from: { key_code: '2' }
+          to:
+            - key_code: '2'
+            - key_code: vk_none
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.netease\\.mumu\\.nemux-global\\.emulator$"
+        - type: basic
+          from: { key_code: '3' }
+          to:
+            - key_code: '3'
+            - key_code: vk_none
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.netease\\.mumu\\.nemux-global\\.emulator$"
+        - type: basic
+          from: { key_code: '4' }
+          to:
+            - key_code: '4'
+            - key_code: vk_none
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.netease\\.mumu\\.nemux-global\\.emulator$"
+        - type: basic
+          from: { key_code: 'q' }
+          to:
+            - key_code: 'esc'
+          to_delayed_action:
+            to_if_invoked:
+              - key_code: 'q'
+          parameters:
+            basic.to_delayed_action_delay_milliseconds: 16
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.netease\\.mumu\\.nemux-global\\.emulator$"
+        #- type: basic
+        #  from: { key_code: 'a' }
+        #  to:
+        #    - key_code: 'a'
+        #    - key_code: vk_none
+        #  conditions:
+        #    - type: frontmost_application_if
+        #      bundle_identifiers:
+        #        - "^com\\.netease\\.mumu\\.nemux-global\\.emulator$"
+        - type: basic
+          from: { key_code: 's' }
+          to:
+            - key_code: 's'
+            - key_code: vk_none
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.netease\\.mumu\\.nemux-global\\.emulator$"
+        - type: basic
+          from: { key_code: 'e' }
+          to:
+            - key_code: 'e'
+            - key_code: vk_none
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.netease\\.mumu\\.nemux-global\\.emulator$"
+        - type: basic
+          from: { key_code: 'tab' }
+          to:
+            - key_code: 'tab'
+            - key_code: vk_none
+          conditions:
+            - type: frontmost_application_if
+              bundle_identifiers:
+                - "^com\\.netease\\.mumu\\.nemux-global\\.emulator$"
