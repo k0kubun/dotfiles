@@ -58,6 +58,7 @@
   "go.goplsPath": "/home/k0kubun/bin/gopls",
 
   // Rust
+  "rust-analyzer.server.path": "rust-analyzer",
   "rust-analyzer.inlayHints.enable": false,
   "rust-analyzer.updates.checkOnStartup": false,
   //"rust-analyzer.updates.prompt": false,
