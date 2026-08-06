@@ -149,6 +149,6 @@ print_segment() {
 }
 
 printed=0
-[ $claude_total -gt 0 ] && print_segment "CC" "colour36" "$claude_total" "$claude_active" "$claude_action" "$claude_done"
-[ $codex_total -gt 0 ] && print_segment "CX" "colour31" "$codex_total" "$codex_active" "$codex_action" "$codex_done"
+[ $claude_total -gt 0 ] && print_segment "CC" "colour31" "$claude_total" "$claude_active" "$claude_action" "$claude_done"
+[ $codex_total -gt 0 ] && print_segment "CX" "colour36" "$codex_total" "$codex_active" "$codex_action" "$codex_done"
 [ "$printed" -eq 1 ] && printf ' #[default]'
