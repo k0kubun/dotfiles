@@ -1,7 +1,7 @@
 <%
-c_o_app = 'Slack'
-c_y_app = 'Visual Studio Code'
-#c_y_app = 'Keynote'
+c_y_app = '/Applications/Visual Studio Code'
+#c_y_app = '/Applications/Keynote'
+#c_y_app = '/System/Applications/Preview'
 %>
 global:
   check_for_updates_on_startup: false
@@ -47,8 +47,8 @@ profiles:
       manipulators:
 <%      {
           u: '/Applications/Google Chrome.app',
-          y: "/Applications/#{c_y_app}.app",
-          o: "/Applications/#{c_o_app}.app",
+          y: "#{c_y_app}.app",
+          o: '/Applications/Slack.app',
           h: '/Applications/WezTerm.app',
         }.each do |key, app| %>
         - type: basic
