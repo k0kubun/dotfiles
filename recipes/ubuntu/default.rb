@@ -54,3 +54,8 @@ end
 #  owner node[:user]
 #  group node[:user]
 #end
+
+remote_file '/etc/sudoers.d/ruby-bench' do
+  owner 'root'
+  group 'root'
+end
