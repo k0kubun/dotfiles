@@ -1,6 +1,6 @@
 Cmnd_Alias RUBY_BENCH = \
-    /home/k0kubun/src/github.com/ruby/ruby-bench/misc/turbo_boost on, \
-    /home/k0kubun/src/github.com/ruby/ruby-bench/misc/turbo_boost off, \
-    /home/k0kubun/src/github.com/ruby/ruby-bench/misc/maximize_frequency ""
+    /usr/bin/sh -c echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo, \
+    /usr/bin/sh -c echo 0 > /sys/devices/system/cpu/intel_pstate/no_turbo, \
+    /usr/bin/sh -c echo 100 > /sys/devices/system/cpu/intel_pstate/min_perf_pct
 
 k0kubun ALL=(root) NOPASSWD: RUBY_BENCH
