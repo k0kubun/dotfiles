@@ -12,3 +12,7 @@ alias ..="cd .."
 
 # bundler
 alias be="bundle exec"
+
+# tmux
+alias ta="tmux attach"
+alias td="tmux detach"
