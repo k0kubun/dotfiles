@@ -195,7 +195,7 @@ keymap:
 
   - name: Slack
     application:
-      only: Slack
+      only: slack
     remap:
       Super-n: C-k
       Super-k: M-up
