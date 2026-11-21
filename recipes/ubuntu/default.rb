@@ -43,6 +43,9 @@ include_recipe 'ssh-agent'
 include_recipe 'gpg-agent'
 include_recipe 'ddns-update'
 include_recipe 'xremap'
+if node[:hostname] == 'framework'
+  include_recipe 'agentx'
+end
 
 # For dual boot Windows
 execute 'timedatectl set-local-rtc true' do

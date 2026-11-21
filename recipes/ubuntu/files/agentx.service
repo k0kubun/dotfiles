@@ -1,0 +1,13 @@
+[Unit]
+Description=agentx web UI
+ConditionFileIsExecutable=%h/src/github.com/k0kubun/agentx/target/release/agentx
+
+[Service]
+Type=simple
+ExecStart=%h/src/github.com/k0kubun/agentx/target/release/agentx serve
+# A terminal agentx may hold the port; take it over once that one exits.
+Restart=always
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
