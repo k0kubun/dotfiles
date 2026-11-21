@@ -2,7 +2,7 @@
 alias gs="git status"
 alias gd="git --no-pager diff"
 alias ga="git commit -am"
-alias gh="git branch"
+alias gh="git branch --format='%(if)%(HEAD)%(then)* %(color:green)%(else)%(if)%(worktreepath)%(then)+ %(color:cyan)%(else)  %(end)%(end)%(refname:short)%(color:reset)%(if)%(HEAD)%(then)%(else)%(if)%(worktreepath)%(then) %(color:dim)(%(worktreepath))%(color:reset)%(end)%(end)'"
 alias co="git checkout"
 alias amend="git commit --amend"
 alias empty="git commit --allow-empty -m"
