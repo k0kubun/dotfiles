@@ -41,9 +41,11 @@ end
 include_recipe 'setup-perf'
 include_recipe 'ssh-agent'
 include_recipe 'gpg-agent'
-include_recipe 'ddns-update'
 include_recipe 'xremap'
-if node[:hostname] == 'framework'
+case node[:hostname]
+when 'ubuntu'
+  include_recipe 'ddns-update'
+when 'framework'
   include_recipe 'agentx'
 end
 
