@@ -45,3 +45,5 @@
 	required = true
 [fetch]
   #showForcedUpdates = false
+[pager]
+	branch = false
