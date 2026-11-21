@@ -9,8 +9,11 @@ function tmux() {
 }
 if [[ -z "$TMUX" && -z "$STY" && "$TERM_PROGRAM" != "vscode" ]]; then
   if [[ -z "$SSH_TTY" ]]; then
-    # Start tmux by default if not on SSH
-    if type tmux > /dev/null 2>&1; then
+    # Start tmux by default if not on SSH, inside agentx's sidebar when it's built
+    # ($AGENTX is set in aliases.zsh)
+    if [[ -x "$AGENTX" ]]; then
+      "$AGENTX" -- tmux new-session -A -s "*scratch*"
+    elif type tmux > /dev/null 2>&1; then
       tmux new-session -A -s "*scratch*"
     fi
   fi
